@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.24.45 documentation</title>
+  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.24.46 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -1523,8 +1523,11 @@
 <span class="sd">        Creates a EFI system partition image at the given path.</span>
 <span class="sd">        Must be called after setup_install_boot_images and write.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fat_image_mbsize</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_efifatimagesize</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">20</span>
+        <span class="p">)</span>
         <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-            <span class="p">[</span><span class="s1">&#39;qemu-img&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="s1">&#39;20M&#39;</span><span class="p">]</span>
+            <span class="p">[</span><span class="s1">&#39;qemu-img&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fat_image_mbsize</span><span class="si">}</span><span class="s1">M&#39;</span><span class="p">]</span>
         <span class="p">)</span>
         <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
             <span class="p">[</span><span class="s1">&#39;mkdosfs&#39;</span><span class="p">,</span> <span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;BOOT&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">]</span>

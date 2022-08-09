@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.tasks.result_bundle &mdash; KIWI NG 9.24.45 documentation</title>
+  <title>kiwi.tasks.result_bundle &mdash; KIWI NG 9.24.46 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -829,7 +829,7 @@
             <span class="n">bundle_file_format_name</span> <span class="o">=</span> <span class="n">bundle_file_format_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
                 <span class="s1">&#39;%I&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--id&#39;</span><span class="p">]</span>
             <span class="p">)</span>
-            <span class="k">del</span><span class="p">(</span><span class="n">ordered_results</span><span class="p">[</span><span class="s1">&#39;bundle_format&#39;</span><span class="p">])</span>
+            <span class="k">del</span> <span class="n">ordered_results</span><span class="p">[</span><span class="s1">&#39;bundle_format&#39;</span><span class="p">]</span>
 
         <span class="k">for</span> <span class="n">result_file</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">ordered_results</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
             <span class="k">if</span> <span class="n">result_file</span><span class="o">.</span><span class="n">use_for_bundle</span><span class="p">:</span>

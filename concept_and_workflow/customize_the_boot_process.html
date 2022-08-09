@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customizing the Boot Process &mdash; KIWI NG 9.24.45 documentation</title>
+  <title>Customizing the Boot Process &mdash; KIWI NG 9.24.46 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -795,6 +795,25 @@ install<span class="o">()</span> <span class="o">{</span>
 </div>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Declaring Extra Tools for Hook Scripts</p>
+<p>The install() function called by dracut can define extra tools needed by
+a defined hook script. The “inst_multiple” command and its parameters
+inform dracut to include these extra tools/items in the initrd.</p>
+<p>The tools/items defined here can be any file, but are usually executables
+and libraries needed by the hook script.</p>
+<ul class="simple">
+<li><p>Each file MUST be included in the Kiwi description either in a
+package, archive, or in the “root” tree in the image description
+directory.</p></li>
+<li><p>The parameters of the inst_multiple command are space separated.</p></li>
+<li><p>Each parameter can be a single executable name if it exists in /bin,
+/sbin, /usr/bin, or /usr/sbin directories.</p></li>
+<li><p>Otherwise, a full pathname to the file is required. This is usually
+true for libraries and other special files.</p></li>
+</ul>
+</div>
 <p>That’s it! At the time KIWI NG calls dracut the <code class="file docutils literal notranslate"><span class="pre">90my-module</span></code> will be taken
 into account and is installed into the generated initrd. At boot time
 systemd calls the scripts as part of the <code class="file docutils literal notranslate"><span class="pre">dracut-pre-mount.service</span></code>.</p>
