@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.builder.disk &mdash; KIWI NG 9.24.46 documentation</title>
+  <title>kiwi.builder.disk &mdash; KIWI NG 9.24.47 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -1477,11 +1477,11 @@
         <span class="n">system_efi</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="s1">&#39;efi&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="s1">&#39;Creating EFI(fat32) filesystem on </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Creating EFI(fat16) filesystem on </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
                 <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;efi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
             <span class="p">)</span>
             <span class="n">filesystem</span> <span class="o">=</span> <span class="n">FileSystem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
-                <span class="s1">&#39;fat32&#39;</span><span class="p">,</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;efi&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/boot/efi/&#39;</span>
+                <span class="s1">&#39;fat16&#39;</span><span class="p">,</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;efi&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/boot/efi/&#39;</span>
             <span class="p">)</span>
             <span class="n">filesystem</span><span class="o">.</span><span class="n">create_on_device</span><span class="p">(</span>
                 <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">disk_setup</span><span class="o">.</span><span class="n">get_efi_label</span><span class="p">()</span>
