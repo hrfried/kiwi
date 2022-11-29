@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.24.49 documentation</title>
+  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.24.50 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -484,6 +484,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLiveBootImageError"><code class="docutils literal notranslate"><span class="pre">KiwiLiveBootImageError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLoadCommandUndefined"><code class="docutils literal notranslate"><span class="pre">KiwiLoadCommandUndefined</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLogFileSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogFileSetupFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLogSocketSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogSocketSetupFailed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLoopSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLoopSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLuksSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLuksSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiMappedDeviceError"><code class="docutils literal notranslate"><span class="pre">KiwiMappedDeviceError</span></code></a></li>
@@ -1201,10 +1202,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-          <li><a href="../config.html">kiwi.bootloader.config</a> &raquo;</li>
-      <li>kiwi.bootloader.config.grub2</li>
+      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../config.html">kiwi.bootloader.config</a></li>
+      <li class="breadcrumb-item active">kiwi.bootloader.config.grub2</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -1850,6 +1851,7 @@
 <span class="sd">        Create or update etc/default/grub by parameters required</span>
 <span class="sd">        according to the root filesystem setup</span>
 
+<span class="sd">        * GRUB_DEFAULT</span>
 <span class="sd">        * GRUB_TIMEOUT</span>
 <span class="sd">        * GRUB_TIMEOUT_STYLE</span>
 <span class="sd">        * SUSE_BTRFS_SNAPSHOT_BOOTING</span>
@@ -1868,6 +1870,11 @@
 <span class="sd">        * GRUB_DISABLE_LINUX_PARTUUID</span>
 <span class="sd">        * GRUB_ENABLE_LINUX_LABEL</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># elements to set only if not already in etc/default/grub</span>
+        <span class="n">grub_default_if_not_set_entries</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;GRUB_DEFAULT&#39;</span><span class="p">:</span> <span class="s1">&#39;saved&#39;</span>
+        <span class="p">}</span>
+        <span class="c1"># elements to set in any case</span>
         <span class="n">grub_default_entries</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;GRUB_TIMEOUT&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
             <span class="s1">&#39;GRUB_GFXMODE&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gfxmode</span><span class="p">,</span>
@@ -1955,6 +1962,13 @@
                 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">grub_default_entries_sorted</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
                     <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; </span><span class="si">{0}</span><span class="s1">:</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
                     <span class="n">grub_default</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="n">grub_default_if_not_set_entries_sorted</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
+                    <span class="nb">sorted</span><span class="p">(</span><span class="n">grub_default_if_not_set_entries</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">grub_default_if_not_set_entries_sorted</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">grub_default</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+                        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; </span><span class="si">{0}</span><span class="s1">:</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+                        <span class="n">grub_default</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
                 <span class="n">grub_default</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_setup_secure_boot_efi_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lookup_path</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mbrid</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>

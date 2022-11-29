@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.boot.image.base &mdash; KIWI NG 9.24.49 documentation</title>
+  <title>kiwi.boot.image.base &mdash; KIWI NG 9.24.50 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -484,6 +484,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLiveBootImageError"><code class="docutils literal notranslate"><span class="pre">KiwiLiveBootImageError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLoadCommandUndefined"><code class="docutils literal notranslate"><span class="pre">KiwiLoadCommandUndefined</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLogFileSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogFileSetupFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLogSocketSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogSocketSetupFailed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLoopSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLoopSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiLuksSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLuksSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.html#kiwi.exceptions.KiwiMappedDeviceError"><code class="docutils literal notranslate"><span class="pre">KiwiMappedDeviceError</span></code></a></li>
@@ -1201,10 +1202,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-          <li><a href="../image.html">kiwi.boot.image</a> &raquo;</li>
-      <li>kiwi.boot.image.base</li>
+      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../image.html">kiwi.boot.image</a></li>
+      <li class="breadcrumb-item active">kiwi.boot.image.base</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -1257,7 +1258,9 @@
 <span class="n">boot_names_type</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span>
     <span class="s1">&#39;boot_names_type&#39;</span><span class="p">,</span> <span class="p">[</span>
         <span class="p">(</span><span class="s1">&#39;kernel_name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
-        <span class="p">(</span><span class="s1">&#39;initrd_name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+        <span class="p">(</span><span class="s1">&#39;initrd_name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;kernel_version&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;kernel_filename&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
     <span class="p">]</span>
 <span class="p">)</span>
 
@@ -1410,7 +1413,9 @@
 
 <span class="sd">                boot_names_type(</span>
 <span class="sd">                    kernel_name=&#39;INSTALLED_KERNEL&#39;,</span>
-<span class="sd">                    initrd_name=&#39;DRACUT_OUTPUT_NAME&#39;</span>
+<span class="sd">                    initrd_name=&#39;DRACUT_OUTPUT_NAME&#39;,</span>
+<span class="sd">                    kernel_version=&#39;KERNEL_VERSION&#39;,</span>
+<span class="sd">                    kernel_filename=&#39;KERNEL_FILE_NAME&#39;</span>
 <span class="sd">                )</span>
 
 <span class="sd">        :rtype: boot_names_type</span>
@@ -1421,7 +1426,10 @@
         <span class="n">kernel_info</span> <span class="o">=</span> <span class="n">kernel</span><span class="o">.</span><span class="n">get_kernel</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">kernel_info</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_initrd_system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">boot_names_type</span><span class="p">(</span><span class="n">kernel_name</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">initrd_name</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">boot_names_type</span><span class="p">(</span>
+                    <span class="n">kernel_name</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">initrd_name</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+                    <span class="n">kernel_version</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">kernel_filename</span><span class="o">=</span><span class="s1">&#39;none&#39;</span>
+                <span class="p">)</span>
             <span class="k">raise</span> <span class="n">KiwiDiskBootImageError</span><span class="p">(</span>
                 <span class="s1">&#39;No kernel in boot image tree </span><span class="si">%s</span><span class="s1"> found&#39;</span> <span class="o">%</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">boot_root_directory</span>
@@ -1430,10 +1438,12 @@
             <span class="n">kernel_info</span><span class="o">.</span><span class="n">version</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">boot_names_type</span><span class="p">(</span>
+            <span class="n">kernel_version</span><span class="o">=</span><span class="n">kernel_info</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
             <span class="n">kernel_name</span><span class="o">=</span><span class="n">kernel_info</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
             <span class="n">initrd_name</span><span class="o">=</span><span class="n">dracut_output_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">kernel_version</span><span class="o">=</span><span class="n">kernel_info</span><span class="o">.</span><span class="n">version</span>
-            <span class="p">)</span>
+            <span class="p">),</span>
+            <span class="n">kernel_filename</span><span class="o">=</span><span class="n">kernel_info</span><span class="o">.</span><span class="n">filename</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="BootImageBase.prepare"><a class="viewcode-back" href="../../../../api/kiwi.boot.image.html#kiwi.boot.image.base.BootImageBase.prepare">[docs]</a>    <span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

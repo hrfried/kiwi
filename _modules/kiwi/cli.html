@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.cli &mdash; KIWI NG 9.24.49 documentation</title>
+  <title>kiwi.cli &mdash; KIWI NG 9.24.50 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -484,6 +484,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiLiveBootImageError"><code class="docutils literal notranslate"><span class="pre">KiwiLiveBootImageError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiLoadCommandUndefined"><code class="docutils literal notranslate"><span class="pre">KiwiLoadCommandUndefined</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiLogFileSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogFileSetupFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiLogSocketSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogSocketSetupFailed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiLoopSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLoopSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiLuksSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLuksSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiMappedDeviceError"><code class="docutils literal notranslate"><span class="pre">KiwiMappedDeviceError</span></code></a></li>
@@ -1201,9 +1202,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-      <li>kiwi.cli</li>
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">kiwi.cli</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -1237,6 +1238,8 @@
 <span class="sd">               [--target-arch=&lt;name&gt;]</span>
 <span class="sd">               [--type=&lt;build_type&gt;]</span>
 <span class="sd">               [--logfile=&lt;filename&gt;]</span>
+<span class="sd">               [--logsocket=&lt;socketfile&gt;]</span>
+<span class="sd">               [--loglevel=&lt;number&gt;]</span>
 <span class="sd">               [--debug]</span>
 <span class="sd">               [--debug-run-scripts-in-screen]</span>
 <span class="sd">               [--color-output]</span>
@@ -1244,6 +1247,8 @@
 <span class="sd">               [--kiwi-file=&lt;kiwifile&gt;]</span>
 <span class="sd">           image &lt;command&gt; [&lt;args&gt;...]</span>
 <span class="sd">       kiwi-ng [--logfile=&lt;filename&gt;]</span>
+<span class="sd">               [--logsocket=&lt;socketfile&gt;]</span>
+<span class="sd">               [--loglevel=&lt;number&gt;]</span>
 <span class="sd">               [--debug]</span>
 <span class="sd">               [--debug-run-scripts-in-screen]</span>
 <span class="sd">               [--color-output]</span>
@@ -1255,6 +1260,8 @@
 <span class="sd">               [--target-arch=&lt;name&gt;]</span>
 <span class="sd">               [--type=&lt;build_type&gt;]</span>
 <span class="sd">               [--logfile=&lt;filename&gt;]</span>
+<span class="sd">               [--logsocket=&lt;socketfile&gt;]</span>
+<span class="sd">               [--loglevel=&lt;number&gt;]</span>
 <span class="sd">               [--debug]</span>
 <span class="sd">               [--debug-run-scripts-in-screen]</span>
 <span class="sd">               [--color-output]</span>
@@ -1278,8 +1285,17 @@
 <span class="sd">        debug information even if this is was not requested by the</span>
 <span class="sd">        debug switch. The special call: &#39;--logfile stdout&#39; sends all</span>
 <span class="sd">        information to standard out instead of writing to a file</span>
+<span class="sd">    --logsocket=&lt;socketfile&gt;</span>
+<span class="sd">        send log data to the given Unix Domain socket in the same</span>
+<span class="sd">        format as with --logfile</span>
+<span class="sd">    --loglevel=&lt;number&gt;</span>
+<span class="sd">        specify logging level as number. Details about the</span>
+<span class="sd">        available log levels can be found at:</span>
+<span class="sd">        https://docs.python.org/3/library/logging.html#logging-levels</span>
+<span class="sd">        Setting a log level causes all message &gt;= level to be</span>
+<span class="sd">        displayed.</span>
 <span class="sd">    --debug</span>
-<span class="sd">        print debug information</span>
+<span class="sd">        print debug information, same as: &#39;--loglevel 10&#39;</span>
 <span class="sd">    --debug-run-scripts-in-screen</span>
 <span class="sd">        run scripts called by kiwi in a screen session</span>
 <span class="sd">    -v --version</span>

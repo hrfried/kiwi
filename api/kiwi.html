@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi Package &mdash; KIWI NG 9.24.49 documentation</title>
+  <title>kiwi Package &mdash; KIWI NG 9.24.50 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -487,6 +487,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiLiveBootImageError"><code class="docutils literal notranslate"><span class="pre">KiwiLiveBootImageError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiLoadCommandUndefined"><code class="docutils literal notranslate"><span class="pre">KiwiLoadCommandUndefined</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiLogFileSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogFileSetupFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiLogSocketSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogSocketSetupFailed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiLoopSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLoopSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiLuksSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLuksSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiMappedDeviceError"><code class="docutils literal notranslate"><span class="pre">KiwiMappedDeviceError</span></code></a></li>
@@ -1204,9 +1205,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">Python API</a> &raquo;</li>
-      <li>kiwi Package</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
+      <li class="breadcrumb-item active">kiwi Package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/kiwi.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -3821,6 +3822,13 @@ service on the commandline.</p>
 </dd></dl>
 
 <dl class="py exception">
+<dt class="sig sig-object py" id="kiwi.exceptions.KiwiLogSocketSetupFailed">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.exceptions.</span></span><span class="sig-name descname"><span class="pre">KiwiLogSocketSetupFailed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/exceptions.html#KiwiLogSocketSetupFailed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.exceptions.KiwiLogSocketSetupFailed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#kiwi.exceptions.KiwiError" title="kiwi.exceptions.KiwiError"><code class="xref py py-class docutils literal notranslate"><span class="pre">KiwiError</span></code></a></p>
+<p>Exception raised if the Unix Domain log socket could not be created.</p>
+</dd></dl>
+
+<dl class="py exception">
 <dt class="sig sig-object py" id="kiwi.exceptions.KiwiLoopSetupError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.exceptions.</span></span><span class="sig-name descname"><span class="pre">KiwiLoopSetupError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/exceptions.html#KiwiLoopSetupError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.exceptions.KiwiLoopSetupError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.exceptions.KiwiError" title="kiwi.exceptions.KiwiError"><code class="xref py py-class docutils literal notranslate"><span class="pre">KiwiError</span></code></a></p>
@@ -4610,7 +4618,7 @@ Available flags are:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.logger.Logger.setLogLevel">
-<span class="sig-name descname"><span class="pre">setLogLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/logger.html#Logger.setLogLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.logger.Logger.setLogLevel" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setLogLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">except_for</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/logger.html#Logger.setLogLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.logger.Logger.setLogLevel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set custom log level for all console handlers</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -4623,6 +4631,19 @@ Available flags are:</p>
 <dt class="sig sig-object py" id="kiwi.logger.Logger.set_color_format">
 <span class="sig-name descname"><span class="pre">set_color_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/logger.html#Logger.set_color_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.logger.Logger.set_color_format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set color format for all console handlers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.logger.Logger.set_log_socket">
+<span class="sig-name descname"><span class="pre">set_log_socket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/logger.html#Logger.set_log_socket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.logger.Logger.set_log_socket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set log socket handler</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – UDS socket file path. Note if there is no server
+listening on the socket the log handler setup
+will fail</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

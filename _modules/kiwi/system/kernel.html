@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.kernel &mdash; KIWI NG 9.24.49 documentation</title>
+  <title>kiwi.system.kernel &mdash; KIWI NG 9.24.50 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -484,6 +484,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLiveBootImageError"><code class="docutils literal notranslate"><span class="pre">KiwiLiveBootImageError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLoadCommandUndefined"><code class="docutils literal notranslate"><span class="pre">KiwiLoadCommandUndefined</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLogFileSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogFileSetupFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLogSocketSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogSocketSetupFailed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLoopSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLoopSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLuksSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLuksSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiMappedDeviceError"><code class="docutils literal notranslate"><span class="pre">KiwiMappedDeviceError</span></code></a></li>
@@ -1201,9 +1202,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>kiwi.system.kernel</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">kiwi.system.kernel</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -1233,7 +1234,7 @@
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span>
+    <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
 <span class="p">)</span>
 
 <span class="c1"># project</span>
@@ -1285,26 +1286,30 @@
 
 <span class="sd">        :rtype: tuple|None</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">kernel_patterns</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;.*/boot/.*?-(.*)&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;.*/lib/modules/(.*)/.*&#39;</span>
+        <span class="p">]</span>
         <span class="k">for</span> <span class="n">kernel_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel_names</span><span class="p">:</span>
             <span class="n">kernel_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;boot&#39;</span><span class="p">,</span> <span class="n">kernel_name</span><span class="p">]</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="n">kernel_name</span><span class="p">]</span>
             <span class="p">)</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">kernel_file</span><span class="p">):</span>
-                <span class="n">version_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
-                    <span class="s1">&#39;.*?-(.*)&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">kernel_file</span><span class="p">)</span>
-                <span class="p">)</span>
-                <span class="k">if</span> <span class="n">version_match</span><span class="p">:</span>
-                    <span class="n">version</span> <span class="o">=</span> <span class="n">version_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-                    <span class="k">return</span> <span class="n">kernel_type</span><span class="p">(</span>
-                        <span class="n">name</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">kernel_file</span><span class="p">)),</span>
-                        <span class="n">filename</span><span class="o">=</span><span class="n">kernel_file</span><span class="p">,</span>
-                        <span class="n">version</span><span class="o">=</span><span class="n">version</span>
-                    <span class="p">)</span>
+                <span class="k">for</span> <span class="n">kernel_pattern</span> <span class="ow">in</span> <span class="n">kernel_patterns</span><span class="p">:</span>
+                    <span class="n">version_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">kernel_pattern</span><span class="p">,</span> <span class="n">kernel_file</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">version_match</span><span class="p">:</span>
+                        <span class="n">version</span> <span class="o">=</span> <span class="n">version_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="n">kernel_type</span><span class="p">(</span>
+                            <span class="n">name</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
+                                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">kernel_file</span><span class="p">)</span>
+                            <span class="p">),</span>
+                            <span class="n">filename</span><span class="o">=</span><span class="n">kernel_file</span><span class="p">,</span>
+                            <span class="n">version</span><span class="o">=</span><span class="n">version</span>
+                        <span class="p">)</span>
         <span class="k">if</span> <span class="n">raise_on_not_found</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">KiwiKernelLookupError</span><span class="p">(</span>
                 <span class="s1">&#39;No kernel found in </span><span class="si">{0}</span><span class="s1">, searched for </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;boot&#39;</span><span class="p">]),</span>
-                    <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_names</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel_names</span>
                 <span class="p">)</span>
             <span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span></div>
@@ -1365,7 +1370,7 @@
             <span class="p">)</span>
             <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="n">xen</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">target_file</span><span class="p">])</span></div>
 
-    <span class="k">def</span> <span class="nf">_setup_kernel_names_for_lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_setup_kernel_names_for_lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The kernel image name is different per arch and distribution</span>
 <span class="sd">        This method returns a list of possible kernel image names in</span>
@@ -1377,9 +1382,15 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">kernel_names</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">kernel_dirs</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">kernel_module_dir</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;/lib/modules&#39;</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">kernel_module_dir</span><span class="p">):</span>
-            <span class="n">kernel_dirs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">kernel_module_dir</span><span class="p">))</span>
+        <span class="n">kernel_module_dirs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;lib/modules&#39;</span><span class="p">]),</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;usr/lib/modules&#39;</span><span class="p">])</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">kernel_module_dir</span> <span class="ow">in</span> <span class="n">kernel_module_dirs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">kernel_module_dir</span><span class="p">):</span>
+                <span class="n">kernel_entries</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">kernel_module_dir</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">kernel_entries</span><span class="p">:</span>
+                    <span class="n">kernel_dirs</span> <span class="o">+=</span> <span class="n">kernel_entries</span>
         <span class="k">if</span> <span class="n">kernel_dirs</span><span class="p">:</span>
             <span class="c1"># append lookup for the real kernel image names</span>
             <span class="c1"># depending on the arch and os they are different</span>
@@ -1387,13 +1398,18 @@
             <span class="n">kernel_prefixes</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="s1">&#39;uImage&#39;</span><span class="p">,</span> <span class="s1">&#39;Image&#39;</span><span class="p">,</span> <span class="s1">&#39;zImage&#39;</span><span class="p">,</span> <span class="s1">&#39;vmlinuz&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;vmlinux&#39;</span>
             <span class="p">]</span>
-            <span class="n">kernel_name_pattern</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{prefix}</span><span class="s1">-</span><span class="si">{name}</span><span class="s1">&#39;</span>
             <span class="k">for</span> <span class="n">kernel_prefix</span> <span class="ow">in</span> <span class="n">kernel_prefixes</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">kernel_dir</span> <span class="ow">in</span> <span class="n">kernel_dirs</span><span class="p">:</span>
+                    <span class="c1"># add kernel names to be found in boot</span>
                     <span class="n">kernel_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                        <span class="n">kernel_name_pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                            <span class="n">prefix</span><span class="o">=</span><span class="n">kernel_prefix</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">kernel_dir</span>
-                        <span class="p">)</span>
+                        <span class="sa">f</span><span class="s1">&#39;boot/</span><span class="si">{</span><span class="n">kernel_prefix</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">kernel_dir</span><span class="si">}</span><span class="s1">&#39;</span>
+                    <span class="p">)</span>
+                    <span class="c1"># add kernel names to be found in modules</span>
+                    <span class="n">kernel_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s1">&#39;lib/modules/</span><span class="si">{</span><span class="n">kernel_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">kernel_prefix</span><span class="si">}</span><span class="s1">&#39;</span>
+                    <span class="p">)</span>
+                    <span class="n">kernel_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s1">&#39;usr/lib/modules/</span><span class="si">{</span><span class="n">kernel_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">kernel_prefix</span><span class="si">}</span><span class="s1">&#39;</span>
                     <span class="p">)</span>
         <span class="k">return</span> <span class="n">kernel_names</span></div>
 </pre></div>

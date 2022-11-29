@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi-ng &mdash; KIWI NG 9.24.49 documentation</title>
+  <title>kiwi-ng &mdash; KIWI NG 9.24.50 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -487,6 +487,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLiveBootImageError"><code class="docutils literal notranslate"><span class="pre">KiwiLiveBootImageError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLoadCommandUndefined"><code class="docutils literal notranslate"><span class="pre">KiwiLoadCommandUndefined</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLogFileSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogFileSetupFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLogSocketSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogSocketSetupFailed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLoopSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLoopSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLuksSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLuksSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiMappedDeviceError"><code class="docutils literal notranslate"><span class="pre">KiwiMappedDeviceError</span></code></a></li>
@@ -1204,9 +1205,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../commands.html">Working from the Command Line</a> &raquo;</li>
-      <li>kiwi-ng</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../commands.html">Working from the Command Line</a></li>
+      <li class="breadcrumb-item active">kiwi-ng</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/commands/kiwi.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -1227,13 +1228,18 @@ kiwi-ng <span class="o">[</span>--profile<span class="o">=</span>&lt;name&gt;...
         <span class="o">[</span>--temp-dir<span class="o">=</span>&lt;directory&gt;<span class="o">]</span>
         <span class="o">[</span>--type<span class="o">=</span>&lt;build_type&gt;<span class="o">]</span>
         <span class="o">[</span>--logfile<span class="o">=</span>&lt;filename&gt;<span class="o">]</span>
+        <span class="o">[</span>--logsocket<span class="o">=</span>&lt;socketfile&gt;<span class="o">]</span>
+        <span class="o">[</span>--loglevel<span class="o">=</span>&lt;number&gt;<span class="o">]</span>
         <span class="o">[</span>--debug<span class="o">]</span>
         <span class="o">[</span>--debug-run-scripts-in-screen<span class="o">]</span>
         <span class="o">[</span>--color-output<span class="o">]</span>
         <span class="o">[</span>--config<span class="o">=</span>&lt;configfile&gt;<span class="o">]</span>
         <span class="o">[</span>--kiwi-file<span class="o">=</span>&lt;kiwifile&gt;<span class="o">]</span>
     image &lt;command&gt; <span class="o">[</span>&lt;args&gt;...<span class="o">]</span>
-kiwi-ng <span class="o">[</span>--debug<span class="o">]</span>
+kiwi-ng <span class="o">[</span>--logfile<span class="o">=</span>&lt;filename&gt;<span class="o">]</span>
+        <span class="o">[</span>--logsocket<span class="o">=</span>&lt;socketfile&gt;<span class="o">]</span>
+        <span class="o">[</span>--loglevel<span class="o">=</span>&lt;number&gt;<span class="o">]</span>
+        <span class="o">[</span>--debug<span class="o">]</span>
         <span class="o">[</span>--debug-run-scripts-in-screen<span class="o">]</span>
         <span class="o">[</span>--color-output<span class="o">]</span>
         <span class="o">[</span>--config<span class="o">=</span>&lt;configfile&gt;<span class="o">]</span>
@@ -1244,6 +1250,8 @@ kiwi-ng <span class="o">[</span>--profile<span class="o">=</span>&lt;name&gt;...
         <span class="o">[</span>--target-arch<span class="o">=</span>&lt;name&gt;<span class="o">]</span>
         <span class="o">[</span>--type<span class="o">=</span>&lt;build_type&gt;<span class="o">]</span>
         <span class="o">[</span>--logfile<span class="o">=</span>&lt;filename&gt;<span class="o">]</span>
+        <span class="o">[</span>--logsocket<span class="o">=</span>&lt;socketfile&gt;<span class="o">]</span>
+        <span class="o">[</span>--loglevel<span class="o">=</span>&lt;number&gt;<span class="o">]</span>
         <span class="o">[</span>--debug<span class="o">]</span>
         <span class="o">[</span>--debug-run-scripts-in-screen<span class="o">]</span>
         <span class="o">[</span>--color-output<span class="o">]</span>
@@ -1303,7 +1311,7 @@ runtime configuration is looked up at <code class="file docutils literal notrans
 or <code class="file docutils literal notranslate"><span class="pre">/etc/kiwi.yml</span></code></p>
 </dd>
 <dt><kbd><span class="option">--debug</span></kbd></dt>
-<dd><p>Print debug information on the commandline.</p>
+<dd><p>Print debug information on the commandline. Same as: ‘–loglevel 10’</p>
 </dd>
 <dt><kbd><span class="option">--debug-run-scripts-in-screen</span></kbd></dt>
 <dd><p>Run scripts called by kiwi in a screen session.</p>
@@ -1312,6 +1320,29 @@ or <code class="file docutils literal notranslate"><span class="pre">/etc/kiwi.y
 <dd><p>Specify log file. the logfile contains detailed information about
 the process. The special call: <code class="xref py py-obj docutils literal notranslate"><span class="pre">--logfile</span> <span class="pre">stdout</span></code> sends all
 information to standard out instead of writing to a file</p>
+</dd>
+<dt><kbd><span class="option">--logsocket=<var>&lt;socketfile&gt;</var></span></kbd></dt>
+<dd><p>send log data to the given Unix Domain socket in the same
+format as with –logfile</p>
+</dd>
+<dt><kbd><span class="option">--loglevel=<var>&lt;number&gt;</var></span></kbd></dt>
+<dd><p>specify logging level as number. Details about the
+available log levels can be found at:
+<a class="reference external" href="https://docs.python.org/3/library/logging.html#logging-levels">https://docs.python.org/3/library/logging.html#logging-levels</a>
+Setting a log level causes all message &gt;= level to be
+displayed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>----------------------------
+<span class="p">|</span> Level    <span class="p">|</span> Numeric value <span class="p">|</span>
+----------------------------
+<span class="p">|</span> CRITICAL <span class="p">|</span> <span class="m">50</span>            <span class="p">|</span>
+<span class="p">|</span> ERROR    <span class="p">|</span> <span class="m">40</span>            <span class="p">|</span>
+<span class="p">|</span> WARNING  <span class="p">|</span> <span class="m">30</span>            <span class="p">|</span>
+<span class="p">|</span> INFO     <span class="p">|</span> <span class="m">20</span>            <span class="p">|</span>
+<span class="p">|</span> DEBUG    <span class="p">|</span> <span class="m">10</span>            <span class="p">|</span>
+<span class="p">|</span> NOTSET   <span class="p">|</span> <span class="m">0</span>             <span class="p">|</span>
+----------------------------
+</pre></div>
+</div>
 </dd>
 <dt><kbd><span class="option">--profile=<var>&lt;name&gt;</var></span></kbd></dt>
 <dd><p>Select profile to use. The specified profile must be part of the

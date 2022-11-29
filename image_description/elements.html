@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Description Elements &mdash; KIWI NG 9.24.49 documentation</title>
+  <title>Image Description Elements &mdash; KIWI NG 9.24.50 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -487,6 +487,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLiveBootImageError"><code class="docutils literal notranslate"><span class="pre">KiwiLiveBootImageError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLoadCommandUndefined"><code class="docutils literal notranslate"><span class="pre">KiwiLoadCommandUndefined</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLogFileSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogFileSetupFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLogSocketSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogSocketSetupFailed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLoopSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLoopSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiLuksSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLuksSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiMappedDeviceError"><code class="docutils literal notranslate"><span class="pre">KiwiMappedDeviceError</span></code></a></li>
@@ -1204,9 +1205,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../image_description.html">Image Description</a> &raquo;</li>
-      <li>Image Description Elements</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../image_description.html">Image Description</a></li>
+      <li class="breadcrumb-item active">Image Description Elements</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/image_description/elements.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -1221,7 +1222,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This document provides a reference for the elements
-and attributes of the KIWI NG XML document in version 9.24.49</p>
+and attributes of the KIWI NG XML document in version 9.24.50</p>
 </div>
 <section id="image">
 <span id="sec-image"></span><h2>&lt;image&gt;<a class="headerlink" href="#image" title="Permalink to this heading">¶</a></h2>
@@ -2034,11 +2035,47 @@ the <code class="xref py py-obj docutils literal notranslate"><span class="pre">
 <section id="preferences-type-bootloader">
 <span id="id3"></span><h3>&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;<a class="headerlink" href="#preferences-type-bootloader" title="Permalink to this heading">¶</a></h3>
 <p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">bootloader</span></code> element is used to select the bootloader. At the moment,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">grub2</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">isolinux</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">zipl</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">grub2_s390x_emu</span></code> (a combination of zipl
-and a userspace GRUB2) are supported. The special <code class="xref py py-obj docutils literal notranslate"><span class="pre">custom</span></code> entry allows
-to skip the bootloader configuration and installation and leaves this up
-to the user, which can be done by using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">editbootinstall</span></code> and
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">editbootconfig</span></code> custom scripts.</p>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">grub2</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">systemd_boot</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">isolinux</span></code> and the combination of zipl
+plus userspace grub2 <code class="xref py py-obj docutils literal notranslate"><span class="pre">grub2_s390x_emu</span></code> are supported. The special
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">custom</span></code> entry allows to skip the bootloader configuration and installation
+and leaves this up to the user, which can be done by using
+the <code class="xref py py-obj docutils literal notranslate"><span class="pre">editbootinstall</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">editbootconfig</span></code> custom scripts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>bootloaders provides a very different set of features and only
+work within their individual implementation priorities. KIWI NG
+provides an API for bootloaders but not all API methods can be
+implemented for all bootloaders due to the fact that some
+features only exists in one but not in another bootloader. If
+a bootloader setting is used that is not understood by the
+selected bootloader the image build process will fail with
+an exception message.</p>
+</div>
+<dl>
+<dt>name=”grub2|systemd_boot|isolinux|grub2_s390x_emu”:</dt><dd><p>Specifies the bootloader to use for this image.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>systemd_boot ESP size</p>
+<p>The implementation to support systemd-boot reads all
+data from the ESP (EFI Standard Partition). This also
+includes the kernel and initrd which requires the size
+of the ESP to be configured appropriately. By default
+KIWI NG configures the ESP with 20MB. For systemd_boot
+this is usually too small and can be changed with the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">efipartsize</span></code> attribute. Reading boot relevant files
+from another filesystem requires to provide alternative
+EFI filesystem drivers e.g efifs and also needs
+adaptions on the setup of <code class="xref py py-obj docutils literal notranslate"><span class="pre">bootctl</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>systemd_boot and shim</p>
+<p>At the moment the EFI image provided along with systemd-boot
+is not compatible with the shim signed loader provided in an
+extra effort by the distributions.</p>
+</div>
+</dd>
+</dl>
 <p>In addition to the mandatory name attribute, the following optional
 attributes are supported:</p>
 <dl>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.tasks.base &mdash; KIWI NG 9.24.49 documentation</title>
+  <title>kiwi.tasks.base &mdash; KIWI NG 9.24.50 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -484,6 +484,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLiveBootImageError"><code class="docutils literal notranslate"><span class="pre">KiwiLiveBootImageError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLoadCommandUndefined"><code class="docutils literal notranslate"><span class="pre">KiwiLoadCommandUndefined</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLogFileSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogFileSetupFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLogSocketSetupFailed"><code class="docutils literal notranslate"><span class="pre">KiwiLogSocketSetupFailed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLoopSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLoopSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiLuksSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiLuksSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiMappedDeviceError"><code class="docutils literal notranslate"><span class="pre">KiwiMappedDeviceError</span></code></a></li>
@@ -1201,9 +1202,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>kiwi.tasks.base</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">kiwi.tasks.base</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -1243,7 +1244,6 @@
 <span class="kn">from</span> <span class="nn">kiwi.xml_state</span> <span class="kn">import</span> <span class="n">XMLState</span>
 <span class="kn">from</span> <span class="nn">kiwi.xml_description</span> <span class="kn">import</span> <span class="n">XMLDescription</span>
 <span class="kn">from</span> <span class="nn">kiwi.runtime_checker</span> <span class="kn">import</span> <span class="n">RuntimeChecker</span>
-<span class="kn">from</span> <span class="nn">kiwi.runtime_config</span> <span class="kn">import</span> <span class="n">RuntimeConfig</span>
 
 <span class="kn">from</span> <span class="nn">kiwi.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">KiwiConfigFileNotFound</span>
@@ -1284,9 +1284,6 @@
         <span class="c1"># get global args</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cli</span><span class="o">.</span><span class="n">get_global_args</span><span class="p">()</span>
 
-        <span class="c1"># initialize runtime configuration</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">runtime_config</span> <span class="o">=</span> <span class="n">RuntimeConfig</span><span class="p">()</span>
-
         <span class="c1"># initialize generic runtime check dicts</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">checks_before_command_args</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;check_image_version_provided&#39;</span><span class="p">:</span> <span class="p">[],</span>
@@ -1320,24 +1317,46 @@
         <span class="p">}</span>
 
         <span class="k">if</span> <span class="n">should_perform_task_setup</span><span class="p">:</span>
-            <span class="c1"># set log level</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--debug&#39;</span><span class="p">]:</span>
-                <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-
-            <span class="c1"># set log flags</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--debug-run-scripts-in-screen&#39;</span><span class="p">]:</span>
-                <span class="n">log</span><span class="o">.</span><span class="n">setLogFlag</span><span class="p">(</span><span class="s1">&#39;run-scripts-in-screen&#39;</span><span class="p">)</span>
-
             <span class="c1"># set log file</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--logfile&#39;</span><span class="p">]:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">set_logfile</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--logfile&#39;</span><span class="p">]</span>
                 <span class="p">)</span>
 
+            <span class="c1"># set log socket</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--logsocket&#39;</span><span class="p">]:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">set_log_socket</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--logsocket&#39;</span><span class="p">]</span>
+                <span class="p">)</span>
+
+            <span class="c1"># set log level</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--loglevel&#39;</span><span class="p">]:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--loglevel&#39;</span><span class="p">]))</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="c1"># Not a numeric log level, stick with the default</span>
+                    <span class="c1"># which is INFO</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--debug&#39;</span><span class="p">]:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--logfile&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;stdout&#39;</span><span class="p">:</span>
+                <span class="c1"># deactivate standard console logger by setting</span>
+                <span class="c1"># the highest possible log entry level</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">,</span> <span class="n">except_for</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;socket&#39;</span><span class="p">])</span>
+
+            <span class="c1"># set log flags</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--debug-run-scripts-in-screen&#39;</span><span class="p">]:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">setLogFlag</span><span class="p">(</span><span class="s1">&#39;run-scripts-in-screen&#39;</span><span class="p">)</span>
+
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--color-output&#39;</span><span class="p">]:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">set_color_format</span><span class="p">()</span>
+
+        <span class="c1"># initialize runtime configuration</span>
+        <span class="c1"># import RuntimeConfig late to make sure the logging setup applies</span>
+        <span class="kn">from</span> <span class="nn">kiwi.runtime_config</span> <span class="kn">import</span> <span class="n">RuntimeConfig</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runtime_config</span> <span class="o">=</span> <span class="n">RuntimeConfig</span><span class="p">()</span>
 
 <div class="viewcode-block" id="CliTask.load_xml_description"><a class="viewcode-back" href="../../../api/kiwi.tasks.html#kiwi.tasks.base.CliTask.load_xml_description">[docs]</a>    <span class="k">def</span> <span class="nf">load_xml_description</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">description_directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kiwi_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
