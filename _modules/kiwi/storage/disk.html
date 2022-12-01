@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.storage.disk &mdash; KIWI NG 9.24.51 documentation</title>
+  <title>kiwi.storage.disk &mdash; KIWI NG 9.24.52 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -1718,8 +1718,6 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage_provider</span><span class="o">.</span><span class="n">is_loop</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_mapped</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Cleaning up </span><span class="si">%s</span><span class="s1"> instance&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">device_node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">partition_map</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-                    <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;partx&#39;</span><span class="p">,</span> <span class="s1">&#39;--delete&#39;</span><span class="p">,</span> <span class="n">device_node</span><span class="p">])</span>
                 <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
                     <span class="p">[</span><span class="s1">&#39;partx&#39;</span><span class="p">,</span> <span class="s1">&#39;--delete&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage_provider</span><span class="o">.</span><span class="n">get_device</span><span class="p">()]</span>
                 <span class="p">)</span>
