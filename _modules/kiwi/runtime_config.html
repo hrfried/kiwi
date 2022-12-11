@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.runtime_config &mdash; KIWI NG 9.24.52 documentation</title>
+  <title>kiwi.runtime_config &mdash; KIWI NG 9.24.53 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -1544,6 +1544,25 @@
             <span class="n">element</span><span class="o">=</span><span class="s1">&#39;oci&#39;</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;archive_tool&#39;</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">oci_archive_tool</span> <span class="ow">or</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_oci_archive_tool</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="RuntimeConfig.get_mapper_tool"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_mapper_tool">[docs]</a>    <span class="k">def</span> <span class="nf">get_mapper_tool</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return partition mapper tool</span>
+
+<span class="sd">        mapper:</span>
+<span class="sd">          - part_mapper: partx</span>
+
+<span class="sd">        if no configuration exists the default tool from the</span>
+<span class="sd">        Defaults class is returned</span>
+
+<span class="sd">        :return: A name</span>
+
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">part_mapper_tool</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_attribute</span><span class="p">(</span>
+            <span class="n">element</span><span class="o">=</span><span class="s1">&#39;mapper&#39;</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;part_mapper&#39;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">part_mapper_tool</span> <span class="ow">or</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_part_mapper_tool</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_max_size_constraint"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_max_size_constraint">[docs]</a>    <span class="k">def</span> <span class="nf">get_max_size_constraint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
