@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.template.isolinux &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.bootloader.template.isolinux &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.bootloader.template.isolinux</li>
       <li class="wy-breadcrumbs-aside">
@@ -1236,7 +1240,7 @@
 
 
 <div class="viewcode-block" id="BootLoaderTemplateIsoLinux"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.isolinux.BootLoaderTemplateIsoLinux">[docs]</a><span class="k">class</span> <span class="nc">BootLoaderTemplateIsoLinux</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **isolinux configuraton file templates**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1246,8 +1250,8 @@
 <span class="s1">            Welcome !</span>
 
 <span class="s1">            Boot_from_Hard_Disk</span>
-<span class="s1">            Install_$</span><span class="si">{title}</span><span class="s1"></span>
-<span class="s1">            Failsafe_--_Install_$</span><span class="si">{title}</span><span class="s1"></span>
+<span class="s1">            Install_$</span><span class="si">{title}</span>
+<span class="s1">            Failsafe_--_Install_$</span><span class="si">{title}</span>
 
 
 <span class="s1">            Have a lot of fun...</span>
@@ -1256,8 +1260,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">            Welcome !</span>
 
-<span class="s1">            $</span><span class="si">{title}</span><span class="s1"></span>
-<span class="s1">            Failsafe_$</span><span class="si">{title}</span><span class="s1"></span>
+<span class="s1">            $</span><span class="si">{title}</span>
+<span class="s1">            Failsafe_$</span><span class="si">{title}</span>
 
 
 <span class="s1">            Have a lot of fun...</span>
@@ -1272,16 +1276,16 @@
 <span class="s1">            implicit 1</span>
 <span class="s1">            prompt   1</span>
 <span class="s1">            display isolinux.msg</span>
-<span class="s1">            default $</span><span class="si">{default_boot}</span><span class="s1"></span>
+<span class="s1">            default $</span><span class="si">{default_boot}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            timeout  $</span><span class="si">{boot_timeout}</span><span class="s1"></span>
+<span class="s1">            timeout  $</span><span class="si">{boot_timeout}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ui_theme</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">            ui gfxboot bootlogo isolinux.msg</span>
-<span class="s1">            MENU RESOLUTION $</span><span class="si">{gfxmode}</span><span class="s1"></span>
+<span class="s1">            MENU RESOLUTION $</span><span class="si">{gfxmode}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ui_plain</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
@@ -1294,25 +1298,25 @@
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">menu_install_entry_multiboot</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            label Install_$</span><span class="si">{title}</span><span class="s1"></span>
+<span class="s1">            label Install_$</span><span class="si">{title}</span>
 <span class="s1">                kernel mboot.c32</span>
 <span class="s1">                append $</span><span class="si">{hypervisor}</span><span class="s1"> --- $</span><span class="si">{kernel_file}</span><span class="s1"> $</span><span class="si">{boot_options}</span><span class="s1"> cdinst=1 showopts --- $</span><span class="si">{initrd_file}</span><span class="s1"> showopts</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">menu_install_entry_failsafe_multiboot</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            label Failsafe_--_Install_$</span><span class="si">{title}</span><span class="s1"></span>
+<span class="s1">            label Failsafe_--_Install_$</span><span class="si">{title}</span>
 <span class="s1">                kernel mboot.c32</span>
 <span class="s1">                append $</span><span class="si">{hypervisor}</span><span class="s1"> --- $</span><span class="si">{kernel_file}</span><span class="s1"> $</span><span class="si">{failsafe_boot_options}</span><span class="s1"> cdinst=1 showopts --- $</span><span class="si">{initrd_file}</span><span class="s1"> showopts</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">menu_entry_multiboot</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            label $</span><span class="si">{title}</span><span class="s1"></span>
+<span class="s1">            label $</span><span class="si">{title}</span>
 <span class="s1">                kernel mboot.c32</span>
 <span class="s1">                append $</span><span class="si">{hypervisor}</span><span class="s1"> --- $</span><span class="si">{kernel_file}</span><span class="s1"> $</span><span class="si">{boot_options}</span><span class="s1"> showopts --- $</span><span class="si">{initrd_file}</span><span class="s1"> showopts</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">menu_entry_failsafe_multiboot</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            label Failsafe_--_$</span><span class="si">{title}</span><span class="s1"></span>
+<span class="s1">            label Failsafe_--_$</span><span class="si">{title}</span>
 <span class="s1">                kernel mboot.c32</span>
 <span class="s1">                append $</span><span class="si">{hypervisor}</span><span class="s1"> --- $</span><span class="si">{kernel_file}</span><span class="s1"> $</span><span class="si">{failsafe_boot_options}</span><span class="s1"> showopts --- $</span><span class="si">{initrd_file}</span><span class="s1"> showopts</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
@@ -1324,37 +1328,37 @@
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">menu_install_entry</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            label Install_$</span><span class="si">{title}</span><span class="s1"></span>
-<span class="s1">                kernel $</span><span class="si">{kernel_file}</span><span class="s1"></span>
+<span class="s1">            label Install_$</span><span class="si">{title}</span>
+<span class="s1">                kernel $</span><span class="si">{kernel_file}</span>
 <span class="s1">                append initrd=$</span><span class="si">{initrd_file}</span><span class="s1"> $</span><span class="si">{boot_options}</span><span class="s1"> cdinst=1 showopts</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">menu_install_entry_failsafe</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            label Failsafe_--_Install_$</span><span class="si">{title}</span><span class="s1"></span>
-<span class="s1">                kernel $</span><span class="si">{kernel_file}</span><span class="s1"></span>
+<span class="s1">            label Failsafe_--_Install_$</span><span class="si">{title}</span>
+<span class="s1">                kernel $</span><span class="si">{kernel_file}</span>
 <span class="s1">                append initrd=$</span><span class="si">{initrd_file}</span><span class="s1"> $</span><span class="si">{failsafe_boot_options}</span><span class="s1"> cdinst=1 showopts</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">menu_entry</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            label $</span><span class="si">{title}</span><span class="s1"></span>
-<span class="s1">                kernel $</span><span class="si">{kernel_file}</span><span class="s1"></span>
+<span class="s1">            label $</span><span class="si">{title}</span>
+<span class="s1">                kernel $</span><span class="si">{kernel_file}</span>
 <span class="s1">                append initrd=$</span><span class="si">{initrd_file}</span><span class="s1"> $</span><span class="si">{boot_options}</span><span class="s1"> showopts</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">menu_entry_failsafe</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            label Failsafe_--_$</span><span class="si">{title}</span><span class="s1"></span>
-<span class="s1">                kernel $</span><span class="si">{kernel_file}</span><span class="s1"></span>
+<span class="s1">            label Failsafe_--_$</span><span class="si">{title}</span>
+<span class="s1">                kernel $</span><span class="si">{kernel_file}</span>
 <span class="s1">                append initrd=$</span><span class="si">{initrd_file}</span><span class="s1"> $</span><span class="si">{failsafe_boot_options}</span><span class="s1"> showopts</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">menu_mediacheck_entry</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">            label Mediacheck</span>
-<span class="s1">                kernel $</span><span class="si">{kernel_file}</span><span class="s1"></span>
+<span class="s1">                kernel $</span><span class="si">{kernel_file}</span>
 <span class="s1">                append initrd=$</span><span class="si">{initrd_file}</span><span class="s1"> $</span><span class="si">{boot_options}</span><span class="s1"> mediacheck=1 plymouth.enable=0 showopts</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
 
 <div class="viewcode-block" id="BootLoaderTemplateIsoLinux.get_install_message_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.isolinux.BootLoaderTemplateIsoLinux.get_install_message_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_install_message_template</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader template for text message file in install mode.</span>
 <span class="sd">        isolinux displays this as menu if no graphics mode can be</span>
 <span class="sd">        initialized</span>
@@ -1366,7 +1370,7 @@
         <span class="k">return</span> <span class="n">Template</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">install_message</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="BootLoaderTemplateIsoLinux.get_message_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.isolinux.BootLoaderTemplateIsoLinux.get_message_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_message_template</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader template for text message file. isolinux</span>
 <span class="sd">        displays this as menu if no graphics mode can be initialized</span>
 
@@ -1379,7 +1383,7 @@
 <div class="viewcode-block" id="BootLoaderTemplateIsoLinux.get_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.isolinux.BootLoaderTemplateIsoLinux.get_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">failsafe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_theme</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">terminal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">checkiso</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader configuration template for live media</span>
 
 <span class="sd">        :param bool failsafe: with failsafe true|false</span>
@@ -1410,7 +1414,7 @@
 <div class="viewcode-block" id="BootLoaderTemplateIsoLinux.get_multiboot_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.isolinux.BootLoaderTemplateIsoLinux.get_multiboot_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_multiboot_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">failsafe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_theme</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">terminal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">checkiso</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader configuration template for live media with</span>
 <span class="sd">        hypervisor, e.g Xen dom0</span>
 
@@ -1442,7 +1446,7 @@
 <div class="viewcode-block" id="BootLoaderTemplateIsoLinux.get_install_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.isolinux.BootLoaderTemplateIsoLinux.get_install_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_install_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">failsafe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_theme</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">terminal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">with_timeout</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader configuration template for install media</span>
 
 <span class="sd">        :param bool failsafe: with failsafe true|false</span>
@@ -1472,7 +1476,7 @@
 <div class="viewcode-block" id="BootLoaderTemplateIsoLinux.get_multiboot_install_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.isolinux.BootLoaderTemplateIsoLinux.get_multiboot_install_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_multiboot_install_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">failsafe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_theme</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">terminal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">with_timeout</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader configuration template for install media with</span>
 <span class="sd">        hypervisor, e.g Xen dom0</span>
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Description for Microsoft Azure &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Image Description for Microsoft Azure &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Image Description for Microsoft Azure</li>
       <li class="wy-breadcrumbs-aside">
@@ -1247,26 +1251,26 @@ description as follows:</p>
 package names of the SUSE distribution and might be different
 on other distributions.</p>
 </div>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;hyper-v&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;python-azure-agent&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hyper-v&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;python-azure-agent&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 </li>
 <li><p>Image Type definition</p>
 <p>Update the oem image type setup as follows</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span>
-      <span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span>
-      <span class="na">kernelcmdline=</span><span class="s">&quot;console=ttyS0 rootdelay=300 net.ifnames=0&quot;</span>
-      <span class="na">devicepersistency=</span><span class="s">&quot;by-uuid&quot;</span>
-      <span class="na">format=</span><span class="s">&quot;vhd-fixed&quot;</span>
-      <span class="na">formatoptions=</span><span class="s">&quot;force_size&quot;</span>
-      <span class="na">bootpartition=</span><span class="s">&quot;true&quot;</span>
-      <span class="na">bootpartsize=</span><span class="s">&quot;1024&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;bootloader</span> <span class="na">name=</span><span class="s">&quot;grub2&quot;</span> <span class="na">timeout=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;size</span> <span class="na">unit=</span><span class="s">&quot;M&quot;</span><span class="nt">&gt;</span>30720<span class="nt">&lt;/size&gt;</span>
-  <span class="nt">&lt;oemconfig&gt;</span>
-      <span class="nt">&lt;oem-resize&gt;</span>false<span class="nt">&lt;/oem-resize&gt;</span>
-  <span class="nt">&lt;/oemconfig&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span>
+<span class="w">      </span><span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span>
+<span class="w">      </span><span class="na">kernelcmdline=</span><span class="s">&quot;console=ttyS0 rootdelay=300 net.ifnames=0&quot;</span>
+<span class="w">      </span><span class="na">devicepersistency=</span><span class="s">&quot;by-uuid&quot;</span>
+<span class="w">      </span><span class="na">format=</span><span class="s">&quot;vhd-fixed&quot;</span>
+<span class="w">      </span><span class="na">formatoptions=</span><span class="s">&quot;force_size&quot;</span>
+<span class="w">      </span><span class="na">bootpartition=</span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="na">bootpartsize=</span><span class="s">&quot;1024&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;bootloader</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;size</span><span class="w"> </span><span class="na">unit=</span><span class="s">&quot;M&quot;</span><span class="nt">&gt;</span>30720<span class="nt">&lt;/size&gt;</span>
+<span class="w">  </span><span class="nt">&lt;oemconfig&gt;</span>
+<span class="w">      </span><span class="nt">&lt;oem-resize&gt;</span>false<span class="nt">&lt;/oem-resize&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/oemconfig&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </pre></div>
 </div>

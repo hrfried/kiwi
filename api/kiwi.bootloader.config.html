@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.bootloader.config Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.bootloader.config Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1230,7 +1234,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Base class for bootloader configuration</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xml_state</strong> (<em>object</em>) – instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLState</span></code></p></li>
 <li><p><strong>root_dir</strong> (<em>string</em>) – root directory path name</p></li>
@@ -1243,13 +1247,13 @@
 <span class="sig-name descname"><span class="pre">create_efi_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_sub_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'boot/efi'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.create_efi_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.create_efi_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create standard EFI boot directory structure</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>in_sub_dir</strong> (<em>string</em>) – toplevel directory</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Full qualified EFI boot path</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1260,10 +1264,10 @@
 <span class="sig-name descname"><span class="pre">failsafe_boot_entry_requested</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.failsafe_boot_entry_requested"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.failsafe_boot_entry_requested" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if a failsafe boot entry is requested</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1274,13 +1278,13 @@
 <span class="sig-name descname"><span class="pre">get_boot_cmdline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boot_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.get_boot_cmdline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_cmdline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Boot commandline arguments passed to the kernel</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>boot_device</strong> (<em>string</em>) – boot device node</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>kernel boot arguments</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1296,13 +1300,13 @@ device is an extra boot partition or the root partition or
 or based on a non standard filesystem like a btrfs snapshot,
 the path name varies</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>target</strong> (<em>string</em>) – target name: disk|iso</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>path name</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1313,10 +1317,10 @@ the path name varies</p>
 <span class="sig-name descname"><span class="pre">get_boot_theme</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.get_boot_theme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_theme" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bootloader Theme name</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>theme name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1328,10 +1332,10 @@ the path name varies</p>
 <dd><p>Bootloader timeout in seconds</p>
 <p>If no timeout is specified the default timeout applies</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>timeout seconds</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -1342,10 +1346,10 @@ the path name varies</p>
 <span class="sig-name descname"><span class="pre">get_continue_on_timeout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.get_continue_on_timeout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.get_continue_on_timeout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if the boot should continue after boot timeout or not</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1361,13 +1365,13 @@ is no standard for this setup which causes kiwi to create
 a mapping from the kernel vesa mode number to the corresponding
 bootloader graphics mode setup</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>target</strong> (<em>string</em>) – bootloader name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>boot graphics mode</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1389,13 +1393,13 @@ by default. If not specified the boot from hard disk entry
 will be the default. Depending on the specified loader type
 either an entry number or name will be returned.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>loader</strong> (<em>string</em>) – bootloader name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>menu name or id</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1408,10 +1412,10 @@ either an entry number or name will be returned.</p>
 <p>If no displayname is specified in the image description,
 the menu title is constructed from the image name</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>title text</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1425,13 +1429,13 @@ the menu title is constructed from the image name</p>
 the menu title is constructed from the image name and
 build type</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>plain</strong> (<em>bool</em>) – indicate to add built type into title text</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>title text</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1443,7 +1447,7 @@ build type</p>
 <dd><p>Post initialization method</p>
 <p>Store custom arguments by default</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – custom bootloader arguments</p>
 </dd>
 </dl>
@@ -1456,13 +1460,13 @@ build type</p>
 <p>Not all characters can be displayed correctly in the bootloader
 environment. Therefore a quoting is required</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>string</em>) – title name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>quoted text</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1476,7 +1480,7 @@ environment. Therefore a quoting is required</p>
 can load from a specific offset address or from a standardized
 path on a filesystem.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>boot_uuid</strong> (<em>string</em>) – boot device UUID</p></li>
 <li><p><strong>lookup_path</strong> (<em>string</em>) – custom module lookup path</p></li>
@@ -1491,7 +1495,7 @@ path on a filesystem.</p>
 <span class="sig-name descname"><span class="pre">setup_disk_image_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boot_uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hypervisor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initrd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.setup_disk_image_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_disk_image_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create boot config file to boot from disk.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>boot_uuid</strong> (<em>string</em>) – boot device UUID</p></li>
 <li><p><strong>root_uuid</strong> (<em>string</em>) – root device UUID</p></li>
@@ -1517,7 +1521,7 @@ bootloaders or even not be needed</p></li>
 <span class="sig-name descname"><span class="pre">setup_install_boot_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mbrid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookup_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.setup_install_boot_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_install_boot_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create bootloader images for ISO boot an install media</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – mbrid file name on boot device</p></li>
 <li><p><strong>lookup_path</strong> (<em>string</em>) – custom module lookup path</p></li>
@@ -1532,7 +1536,7 @@ bootloaders or even not be needed</p></li>
 <span class="sig-name descname"><span class="pre">setup_install_image_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mbrid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hypervisor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initrd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.setup_install_image_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_install_image_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create boot config file to boot from install media in EFI mode.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – mbrid file name on boot device</p></li>
 <li><p><strong>hypervisor</strong> (<em>string</em>) – hypervisor name</p></li>
@@ -1549,7 +1553,7 @@ bootloaders or even not be needed</p></li>
 <span class="sig-name descname"><span class="pre">setup_live_boot_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mbrid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookup_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.setup_live_boot_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_live_boot_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create bootloader images for ISO boot a live ISO image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – mbrid file name on boot device</p></li>
 <li><p><strong>lookup_path</strong> (<em>string</em>) – custom module lookup path</p></li>
@@ -1564,7 +1568,7 @@ bootloaders or even not be needed</p></li>
 <span class="sig-name descname"><span class="pre">setup_live_image_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mbrid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hypervisor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initrd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.setup_live_image_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_live_image_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create boot config file to boot live ISO image in EFI mode.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – mbrid file name on boot device</p></li>
 <li><p><strong>hypervisor</strong> (<em>string</em>) – hypervisor name</p></li>
@@ -1596,7 +1600,7 @@ required according to the bootloader setup</p>
 <span class="sig-name descname"><span class="pre">write_meta_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.write_meta_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.write_meta_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write bootloader setup meta data files</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root_device</strong> (<em>string</em>) – root device node</p></li>
 <li><p><strong>boot_options</strong> (<em>string</em>) – kernel options as string</p></li>
@@ -1621,7 +1625,7 @@ required according to the bootloader setup</p>
 <span class="sig-name descname"><span class="pre">post_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/grub2.html#BootLoaderConfigGrub2.post_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.post_init" title="Permalink to this definition">¶</a></dt>
 <dd><p>grub2 post initialization method</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – <p>Contains grub config arguments</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;grub_directory_name&#39;</span><span class="p">:</span> <span class="s1">&#39;grub|grub2&#39;</span><span class="p">}</span>
 </pre></div>
@@ -1639,7 +1643,7 @@ required according to the bootloader setup</p>
 data needs to be created and provided at the correct place in
 the filesystem</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>boot_uuid</strong> (<em>string</em>) – boot device UUID</p></li>
 <li><p><strong>lookup_path</strong> (<em>string</em>) – custom module lookup path</p></li>
@@ -1653,7 +1657,7 @@ the filesystem</p>
 <span class="sig-name descname"><span class="pre">setup_disk_image_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boot_uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hypervisor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initrd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/grub2.html#BootLoaderConfigGrub2.setup_disk_image_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.setup_disk_image_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create grub2 config file to boot from disk using grub2-mkconfig</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>boot_uuid</strong> (<em>string</em>) – unused</p></li>
 <li><p><strong>root_uuid</strong> (<em>string</em>) – unused</p></li>
@@ -1685,7 +1689,7 @@ mount the system prior to run grub2-mkconfig.</p>
 data needs to be created and provided at the correct place on
 the iso filesystem</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – mbrid file name on boot device</p></li>
 <li><p><strong>lookup_path</strong> (<em>string</em>) – custom module lookup path</p></li>
@@ -1699,7 +1703,7 @@ the iso filesystem</p>
 <span class="sig-name descname"><span class="pre">setup_install_image_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mbrid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hypervisor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xen.gz'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linux'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initrd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'initrd'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/grub2.html#BootLoaderConfigGrub2.setup_install_image_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.setup_install_image_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create grub2 config file to boot from an ISO install image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – mbrid file name on boot device</p></li>
 <li><p><strong>hypervisor</strong> (<em>string</em>) – hypervisor name</p></li>
@@ -1722,7 +1726,7 @@ the iso filesystem</p>
 <span class="sig-name descname"><span class="pre">setup_live_image_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mbrid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hypervisor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xen.gz'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linux'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initrd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'initrd'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/grub2.html#BootLoaderConfigGrub2.setup_live_image_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.setup_live_image_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create grub2 config file to boot a live media ISO image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – mbrid file name on boot device</p></li>
 <li><p><strong>hypervisor</strong> (<em>string</em>) – hypervisor name</p></li>
@@ -1754,7 +1758,7 @@ the iso filesystem</p>
 <li><p>etc/sysconfig/bootloader</p></li>
 </ul>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root_device</strong> (<em>string</em>) – root device node</p></li>
 <li><p><strong>boot_options</strong> (<em>string</em>) – kernel options as string</p></li>
@@ -1779,7 +1783,7 @@ the iso filesystem</p>
 <span class="sig-name descname"><span class="pre">post_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/isolinux.html#BootLoaderConfigIsoLinux.post_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.isolinux.BootLoaderConfigIsoLinux.post_init" title="Permalink to this definition">¶</a></dt>
 <dd><p>isolinux post initialization method</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – custom isolinux config arguments</p>
 </dd>
 </dl>
@@ -1791,7 +1795,7 @@ the iso filesystem</p>
 <dd><p>Provide isolinux boot metadata</p>
 <p>No extra boot images must be created for isolinux</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – unused</p></li>
 <li><p><strong>lookup_path</strong> (<em>string</em>) – unused</p></li>
@@ -1806,7 +1810,7 @@ the iso filesystem</p>
 <dd><p>Create isolinux.cfg in memory from a template suitable to boot
 from an ISO image in BIOS boot mode</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – mbrid file name on boot device</p></li>
 <li><p><strong>hypervisor</strong> (<em>string</em>) – hypervisor name</p></li>
@@ -1823,7 +1827,7 @@ from an ISO image in BIOS boot mode</p>
 <dd><p>Provide isolinux boot metadata</p>
 <p>No extra boot images must be created for isolinux</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – unused</p></li>
 <li><p><strong>lookup_path</strong> (<em>string</em>) – unused</p></li>
@@ -1838,7 +1842,7 @@ from an ISO image in BIOS boot mode</p>
 <dd><p>Create isolinux.cfg in memory from a template suitable to boot
 a live system from an ISO image in BIOS boot mode</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<em>string</em>) – mbrid file name on boot device</p></li>
 <li><p><strong>hypervisor</strong> (<em>string</em>) – hypervisor name</p></li>
@@ -1866,7 +1870,7 @@ a live system from an ISO image in BIOS boot mode</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>BootLoaderConfig factory</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>string</em>) – bootloader name</p></li>
 <li><p><strong>xml_state</strong> (<em>object</em>) – instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLState</span></code></p></li>

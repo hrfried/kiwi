@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick Start &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Quick Start &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> KIWI NG
-            <img src="_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            KIWI NG
+              <img src="_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Quick Start</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
@@ -1223,20 +1227,20 @@
 <p><strong>Abstract</strong></p>
 <p>This document describes how to start working with KIWI NG,
 an OS appliance builder. This description applies for
-version 9.24.56.</p>
+version 9.24.57.</p>
 </div>
 <section id="before-you-start">
 <h2>Before you start<a class="headerlink" href="#before-you-start" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic">
 <li><p>Install KIWI NG first, either via your distributions’ package manager (see
 <a class="reference internal" href="installation.html#kiwi-installation"><span class="std std-ref">Installation</span></a>) or via:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo pip install kiwi
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>kiwi
 </pre></div>
 </div>
 </li>
 <li><p>Clone the KIWI NG repository containing example appliances (see
 <a class="reference internal" href="installation.html#example-descriptions"><span class="std std-ref">Example Appliance Descriptions</span></a>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/OSInside/kiwi
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/OSInside/kiwi
 </pre></div>
 </div>
 </li>
@@ -1253,7 +1257,7 @@ and/or reach out at: <a class="reference internal" href="index.html#contact"><sp
 <p>Find example appliance descriptions in the KIWI NG repository checkout
 as follows:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tree -L <span class="m">3</span> kiwi/build-tests
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">3</span><span class="w"> </span>kiwi/build-tests
 </pre></div>
 </div>
 </div></blockquote>
@@ -1266,10 +1270,10 @@ just use the one given in the examples below.</p>
 <p>Your first image will be a simple system disk image which can run
 in any full virtualization system like QEMU. Invoke the following KIWI NG
 command in order to build it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo kiwi-ng system build <span class="se">\</span>
-    --description kiwi/build-tests/x86/leap/test-image-disk <span class="se">\</span>
-    --set-repo obs://openSUSE:Leap:15.3/standard <span class="se">\</span>
-    --target-dir /tmp/myimage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>kiwi-ng<span class="w"> </span>system<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span>kiwi/build-tests/x86/leap/test-image-disk<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--set-repo<span class="w"> </span>obs://openSUSE:Leap:15.3/standard<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--target-dir<span class="w"> </span>/tmp/myimage
 </pre></div>
 </div>
 <p>The resulting image will be placed into the folder <code class="file docutils literal notranslate"><span class="pre">/tmp/myimage</span></code>
@@ -1283,9 +1287,9 @@ folder that contains the image description which you selected.</p>
 <p>Running an image actually means booting the operating system. In order to
 do that attach the disk image to a virtual system. In this example we use
 QEMU and boot it as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo qemu -boot c <span class="se">\</span>
-    -drive <span class="nv">file</span><span class="o">=</span>kiwi-test-image-disk.x86_64-1.15.3.raw,format<span class="o">=</span>raw,if<span class="o">=</span>virtio <span class="se">\</span>
-    -m <span class="m">4096</span> -serial stdio
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>qemu<span class="w"> </span>-boot<span class="w"> </span>c<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-drive<span class="w"> </span><span class="nv">file</span><span class="o">=</span>kiwi-test-image-disk.x86_64-1.15.3.raw,format<span class="o">=</span>raw,if<span class="o">=</span>virtio<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-m<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-serial<span class="w"> </span>stdio
 </pre></div>
 </div>
 </section>

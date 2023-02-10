@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.storage.subformat.vagrant_base &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.storage.subformat.vagrant_base &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../subformat.html">kiwi.storage.subformat</a></li>
       <li class="breadcrumb-item active">kiwi.storage.subformat.vagrant_base</li>
@@ -1252,7 +1256,7 @@
 
 
 <div class="viewcode-block" id="DiskFormatVagrantBase"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_base.DiskFormatVagrantBase">[docs]</a><span class="k">class</span> <span class="nc">DiskFormatVagrantBase</span><span class="p">(</span><span class="n">DiskFormatBase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for creating vagrant boxes.</span>
 
 <span class="sd">    The documentation of the vagrant box format can be found here:</span>
@@ -1292,7 +1296,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="DiskFormatVagrantBase.post_init"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_base.DiskFormatVagrantBase.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="n">xml_parse</span><span class="o">.</span><span class="n">vagrantconfig</span><span class="p">]):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        vagrant disk format post initialization method</span>
 
 <span class="sd">        store vagrantconfig information provided via custom_args</span>
@@ -1317,7 +1321,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">vagrant_post_init</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="DiskFormatVagrantBase.vagrant_post_init"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_base.DiskFormatVagrantBase.vagrant_post_init">[docs]</a>    <span class="k">def</span> <span class="nf">vagrant_post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Vagrant provider specific post initialization method</span>
 
 <span class="sd">        Setup vagrant provider and box name. This information must</span>
@@ -1327,7 +1331,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="DiskFormatVagrantBase.create_box_img"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_base.DiskFormatVagrantBase.create_box_img">[docs]</a>    <span class="k">def</span> <span class="nf">create_box_img</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp_image_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provider specific image creation step: this function</span>
 <span class="sd">        creates the actual box image. It must be implemented by a</span>
 <span class="sd">        child class.</span>
@@ -1335,7 +1339,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="DiskFormatVagrantBase.create_image_format"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_base.DiskFormatVagrantBase.create_image_format">[docs]</a>    <span class="k">def</span> <span class="nf">create_image_format</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a vagrant box for any provider. This includes:</span>
 
 <span class="sd">        * creation of box metadata.json</span>
@@ -1387,7 +1391,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiskFormatVagrantBase.store_to_result"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_base.DiskFormatVagrantBase.store_to_result">[docs]</a>    <span class="k">def</span> <span class="nf">store_to_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Result</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Store result file of the vagrant format conversion into the</span>
 <span class="sd">        provided result instance. In this case compression is unwanted</span>
 <span class="sd">        because the box is already created as a compressed tarball</span>
@@ -1410,7 +1414,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiskFormatVagrantBase.get_additional_metadata"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_base.DiskFormatVagrantBase.get_additional_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_additional_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provide :meth:`create_image_format` with additional metadata</span>
 <span class="sd">        that will be included in ``metadata.json``.</span>
 
@@ -1422,7 +1426,7 @@
         <span class="k">return</span> <span class="p">{}</span></div>
 
 <div class="viewcode-block" id="DiskFormatVagrantBase.get_additional_vagrant_config_settings"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_base.DiskFormatVagrantBase.get_additional_vagrant_config_settings">[docs]</a>    <span class="k">def</span> <span class="nf">get_additional_vagrant_config_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Supply additional configuration settings for vagrant to be included in</span>
 <span class="sd">        the resulting box.</span>
 

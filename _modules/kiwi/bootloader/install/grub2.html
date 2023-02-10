@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.install.grub2 &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.bootloader.install.grub2 &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../install.html">kiwi.bootloader.install</a></li>
       <li class="breadcrumb-item active">kiwi.bootloader.install.grub2</li>
@@ -1253,11 +1257,11 @@
 
 
 <div class="viewcode-block" id="BootLoaderInstallGrub2"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.install.html#kiwi.bootloader.install.grub2.BootLoaderInstallGrub2">[docs]</a><span class="k">class</span> <span class="nc">BootLoaderInstallGrub2</span><span class="p">(</span><span class="n">BootLoaderInstallBase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **grub2 bootloader installation**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="BootLoaderInstallGrub2.post_init"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.install.html#kiwi.bootloader.install.grub2.BootLoaderInstallGrub2.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        grub2 post initialization method</span>
 
 <span class="sd">        :param dict custom_args:</span>
@@ -1310,7 +1314,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="BootLoaderInstallGrub2.install_required"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.install.html#kiwi.bootloader.install.grub2.BootLoaderInstallGrub2.install_required">[docs]</a>    <span class="k">def</span> <span class="nf">install_required</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if grub2 has to be installed</span>
 
 <span class="sd">        Take architecture and firmware setup into account to check if</span>
@@ -1344,7 +1348,7 @@
         <span class="k">return</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="BootLoaderInstallGrub2.install"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.install.html#kiwi.bootloader.install.grub2.BootLoaderInstallGrub2.install">[docs]</a>    <span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Install bootloader on disk device</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Installing grub2 on disk </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>

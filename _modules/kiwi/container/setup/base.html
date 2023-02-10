@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.container.setup.base &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.container.setup.base &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../../container.html">kiwi.container</a></li>
           <li class="breadcrumb-item"><a href="../setup.html">kiwi.container.setup</a></li>
@@ -1245,7 +1249,7 @@
 
 
 <div class="viewcode-block" id="ContainerSetupBase"><a class="viewcode-back" href="../../../../api/kiwi.container.setup.html#kiwi.container.setup.base.ContainerSetupBase">[docs]</a><span class="k">class</span> <span class="nc">ContainerSetupBase</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for setting up the root system to create</span>
 <span class="sd">    a container image from for e.g docker. The methods here</span>
 <span class="sd">    are generic to linux systems following the FHS standard</span>
@@ -1271,7 +1275,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">post_init</span><span class="p">(</span><span class="n">custom_args</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ContainerSetupBase.post_init"><a class="viewcode-back" href="../../../../api/kiwi.container.setup.html#kiwi.container.setup.base.ContainerSetupBase.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Post initialization method</span>
 
 <span class="sd">        Implementation in specialized container setup class</span>
@@ -1281,7 +1285,7 @@
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="ContainerSetupBase.setup"><a class="viewcode-back" href="../../../../api/kiwi.container.setup.html#kiwi.container.setup.base.ContainerSetupBase.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup container metadata</span>
 
 <span class="sd">        Implementation in specialized bootloader class required</span>
@@ -1289,7 +1293,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="ContainerSetupBase.deactivate_bootloader_setup"><a class="viewcode-back" href="../../../../api/kiwi.container.setup.html#kiwi.container.setup.base.ContainerSetupBase.deactivate_bootloader_setup">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate_bootloader_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Container bootloader setup</span>
 
 <span class="sd">        Tell the system there is no bootloader configuration</span>
@@ -1306,7 +1310,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ContainerSetupBase.deactivate_root_filesystem_check"><a class="viewcode-back" href="../../../../api/kiwi.container.setup.html#kiwi.container.setup.base.ContainerSetupBase.deactivate_root_filesystem_check">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate_root_filesystem_check</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Container filesystem check setup</span>
 
 <span class="sd">        The root filesystem of a container could be an overlay</span>
@@ -1324,7 +1328,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ContainerSetupBase.deactivate_systemd_service"><a class="viewcode-back" href="../../../../api/kiwi.container.setup.html#kiwi.container.setup.base.ContainerSetupBase.deactivate_systemd_service">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate_systemd_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Container system services setup</span>
 
 <span class="sd">        Init systems among others also controls services which</span>
@@ -1346,7 +1350,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ContainerSetupBase.setup_root_console"><a class="viewcode-back" href="../../../../api/kiwi.container.setup.html#kiwi.container.setup.base.ContainerSetupBase.setup_root_console">[docs]</a>    <span class="k">def</span> <span class="nf">setup_root_console</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Container console setup</span>
 
 <span class="sd">        /dev/console should be allowed to login by root</span>
@@ -1363,7 +1367,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ContainerSetupBase.get_container_name"><a class="viewcode-back" href="../../../../api/kiwi.container.setup.html#kiwi.container.setup.base.ContainerSetupBase.get_container_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_container_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Container name</span>
 
 <span class="sd">        :return: name</span>

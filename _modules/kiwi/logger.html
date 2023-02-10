@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.logger &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.logger &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.logger</li>
       <li class="wy-breadcrumbs-aside">
@@ -1255,7 +1259,7 @@
 
 
 <div class="viewcode-block" id="Logger"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.logger.Logger">[docs]</a><span class="k">class</span> <span class="nc">Logger</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Extended logging facility based on Python logging**</span>
 
 <span class="sd">    :param str name: name of the logger</span>
@@ -1293,7 +1297,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">log_flags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
 <div class="viewcode-block" id="Logger.getLogLevel"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.logger.Logger.getLogLevel">[docs]</a>    <span class="k">def</span> <span class="nf">getLogLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return currently used log level</span>
 
 <span class="sd">        :return: log level number</span>
@@ -1303,7 +1307,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_level</span></div>
 
 <div class="viewcode-block" id="Logger.getLogFlags"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.logger.Logger.getLogFlags">[docs]</a>    <span class="k">def</span> <span class="nf">getLogFlags</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return logging flags</span>
 
 <span class="sd">        :return:</span>
@@ -1314,7 +1318,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_flags</span></div>
 
 <div class="viewcode-block" id="Logger.setLogLevel"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.logger.Logger.setLogLevel">[docs]</a>    <span class="k">def</span> <span class="nf">setLogLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">except_for</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set custom log level for all console handlers</span>
 
 <span class="sd">        :param int level: log level number</span>
@@ -1325,7 +1329,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">log_handlers</span><span class="p">[</span><span class="n">handler_type</span><span class="p">]</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Logger.setLogFlag"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.logger.Logger.setLogFlag">[docs]</a>    <span class="k">def</span> <span class="nf">setLogFlag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set logging flag for further properties of the logging facility</span>
 <span class="sd">        Available flags are:</span>
 
@@ -1336,7 +1340,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">log_flags</span><span class="p">[</span><span class="n">flag</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
 
 <div class="viewcode-block" id="Logger.set_color_format"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.logger.Logger.set_color_format">[docs]</a>    <span class="k">def</span> <span class="nf">set_color_format</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set color format for all console handlers</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">handler_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_handlers</span><span class="p">:</span>
@@ -1354,7 +1358,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Logger.set_logfile"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.logger.Logger.set_logfile">[docs]</a>    <span class="k">def</span> <span class="nf">set_logfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set logfile handler</span>
 
 <span class="sd">        :param str filename: logfile file path</span>
@@ -1383,7 +1387,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Logger.set_log_socket"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.logger.Logger.set_log_socket">[docs]</a>    <span class="k">def</span> <span class="nf">set_log_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set log socket handler</span>
 
 <span class="sd">        :param str filename:</span>
@@ -1409,7 +1413,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Logger.get_logfile"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.logger.Logger.get_logfile">[docs]</a>    <span class="k">def</span> <span class="nf">get_logfile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return file path name of logfile</span>
 
 <span class="sd">        :return: file path</span>
@@ -1422,7 +1426,7 @@
     <span class="k">def</span> <span class="nf">progress</span><span class="p">(</span>
         <span class="n">current</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">total</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">bar_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Custom progress log information. progress information is</span>
 <span class="sd">        intentionally only logged to stdout and will bypass any</span>
 <span class="sd">        handlers. We don&#39;t want this information to show up in</span>

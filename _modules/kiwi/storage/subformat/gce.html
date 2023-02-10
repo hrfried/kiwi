@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.storage.subformat.gce &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.storage.subformat.gce &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../subformat.html">kiwi.storage.subformat</a></li>
       <li class="breadcrumb-item active">kiwi.storage.subformat.gce</li>
@@ -1244,11 +1248,11 @@
 
 
 <div class="viewcode-block" id="DiskFormatGce"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.gce.DiskFormatGce">[docs]</a><span class="k">class</span> <span class="nc">DiskFormatGce</span><span class="p">(</span><span class="n">DiskFormatBase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Create GCE - Google Compute Engine image format**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="DiskFormatGce.post_init"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.gce.DiskFormatGce.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        GCE disk format post initialization method</span>
 
 <span class="sd">        Store disk tag from custom args</span>
@@ -1269,7 +1273,7 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">tag</span> <span class="o">=</span> <span class="n">value</span></div>
 
 <div class="viewcode-block" id="DiskFormatGce.create_image_format"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.gce.DiskFormatGce.create_image_format">[docs]</a>    <span class="k">def</span> <span class="nf">create_image_format</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create GCE disk format and manifest</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">gce_tar_ball_file_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1312,7 +1316,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiskFormatGce.store_to_result"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.gce.DiskFormatGce.store_to_result">[docs]</a>    <span class="k">def</span> <span class="nf">store_to_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Result</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Store result file of the gce format conversion into the</span>
 <span class="sd">        provided result instance. In this case compression is unwanted</span>
 <span class="sd">        because the gce tarball is already created as a compressed</span>
@@ -1331,7 +1335,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiskFormatGce.get_target_file_path_for_format"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.gce.DiskFormatGce.get_target_file_path_for_format">[docs]</a>    <span class="k">def</span> <span class="nf">get_target_file_path_for_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">format_name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Google requires the image name to follow their naming</span>
 <span class="sd">        convetion. Therefore it&#39;s required to provide a suitable</span>
 <span class="sd">        name by overriding the base class method</span>

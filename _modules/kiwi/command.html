@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.command &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.command &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.command</li>
       <li class="wy-breadcrumbs-aside">
@@ -1267,7 +1271,7 @@
 
 
 <div class="viewcode-block" id="Command"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command.Command">[docs]</a><span class="k">class</span> <span class="nc">Command</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements command invocation**</span>
 
 <span class="sd">    An instance of Command provides methods to invoke external</span>
@@ -1278,7 +1282,7 @@
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span>
         <span class="n">command</span><span class="p">,</span> <span class="n">custom_env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">raise_on_error</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stderr_to_stdout</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Execute a program and block the caller. The return value</span>
 <span class="sd">        is a hash containing the stdout, stderr and return code</span>
 <span class="sd">        information. Unless raise_on_error is set to false an</span>
@@ -1359,7 +1363,7 @@
 
 <div class="viewcode-block" id="Command.call"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command.Command.call">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">custom_env</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Execute a program and return an io file handle pair back.</span>
 <span class="sd">        stdout and stderr are both on different channels. The caller</span>
 <span class="sd">        must read from the output file handles in order to actually</span>

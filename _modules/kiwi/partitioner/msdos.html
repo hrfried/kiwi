@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.partitioner.msdos &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.partitioner.msdos &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../partitioner.html">kiwi.partitioner</a></li>
       <li class="breadcrumb-item active">kiwi.partitioner.msdos</li>
@@ -1249,11 +1253,11 @@
 
 
 <div class="viewcode-block" id="PartitionerMsDos"><a class="viewcode-back" href="../../../api/kiwi.partitioner.html#kiwi.partitioner.msdos.PartitionerMsDos">[docs]</a><span class="k">class</span> <span class="nc">PartitionerMsDos</span><span class="p">(</span><span class="n">PartitionerBase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implement old style msdos partition setup**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="PartitionerMsDos.post_init"><a class="viewcode-back" href="../../../api/kiwi.partitioner.html#kiwi.partitioner.msdos.PartitionerMsDos.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Post initialization method</span>
 
 <span class="sd">        Setup sfdisk partition type/flag map</span>
@@ -1275,7 +1279,7 @@
 <div class="viewcode-block" id="PartitionerMsDos.create"><a class="viewcode-back" href="../../../api/kiwi.partitioner.html#kiwi.partitioner.msdos.PartitionerMsDos.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">type_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create msdos partition</span>
 
 <span class="sd">        :param string name: partition name</span>
@@ -1298,7 +1302,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_create_primary</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">,</span> <span class="n">type_name</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="PartitionerMsDos.set_flag"><a class="viewcode-back" href="../../../api/kiwi.partitioner.html#kiwi.partitioner.msdos.PartitionerMsDos.set_flag">[docs]</a>    <span class="k">def</span> <span class="nf">set_flag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">flag_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set msdos partition flag</span>
 
 <span class="sd">        :param int partition_id: partition number</span>
@@ -1327,7 +1331,7 @@
             <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Flag </span><span class="si">%s</span><span class="s1"> ignored on msdos&#39;</span><span class="p">,</span> <span class="n">flag_name</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="PartitionerMsDos.resize_table"><a class="viewcode-back" href="../../../api/kiwi.partitioner.html#kiwi.partitioner.msdos.PartitionerMsDos.resize_table">[docs]</a>    <span class="k">def</span> <span class="nf">resize_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Resize partition table</span>
 
 <span class="sd">        Nothing to be done here for msdos table</span>
@@ -1337,7 +1341,7 @@
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="PartitionerMsDos.set_start_sector"><a class="viewcode-back" href="../../../api/kiwi.partitioner.html#kiwi.partitioner.msdos.PartitionerMsDos.set_start_sector">[docs]</a>    <span class="k">def</span> <span class="nf">set_start_sector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_sector</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set start sector of first partition as configured.</span>
 <span class="sd">        fdisk and friends are not able to work correctly if</span>
 <span class="sd">        the start sector of the first partition is any different</span>
@@ -1367,7 +1371,7 @@
     <span class="k">def</span> <span class="nf">_create_primary</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">type_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create primary msdos partition</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">partition_id</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -1395,7 +1399,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_all_flags</span><span class="p">(</span><span class="n">type_name</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_create_extended</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create extended msdos partition</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">partition_id</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -1415,7 +1419,7 @@
     <span class="k">def</span> <span class="nf">_create_logical</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">type_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create logical msdos partition</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">partition_id</span> <span class="o">+=</span> <span class="mi">1</span>

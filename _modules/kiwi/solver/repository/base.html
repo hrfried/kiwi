@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.solver.repository.base &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.solver.repository.base &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../repository.html">kiwi.solver.repository</a></li>
       <li class="breadcrumb-item active">kiwi.solver.repository.base</li>
@@ -1252,7 +1256,7 @@
 
 
 <div class="viewcode-block" id="SolverRepositoryBase"><a class="viewcode-back" href="../../../../api/kiwi.solver.repository.html#kiwi.solver.repository.base.SolverRepositoryBase">[docs]</a><span class="k">class</span> <span class="nc">SolverRepositoryBase</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Base class interface for SAT solvable creation.**</span>
 
 <span class="sd">    :param object uri: Instance of :class:`Uri`</span>
@@ -1280,7 +1284,7 @@
 <div class="viewcode-block" id="SolverRepositoryBase.create_repository_solvable"><a class="viewcode-back" href="../../../../api/kiwi.solver.repository.html#kiwi.solver.repository.base.SolverRepositoryBase.create_repository_solvable">[docs]</a>    <span class="k">def</span> <span class="nf">create_repository_solvable</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">target_dir</span><span class="o">=</span><span class="n">Defaults</span><span class="o">.</span><span class="n">get_solvable_location</span><span class="p">()</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create SAT solvable for this repository from previously</span>
 <span class="sd">        created intermediate solvables by merge and store the</span>
 <span class="sd">        result solvable in the specified target_dir</span>
@@ -1302,7 +1306,7 @@
         <span class="k">return</span> <span class="n">solvable</span></div>
 
 <div class="viewcode-block" id="SolverRepositoryBase.timestamp"><a class="viewcode-back" href="../../../../api/kiwi.solver.repository.html#kiwi.solver.repository.base.SolverRepositoryBase.timestamp">[docs]</a>    <span class="k">def</span> <span class="nf">timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return repository timestamp</span>
 
 <span class="sd">        The retrieval of the repository timestamp depends on the</span>
@@ -1316,7 +1320,7 @@
         <span class="k">return</span> <span class="s1">&#39;static&#39;</span></div>
 
 <div class="viewcode-block" id="SolverRepositoryBase.is_uptodate"><a class="viewcode-back" href="../../../../api/kiwi.solver.repository.html#kiwi.solver.repository.base.SolverRepositoryBase.is_uptodate">[docs]</a>    <span class="k">def</span> <span class="nf">is_uptodate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_dir</span><span class="o">=</span><span class="n">Defaults</span><span class="o">.</span><span class="n">get_solvable_location</span><span class="p">()):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if repository metadata is up to date</span>
 
 <span class="sd">        :return: True or False</span>
@@ -1335,7 +1339,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="SolverRepositoryBase.download_from_repository"><a class="viewcode-back" href="../../../../api/kiwi.solver.repository.html#kiwi.solver.repository.base.SolverRepositoryBase.download_from_repository">[docs]</a>    <span class="k">def</span> <span class="nf">download_from_repository</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repo_source</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Download given source file from the repository and store</span>
 <span class="sd">        it as target file</span>
 
@@ -1392,7 +1396,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
     <span class="k">def</span> <span class="nf">_get_pacman_packages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Download Arch repository listing for the current architecture</span>
 
 <span class="sd">        :return: html directory listing</span>
@@ -1408,7 +1412,7 @@
                 <span class="k">return</span> <span class="n">listing</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_get_deb_packages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Download Packages.gz file from an apt repository and</span>
 <span class="sd">        return its contents. If download_dir is set, download</span>
 <span class="sd">        the file and return the file path name</span>
@@ -1434,7 +1438,7 @@
             <span class="k">return</span> <span class="n">packages_download</span>
 
     <span class="k">def</span> <span class="nf">_get_repomd_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lookup_path</span><span class="o">=</span><span class="s1">&#39;repodata&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parse repomd.xml file from lookup_path and return an etree</span>
 <span class="sd">        This method only applies to rpm-md type repositories</span>
 
@@ -1450,7 +1454,7 @@
         <span class="k">return</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">xml_download</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_get_repomd_xpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml_data</span><span class="p">,</span> <span class="n">expression</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Call the provided xpath expression on the root element</span>
 <span class="sd">        of the xml_data which must be an XML etree parsed document</span>
 <span class="sd">        and return the result. This method only applies to</span>
@@ -1475,7 +1479,7 @@
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_setup_repository_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Download all relevant repository metadata and create</span>
 <span class="sd">        intermediate solvables from the result. The metadata structure</span>
 <span class="sd">        depends on the type of the repository and must be implemented</span>
@@ -1484,7 +1488,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
     <span class="k">def</span> <span class="nf">_create_solvables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metadata_dir</span><span class="p">,</span> <span class="n">tool</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create intermediate (before merge) SAT solvables from the</span>
 <span class="sd">        data given in the metadata_dir and store the result in the</span>
 <span class="sd">        temporary repository_solvable_dir. The given tool must</span>
@@ -1536,7 +1540,7 @@
                 <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;bash&#39;</span><span class="p">,</span> <span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bash_command</span><span class="p">)])</span>
 
     <span class="k">def</span> <span class="nf">_merge_solvables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Merge all intermediate SAT solvables into one and store</span>
 <span class="sd">        the result in the given target_dir. In addition an</span>
 <span class="sd">        info file containing the repo url and a timestamp file</span>
@@ -1559,7 +1563,7 @@
             <span class="k">return</span> <span class="n">solvable</span>
 
     <span class="k">def</span> <span class="nf">_get_mime_typed_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Adds `file` scheme for local URIs</span>
 
 <span class="sd">        :return: A mime typed URI as string</span>
@@ -1571,7 +1575,7 @@
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_create_temporary_metadata_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create and manage a temporary metadata directory</span>
 
 <span class="sd">        :return: the path of the temporary directory just created</span>

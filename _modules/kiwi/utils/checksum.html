@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.utils.checksum &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.utils.checksum &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.utils.checksum</li>
       <li class="wy-breadcrumbs-aside">
@@ -1246,7 +1250,7 @@
 
 
 <div class="viewcode-block" id="Checksum"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.checksum.Checksum">[docs]</a><span class="k">class</span> <span class="nc">Checksum</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Manage checksum creation for files**</span>
 
 <span class="sd">    :param str source_filename: source file name to build checksum for</span>
@@ -1262,7 +1266,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ascii</span> <span class="o">=</span> <span class="n">encoding</span><span class="o">.</span><span class="n">getregentry</span><span class="p">()</span><span class="o">.</span><span class="n">name</span>
 
 <div class="viewcode-block" id="Checksum.matches"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.checksum.Checksum.matches">[docs]</a>    <span class="k">def</span> <span class="nf">matches</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checksum</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare given checksum with reference checksum stored</span>
 <span class="sd">        in the provided filename. If the checksum matches the</span>
 <span class="sd">        method returns True, or False in case it does not match</span>
@@ -1287,7 +1291,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="Checksum.md5"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.checksum.Checksum.md5">[docs]</a>    <span class="k">def</span> <span class="nf">md5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create md5 checksum</span>
 
 <span class="sd">        :param str filename: filename for checksum</span>
@@ -1306,7 +1310,7 @@
         <span class="k">return</span> <span class="n">md5_checksum</span></div>
 
 <div class="viewcode-block" id="Checksum.sha256"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.checksum.Checksum.sha256">[docs]</a>    <span class="k">def</span> <span class="nf">sha256</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create sha256 checksum</span>
 
 <span class="sd">        :param str filename: filename for checksum</span>
@@ -1321,7 +1325,7 @@
         <span class="k">return</span> <span class="n">sha256_checksum</span></div>
 
     <span class="k">def</span> <span class="nf">_create_checksum_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checksum</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates the text file that contains the checksum</span>
 
 <span class="sd">        :param str checksum: checksum to include into the file</span>
@@ -1360,7 +1364,7 @@
                 <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_calculate_hash_hexdigest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">digest</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">digest_blocks</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the hash hexadecimal digest for a given file.</span>
 
 <span class="sd">        :param func digest: Digest function for hash calculation</span>
@@ -1374,7 +1378,7 @@
         <span class="k">return</span> <span class="n">digest</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_block_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_size</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the number of blocks and the block size for a given file</span>
 <span class="sd">        size in bytes.</span>
 

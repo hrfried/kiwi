@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.package_manager Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.package_manager Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.package_manager Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1230,7 +1234,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Implements base class for Package Management</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>repository</strong> (<em>object</em>) – instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">Repository</span></code></p></li>
 <li><p><strong>root_dir</strong> (<em>str</em>) – root directory path name</p></li>
@@ -1272,10 +1276,10 @@ resulting image such as custom macros</p>
 method will return package manager specific error
 information if there is any</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>further error data as str or empty str</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1288,13 +1292,13 @@ information if there is any</p>
 <p>Any returncode != 0 is considered an error unless
 overwritten in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>returncode</strong> (<em>int</em>) – return code number</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean</p>
 </dd>
 </dl>
@@ -1306,16 +1310,16 @@ overwritten in specialized package manager class</p>
 <dd><p>Match expression to indicate a package has been deleted</p>
 <p>Implementation in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>package_name</strong> (<em>str</em>) – unused</p></li>
 <li><p><strong>package_manager_output</strong> (<em>str</em>) – unused</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -1327,16 +1331,16 @@ overwritten in specialized package manager class</p>
 <dd><p>Match expression to indicate a package has been installed</p>
 <p>Implementation in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>package_name</strong> (<em>str</em>) – unused</p></li>
 <li><p><strong>package_manager_output</strong> (<em>str</em>) – unused</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -1348,7 +1352,7 @@ overwritten in specialized package manager class</p>
 <dd><p>Post initialization method</p>
 <p>Implementation in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>list</em>) – unused</p>
 </dd>
 </dl>
@@ -1374,7 +1378,7 @@ overwritten in specialized package manager class</p>
 <dd><p>Process package delete requests (chroot)</p>
 <p>Implementation in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>force</strong> (<em>bool</em>) – unused</p>
 </dd>
 </dl>
@@ -1414,7 +1418,7 @@ overwritten in specialized package manager class</p>
 <dd><p>Queue a package collection</p>
 <p>Implementation in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – unused</p>
 </dd>
 </dl>
@@ -1426,7 +1430,7 @@ overwritten in specialized package manager class</p>
 <dd><p>Queue a package request</p>
 <p>Implementation in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – unused</p>
 </dd>
 </dl>
@@ -1438,7 +1442,7 @@ overwritten in specialized package manager class</p>
 <dd><p>Queue a package exclusion(skip) request</p>
 <p>Implementation in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – unused</p>
 </dd>
 </dl>
@@ -1455,7 +1459,7 @@ overwritten in specialized package manager class</p>
 <dd><p>Queue a product request</p>
 <p>Implementation in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – unused</p>
 </dd>
 </dl>
@@ -1467,7 +1471,7 @@ overwritten in specialized package manager class</p>
 <dd><p>Setup repository modules and streams</p>
 <p>Implementation in specialized package manager class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>collection_modules</strong> (<em>dict</em>) – unused</p>
 </dd>
 </dl>
@@ -1492,7 +1496,7 @@ overwritten in specialized package manager class</p>
 <p><strong>*Implements base class for installation/deletion of
 packages and collections using dnf*</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dnf_args</strong> (<em>doct</em>) – dnf arguments from repository runtime configuration</p></li>
 <li><p><strong>command_env</strong> (<em>dict</em>) – dnf command environment from repository runtime
@@ -1512,16 +1516,16 @@ resulting image such as custom macros</p>
 <span class="sig-name descname"><span class="pre">match_package_deleted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package_manager_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.match_package_deleted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.match_package_deleted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Match expression to indicate a package has been deleted</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>package_name</strong> (<em>str</em>) – package_name</p></li>
 <li><p><strong>package_manager_output</strong> (<em>str</em>) – dnf status line</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -1536,16 +1540,16 @@ of the dnf command is not 100% accurate. There might
 be false positives due to sub package names starting with
 the same base package name</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>package_name</strong> (<em>str</em>) – package_name</p></li>
 <li><p><strong>package_manager_output</strong> (<em>str</em>) – dnf status line</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -1556,7 +1560,7 @@ the same base package name</p>
 <span class="sig-name descname"><span class="pre">post_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.post_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.post_init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Post initialization method</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>list</em>) – custom dnf arguments</p>
 </dd>
 </dl>
@@ -1568,7 +1572,7 @@ the same base package name</p>
 <dd><p>Move the rpm database to the place as it is expected by the
 rpm package installed during bootstrap phase</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>root_bind</strong> (<em>object</em>) – unused</p>
 </dd>
 </dl>
@@ -1579,17 +1583,17 @@ rpm package installed during bootstrap phase</p>
 <span class="sig-name descname"><span class="pre">process_delete_requests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="kiwi.html#kiwi.command.command_call_type" title="kiwi.command.command_call_type"><span class="pre">command_call_type</span></a></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.process_delete_requests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.process_delete_requests" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process package delete requests (chroot)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>force</strong> (<em>bool</em>) – force deletion: true|false</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiRequestError" title="kiwi.exceptions.KiwiRequestError"><strong>KiwiRequestError</strong></a> – if none of the packages to delete is
 installed.</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>process results in command type</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>namedtuple</p>
 </dd>
 </dl>
@@ -1600,10 +1604,10 @@ installed.</p>
 <span class="sig-name descname"><span class="pre">process_install_requests</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="kiwi.html#kiwi.command.command_call_type" title="kiwi.command.command_call_type"><span class="pre">command_call_type</span></a></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.process_install_requests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.process_install_requests" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process package install requests for image phase (chroot)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>process results in command type</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>namedtuple</p>
 </dd>
 </dl>
@@ -1614,16 +1618,16 @@ installed.</p>
 <span class="sig-name descname"><span class="pre">process_install_requests_bootstrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_bind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="kiwi.system.html#kiwi.system.root_bind.RootBind" title="kiwi.system.root_bind.RootBind"><span class="pre">RootBind</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap_package</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="kiwi.html#kiwi.command.command_call_type" title="kiwi.command.command_call_type"><span class="pre">command_call_type</span></a></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.process_install_requests_bootstrap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.process_install_requests_bootstrap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process package install requests for bootstrap phase (no chroot)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root_bind</strong> (<em>object</em>) – unused</p></li>
 <li><p><strong>bootstrap_package</strong> (<em>str</em>) – unused</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>process results in command type</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>namedtuple</p>
 </dd>
 </dl>
@@ -1646,7 +1650,7 @@ installed.</p>
 <span class="sig-name descname"><span class="pre">request_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.request_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.request_collection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue a collection request</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – dnf group ID name</p>
 </dd>
 </dl>
@@ -1657,7 +1661,7 @@ installed.</p>
 <span class="sig-name descname"><span class="pre">request_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.request_package"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.request_package" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue a package request</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – package name</p>
 </dd>
 </dl>
@@ -1668,7 +1672,7 @@ installed.</p>
 <span class="sig-name descname"><span class="pre">request_package_exclusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.request_package_exclusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.request_package_exclusion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue a package exclusion(skip) request</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – package name</p>
 </dd>
 </dl>
@@ -1680,7 +1684,7 @@ installed.</p>
 <dd><p>Queue a product request</p>
 <p>There is no product definition in the fedora repo data</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – unused</p>
 </dd>
 </dl>
@@ -1691,7 +1695,7 @@ installed.</p>
 <span class="sig-name descname"><span class="pre">setup_repository_modules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_modules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.setup_repository_modules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.setup_repository_modules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup repository modules and streams</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>collection_modules</strong> (<em>dict</em>) – <p>Expect dict of the form:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s1">&#39;enable&#39;</span><span class="p">:</span> <span class="p">[</span>
@@ -1713,10 +1717,10 @@ installed.</p>
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="kiwi.html#kiwi.command.command_call_type" title="kiwi.command.command_call_type"><span class="pre">command_call_type</span></a></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/dnf.html#PackageManagerDnf.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.dnf.PackageManagerDnf.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process package update requests (chroot)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>process results in command type</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>namedtuple</p>
 </dd>
 </dl>
@@ -1733,7 +1737,7 @@ installed.</p>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.package_manager.base.PackageManagerBase" title="kiwi.package_manager.base.PackageManagerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">PackageManagerBase</span></code></a></p>
 <p><strong>Implements Installation/Deletion of packages/collections with zypper</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>zypper_args</strong> (<em>list</em>) – zypper arguments from repository runtime configuration</p></li>
 <li><p><strong>command_env</strong> (<em>dict</em>) – zypper command environment from repository
@@ -1758,13 +1762,13 @@ error we care for. Return codes &gt;= 100 indicates an issue
 like ‘new kernel needs reboot of the system’ or similar which
 we don’t care in the scope of image building</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>returncode</strong> (<em>int</em>) – return code number</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean</p>
 </dd>
 </dl>
@@ -1775,16 +1779,16 @@ we don’t care in the scope of image building</p>
 <span class="sig-name descname"><span class="pre">match_package_deleted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package_manager_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/zypper.html#PackageManagerZypper.match_package_deleted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.zypper.PackageManagerZypper.match_package_deleted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Match expression to indicate a package has been deleted</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>package_name</strong> (<em>str</em>) – package_name</p></li>
 <li><p><strong>package_manager_output</strong> (<em>str</em>) – zypper status line</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -1799,16 +1803,16 @@ of the zypper command is not 100% accurate. There might
 be false positives due to sub package names starting with
 the same base package name</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>package_name</strong> (<em>str</em>) – package_name</p></li>
 <li><p><strong>package_manager_output</strong> (<em>str</em>) – zypper status line</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -1820,7 +1824,7 @@ the same base package name</p>
 <dd><p>Post initialization method</p>
 <p>Store custom zypper arguments</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>list</em>) – custom zypper arguments</p>
 </dd>
 </dl>
@@ -1832,7 +1836,7 @@ the same base package name</p>
 <dd><p>Move the rpm database to the place as it is expected by the
 rpm package installed during bootstrap phase</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>root_bind</strong> (<em>object</em>) – unused</p>
 </dd>
 </dl>
@@ -1843,17 +1847,17 @@ rpm package installed during bootstrap phase</p>
 <span class="sig-name descname"><span class="pre">process_delete_requests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="kiwi.html#kiwi.command.command_call_type" title="kiwi.command.command_call_type"><span class="pre">command_call_type</span></a></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/zypper.html#PackageManagerZypper.process_delete_requests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.zypper.PackageManagerZypper.process_delete_requests" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process package delete requests (chroot)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>force</strong> (<em>bool</em>) – force deletion: true|false</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiRequestError" title="kiwi.exceptions.KiwiRequestError"><strong>KiwiRequestError</strong></a> – if none of the packages to delete is
 installed</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>process results in command type</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>namedtuple</p>
 </dd>
 </dl>
@@ -1864,10 +1868,10 @@ installed</p>
 <span class="sig-name descname"><span class="pre">process_install_requests</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="kiwi.html#kiwi.command.command_call_type" title="kiwi.command.command_call_type"><span class="pre">command_call_type</span></a></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/zypper.html#PackageManagerZypper.process_install_requests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.zypper.PackageManagerZypper.process_install_requests" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process package install requests for image phase (chroot)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>process results in command type</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>namedtuple</p>
 </dd>
 </dl>
@@ -1878,16 +1882,16 @@ installed</p>
 <span class="sig-name descname"><span class="pre">process_install_requests_bootstrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_bind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="kiwi.system.html#kiwi.system.root_bind.RootBind" title="kiwi.system.root_bind.RootBind"><span class="pre">RootBind</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap_package</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="kiwi.html#kiwi.command.command_call_type" title="kiwi.command.command_call_type"><span class="pre">command_call_type</span></a></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/zypper.html#PackageManagerZypper.process_install_requests_bootstrap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.zypper.PackageManagerZypper.process_install_requests_bootstrap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process package install requests for bootstrap phase (no chroot)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root_bind</strong> (<em>object</em>) – unused</p></li>
 <li><p><strong>bootstrap_package</strong> (<em>str</em>) – unused</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>process results in command type</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>namedtuple</p>
 </dd>
 </dl>
@@ -1910,7 +1914,7 @@ installed</p>
 <span class="sig-name descname"><span class="pre">request_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/zypper.html#PackageManagerZypper.request_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.zypper.PackageManagerZypper.request_collection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue a collection request</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – zypper pattern name</p>
 </dd>
 </dl>
@@ -1921,7 +1925,7 @@ installed</p>
 <span class="sig-name descname"><span class="pre">request_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/zypper.html#PackageManagerZypper.request_package"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.zypper.PackageManagerZypper.request_package" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue a package request</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – package name</p>
 </dd>
 </dl>
@@ -1932,7 +1936,7 @@ installed</p>
 <span class="sig-name descname"><span class="pre">request_package_exclusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/zypper.html#PackageManagerZypper.request_package_exclusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.zypper.PackageManagerZypper.request_package_exclusion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue a package exclusion(skip) request</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – package name</p>
 </dd>
 </dl>
@@ -1943,7 +1947,7 @@ installed</p>
 <span class="sig-name descname"><span class="pre">request_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/zypper.html#PackageManagerZypper.request_product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.zypper.PackageManagerZypper.request_product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue a product request</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – zypper product name</p>
 </dd>
 </dl>
@@ -1955,7 +1959,7 @@ installed</p>
 <dd><p>Repository modules not supported for zypper.
 The method does nothing in this scope</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>collection_modules</strong> (<em>dict</em>) – unused</p>
 </dd>
 </dl>
@@ -1966,10 +1970,10 @@ The method does nothing in this scope</p>
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="kiwi.html#kiwi.command.command_call_type" title="kiwi.command.command_call_type"><span class="pre">command_call_type</span></a></span></span><a class="reference internal" href="../_modules/kiwi/package_manager/zypper.html#PackageManagerZypper.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.package_manager.zypper.PackageManagerZypper.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process package update requests (chroot)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>process results in command type</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>namedtuple</p>
 </dd>
 </dl>
@@ -1986,21 +1990,21 @@ The method does nothing in this scope</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Package manager factory</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>repository</strong> (<em>object</em>) – instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">Repository</span></code></p></li>
 <li><p><strong>package_manager</strong> (<em>str</em>) – package manager name</p></li>
 <li><p><strong>custom_args</strong> (<em>list</em>) – custom package manager arguments list</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiPackageManagerSetupError" title="kiwi.exceptions.KiwiPackageManagerSetupError"><strong>KiwiPackageManagerSetupError</strong></a> – if the requested package manager
 type is not supported</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>package manager</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>PackageManagerBase subclass</p>
 </dd>
 </dl>

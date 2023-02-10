@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.runtime_checker &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.runtime_checker &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.runtime_checker</li>
       <li class="wy-breadcrumbs-aside">
@@ -1267,11 +1271,11 @@
 
 
 <div class="viewcode-block" id="RuntimeChecker"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker">[docs]</a><span class="k">class</span> <span class="nc">RuntimeChecker</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements build consistency checks at runtime**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml_state</span><span class="p">:</span> <span class="n">XMLState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The schema of an image description covers structure and syntax of</span>
 <span class="sd">        the provided data. The RuntimeChecker provides methods to perform</span>
 <span class="sd">        further semantic checks which allows to recognize potential build</span>
@@ -1282,7 +1286,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span> <span class="o">=</span> <span class="n">xml_state</span>
 
 <div class="viewcode-block" id="RuntimeChecker.check_repositories_configured"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_repositories_configured">[docs]</a>    <span class="k">def</span> <span class="nf">check_repositories_configured</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Verify that there are repositories configured</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_repository_sections</span><span class="p">():</span>
@@ -1291,14 +1295,14 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_include_references_unresolvable"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_include_references_unresolvable">[docs]</a>    <span class="k">def</span> <span class="nf">check_include_references_unresolvable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Raise for still included &lt;include&gt; statements as not resolvable.</span>
 <span class="sd">        The KIWI XSLT processing replaces the specified include</span>
 <span class="sd">        directive(s) with the given file reference(s). If this action</span>
 <span class="sd">        did not happen for example on nested includes, it can happen</span>
 <span class="sd">        that they stay in the document as sort of waste.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            One ore more &lt;include&gt; statements are unresolvable</span>
 
 <span class="s1">            The following include references could not be resolved.</span>
@@ -1307,7 +1311,7 @@
 <span class="s1">            Please also note, nested includes from other include</span>
 <span class="s1">            files are not supported:</span>
 
-<span class="s1">            </span><span class="si">{0}</span><span class="s1"></span>
+<span class="s1">            </span><span class="si">{0}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
         <span class="n">include_files</span> <span class="o">=</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_include_section_reference_file_names</span><span class="p">()</span>
@@ -1317,13 +1321,13 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_image_include_repos_publicly_resolvable"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_image_include_repos_publicly_resolvable">[docs]</a>    <span class="k">def</span> <span class="nf">check_image_include_repos_publicly_resolvable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Verify that all repos marked with the imageinclude attribute</span>
 <span class="sd">        can be resolved into a http based web URL</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            The use of imageinclude=&quot;true&quot; in the repository definition</span>
-<span class="s1">            for the Repository: </span><span class="si">{0}</span><span class="s1"></span>
+<span class="s1">            for the Repository: </span><span class="si">{0}</span>
 <span class="s1">            requires the repository to by publicly available. The source</span>
 <span class="s1">            locator of the repository however indicates it is private to</span>
 <span class="s1">            your local system. Therefore it can&#39;t be included into the</span>
@@ -1346,7 +1350,7 @@
 
 <div class="viewcode-block" id="RuntimeChecker.check_target_directory_not_in_shared_cache"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_target_directory_not_in_shared_cache">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">check_target_directory_not_in_shared_cache</span><span class="p">(</span><span class="n">target_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The target directory must be outside of the kiwi shared cache</span>
 <span class="sd">        directory in order to avoid busy mounts because kiwi bind mounts</span>
 <span class="sd">        the cache directory into the image root tree to access host</span>
@@ -1354,7 +1358,7 @@
 
 <span class="sd">        :param string target_dir: path name</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Target directory </span><span class="si">%s</span><span class="s1"> conflicts with kiwi&#39;s shared cache</span>
 <span class="s1">            directory </span><span class="si">%s</span><span class="s1">. This is going to create a busy loop mount.</span>
 <span class="s1">            Please choose another target directory.</span>
@@ -1371,14 +1375,14 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_volume_label_used_with_lvm"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_volume_label_used_with_lvm">[docs]</a>    <span class="k">def</span> <span class="nf">check_volume_label_used_with_lvm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The optional volume label in a systemdisk setup is only</span>
 <span class="sd">        effective if the LVM, logical volume manager system is</span>
 <span class="sd">        used. In any other case where the filesystem itself offers</span>
 <span class="sd">        volume management capabilities there are no extra filesystem</span>
 <span class="sd">        labels which can be applied per volume</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Custom volume label setup used without LVM</span>
 
 <span class="s1">            The optional volume label in a systemdisk setup is only</span>
@@ -1404,7 +1408,7 @@
                     <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_partuuid_persistency_type_used_with_mbr"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_partuuid_persistency_type_used_with_mbr">[docs]</a>    <span class="k">def</span> <span class="nf">check_partuuid_persistency_type_used_with_mbr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The devicepersistency setting by-partuuid can only be</span>
 <span class="sd">        used in combination with a partition table type that</span>
 <span class="sd">        supports UUIDs. In any other case Linux creates artificial</span>
@@ -1414,7 +1418,7 @@
 <span class="sd">        of by-partuuid in combination with partition tables that</span>
 <span class="sd">        actually supports it properly.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            devicepersistency=</span><span class="si">{0!r}</span><span class="s1"> used with non UUID capable partition table</span>
 
 <span class="s1">            PTUUID and PARTUUID exists in the GUID (GPT) partition table.</span>
@@ -1445,13 +1449,13 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_swap_name_used_with_lvm"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_swap_name_used_with_lvm">[docs]</a>    <span class="k">def</span> <span class="nf">check_swap_name_used_with_lvm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The optional oem-swapname is only effective if used together</span>
 <span class="sd">        with the LVM volume manager. A name for the swap space can</span>
 <span class="sd">        only be set if it is created as a LVM volume. In any other</span>
 <span class="sd">        case the name does not apply to the system</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">             Specified swap space name: </span><span class="si">{0}</span><span class="s1"> will not be used</span>
 
 <span class="s1">             The specified oem-swapname is used without the LVM volume</span>
@@ -1475,7 +1479,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_volume_setup_defines_reserved_labels"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_volume_setup_defines_reserved_labels">[docs]</a>    <span class="k">def</span> <span class="nf">check_volume_setup_defines_reserved_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Reserved label name used in LVM volume setup</span>
 
 <span class="s1">            The label setup for volume </span><span class="si">{0}</span><span class="s1"> uses the reserved label </span><span class="si">{1}</span><span class="s1">.</span>
@@ -1502,12 +1506,12 @@
                         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_volume_setup_defines_multiple_fullsize_volumes"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_volume_setup_defines_multiple_fullsize_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">check_volume_setup_defines_multiple_fullsize_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The volume size specification &#39;all&#39; makes this volume to</span>
 <span class="sd">        take the rest space available on the system. It&#39;s only</span>
 <span class="sd">        allowed to specify one all size volume</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Multiple all size volumes found but only one is allowed</span>
 
 <span class="s1">            The volume size specification &#39;all&#39; makes this volume to</span>
@@ -1526,7 +1530,7 @@
                 <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_volume_setup_has_no_root_definition"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_volume_setup_has_no_root_definition">[docs]</a>    <span class="k">def</span> <span class="nf">check_volume_setup_has_no_root_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The root volume in a systemdisk setup is handled in a special</span>
 <span class="sd">        way. It is not allowed to setup a custom name or mountpoint for</span>
 <span class="sd">        the root volume. Therefore the size of the root volume can be</span>
@@ -1534,7 +1538,7 @@
 <span class="sd">        setup and searches if there is a configuration for the &#39;/&#39;</span>
 <span class="sd">        mountpoint which would cause the image build to fail</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Volume setup for &quot;/&quot; found. The size of the root volume</span>
 <span class="s1">            must be specified via the @root volume name like the</span>
 <span class="s1">            following example shows:</span>
@@ -1549,13 +1553,13 @@
                 <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_container_tool_chain_installed"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_container_tool_chain_installed">[docs]</a>    <span class="k">def</span> <span class="nf">check_container_tool_chain_installed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        When creating container images the specific tools are used in order</span>
 <span class="sd">        to import and export OCI or Docker compatible images. This check</span>
 <span class="sd">        searches for those tools to be installed in the build system and</span>
 <span class="sd">        fails if it can&#39;t find them</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message_tool_not_found</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message_tool_not_found</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required tool </span><span class="si">{name}</span><span class="s1"> not found in caller environment</span>
 
 <span class="s1">            Creation of OCI or Docker images requires the tools </span><span class="si">{name}</span><span class="s1"> and</span>
@@ -1564,10 +1568,10 @@
 
 <span class="s1">            http://download.opensuse.org/repositories/Virtualization:/containers</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
-        <span class="n">message_version_unsupported</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message_version_unsupported</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            </span><span class="si">{name}</span><span class="s1"> tool found with unknown version</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
-        <span class="n">message_unknown_tool</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message_unknown_tool</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Unknown tool: </span><span class="si">{0}</span><span class="s1">.</span>
 
 <span class="s1">            Please configure KIWI with an appropriate value (umoci or buildah).</span>
@@ -1602,11 +1606,11 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_multitag_support</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">_check_multitag_support</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Using additionaltags attribute requires skopeo tool to be</span>
 <span class="s1">            capable to handle it, it must include the &#39;--additional-tag&#39;</span>
 <span class="s1">            option for copy subcommand (check it running &#39;skopeo copy</span>
-<span class="s1">            --help&#39;).</span><span class="se">\n</span><span class="s1"></span>
+<span class="s1">            --help&#39;).</span><span class="se">\n</span>
 <span class="s1">            It is known to be present since v0.1.30</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="s1">&#39;additional_names&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_container_config</span><span class="p">():</span>
@@ -1617,14 +1621,14 @@
                 <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
 <div class="viewcode-block" id="RuntimeChecker.check_luksformat_options_valid"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_luksformat_options_valid">[docs]</a>    <span class="k">def</span> <span class="nf">check_luksformat_options_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Options set via the luksformat element are passed along</span>
 <span class="sd">        to the cryptsetup tool. Only options that are known to</span>
 <span class="sd">        the tool should be allowed. Thus this runtime check looks</span>
 <span class="sd">        up the provided option names if they exist in the cryptsetup</span>
 <span class="sd">        version used on the build host</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Option </span><span class="si">{0!r}</span><span class="s1"> not found in cryptsetup</span>
 
 <span class="s1">            The Option </span><span class="si">{0!r}</span><span class="s1"> could not be found in the help output</span>
@@ -1641,21 +1645,21 @@
                     <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">argument</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_appx_naming_conventions_valid"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_appx_naming_conventions_valid">[docs]</a>    <span class="k">def</span> <span class="nf">check_appx_naming_conventions_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        When building wsl images there are some naming conventions that</span>
 <span class="sd">        must be fulfilled to run the container on Microsoft Windows</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">launcher_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;[^</span><span class="se">\\</span><span class="s1">]+(\.[Ee][Xx][Ee])$&#39;</span>
-        <span class="n">message_container_launcher_invalid</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
-<span class="s1">            Invalid WSL launcher name: </span><span class="si">{0}</span><span class="s1"></span>
+        <span class="n">message_container_launcher_invalid</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
+<span class="s1">            Invalid WSL launcher name: </span><span class="si">{0}</span>
 
-<span class="s1">            WSL launcher name must match the pattern: </span><span class="si">{1}</span><span class="s1"></span>
+<span class="s1">            WSL launcher name must match the pattern: </span><span class="si">{1}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
         <span class="n">id_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;^[a-zA-Z0-9]+$&#39;</span>
-        <span class="n">message_container_id_invalid</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
-<span class="s1">            Invalid WSL container application id: </span><span class="si">{0}</span><span class="s1"></span>
+        <span class="n">message_container_id_invalid</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
+<span class="s1">            Invalid WSL container application id: </span><span class="si">{0}</span>
 
-<span class="s1">            WSL container id must match the pattern: </span><span class="si">{1}</span><span class="s1"></span>
+<span class="s1">            WSL container id must match the pattern: </span><span class="si">{1}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
         <span class="n">build_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_name</span><span class="p">()</span>
         <span class="n">container_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_container_config</span><span class="p">()</span>
@@ -1677,14 +1681,14 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_initrd_selection_required"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_initrd_selection_required">[docs]</a>    <span class="k">def</span> <span class="nf">check_initrd_selection_required</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        If the boot attribute is used without selecting kiwi</span>
 <span class="sd">        as the initrd_system, the setting of the boot attribute</span>
 <span class="sd">        will not have any effect. We assume that configurations</span>
 <span class="sd">        which explicitly specify the boot attribute wants to use</span>
 <span class="sd">        the custom kiwi initrd system and not dracut.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message_kiwi_initrd_system_not_selected</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message_kiwi_initrd_system_not_selected</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Missing initrd_system selection for boot attribute</span>
 
 <span class="s1">            The selected boot=&quot;&#39;</span><span class="si">{0}</span><span class="s1">&#39;&quot; boot description indicates</span>
@@ -1708,11 +1712,11 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_boot_description_exists"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_boot_description_exists">[docs]</a>    <span class="k">def</span> <span class="nf">check_boot_description_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        If a kiwi initrd is used, a lookup to the specified boot</span>
 <span class="sd">        description is done and fails early if it does not exist</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message_no_boot_reference</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message_no_boot_reference</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Boot description missing for &#39;</span><span class="si">{0}</span><span class="s1">&#39; type</span>
 
 <span class="s1">            The selected &#39;</span><span class="si">{1}</span><span class="s1">&#39; initrd_system requires a boot description</span>
@@ -1723,7 +1727,7 @@
 <span class="s1">            A collection of custom boot descriptions can be found</span>
 <span class="s1">            in the kiwi-boot-descriptions package</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
-        <span class="n">message_boot_description_not_found</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message_boot_description_not_found</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Boot description &#39;</span><span class="si">{0}</span><span class="s1">&#39; not found</span>
 
 <span class="s1">            The selected boot description could not be found on</span>
@@ -1757,12 +1761,12 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_consistent_kernel_in_boot_and_system_image"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_consistent_kernel_in_boot_and_system_image">[docs]</a>    <span class="k">def</span> <span class="nf">check_consistent_kernel_in_boot_and_system_image</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        If a kiwi initrd is used, the kernel used to build the kiwi</span>
 <span class="sd">        initrd and the kernel used in the system image must be the</span>
 <span class="sd">        same in order to avoid an inconsistent boot setup</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Possible kernel mismatch between kiwi initrd and system image</span>
 
 <span class="s1">            The selected &#39;</span><span class="si">{0}</span><span class="s1">&#39; boot image kernel is &#39;</span><span class="si">{1}</span><span class="s1">&#39;. However this</span>
@@ -1838,12 +1842,12 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_syslinux_installed_if_isolinux_is_used"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_syslinux_installed_if_isolinux_is_used">[docs]</a>    <span class="k">def</span> <span class="nf">check_syslinux_installed_if_isolinux_is_used</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        ISO images that are configured to use isolinux</span>
 <span class="sd">        requires the host to provide a set of syslinux</span>
 <span class="sd">        binaries.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required syslinux module(s) not found</span>
 
 <span class="s1">            The ISO image build for this image setup uses isolinux</span>
@@ -1874,7 +1878,7 @@
 <div class="viewcode-block" id="RuntimeChecker.check_dracut_module_versions_compatible_to_kiwi"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_dracut_module_versions_compatible_to_kiwi">[docs]</a>    <span class="k">def</span> <span class="nf">check_dracut_module_versions_compatible_to_kiwi</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">root_dir</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        KIWI images which makes use of kiwi dracut modules</span>
 <span class="sd">        has to use module versions compatible with the version</span>
 <span class="sd">        of this KIWI builder code base. This is important to avoid</span>
@@ -1884,7 +1888,7 @@
 <span class="sd">        Therefore this runtime check maintains a min_version constraint</span>
 <span class="sd">        for which we know this KIWI builder to be compatible with.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Incompatible dracut-kiwi module(s) found</span>
 
 <span class="s1">            The image was build with KIWI version=</span><span class="si">{0}</span><span class="s1">. The system</span>
@@ -1893,7 +1897,7 @@
 <span class="s1">            Please make sure to use dracut-kiwi-* module packages</span>
 <span class="s1">            which are &gt;= than the versions listed below.</span>
 
-<span class="s1">            </span><span class="si">{1}</span><span class="s1"></span>
+<span class="s1">            </span><span class="si">{1}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
         <span class="n">kiwi_dracut_modules</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;90kiwi-dump&#39;</span><span class="p">:</span> <span class="n">dracut_module_type</span><span class="p">(</span>
@@ -1949,7 +1953,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_dracut_module_for_oem_install_in_package_list"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_dracut_module_for_oem_install_in_package_list">[docs]</a>    <span class="k">def</span> <span class="nf">check_dracut_module_for_oem_install_in_package_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        OEM images if configured to use dracut as initrd system</span>
 <span class="sd">        and configured with one of the installiso, installstick</span>
 <span class="sd">        or installpxe attributes requires the KIWI provided</span>
@@ -1958,7 +1962,7 @@
 <span class="sd">        required package is part of the package list in the</span>
 <span class="sd">        image description.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required dracut module package missing in package list</span>
 
 <span class="s1">            The package &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required to build an installation</span>
@@ -1985,7 +1989,7 @@
                     <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_architecture_supports_iso_firmware_setup"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_architecture_supports_iso_firmware_setup">[docs]</a>    <span class="k">def</span> <span class="nf">check_architecture_supports_iso_firmware_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        For creating ISO images a different bootloader setup is</span>
 <span class="sd">        performed depending on the configured firmware. If the</span>
 <span class="sd">        firmware is set to bios, isolinux is used and that limits</span>
@@ -1994,7 +1998,7 @@
 <span class="sd">        host architecture is supported with the configured firmware</span>
 <span class="sd">        on request of an ISO image.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Unsupported firmware setup: </span><span class="si">{0}</span><span class="s1"> on </span><span class="si">{1}</span><span class="s1"> architecture</span>
 
 <span class="s1">            The selected firmware limits the creation of images to</span>
@@ -2023,14 +2027,14 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_dracut_module_for_disk_oem_in_package_list"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_dracut_module_for_disk_oem_in_package_list">[docs]</a>    <span class="k">def</span> <span class="nf">check_dracut_module_for_disk_oem_in_package_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        OEM images if configured to use dracut as initrd system</span>
 <span class="sd">        requires the KIWI provided dracut-kiwi-oem-repart module</span>
 <span class="sd">        to be installed at the time dracut is called. Thus this</span>
 <span class="sd">        runtime check examines if the required package is part of</span>
 <span class="sd">        the package list in the image description.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required dracut module package missing in package list</span>
 
 <span class="s1">            The package &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required for the selected</span>
@@ -2055,14 +2059,14 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_dracut_module_for_live_iso_in_package_list"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_dracut_module_for_live_iso_in_package_list">[docs]</a>    <span class="k">def</span> <span class="nf">check_dracut_module_for_live_iso_in_package_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Live ISO images uses a dracut initrd to boot and requires</span>
 <span class="sd">        the KIWI provided kiwi-live dracut module to be installed</span>
 <span class="sd">        at the time dracut is called. Thus this runtime check</span>
 <span class="sd">        examines if the required package is part of the package</span>
 <span class="sd">        list in the image description.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required dracut module package missing in package list</span>
 
 <span class="s1">            The package &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required for the selected</span>
@@ -2085,14 +2089,14 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_dracut_module_for_disk_overlay_in_package_list"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_dracut_module_for_disk_overlay_in_package_list">[docs]</a>    <span class="k">def</span> <span class="nf">check_dracut_module_for_disk_overlay_in_package_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Disk images configured to use a root filesystem overlay</span>
 <span class="sd">        requires the KIWI provided kiwi-overlay dracut module to</span>
 <span class="sd">        be installed at the time dracut is called. Thus this</span>
 <span class="sd">        runtime check examines if the required package is part of</span>
 <span class="sd">        the package list in the image description.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required dracut module package missing in package list</span>
 
 <span class="s1">            The package &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required for the selected</span>
@@ -2115,7 +2119,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_efi_mode_for_disk_overlay_correctly_setup"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_efi_mode_for_disk_overlay_correctly_setup">[docs]</a>    <span class="k">def</span> <span class="nf">check_efi_mode_for_disk_overlay_correctly_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Disk images configured to use a root filesystem overlay</span>
 <span class="sd">        only supports the standard EFI mode and not secure boot.</span>
 <span class="sd">        That&#39;s because the shim setup performs changes to the</span>
@@ -2123,7 +2127,7 @@
 <span class="sd">        bootloader setup at build time because at that point</span>
 <span class="sd">        the root filesystem is a read-only squashfs source.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Secure Boot not supported with overlay disk image</span>
 
 <span class="s1">            Disk images configured to use a root filesystem overlay</span>
@@ -2144,13 +2148,13 @@
             <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_xen_uniquely_setup_as_server_or_guest"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_xen_uniquely_setup_as_server_or_guest">[docs]</a>    <span class="k">def</span> <span class="nf">check_xen_uniquely_setup_as_server_or_guest</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        If the image is classified to be used as Xen image, it can</span>
 <span class="sd">        be either a Xen Server(dom0) or a Xen guest. The image</span>
 <span class="sd">        configuration is checked if the information uniquely identifies</span>
 <span class="sd">        the image as such</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">xen_message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">xen_message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Inconsistent Xen setup found:</span>
 
 <span class="s1">            The use of the &#39;xen_server&#39; or &#39;xen_loader&#39; attributes indicates</span>
@@ -2162,7 +2166,7 @@
 <span class="s1">            Please cleanup your image description. Setup only one</span>
 <span class="s1">            of &#39;xen_server&#39; or &#39;xen_loader&#39;.</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
-        <span class="n">ec2_message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">ec2_message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Inconsistent Amazon EC2 setup found:</span>
 
 <span class="s1">            The firmware setup indicates the target system for this image</span>
@@ -2182,12 +2186,12 @@
                 <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span><span class="n">xen_message</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_mediacheck_installed"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_mediacheck_installed">[docs]</a>    <span class="k">def</span> <span class="nf">check_mediacheck_installed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        If the image description enables the mediacheck attribute</span>
 <span class="sd">        the required tools to run this check must be installed</span>
 <span class="sd">        on the image build host</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message_tool_not_found</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message_tool_not_found</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required tool </span><span class="si">{name}</span><span class="s1"> not found in caller environment</span>
 
 <span class="s1">            The attribute &#39;mediacheck&#39; is set to &#39;true&#39; which requires</span>
@@ -2201,11 +2205,11 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_image_version_provided"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_image_version_provided">[docs]</a>    <span class="k">def</span> <span class="nf">check_image_version_provided</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Kiwi requires a &lt;version&gt; element to be specified as part</span>
 <span class="sd">        of at least one &lt;preferences&gt; section.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message_missing_version</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message_missing_version</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            No version is defined in any of the &lt;preferences&gt;</span>
 <span class="s1">            sections. Please add</span>
 
@@ -2218,17 +2222,17 @@
             <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span><span class="n">message_missing_version</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeChecker.check_image_type_unique"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_checker.RuntimeChecker.check_image_type_unique">[docs]</a>    <span class="k">def</span> <span class="nf">check_image_type_unique</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Verify that the selected image type is unique within</span>
 <span class="sd">        the range of the configured types and profiles.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Conflicting image type setup detected</span>
 
 <span class="s1">            The selected image type &#39;</span><span class="si">{0}</span><span class="s1">&#39; in the </span><span class="si">{1}</span><span class="s1"> profile</span>
 <span class="s1">            selection is not unique. There are the followng type</span>
 <span class="s1">            settings which overrides each other:</span>
-<span class="s1">            </span><span class="si">{2}</span><span class="s1"></span>
+<span class="s1">            </span><span class="si">{2}</span>
 <span class="s1">            To solve this conflict please move the image type</span>
 <span class="s1">            setup into its own profile and select them using</span>
 <span class="s1">            the --profile option at call time.</span>

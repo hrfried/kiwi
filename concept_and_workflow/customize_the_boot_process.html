@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customizing the Boot Process &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Customizing the Boot Process &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../concept_and_workflow.html">Concept and Workflow</a></li>
       <li class="breadcrumb-item active">Customizing the Boot Process</li>
       <li class="wy-breadcrumbs-aside">
@@ -1295,19 +1299,19 @@ overlay directory in your image description</p>
 right before the system rootfs gets mounted.</p>
 <ol class="arabic">
 <li><p>Create a subdirectory for the dracut module:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir -p root/usr/lib/dracut/modules.d/90my-module
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>root/usr/lib/dracut/modules.d/90my-module
 </pre></div>
 </div>
 </li>
 <li><p>Register the dracut module in a configuration file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vi root/etc/dracut.conf.d/90-my-module.conf
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>vi<span class="w"> </span>root/etc/dracut.conf.d/90-my-module.conf
 
 <span class="nv">add_dracutmodules</span><span class="o">+=</span><span class="s2">&quot; my-module &quot;</span>
 </pre></div>
 </div>
 </li>
 <li><p>Create the hook script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ touch root/usr/lib/dracut/modules.d/90my-module/my-script.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>touch<span class="w"> </span>root/usr/lib/dracut/modules.d/90my-module/my-script.sh
 </pre></div>
 </div>
 </li>
@@ -1315,27 +1319,27 @@ right before the system rootfs gets mounted.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># called by dracut</span>
-check<span class="o">()</span> <span class="o">{</span>
-    <span class="c1"># check module integrity</span>
+check<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># check module integrity</span>
 <span class="o">}</span>
 
 <span class="c1"># called by dracut</span>
-depends<span class="o">()</span> <span class="o">{</span>
-    <span class="c1"># return list of modules depending on this one</span>
+depends<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># return list of modules depending on this one</span>
 <span class="o">}</span>
 
 <span class="c1"># called by dracut</span>
-installkernel<span class="o">()</span> <span class="o">{</span>
-    <span class="c1"># load required kernel modules when needed</span>
-    instmods _kernel_module_list_
+installkernel<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># load required kernel modules when needed</span>
+<span class="w">    </span>instmods<span class="w"> </span>_kernel_module_list_
 <span class="o">}</span>
 
 <span class="c1"># called by dracut</span>
-install<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">declare</span> <span class="nv">moddir</span><span class="o">=</span><span class="si">${</span><span class="nv">moddir</span><span class="si">}</span>
-    inst_multiple _tools_my_module_script_needs_
+install<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">declare</span><span class="w"> </span><span class="nv">moddir</span><span class="o">=</span><span class="si">${</span><span class="nv">moddir</span><span class="si">}</span>
+<span class="w">    </span>inst_multiple<span class="w"> </span>_tools_my_module_script_needs_
 
-    inst_hook pre-mount <span class="m">30</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">moddir</span><span class="si">}</span><span class="s2">/my-script.sh&quot;</span>
+<span class="w">    </span>inst_hook<span class="w"> </span>pre-mount<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">moddir</span><span class="si">}</span><span class="s2">/my-script.sh&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -1435,14 +1439,14 @@ image file which holds the OS root. Defaults to <code class="xref py py-obj docu
 stop the boot process without any possibility to interact with the system.
 Prevent this behavior by activating dracut’s builtin debug mode in combination
 with the kiwi debug mode as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rd.debug rd.kiwi.debug
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rd.debug<span class="w"> </span>rd.kiwi.debug
 </pre></div>
 </div>
 <p>This should be set at the Kernel command line. With those parameters activated,
 the system will enter a limited shell environment in case of a fatal error
 during boot. The shell contains a basic set of commands and allows for a closer
 look to:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>less /run/initramfs/log/boot.kiwi
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>less<span class="w"> </span>/run/initramfs/log/boot.kiwi
 </pre></div>
 </div>
 </section>

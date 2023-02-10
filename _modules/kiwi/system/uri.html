@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.uri &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.system.uri &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.system.uri</li>
       <li class="wy-breadcrumbs-aside">
@@ -1258,13 +1262,13 @@
 
 
 <div class="viewcode-block" id="Uri"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.uri.Uri">[docs]</a><span class="k">class</span> <span class="nc">Uri</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Normalize and manage URI types**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">repo_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;rpm-md&#39;</span><span class="p">,</span> <span class="n">source_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Manage kiwi source URIs and allow transformation into</span>
 <span class="sd">        standard URLs</span>
 
@@ -1318,7 +1322,7 @@
         <span class="p">}</span>
 
 <div class="viewcode-block" id="Uri.translate"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.uri.Uri.translate">[docs]</a>    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check_build_environment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Translate repository location according to their URI type</span>
 
 <span class="sd">        Depending on the URI type the provided location needs to</span>
@@ -1392,7 +1396,7 @@
             <span class="k">return</span> <span class="n">location</span></div>
 
 <div class="viewcode-block" id="Uri.credentials_file_name"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.uri.Uri.credentials_file_name">[docs]</a>    <span class="k">def</span> <span class="nf">credentials_file_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Filename to store repository credentials</span>
 
 <span class="sd">        :return: credentials file name</span>
@@ -1411,7 +1415,7 @@
         <span class="k">return</span> <span class="n">query</span><span class="p">[</span><span class="s1">&#39;credentials&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Uri.alias"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.uri.Uri.alias">[docs]</a>    <span class="k">def</span> <span class="nf">alias</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create hexdigest from URI as alias</span>
 
 <span class="sd">        If the repository definition from the XML description does</span>
@@ -1426,7 +1430,7 @@
         <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Uri.is_remote"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.uri.Uri.is_remote">[docs]</a>    <span class="k">def</span> <span class="nf">is_remote</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if URI is a remote or local location</span>
 
 <span class="sd">        :return: True|False</span>
@@ -1450,7 +1454,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Uri.is_public"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.uri.Uri.is_public">[docs]</a>    <span class="k">def</span> <span class="nf">is_public</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if URI is considered to be publicly reachable</span>
 
 <span class="sd">        :return: True|False</span>
@@ -1472,7 +1476,7 @@
             <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="Uri.get_fragment"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.uri.Uri.get_fragment">[docs]</a>    <span class="k">def</span> <span class="nf">get_fragment</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the fragment part of the URI.</span>
 
 <span class="sd">        :return: fragment part of the URI if any, empty string otherwise</span>
@@ -1522,7 +1526,7 @@
     <span class="k">def</span> <span class="nf">_buildservice_path</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">urischeme</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fragment</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Special to openSUSE buildservice. If the buildservice builds</span>
 <span class="sd">        the image it arranges the repos for each build in a special</span>
 <span class="sd">        environment, the so called build worker.</span>

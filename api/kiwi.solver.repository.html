@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.solver.repository Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.solver.repository Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.solver.repository Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1230,7 +1234,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Base class interface for SAT solvable creation.</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>uri</strong> (<em>object</em>) – Instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">Uri</span></code></p></li>
 <li><p><strong>user</strong> (<em>string</em>) – User name for uri authentication</p></li>
@@ -1245,13 +1249,13 @@
 created intermediate solvables by merge and store the
 result solvable in the specified target_dir</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>target_dir</strong> (<em>str</em>) – path name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>file path to solvable</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1266,13 +1270,13 @@ it as target file</p>
 location and will be part of a mime type source like:
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">file://repo_path/repo_source</span></code></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>repo_source</strong> (<em>str</em>) – source file in the repo</p></li>
 <li><p><strong>target</strong> (<em>str</em>) – file path</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiUriOpenError" title="kiwi.exceptions.KiwiUriOpenError"><strong>KiwiUriOpenError</strong></a> – if the download fails</p>
 </dd>
 </dl>
@@ -1288,10 +1292,10 @@ location and will be part of a mime type source like:
 <span class="sig-name descname"><span class="pre">is_uptodate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/var/tmp/kiwi/satsolver'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/solver/repository/base.html#SolverRepositoryBase.is_uptodate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.solver.repository.base.SolverRepositoryBase.is_uptodate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if repository metadata is up to date</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1307,7 +1311,7 @@ in the specialized Solver Repository classes. If no such
 implementation exists the method returns the value ‘static’
 to indicate there is no timestamp information available.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1325,10 +1329,10 @@ to indicate there is no timestamp information available.</p>
 <span class="sig-name descname"><span class="pre">timestamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/solver/repository/rpm_md.html#SolverRepositoryRpmMd.timestamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.solver.repository.rpm_md.SolverRepositoryRpmMd.timestamp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get timestamp from the first primary metadata</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>time value as text</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1360,7 +1364,7 @@ to indicate there is no timestamp information available.</p>
 <p><strong>Repository factory for creation of SAT solvables</strong></p>
 <ul class="simple">
 <li><dl class="field-list simple">
-<dt class="field-odd">param object uri</dt>
+<dt class="field-odd">param object uri<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">Uri</span></code></p>
 </dd>
 </dl>

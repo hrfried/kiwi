@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deploy and Run System in a RamDisk &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Deploy and Run System in a RamDisk &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Deploy and Run System in a RamDisk</li>
       <li class="wy-breadcrumbs-aside">
@@ -1234,16 +1238,16 @@ the image into a ramdisk serves this purpose. KIWI NG allows
 to create a bootable ISO image which deploys the image
 into a ramdisk and activates that image with the following
 oem type definition:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span> <span class="na">installiso=</span><span class="s">&quot;true&quot;</span> <span class="na">initrd_system=</span><span class="s">&quot;dracut&quot;</span> <span class="na">installboot=</span><span class="s">&quot;install&quot;</span> <span class="na">kernelcmdline=</span><span class="s">&quot;rd.kiwi.ramdisk ramdisk_size=2048000&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;bootloader</span> <span class="na">name=</span><span class="s">&quot;grub2&quot;</span> <span class="na">timeout=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;oemconfig&gt;</span>
-        <span class="nt">&lt;oem-skip-verify&gt;</span>true<span class="nt">&lt;/oem-skip-verify&gt;</span>
-        <span class="nt">&lt;oem-unattended&gt;</span>true<span class="nt">&lt;/oem-unattended&gt;</span>
-        <span class="nt">&lt;oem-unattended-id&gt;</span>/dev/ram1<span class="nt">&lt;/oem-unattended-id&gt;</span>
-        <span class="nt">&lt;oem-swap&gt;</span>false<span class="nt">&lt;/oem-swap&gt;</span>
-        <span class="nt">&lt;oem-multipath-scan&gt;</span>false<span class="nt">&lt;/oem-multipath-scan&gt;</span>
-     <span class="nt">&lt;/oemconfig&gt;</span>
- <span class="nt">&lt;/type&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span><span class="w"> </span><span class="na">installiso=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">initrd_system=</span><span class="s">&quot;dracut&quot;</span><span class="w"> </span><span class="na">installboot=</span><span class="s">&quot;install&quot;</span><span class="w"> </span><span class="na">kernelcmdline=</span><span class="s">&quot;rd.kiwi.ramdisk ramdisk_size=2048000&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;bootloader</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;oemconfig&gt;</span>
+<span class="w">        </span><span class="nt">&lt;oem-skip-verify&gt;</span>true<span class="nt">&lt;/oem-skip-verify&gt;</span>
+<span class="w">        </span><span class="nt">&lt;oem-unattended&gt;</span>true<span class="nt">&lt;/oem-unattended&gt;</span>
+<span class="w">        </span><span class="nt">&lt;oem-unattended-id&gt;</span>/dev/ram1<span class="nt">&lt;/oem-unattended-id&gt;</span>
+<span class="w">        </span><span class="nt">&lt;oem-swap&gt;</span>false<span class="nt">&lt;/oem-swap&gt;</span>
+<span class="w">        </span><span class="nt">&lt;oem-multipath-scan&gt;</span>false<span class="nt">&lt;/oem-multipath-scan&gt;</span>
+<span class="w">     </span><span class="nt">&lt;/oemconfig&gt;</span>
+<span class="w"> </span><span class="nt">&lt;/type&gt;</span>
 </pre></div>
 </div>
 <p>The type specification above builds an installation ISO image
@@ -1262,9 +1266,9 @@ the kernelcmdline attribute:</p>
 </ul>
 <p>An image built with the above setup can be tested in QEMU as
 follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo qemu -cdrom <span class="se">\</span>
-      <span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3.install.iso <span class="se">\</span>
-      -serial stdio
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>qemu<span class="w"> </span>-cdrom<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span><span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3.install.iso<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-serial<span class="w"> </span>stdio
 </pre></div>
 </div>
 <div class="admonition note">

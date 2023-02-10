@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.xml_state &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.xml_state &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.xml_state</li>
       <li class="wy-breadcrumbs-aside">
@@ -1295,7 +1299,7 @@
 
 
 <div class="viewcode-block" id="XMLState"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState">[docs]</a><span class="k">class</span> <span class="nc">XMLState</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements methods to get stateful information from the XML data**</span>
 
 <span class="sd">    :param object xml_data: parse result from XMLDescription.load()</span>
@@ -1317,7 +1321,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">resolve_this_path</span><span class="p">()</span>
 
 <div class="viewcode-block" id="XMLState.get_preferences_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_preferences_sections">[docs]</a>    <span class="k">def</span> <span class="nf">get_preferences_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        All preferences sections for the selected profiles that match the</span>
 <span class="sd">        host architecture</span>
 
@@ -1332,7 +1336,7 @@
         <span class="k">return</span> <span class="n">preferences_list</span></div>
 
 <div class="viewcode-block" id="XMLState.get_description_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_description_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_description_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">description_type</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The description section</span>
 
 <span class="sd">        :return:</span>
@@ -1349,7 +1353,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_users_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_users_sections">[docs]</a>    <span class="k">def</span> <span class="nf">get_users_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        All users sections for the selected profiles</span>
 
 <span class="sd">        :return: list of &lt;users&gt; section reference(s)</span>
@@ -1361,7 +1365,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_bundle_format"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bundle_format">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bundle_format</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return bundle_format for build type</span>
 
 <span class="sd">        The bundle_format string is validated against the available</span>
@@ -1374,7 +1378,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_bundle_format</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_name"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Default build type name</span>
 
 <span class="sd">        :return: Content of image attribute from build type</span>
@@ -1384,7 +1388,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_image</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="XMLState.get_image_version"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_image_version">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_version</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Image version from preferences section.</span>
 
 <span class="sd">        Multiple occurences of version in preferences sections are not</span>
@@ -1402,7 +1406,7 @@
         <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
 <div class="viewcode-block" id="XMLState.get_initrd_system"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_initrd_system">[docs]</a>    <span class="k">def</span> <span class="nf">get_initrd_system</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Name of initrd system to use</span>
 
 <span class="sd">        Depending on the image type a specific initrd system is</span>
@@ -1431,7 +1435,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_initrd_system</span><span class="p">()</span> <span class="ow">or</span> <span class="n">default_initrd_system</span></div>
 
 <div class="viewcode-block" id="XMLState.get_locale"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_locale">[docs]</a>    <span class="k">def</span> <span class="nf">get_locale</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets list of locale names if configured. Takes</span>
 <span class="sd">        the first locale setup from the existing preferences</span>
 <span class="sd">        sections into account.</span>
@@ -1447,7 +1451,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_rpm_locale"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_rpm_locale">[docs]</a>    <span class="k">def</span> <span class="nf">get_rpm_locale</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets list of locale names to filter out by rpm</span>
 <span class="sd">        if rpm-locale-filtering is switched on the</span>
 <span class="sd">        the list always contains: [POSIX, C, C.UTF-8]</span>
@@ -1468,7 +1472,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_rpm_locale_filtering"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_rpm_locale_filtering">[docs]</a>    <span class="k">def</span> <span class="nf">get_rpm_locale_filtering</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the rpm-locale-filtering configuration flag. Returns</span>
 <span class="sd">        False if not present.</span>
 
@@ -1483,7 +1487,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="XMLState.get_rpm_excludedocs"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_rpm_excludedocs">[docs]</a>    <span class="k">def</span> <span class="nf">get_rpm_excludedocs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the rpm-excludedocs configuration flag. Returns</span>
 <span class="sd">        False if not present.</span>
 
@@ -1498,7 +1502,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="XMLState.get_rpm_check_signatures"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_rpm_check_signatures">[docs]</a>    <span class="k">def</span> <span class="nf">get_rpm_check_signatures</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the rpm-check-signatures configuration flag. Returns</span>
 <span class="sd">        False if not present.</span>
 
@@ -1513,7 +1517,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="XMLState.get_package_manager"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_package_manager">[docs]</a>    <span class="k">def</span> <span class="nf">get_package_manager</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get configured package manager from selected preferences section</span>
 
 <span class="sd">        :return: Content of the &lt;packagemanager&gt; section</span>
@@ -1527,7 +1531,7 @@
         <span class="k">return</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_default_package_manager</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="XMLState.get_release_version"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_release_version">[docs]</a>    <span class="k">def</span> <span class="nf">get_release_version</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get configured release version from selected preferences section</span>
 
 <span class="sd">        :return: Content of the &lt;release-version&gt; section or &#39;&#39;</span>
@@ -1543,7 +1547,7 @@
         <span class="k">return</span> <span class="n">release_version</span></div>
 
 <div class="viewcode-block" id="XMLState.get_packages_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_packages_sections">[docs]</a>    <span class="k">def</span> <span class="nf">get_packages_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section_types</span><span class="p">:</span> <span class="n">List</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of packages sections matching given section type(s)</span>
 
 <span class="sd">        :param list section_types: type name(s) from packages sections</span>
@@ -1563,7 +1567,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="XMLState.package_matches_host_architecture"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.package_matches_host_architecture">[docs]</a>    <span class="k">def</span> <span class="nf">package_matches_host_architecture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Tests if the given package section is applicable for the current host</span>
 <span class="sd">        architecture. If no architecture is specified within the section</span>
 <span class="sd">        it is considered as a match returning True.</span>
@@ -1579,7 +1583,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_matches_host_architecture</span><span class="p">(</span><span class="n">package</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.profile_matches_host_architecture"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.profile_matches_host_architecture">[docs]</a>    <span class="k">def</span> <span class="nf">profile_matches_host_architecture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">profile</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Tests if the given profile section is applicable for the current host</span>
 <span class="sd">        architecture. If no architecture is specified within the section</span>
 <span class="sd">        it is considered as a match returning True.</span>
@@ -1595,7 +1599,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_matches_host_architecture</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.preferences_matches_host_architecture"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.preferences_matches_host_architecture">[docs]</a>    <span class="k">def</span> <span class="nf">preferences_matches_host_architecture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preferences</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Tests if the given preferences section is applicable for the</span>
 <span class="sd">        current host architecture. If no architecture is specified within</span>
 <span class="sd">        the section it is considered as a match returning True.</span>
@@ -1613,7 +1617,7 @@
 <div class="viewcode-block" id="XMLState.get_package_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_package_sections">[docs]</a>    <span class="k">def</span> <span class="nf">get_package_sections</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">packages_sections</span><span class="p">:</span> <span class="n">List</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">package_type</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of package sections from the given packages sections.</span>
 <span class="sd">        Each list element contains a tuple with the &lt;package&gt; section</span>
 <span class="sd">        reference and the &lt;packages&gt; section this package belongs to</span>
@@ -1648,7 +1652,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="XMLState.get_to_become_deleted_packages"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_to_become_deleted_packages">[docs]</a>    <span class="k">def</span> <span class="nf">get_to_become_deleted_packages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of package names from the type=&quot;delete&quot; or type=&quot;uninstall&quot;</span>
 <span class="sd">        packages section(s)</span>
 
@@ -1672,7 +1676,7 @@
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">)))</span></div>
 
 <div class="viewcode-block" id="XMLState.get_bootstrap_packages_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_packages_sections">[docs]</a>    <span class="k">def</span> <span class="nf">get_bootstrap_packages_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of packages sections matching type=&quot;bootstrap&quot;</span>
 
 <span class="sd">        :return: list of &lt;packages&gt; section reference(s)</span>
@@ -1682,7 +1686,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_packages_sections</span><span class="p">([</span><span class="s1">&#39;bootstrap&#39;</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="XMLState.get_image_packages_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_image_packages_sections">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_packages_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of packages sections matching type=&quot;image&quot;</span>
 
 <span class="sd">        :return: list of &lt;packages&gt; section reference(s)</span>
@@ -1692,7 +1696,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_packages_sections</span><span class="p">([</span><span class="s1">&#39;image&#39;</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="XMLState.get_bootstrap_packages"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_packages">[docs]</a>    <span class="k">def</span> <span class="nf">get_bootstrap_packages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plus_packages</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of package names from the type=&quot;bootstrap&quot; packages section(s)</span>
 
 <span class="sd">        The list gets the selected package manager appended</span>
@@ -1720,7 +1724,7 @@
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">)))</span></div>
 
 <div class="viewcode-block" id="XMLState.get_system_packages"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_system_packages">[docs]</a>    <span class="k">def</span> <span class="nf">get_system_packages</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of package names from the packages sections matching</span>
 <span class="sd">        type=&quot;image&quot; and type=build_type</span>
 
@@ -1741,7 +1745,7 @@
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">)))</span></div>
 
 <div class="viewcode-block" id="XMLState.get_bootstrap_archives"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_archives">[docs]</a>    <span class="k">def</span> <span class="nf">get_bootstrap_archives</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of archive names from the type=&quot;bootstrap&quot; packages section(s)</span>
 
 <span class="sd">        :return: archive names</span>
@@ -1759,7 +1763,7 @@
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_system_archives"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_system_archives">[docs]</a>    <span class="k">def</span> <span class="nf">get_system_archives</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of archive names from the packages sections matching</span>
 <span class="sd">        type=&quot;image&quot; and type=build_type</span>
 
@@ -1777,7 +1781,7 @@
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_system_ignore_packages"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_system_ignore_packages">[docs]</a>    <span class="k">def</span> <span class="nf">get_system_ignore_packages</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of ignore package names from the packages sections matching</span>
 <span class="sd">        type=&quot;image&quot; and type=build_type</span>
 
@@ -1796,7 +1800,7 @@
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_bootstrap_package_name"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_package_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_bootstrap_package_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        bootstrap_package name from type=&quot;bootstrap&quot; packages section</span>
 
 <span class="sd">        :return: bootstrap_package name</span>
@@ -1814,7 +1818,7 @@
         <span class="k">return</span> <span class="n">bootstrap_package</span></div>
 
 <div class="viewcode-block" id="XMLState.get_collection_type"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_collection_type">[docs]</a>    <span class="k">def</span> <span class="nf">get_collection_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Collection type from packages sections matching given section</span>
 <span class="sd">        type.</span>
 
@@ -1839,7 +1843,7 @@
         <span class="k">return</span> <span class="n">collection_type</span></div>
 
 <div class="viewcode-block" id="XMLState.get_bootstrap_collection_type"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_collection_type">[docs]</a>    <span class="k">def</span> <span class="nf">get_bootstrap_collection_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Collection type for packages sections matching type=&quot;bootstrap&quot;</span>
 
 <span class="sd">        :return: collection type name</span>
@@ -1849,7 +1853,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_collection_type</span><span class="p">(</span><span class="s1">&#39;bootstrap&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_system_collection_type"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_system_collection_type">[docs]</a>    <span class="k">def</span> <span class="nf">get_system_collection_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Collection type for packages sections matching type=&quot;image&quot;</span>
 
 <span class="sd">        :return: collection type name</span>
@@ -1859,7 +1863,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_collection_type</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_collection_modules"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_collection_modules">[docs]</a>    <span class="k">def</span> <span class="nf">get_collection_modules</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dict of collection modules to enable and/or disable</span>
 
 <span class="sd">        :return:</span>
@@ -1896,7 +1900,7 @@
         <span class="k">return</span> <span class="n">modules</span></div>
 
 <div class="viewcode-block" id="XMLState.get_collections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_collections">[docs]</a>    <span class="k">def</span> <span class="nf">get_collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of collection names from the packages sections matching</span>
 <span class="sd">        type=section_type and type=build_type</span>
 
@@ -1914,7 +1918,7 @@
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="XMLState.get_bootstrap_collections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_collections">[docs]</a>    <span class="k">def</span> <span class="nf">get_bootstrap_collections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of collection names from the packages sections</span>
 <span class="sd">        matching type=&quot;bootstrap&quot;</span>
 
@@ -1925,7 +1929,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_collections</span><span class="p">(</span><span class="s1">&#39;bootstrap&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_system_collections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_system_collections">[docs]</a>    <span class="k">def</span> <span class="nf">get_system_collections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of collection names from the packages sections</span>
 <span class="sd">        matching type=&quot;image&quot;</span>
 
@@ -1936,7 +1940,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_collections</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_products"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_products">[docs]</a>    <span class="k">def</span> <span class="nf">get_products</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of product names from the packages sections matching</span>
 <span class="sd">        type=section_type and type=build_type</span>
 
@@ -1956,7 +1960,7 @@
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="XMLState.get_bootstrap_products"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_products">[docs]</a>    <span class="k">def</span> <span class="nf">get_bootstrap_products</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of product names from the packages sections</span>
 <span class="sd">        matching type=&quot;bootstrap&quot;</span>
 
@@ -1967,7 +1971,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_products</span><span class="p">(</span><span class="s1">&#39;bootstrap&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_system_products"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_system_products">[docs]</a>    <span class="k">def</span> <span class="nf">get_system_products</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of product names from the packages sections</span>
 <span class="sd">        matching type=&quot;image&quot;</span>
 
@@ -1978,7 +1982,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_products</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.is_xen_server"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.is_xen_server">[docs]</a>    <span class="k">def</span> <span class="nf">is_xen_server</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if build type domain setup specifies a Xen Server (dom0)</span>
 
 <span class="sd">        :return: True or False</span>
@@ -1988,7 +1992,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_xen_server</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="XMLState.is_xen_guest"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.is_xen_guest">[docs]</a>    <span class="k">def</span> <span class="nf">is_xen_guest</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if build type setup specifies a Xen Guest (domX)</span>
 <span class="sd">        The check is based on the architecture, the firmware and</span>
 <span class="sd">        xen_loader configuration values:</span>
@@ -2019,7 +2023,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_partitions_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_partitions_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_partitions_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First partitions section from the build type section</span>
 
 <span class="sd">        :return: &lt;partitions&gt; section reference</span>
@@ -2032,7 +2036,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_system_disk_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_system_disk_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_system_disk_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First system disk section from the build type section</span>
 
 <span class="sd">        :return: &lt;systemdisk&gt; section reference</span>
@@ -2045,7 +2049,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_machine_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_machine_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_machine_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First machine section from the build type section</span>
 
 <span class="sd">        :return: &lt;machine&gt; section reference</span>
@@ -2058,7 +2062,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_vagrant_config_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_vagrant_config_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_vagrant_config_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First vagrantconfig section from the build type section</span>
 
 <span class="sd">        :return: &lt;vagrantconfig&gt; section reference</span>
@@ -2071,7 +2075,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_vagrant_config_virtualbox_guest_additions"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_vagrant_config_virtualbox_guest_additions">[docs]</a>    <span class="k">def</span> <span class="nf">get_vagrant_config_virtualbox_guest_additions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Attribute virtualbox_guest_additions_present from the first</span>
 <span class="sd">        vagrantconfig section.</span>
 
@@ -2086,7 +2090,7 @@
             <span class="k">return</span> <span class="n">vagrant_config_sections</span><span class="o">.</span><span class="n">virtualbox_guest_additions_present</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_vmdisk_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_vmdisk_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_vmdisk_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First vmdisk section from the first machine section in the</span>
 <span class="sd">        build type section</span>
 
@@ -2102,7 +2106,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_vmnic_entries"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_vmnic_entries">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_vmnic_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        vmnic section(s) from the first machine section in the</span>
 <span class="sd">        build type section</span>
 
@@ -2117,7 +2121,7 @@
             <span class="k">return</span> <span class="p">[]</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_vmdvd_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_vmdvd_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_vmdvd_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First vmdvd section from the first machine section in the</span>
 <span class="sd">        build type section</span>
 
@@ -2133,7 +2137,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_vmconfig_entries"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_vmconfig_entries">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_vmconfig_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of vmconfig-entry section values from the first</span>
 <span class="sd">        machine section in the build type section</span>
 
@@ -2150,7 +2154,7 @@
         <span class="k">return</span> <span class="p">[]</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_bootloader_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First bootloader section from the build type section</span>
 
 <span class="sd">        :return: &lt;bootloader&gt; section reference</span>
@@ -2163,7 +2167,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_bootloader_name"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return bootloader name for selected build type</span>
 
 <span class="sd">        :return: bootloader name</span>
@@ -2175,7 +2179,7 @@
             <span class="n">Defaults</span><span class="o">.</span><span class="n">get_default_bootloader</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_bootloader_console"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_console">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_console</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return bootloader console setting for selected build type</span>
 
 <span class="sd">        :return: console string</span>
@@ -2188,7 +2192,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_bootloader_serial_line_setup"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_serial_line_setup">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_serial_line_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return bootloader serial line setup parameters for the</span>
 <span class="sd">        selected build type</span>
 
@@ -2202,7 +2206,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_bootloader_timeout"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_timeout">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return bootloader timeout setting for selected build type</span>
 
 <span class="sd">        :return: timeout string</span>
@@ -2215,7 +2219,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_bootloader_timeout_style"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_timeout_style">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_timeout_style</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return bootloader timeout style setting for selected build type</span>
 
 <span class="sd">        :return: timeout_style string</span>
@@ -2228,7 +2232,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_bootloader_targettype"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_targettype">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_targettype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return bootloader target type setting. Only relevant for</span>
 <span class="sd">        the zipl bootloader because zipl is installed differently</span>
 <span class="sd">        depending on the storage target it runs later</span>
@@ -2243,7 +2247,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_oemconfig_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_oemconfig_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_oemconfig_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First oemconfig section from the build type section</span>
 
 <span class="sd">        :return: &lt;oemconfig&gt; section reference</span>
@@ -2256,7 +2260,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_oemconfig_oem_resize"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_oemconfig_oem_resize">[docs]</a>    <span class="k">def</span> <span class="nf">get_oemconfig_oem_resize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        State value to activate/deactivate disk resize. Returns a</span>
 <span class="sd">        boolean value if specified or True to set resize on by default</span>
 
@@ -2270,8 +2274,22 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span></div>
 
+<div class="viewcode-block" id="XMLState.get_oemconfig_oem_systemsize"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_oemconfig_oem_systemsize">[docs]</a>    <span class="k">def</span> <span class="nf">get_oemconfig_oem_systemsize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        State value to retrieve root partition size</span>
+
+<span class="sd">        :return: Content of &lt;oem-systemsize&gt; section value</span>
+
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">oemconfig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_build_type_oemconfig_section</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">oemconfig</span> <span class="ow">and</span> <span class="n">oemconfig</span><span class="o">.</span><span class="n">get_oem_systemsize</span><span class="p">():</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">oemconfig</span><span class="o">.</span><span class="n">get_oem_systemsize</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span></div>
+
 <div class="viewcode-block" id="XMLState.get_oemconfig_oem_multipath_scan"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_oemconfig_oem_multipath_scan">[docs]</a>    <span class="k">def</span> <span class="nf">get_oemconfig_oem_multipath_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        State value to activate multipath maps. Returns a boolean</span>
 <span class="sd">        value if specified or False</span>
 
@@ -2285,7 +2303,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="XMLState.get_oemconfig_swap_mbytes"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_oemconfig_swap_mbytes">[docs]</a>    <span class="k">def</span> <span class="nf">get_oemconfig_swap_mbytes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return swapsize in MB if requested or None</span>
 
 <span class="sd">        Operates on the value of oem-swap and if set to true</span>
@@ -2307,7 +2325,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_oemconfig_swap_name"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_oemconfig_swap_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_oemconfig_swap_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the swap space name</span>
 
 <span class="sd">        Operates on the value of oem-swapname and if set</span>
@@ -2329,7 +2347,7 @@
         <span class="k">return</span> <span class="s1">&#39;LVSwap&#39;</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_containerconfig_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_containerconfig_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_containerconfig_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First containerconfig section from the build type section</span>
 
 <span class="sd">        :return: &lt;containerconfig&gt; section reference</span>
@@ -2342,7 +2360,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_installmedia_initrd_modules"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_installmedia_initrd_modules">[docs]</a>    <span class="k">def</span> <span class="nf">get_installmedia_initrd_modules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the list of modules to append in installation initrds</span>
 
 <span class="sd">        :return: a list of dracut module names</span>
@@ -2363,7 +2381,7 @@
 <div class="viewcode-block" id="XMLState.get_build_type_size"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_size">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_size</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">include_unpartitioned</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">size_type</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Size information from the build type section.</span>
 <span class="sd">        If no unit is set the value is treated as mbytes</span>
 
@@ -2390,7 +2408,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_unpartitioned_bytes"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_unpartitioned_bytes">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_unpartitioned_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Size of the unpartitioned area for image in megabytes</span>
 
 <span class="sd">        :return: mbytes</span>
@@ -2405,7 +2423,7 @@
         <span class="k">return</span> <span class="mi">0</span></div>
 
 <div class="viewcode-block" id="XMLState.get_disk_start_sector"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_disk_start_sector">[docs]</a>    <span class="k">def</span> <span class="nf">get_disk_start_sector</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First disk sector number to be used by the first disk partition.</span>
 
 <span class="sd">        :return: number</span>
@@ -2418,7 +2436,7 @@
         <span class="k">return</span> <span class="n">disk_start_sector</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_spare_part_size"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_spare_part_size">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_spare_part_size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Size information for the spare_part size from the build</span>
 <span class="sd">        type. If no unit is set the value is treated as mbytes</span>
 
@@ -2432,7 +2450,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_spare_part_fs_attributes"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_spare_part_fs_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_spare_part_fs_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Build type specific list of filesystem attributes applied to</span>
 <span class="sd">        the spare partition.</span>
 
@@ -2446,7 +2464,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_format_options"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_format_options">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_format_options</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Disk format options returned as a dictionary</span>
 
 <span class="sd">        :return: format options</span>
@@ -2465,7 +2483,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="XMLState.get_volume_group_name"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_volume_group_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_volume_group_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Volume group name from selected &lt;systemdisk&gt; section</span>
 
 <span class="sd">        :return: volume group name</span>
@@ -2481,7 +2499,7 @@
         <span class="k">return</span> <span class="n">volume_group_name</span></div>
 
 <div class="viewcode-block" id="XMLState.get_users"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_users">[docs]</a>    <span class="k">def</span> <span class="nf">get_users</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of configured users.</span>
 
 <span class="sd">        Each entry in the list is a single xml_parse::user instance.</span>
@@ -2501,7 +2519,7 @@
         <span class="k">return</span> <span class="n">users_list</span></div>
 
 <div class="viewcode-block" id="XMLState.get_user_groups"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_user_groups">[docs]</a>    <span class="k">def</span> <span class="nf">get_user_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of group names matching specified user</span>
 
 <span class="sd">        Each entry in the list is the name of a group and optionally its</span>
@@ -2532,7 +2550,7 @@
         <span class="k">return</span> <span class="n">result_group_list</span></div>
 
 <div class="viewcode-block" id="XMLState.get_container_config"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_container_config">[docs]</a>    <span class="k">def</span> <span class="nf">get_container_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dictionary of containerconfig information</span>
 
 <span class="sd">        Takes attributes and subsection data from the selected</span>
@@ -2573,7 +2591,7 @@
         <span class="k">return</span> <span class="n">container_config</span></div>
 
 <div class="viewcode-block" id="XMLState.set_container_config_tag"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.set_container_config_tag">[docs]</a>    <span class="k">def</span> <span class="nf">set_container_config_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set new tag name in containerconfig section</span>
 
 <span class="sd">        In order to set a new tag value an existing containerconfig and</span>
@@ -2585,7 +2603,7 @@
         <span class="k">if</span> <span class="n">container_config_section</span> <span class="ow">and</span> <span class="n">container_config_section</span><span class="o">.</span><span class="n">get_tag</span><span class="p">():</span>
             <span class="n">container_config_section</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">                No &lt;containerconfig&gt; section and/or tag attribute configured</span>
 
 <span class="s1">                In order to set the tag </span><span class="si">{0}</span><span class="s1"> as new container tag,</span>
@@ -2595,7 +2613,7 @@
             <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tag</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="XMLState.add_container_config_label"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.add_container_config_label">[docs]</a>    <span class="k">def</span> <span class="nf">add_container_config_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Adds a new label in the containerconfig section, if a label with the</span>
 <span class="sd">        same name is already defined in containerconfig it gets overwritten by</span>
 <span class="sd">        this method.</span>
@@ -2604,7 +2622,7 @@
 <span class="sd">        :param str value: the value of the label</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_build_type_name</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;docker&#39;</span><span class="p">,</span> <span class="s1">&#39;oci&#39;</span><span class="p">]:</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">                Labels can only be configured for container image types</span>
 <span class="s1">                docker and oci.</span>
 <span class="s1">            &#39;&#39;&#39;</span><span class="p">)</span>
@@ -2638,7 +2656,7 @@
         <span class="n">container_config_section</span><span class="o">.</span><span class="n">set_labels</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_partitions"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_partitions">[docs]</a>    <span class="k">def</span> <span class="nf">get_partitions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ptable_entry_type</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dictionary of configured partitions.</span>
 
 <span class="sd">        Each entry in the dict references a ptable_entry_type</span>
@@ -2681,7 +2699,7 @@
         <span class="k">return</span> <span class="n">partitions</span></div>
 
 <div class="viewcode-block" id="XMLState.get_volumes"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">get_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">volume_type</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of configured systemdisk volumes.</span>
 
 <span class="sd">        Each entry in the list is a tuple with the following information</span>
@@ -2846,7 +2864,7 @@
         <span class="k">return</span> <span class="n">volume_type_list</span></div>
 
 <div class="viewcode-block" id="XMLState.get_volume_management"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_volume_management">[docs]</a>    <span class="k">def</span> <span class="nf">get_volume_management</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides information which volume management system is used</span>
 
 <span class="sd">        :return: name of volume manager</span>
@@ -2871,7 +2889,7 @@
         <span class="k">return</span> <span class="n">volume_management</span></div>
 
 <div class="viewcode-block" id="XMLState.get_drivers_list"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_drivers_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_drivers_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of driver names from all drivers sections matching</span>
 <span class="sd">        configured profiles</span>
 
@@ -2890,7 +2908,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="XMLState.get_strip_list"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_strip_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_strip_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of strip names matching the given section type</span>
 <span class="sd">        and profiles</span>
 
@@ -2912,7 +2930,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="XMLState.get_strip_files_to_delete"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_strip_files_to_delete">[docs]</a>    <span class="k">def</span> <span class="nf">get_strip_files_to_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Items to delete from strip section</span>
 
 <span class="sd">        :return: item names</span>
@@ -2922,7 +2940,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_strip_list</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_strip_tools_to_keep"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_strip_tools_to_keep">[docs]</a>    <span class="k">def</span> <span class="nf">get_strip_tools_to_keep</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Tools to keep from strip section</span>
 
 <span class="sd">        :return: tool names</span>
@@ -2932,7 +2950,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_strip_list</span><span class="p">(</span><span class="s1">&#39;tools&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_strip_libraries_to_keep"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_strip_libraries_to_keep">[docs]</a>    <span class="k">def</span> <span class="nf">get_strip_libraries_to_keep</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Libraries to keep from strip section</span>
 
 <span class="sd">        :return: librarie names</span>
@@ -2942,7 +2960,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_strip_list</span><span class="p">(</span><span class="s1">&#39;libs&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_include_section_reference_file_names"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_include_section_reference_file_names">[docs]</a>    <span class="k">def</span> <span class="nf">get_include_section_reference_file_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of all &lt;include&gt; section file name references</span>
 
 <span class="sd">        :return: List[str]</span>
@@ -2955,7 +2973,7 @@
         <span class="k">return</span> <span class="n">include_files</span></div>
 
 <div class="viewcode-block" id="XMLState.get_repository_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_repository_sections">[docs]</a>    <span class="k">def</span> <span class="nf">get_repository_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of all repository sections matching configured profiles</span>
 
 <span class="sd">        :return: &lt;repository&gt; section reference(s)</span>
@@ -2967,7 +2985,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_repository_sections_used_for_build"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_repository_sections_used_for_build">[docs]</a>    <span class="k">def</span> <span class="nf">get_repository_sections_used_for_build</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of all repositorys sections used to build the image and</span>
 <span class="sd">        matching configured profiles.</span>
 
@@ -2981,7 +2999,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_repository_sections_used_in_image"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_repository_sections_used_in_image">[docs]</a>    <span class="k">def</span> <span class="nf">get_repository_sections_used_in_image</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of all repositorys sections to be configured in the resulting</span>
 <span class="sd">        image matching configured profiles.</span>
 
@@ -2996,13 +3014,13 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.delete_repository_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.delete_repository_sections">[docs]</a>    <span class="k">def</span> <span class="nf">delete_repository_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Delete all repository sections matching configured profiles</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">xml_data</span><span class="o">.</span><span class="n">set_repository</span><span class="p">([])</span></div>
 
 <div class="viewcode-block" id="XMLState.delete_repository_sections_used_for_build"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.delete_repository_sections_used_for_build">[docs]</a>    <span class="k">def</span> <span class="nf">delete_repository_sections_used_for_build</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Delete all repository sections used to build the image matching</span>
 <span class="sd">        configured profiles</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -3015,7 +3033,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_repositories_signing_keys"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_repositories_signing_keys">[docs]</a>    <span class="k">def</span> <span class="nf">get_repositories_signing_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get list of signing keys specified on the repositories</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">key_file_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
@@ -3031,7 +3049,7 @@
         <span class="n">repo_signing_keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">components</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">repo_gpgcheck</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Overwrite repository data of the first repository</span>
 
 <span class="sd">        :param str repo_source: repository URI</span>
@@ -3078,7 +3096,7 @@
         <span class="n">repo_signing_keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">components</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">repo_gpgcheck</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a new repository section at the end of the list</span>
 
 <span class="sd">        :param str repo_source: repository URI</span>
@@ -3118,7 +3136,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.resolve_this_path"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.resolve_this_path">[docs]</a>    <span class="k">def</span> <span class="nf">resolve_this_path</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Resolve any this:// repo source path into the path</span>
 <span class="sd">        representing the target inside of the image description</span>
 <span class="sd">        directory</span>
@@ -3139,7 +3157,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_displayname"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_displayname">[docs]</a>    <span class="k">def</span> <span class="nf">copy_displayname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy image displayname from this xml state to the target xml state</span>
 
 <span class="sd">        :param object target_state: XMLState instance</span>
@@ -3149,7 +3167,7 @@
             <span class="n">target_state</span><span class="o">.</span><span class="n">xml_data</span><span class="o">.</span><span class="n">set_displayname</span><span class="p">(</span><span class="n">displayname</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_name"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_name">[docs]</a>    <span class="k">def</span> <span class="nf">copy_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy image name from this xml state to the target xml state</span>
 
 <span class="sd">        :param object target_state: XMLState instance</span>
@@ -3159,7 +3177,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_drivers_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_drivers_sections">[docs]</a>    <span class="k">def</span> <span class="nf">copy_drivers_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy drivers sections from this xml state to the target xml state</span>
 
 <span class="sd">        :param object target_state: XMLState instance</span>
@@ -3172,7 +3190,7 @@
                 <span class="n">target_state</span><span class="o">.</span><span class="n">xml_data</span><span class="o">.</span><span class="n">add_drivers</span><span class="p">(</span><span class="n">drivers_section</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_systemdisk_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_systemdisk_section">[docs]</a>    <span class="k">def</span> <span class="nf">copy_systemdisk_section</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy systemdisk sections from this xml state to the target xml state</span>
 
 <span class="sd">        :param object target_state: XMLState instance</span>
@@ -3184,7 +3202,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_strip_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_strip_sections">[docs]</a>    <span class="k">def</span> <span class="nf">copy_strip_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy strip sections from this xml state to the target xml state</span>
 
 <span class="sd">        :param object target_state: XMLState instance</span>
@@ -3197,7 +3215,7 @@
                 <span class="n">target_state</span><span class="o">.</span><span class="n">xml_data</span><span class="o">.</span><span class="n">add_strip</span><span class="p">(</span><span class="n">strip_section</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_machine_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_machine_section">[docs]</a>    <span class="k">def</span> <span class="nf">copy_machine_section</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy machine sections from this xml state to the target xml state</span>
 
 <span class="sd">        :param object target_state: XMLState instance</span>
@@ -3209,7 +3227,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_bootloader_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_bootloader_section">[docs]</a>    <span class="k">def</span> <span class="nf">copy_bootloader_section</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy bootloader section from this xml state to the target xml state</span>
 
 <span class="sd">        :param object target_state: XMLState instance</span>
@@ -3221,7 +3239,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_oemconfig_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_oemconfig_section">[docs]</a>    <span class="k">def</span> <span class="nf">copy_oemconfig_section</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy oemconfig sections from this xml state to the target xml state</span>
 
 <span class="sd">        :param object target_state: XMLState instance</span>
@@ -3235,7 +3253,7 @@
 <div class="viewcode-block" id="XMLState.copy_repository_sections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_repository_sections">[docs]</a>    <span class="k">def</span> <span class="nf">copy_repository_sections</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">wipe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy repository sections from this xml state to the target xml state</span>
 
 <span class="sd">        :param object target_state: XMLState instance</span>
@@ -3257,7 +3275,7 @@
 <div class="viewcode-block" id="XMLState.copy_preferences_subsections"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_preferences_subsections">[docs]</a>    <span class="k">def</span> <span class="nf">copy_preferences_subsections</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">section_names</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy subsections of the preferences sections, matching given</span>
 <span class="sd">        section names, from this xml state to the target xml state</span>
 
@@ -3282,7 +3300,7 @@
 <div class="viewcode-block" id="XMLState.copy_build_type_attributes"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_build_type_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">copy_build_type_attributes</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">attribute_names</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy specified attributes from this build type section to the</span>
 <span class="sd">        target xml state build type section</span>
 
@@ -3301,7 +3319,7 @@
                 <span class="n">set_type_method</span><span class="p">(</span><span class="n">attribute_value</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_bootincluded_packages"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_bootincluded_packages">[docs]</a>    <span class="k">def</span> <span class="nf">copy_bootincluded_packages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy packages marked as bootinclude to the packages</span>
 <span class="sd">        type=bootstrap section in the target xml state. The package</span>
 <span class="sd">        will also be removed from the packages type=delete section</span>
@@ -3347,7 +3365,7 @@
                         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_bootincluded_archives"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_bootincluded_archives">[docs]</a>    <span class="k">def</span> <span class="nf">copy_bootincluded_archives</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy archives marked as bootinclude to the packages type=bootstrap</span>
 <span class="sd">        section in the target xml state</span>
 
@@ -3373,7 +3391,7 @@
                             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.copy_bootdelete_packages"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.copy_bootdelete_packages">[docs]</a>    <span class="k">def</span> <span class="nf">copy_bootdelete_packages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy packages marked as bootdelete to the packages type=delete</span>
 <span class="sd">        section in the target xml state</span>
 
@@ -3408,7 +3426,7 @@
                     <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_distribution_name_from_boot_attribute"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_distribution_name_from_boot_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">get_distribution_name_from_boot_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Extract the distribution name from the boot attribute of the</span>
 <span class="sd">        build type section.</span>
 
@@ -3437,7 +3455,7 @@
         <span class="k">return</span> <span class="n">boot_attribute_expression</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="XMLState.get_fs_mount_option_list"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_fs_mount_option_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_fs_mount_option_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of root filesystem mount options</span>
 
 <span class="sd">        The list contains one element with the information from the</span>
@@ -3456,7 +3474,7 @@
         <span class="k">return</span> <span class="n">option_list</span></div>
 
 <div class="viewcode-block" id="XMLState.get_fs_create_option_list"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_fs_create_option_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_fs_create_option_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List of root filesystem creation options</span>
 
 <span class="sd">        The list contains elements with the information from the</span>
@@ -3475,7 +3493,7 @@
         <span class="k">return</span> <span class="n">option_list</span></div>
 
 <div class="viewcode-block" id="XMLState.get_luks_credentials"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_luks_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">get_luks_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return key or passphrase credentials to open the luks pool</span>
 
 <span class="sd">        :return: data</span>
@@ -3504,7 +3522,7 @@
         <span class="k">return</span> <span class="n">data</span></div>
 
 <div class="viewcode-block" id="XMLState.get_luks_format_options"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_luks_format_options">[docs]</a>    <span class="k">def</span> <span class="nf">get_luks_format_options</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return list of luks format options</span>
 
 <span class="sd">        :return: list of options</span>
@@ -3525,7 +3543,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="XMLState.get_derived_from_image_uri"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_derived_from_image_uri">[docs]</a>    <span class="k">def</span> <span class="nf">get_derived_from_image_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Uri</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Uri object of derived image if configured</span>
 
 <span class="sd">        Specific image types can be based on a master image.</span>
@@ -3542,7 +3560,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="XMLState.set_derived_from_image_uri"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.set_derived_from_image_uri">[docs]</a>    <span class="k">def</span> <span class="nf">set_derived_from_image_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set derived_from attribute to a new value</span>
 
 <span class="sd">        In order to set a new value the derived_from attribute</span>
@@ -3553,7 +3571,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_derived_from</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">set_derived_from</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">                No derived_from attribute configured in image &lt;type&gt;</span>
 
 <span class="s1">                In order to set the uri </span><span class="si">{0}</span><span class="s1"> as base container reference</span>
@@ -3563,7 +3581,7 @@
             <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="XMLState.set_root_partition_uuid"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.set_root_partition_uuid">[docs]</a>    <span class="k">def</span> <span class="nf">set_root_partition_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uuid</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Store PARTUUID provided in uuid as state information</span>
 
 <span class="sd">        :param str uuid: PARTUUID</span>
@@ -3571,13 +3589,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">root_partition_uuid</span> <span class="o">=</span> <span class="n">uuid</span></div>
 
 <div class="viewcode-block" id="XMLState.get_root_partition_uuid"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_root_partition_uuid">[docs]</a>    <span class="k">def</span> <span class="nf">get_root_partition_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return preserved PARTUUID</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_partition_uuid</span></div>
 
 <div class="viewcode-block" id="XMLState.set_root_filesystem_uuid"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.set_root_filesystem_uuid">[docs]</a>    <span class="k">def</span> <span class="nf">set_root_filesystem_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uuid</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Store UUID provided in uuid as state information</span>
 
 <span class="sd">        :param str uuid: UUID</span>
@@ -3585,7 +3603,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">root_filesystem_uuid</span> <span class="o">=</span> <span class="n">uuid</span></div>
 
 <div class="viewcode-block" id="XMLState.get_root_filesystem_uuid"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_root_filesystem_uuid">[docs]</a>    <span class="k">def</span> <span class="nf">get_root_filesystem_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return preserved UUID</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_filesystem_uuid</span></div>
@@ -3594,7 +3612,7 @@
     <span class="k">def</span> <span class="nf">get_archives_target_dirs</span><span class="p">(</span>
         <span class="n">packages_sections_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">xml_parse</span><span class="o">.</span><span class="n">packages</span><span class="p">]]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dict of archive names and target dirs for packages section(s), if any</span>
 <span class="sd">        :return: archive names and its target dir</span>
 <span class="sd">        :rtype: dict</span>
@@ -3608,7 +3626,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="XMLState.get_bootstrap_archives_target_dirs"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_archives_target_dirs">[docs]</a>    <span class="k">def</span> <span class="nf">get_bootstrap_archives_target_dirs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dict of archive names and target dirs from the type=&quot;bootstrap&quot;</span>
 <span class="sd">        packages section(s)</span>
 <span class="sd">        :return: archive names and its target dir</span>
@@ -3619,7 +3637,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="XMLState.get_system_archives_target_dirs"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_system_archives_target_dirs">[docs]</a>    <span class="k">def</span> <span class="nf">get_system_archives_target_dirs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dict of archive names and its target dir from the packages sections matching</span>
 <span class="sd">        type=&quot;image&quot; and type=build_type</span>
 <span class="sd">        :return: archive names and its target dir</span>
@@ -3630,7 +3648,7 @@
         <span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_used_profiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">profiles</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        return list of profiles to use. The method looks up the</span>
 <span class="sd">        profiles section in the XML description and searches for</span>
 <span class="sd">        profiles matching the architecture. If no arch specifier</span>
@@ -3834,7 +3852,7 @@
         <span class="k">return</span> <span class="n">profiles_to_add</span>
 
     <span class="k">def</span> <span class="nf">_build_type_section</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">build_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        find type section matching build type and profiles or default</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># lookup all preferences sections for selected profiles</span>
@@ -3868,7 +3886,7 @@
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_profiled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml_abstract</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        return only those sections matching the instance stored</span>
 <span class="sd">        profile list from the given XML abstract. Sections without</span>
 <span class="sd">        a profile are wildcard sections and will be used in any</span>

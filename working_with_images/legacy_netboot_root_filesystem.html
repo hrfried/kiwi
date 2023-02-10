@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build PXE Root File System Image for the legacy netboot infrastructure &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Build PXE Root File System Image for the legacy netboot infrastructure &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Build PXE Root File System Image for the legacy netboot infrastructure</li>
       <li class="wy-breadcrumbs-aside">
@@ -1253,8 +1257,8 @@ compressed root file system image in a ramdisk overlayed via
 overlayfs and writes new data into another ramdisk on the same
 system. As diskless client, a QEMU virtual machine is used.</p>
 <div class="compound">
-<p class="compound-first"><strong>Things to know before</strong></p>
-<ul class="compound-last simple">
+<p><strong>Things to know before</strong></p>
+<ul class="simple">
 <li><p>To use the image, all image parts need to be copied to the PXE boot
 server. If you have not set up such a server, refer to
 <a class="reference internal" href="setup_network_bootserver.html#network-boot-server"><span class="std std-ref">Setting Up a Network Boot Server</span></a> for instructions.</p></li>
@@ -1276,27 +1280,27 @@ PXE.</p></li>
 <li><p>Make sure you have checked out the example image descriptions,
 see <a class="reference internal" href="../installation.html#example-descriptions"><span class="std std-ref">Example Appliance Descriptions</span></a>.</p></li>
 <li><p>Build the image with KIWI NG:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo kiwi-ng --profile Flat system build <span class="se">\</span>
-    --description kiwi/build-tests/x86/tumbleweed/test-image-pxe <span class="se">\</span>
-    --set-repo http://download.opensuse.org/tumbleweed/repo/oss <span class="se">\</span>
-    --target-dir /tmp/mypxe-result
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>kiwi-ng<span class="w"> </span>--profile<span class="w"> </span>Flat<span class="w"> </span>system<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span>kiwi/build-tests/x86/tumbleweed/test-image-pxe<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--set-repo<span class="w"> </span>http://download.opensuse.org/tumbleweed/repo/oss<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--target-dir<span class="w"> </span>/tmp/mypxe-result
 </pre></div>
 </div>
 </li>
 <li><p>Change into the build directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /tmp/mypxe-result
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/tmp/mypxe-result
 </pre></div>
 </div>
 </li>
 <li><p>Copy the initrd and the kernel to <code class="file docutils literal notranslate"><span class="pre">/srv/tftpboot/boot</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cp *.initrd /srv/tftpboot/boot/initrd
-$ cp *.kernel /srv/tftpboot/boot/linux
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cp<span class="w"> </span>*.initrd<span class="w"> </span>/srv/tftpboot/boot/initrd
+$<span class="w"> </span>cp<span class="w"> </span>*.kernel<span class="w"> </span>/srv/tftpboot/boot/linux
 </pre></div>
 </div>
 </li>
 <li><p>Copy the system image and its MD5 sum to <code class="file docutils literal notranslate"><span class="pre">/srv/tftpboot/image</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cp kiwi-test-image-pxe.x86_64-1.15.3 /srv/tftpboot/image
-$ cp kiwi-test-image-pxe.x86_64-1.15.3.md5 /srv/tftpboot/image
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cp<span class="w"> </span>kiwi-test-image-pxe.x86_64-1.15.3<span class="w"> </span>/srv/tftpboot/image
+$<span class="w"> </span>cp<span class="w"> </span>kiwi-test-image-pxe.x86_64-1.15.3.md5<span class="w"> </span>/srv/tftpboot/image
 </pre></div>
 </div>
 </li>
@@ -1306,17 +1310,17 @@ loaded and which kernel parameters are set. A template has been installed
 at <code class="file docutils literal notranslate"><span class="pre">/srv/tftpboot/pxelinux.cfg/default</span></code> from the <code class="docutils literal notranslate"><span class="pre">kiwi-pxeboot</span></code>
 package. The minimal configuration required to boot the example image
 looks like to following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>DEFAULT KIWI-Boot
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>DEFAULT<span class="w"> </span>KIWI-Boot
 
-LABEL KIWI-Boot
-    kernel boot/linux
-    append <span class="nv">initrd</span><span class="o">=</span>boot/initrd
-    IPAPPEND <span class="m">2</span>
+LABEL<span class="w"> </span>KIWI-Boot
+<span class="w">    </span>kernel<span class="w"> </span>boot/linux
+<span class="w">    </span>append<span class="w"> </span><span class="nv">initrd</span><span class="o">=</span>boot/initrd
+<span class="w">    </span>IPAPPEND<span class="w"> </span><span class="m">2</span>
 </pre></div>
 </div>
 </li>
 <li><p>Create the image client configuration file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vi /srv/tftpboot/KIWI/config.default
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>vi<span class="w"> </span>/srv/tftpboot/KIWI/config.default
 
 <span class="nv">IMAGE</span><span class="o">=</span>/dev/ram1<span class="p">;</span>kiwi-test-image-pxe.x86_64<span class="p">;</span><span class="m">1</span>.15.3<span class="p">;</span><span class="m">192</span>.168.100.2<span class="p">;</span><span class="m">4096</span>
 <span class="nv">UNIONFS_CONFIG</span><span class="o">=</span>/dev/ram2,/dev/ram1,overlay
@@ -1333,7 +1337,7 @@ to <a class="reference internal" href="#pxe-legacy-client-config"><span class="s
 </li>
 <li><p>Connect the client to the network and boot. This can also be done
 in a virtualized environment using QEMU as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo qemu -boot n -m <span class="m">4096</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>qemu<span class="w"> </span>-boot<span class="w"> </span>n<span class="w"> </span>-m<span class="w"> </span><span class="m">4096</span>
 </pre></div>
 </div>
 </li>
@@ -1419,7 +1423,7 @@ is required:</p>
 <p>In the referenced x86/tumbleweed/test-image-pxe XML description the <code class="docutils literal notranslate"><span class="pre">pxe</span></code>
 type must be changed as follows and the image needs to be
 rebuild:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;pxe&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;ext3&quot;</span> <span class="na">boot=</span><span class="s">&quot;netboot/suse-tumbleweed&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;pxe&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;ext3&quot;</span><span class="w"> </span><span class="na">boot=</span><span class="s">&quot;netboot/suse-tumbleweed&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -1442,7 +1446,7 @@ configuration, the following setup is required:</p>
 <p>In the referenced x86/tumbleweed/test-image-pxe XML description the <code class="docutils literal notranslate"><span class="pre">pxe</span></code>
 type must be changed as follows and the image needs to be
 rebuild:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;pxe&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;ext3&quot;</span> <span class="na">boot=</span><span class="s">&quot;netboot/suse-tumbleweed&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;pxe&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;ext3&quot;</span><span class="w"> </span><span class="na">boot=</span><span class="s">&quot;netboot/suse-tumbleweed&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -1539,7 +1543,7 @@ download protocols http, https and ftp are supported too. KIWI NG uses
 the curl program to support the additional protocols.</p>
 <p>To select one of the additional download protocols the following
 kernel parameters need to be specified</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">kiwiserver</span><span class="o">=</span><span class="m">192</span>.168.1.1 <span class="nv">kiwiservertype</span><span class="o">=</span>ftp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">kiwiserver</span><span class="o">=</span><span class="m">192</span>.168.1.1<span class="w"> </span><span class="nv">kiwiservertype</span><span class="o">=</span>ftp
 </pre></div>
 </div>
 <p>To set up this parameters edit the file

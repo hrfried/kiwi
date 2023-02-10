@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.filesystem.base &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.filesystem.base &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../filesystem.html">kiwi.filesystem</a></li>
       <li class="breadcrumb-item active">kiwi.filesystem.base</li>
@@ -1257,7 +1261,7 @@
 
 
 <div class="viewcode-block" id="FileSystemBase"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase">[docs]</a><span class="k">class</span> <span class="nc">FileSystemBase</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements base class for filesystem interface**</span>
 
 <span class="sd">    :param object device_provider:</span>
@@ -1294,7 +1298,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">veritysetup</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">VeritySetup</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="FileSystemBase.post_init"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Post initialization method</span>
 
 <span class="sd">        Store dictionary of custom arguments if not empty. This</span>
@@ -1328,7 +1332,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">[</span><span class="s1">&#39;fs_attributes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></div>
 
 <div class="viewcode-block" id="FileSystemBase.set_uuid"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase.set_uuid">[docs]</a>    <span class="k">def</span> <span class="nf">set_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create new random filesystem UUID</span>
 
 <span class="sd">        Implement in specialized filesystem class for filesystems which</span>
@@ -1344,7 +1348,7 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">defaults</span><span class="o">.</span><span class="n">UNIT</span><span class="o">.</span><span class="n">kb</span><span class="p">,</span>
         <span class="n">uuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create filesystem on block device</span>
 
 <span class="sd">        Implement in specialized filesystem class for filesystems which</span>
@@ -1363,7 +1367,7 @@
 <div class="viewcode-block" id="FileSystemBase.create_on_file"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase.create_on_file">[docs]</a>    <span class="k">def</span> <span class="nf">create_on_file</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">exclude</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create filesystem from root data tree</span>
 
 <span class="sd">        Implement in specialized filesystem class for filesystems which</span>
@@ -1376,7 +1380,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="FileSystemBase.get_mountpoint"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase.get_mountpoint">[docs]</a>    <span class="k">def</span> <span class="nf">get_mountpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides mount point directory</span>
 
 <span class="sd">        Effective use of the directory is guaranteed only after sync_data</span>
@@ -1390,7 +1394,7 @@
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="FileSystemBase.sync_data"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase.sync_data">[docs]</a>    <span class="k">def</span> <span class="nf">sync_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exclude</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy root data tree into filesystem</span>
 
 <span class="sd">        :param list exclude: list of exclude dirs/files</span>
@@ -1420,7 +1424,7 @@
 <div class="viewcode-block" id="FileSystemBase.create_verity_layer"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase.create_verity_layer">[docs]</a>    <span class="k">def</span> <span class="nf">create_verity_layer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">blocks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create veritysetup on device</span>
 
 <span class="sd">        :param int block:</span>
@@ -1446,7 +1450,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="FileSystemBase.create_verification_metadata"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase.create_verification_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">create_verification_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_node</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write verification block at the end of the device</span>
 
 <span class="sd">        :param str device_node:</span>
@@ -1463,7 +1467,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="FileSystemBase.mount"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase.mount">[docs]</a>    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Mount the filesystem</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">filesystem_mount</span><span class="p">:</span>
@@ -1472,7 +1476,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="FileSystemBase.umount"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.base.FileSystemBase.umount">[docs]</a>    <span class="k">def</span> <span class="nf">umount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Umounts the filesystem in case it is mounted, does nothing otherwise</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">filesystem_mount</span><span class="p">:</span>
@@ -1480,7 +1484,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">filesystem_mount</span><span class="o">.</span><span class="n">umount</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">_map_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">from_unit</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">to_unit</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return byte size value for given size and unit</span>
 
 <span class="sd">        :param float size:</span>
@@ -1506,7 +1510,7 @@
     <span class="k">def</span> <span class="nf">_fs_size</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">blocksize</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">defaults</span><span class="o">.</span><span class="n">UNIT</span><span class="o">.</span><span class="n">kb</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate filesystem size parameter in number of blocksize</span>
 <span class="sd">        blocks. If the given size is &lt;= 0 the calculation is done from</span>
 <span class="sd">        the actual size of the block device reduced by the given size</span>
@@ -1541,7 +1545,7 @@
         <span class="k">return</span> <span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">result_size</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">_apply_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Apply filesystem attributes</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">attribute_map</span> <span class="o">=</span> <span class="p">{</span>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Write Integration Tests for the Scripts &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Write Integration Tests for the Scripts &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../contributing.html">Contributing</a></li>
       <li class="breadcrumb-item active">Write Integration Tests for the Scripts</li>
       <li class="wy-breadcrumbs-aside">
@@ -1229,7 +1233,7 @@ configured on your system. The integration tests will use <strong class="command
 <strong class="command">docker</strong> instead by setting the environment variable
 <code class="docutils literal notranslate"><span class="pre">CONTAINER_RUNTIME</span></code> to <code class="docutils literal notranslate"><span class="pre">docker</span></code>. Then you can run the integration tests via
 tox:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox -e scripts -- -n NUMBER_OF_THREADS
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>scripts<span class="w"> </span>--<span class="w"> </span>-n<span class="w"> </span>NUMBER_OF_THREADS
 </pre></div>
 </div>
 <p>The tests are written using the <a class="reference external" href="https://github.com/dcermak/pytest_container">pytest-container</a> plugin. If applicable please

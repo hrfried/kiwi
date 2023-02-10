@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.command_process &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.command_process &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.command_process</li>
       <li class="wy-breadcrumbs-aside">
@@ -1244,7 +1248,7 @@
 
 
 <div class="viewcode-block" id="CommandProcess"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandProcess">[docs]</a><span class="k">class</span> <span class="nc">CommandProcess</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements processing of non blocking Command calls**</span>
 
 <span class="sd">    Provides methods to iterate over non blocking instances of</span>
@@ -1259,7 +1263,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">items_processed</span> <span class="o">=</span> <span class="mi">0</span>
 
 <div class="viewcode-block" id="CommandProcess.poll"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandProcess.poll">[docs]</a>    <span class="k">def</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Iterate over process, raise on error and log output</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">:</span>
@@ -1271,7 +1275,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="CommandProcess.poll_show_progress"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandProcess.poll_show_progress">[docs]</a>    <span class="k">def</span> <span class="nf">poll_show_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items_to_complete</span><span class="p">,</span> <span class="n">match_method</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Iterate over process and show progress in percent</span>
 <span class="sd">        raise on error and log output</span>
 
@@ -1292,7 +1296,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="CommandProcess.poll_and_watch"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandProcess.poll_and_watch">[docs]</a>    <span class="k">def</span> <span class="nf">poll_and_watch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Iterate over process don&#39;t raise on error and log</span>
 <span class="sd">        stdout and stderr</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1317,7 +1321,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="CommandProcess.create_match_method"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandProcess.create_match_method">[docs]</a>    <span class="k">def</span> <span class="nf">create_match_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        create a matcher function pointer which calls the given</span>
 <span class="sd">        method as method(item_to_match, data) on dereference</span>
 
@@ -1365,7 +1369,7 @@
 
 
 <div class="viewcode-block" id="CommandIterator"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandIterator">[docs]</a><span class="k">class</span> <span class="nc">CommandIterator</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements an Iterator for Instances of Command**</span>
 
 <span class="sd">    :param subprocess command: instance of subprocess</span>
@@ -1403,7 +1407,7 @@
         <span class="k">return</span> <span class="n">line_read</span>
 
 <div class="viewcode-block" id="CommandIterator.get_error_output"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandIterator.get_error_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_error_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provide data which was sent to the stderr channel</span>
 
 <span class="sd">        :return: stderr data</span>
@@ -1413,7 +1417,7 @@
         <span class="k">return</span> <span class="n">Codec</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command_error_output</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="CommandIterator.get_error_code"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandIterator.get_error_code">[docs]</a>    <span class="k">def</span> <span class="nf">get_error_code</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provide return value from processed command</span>
 
 <span class="sd">        :return: errorcode</span>
@@ -1423,7 +1427,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">returncode</span></div>
 
 <div class="viewcode-block" id="CommandIterator.get_pid"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandIterator.get_pid">[docs]</a>    <span class="k">def</span> <span class="nf">get_pid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provide process ID of command while running</span>
 
 <span class="sd">        :return: pid</span>
@@ -1433,7 +1437,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">pid</span></div>
 
 <div class="viewcode-block" id="CommandIterator.kill"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.command_process.CommandIterator.kill">[docs]</a>    <span class="k">def</span> <span class="nf">kill</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Send kill signal SIGTERM to command process</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span></div>

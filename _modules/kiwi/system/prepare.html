@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.prepare &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.system.prepare &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.system.prepare</li>
       <li class="wy-breadcrumbs-aside">
@@ -1264,7 +1268,7 @@
 
 
 <div class="viewcode-block" id="SystemPrepare"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.prepare.SystemPrepare">[docs]</a><span class="k">class</span> <span class="nc">SystemPrepare</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements preparation and installation of a new root system</span>
 
 <span class="sd">    :param object xml_state: instance of :class:`XMLState`</span>
@@ -1274,13 +1278,13 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">xml_state</span><span class="p">:</span> <span class="n">XMLState</span><span class="p">,</span> <span class="n">root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">allow_existing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup and host bind new root system at given root_dir directory</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Setup root directory: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">root_dir</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">log</span><span class="o">.</span><span class="n">getLogLevel</span><span class="p">()</span> <span class="o">==</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">log</span><span class="o">.</span><span class="n">get_logfile</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">issue_message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">                </span><span class="si">{headline}</span><span class="s1">: </span><span class="si">{reason}</span><span class="s1"></span>
+<span class="s1">                </span><span class="si">{headline}</span><span class="s1">: </span><span class="si">{reason}</span>
 
 <span class="s1">                Further details to clarify the error might have been</span>
 <span class="s1">                reported earlier in the package manager log information</span>
@@ -1321,7 +1325,7 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">clear_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">signing_keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">target_arch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PackageManagerBase</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set up repositories for software installation and return a</span>
 <span class="sd">        package manager for performing software installation tasks</span>
 
@@ -1430,7 +1434,7 @@
 <div class="viewcode-block" id="SystemPrepare.install_bootstrap"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.prepare.SystemPrepare.install_bootstrap">[docs]</a>    <span class="k">def</span> <span class="nf">install_bootstrap</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">manager</span><span class="p">:</span> <span class="n">PackageManagerBase</span><span class="p">,</span> <span class="n">plus_packages</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Install system software using the package manager</span>
 <span class="sd">        from the host, also known as bootstrapping</span>
 
@@ -1507,7 +1511,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemPrepare.install_system"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.prepare.SystemPrepare.install_system">[docs]</a>    <span class="k">def</span> <span class="nf">install_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">manager</span><span class="p">:</span> <span class="n">PackageManagerBase</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Install system software using the package manager inside</span>
 <span class="sd">        of the new root directory. This is done via a chroot operation</span>
 <span class="sd">        and requires the desired package manager to became installed</span>
@@ -1580,7 +1584,7 @@
 <div class="viewcode-block" id="SystemPrepare.pinch_system"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.prepare.SystemPrepare.pinch_system">[docs]</a>    <span class="k">def</span> <span class="nf">pinch_system</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">manager</span><span class="p">:</span> <span class="n">PackageManagerBase</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Delete packages marked for deletion in the XML description. If force</span>
 <span class="sd">        param is set to False uninstalls packages marked with</span>
 <span class="sd">        `type=&quot;uninstall&quot;` if any; if force is set to True deletes packages</span>
@@ -1625,7 +1629,7 @@
 <div class="viewcode-block" id="SystemPrepare.install_packages"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.prepare.SystemPrepare.install_packages">[docs]</a>    <span class="k">def</span> <span class="nf">install_packages</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">manager</span><span class="p">:</span> <span class="n">PackageManagerBase</span><span class="p">,</span> <span class="n">packages</span><span class="p">:</span> <span class="n">List</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Install one or more packages using the package manager inside</span>
 <span class="sd">        of the new root directory</span>
 
@@ -1660,7 +1664,7 @@
 <div class="viewcode-block" id="SystemPrepare.delete_packages"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.prepare.SystemPrepare.delete_packages">[docs]</a>    <span class="k">def</span> <span class="nf">delete_packages</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">manager</span><span class="p">:</span> <span class="n">PackageManagerBase</span><span class="p">,</span> <span class="n">packages</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Delete one or more packages using the package manager inside</span>
 <span class="sd">        of the new root directory. If the removal is set with `force` flag</span>
 <span class="sd">        only listed packages are deleted and any dependency break or leftover</span>
@@ -1702,7 +1706,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemPrepare.update_system"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.prepare.SystemPrepare.update_system">[docs]</a>    <span class="k">def</span> <span class="nf">update_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">manager</span><span class="p">:</span> <span class="n">PackageManagerBase</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Install package updates from the used repositories.</span>
 <span class="sd">        the process uses the package manager from inside of the</span>
 <span class="sd">        new root directory</span>
@@ -1726,7 +1730,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemPrepare.clean_package_manager_leftovers"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.prepare.SystemPrepare.clean_package_manager_leftovers">[docs]</a>    <span class="k">def</span> <span class="nf">clean_package_manager_leftovers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This methods cleans some package manager artifacts created</span>
 <span class="sd">        at run time such as macros</span>
 <span class="sd">        &quot;&quot;&quot;</span>

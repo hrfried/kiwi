@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.archive Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.archive Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.archive Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1230,7 +1234,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Extraction/Creation of cpio archives</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – filename to use for archive extraction or creation</p>
 </dd>
 </dl>
@@ -1239,7 +1243,7 @@
 <span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/archive/cpio.html#ArchiveCpio.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.archive.cpio.ArchiveCpio.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create cpio archive</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_dir</strong> (<em>string</em>) – data source directory</p></li>
 <li><p><strong>exclude</strong> (<em>list</em>) – list of excluded items</p></li>
@@ -1253,7 +1257,7 @@
 <span class="sig-name descname"><span class="pre">extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/archive/cpio.html#ArchiveCpio.extract"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.archive.cpio.ArchiveCpio.extract" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract cpio archive contents</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dest_dir</strong> (<em>string</em>) – target data directory</p>
 </dd>
 </dl>
@@ -1275,7 +1279,7 @@ in comparison to the GNU tar command (e.g. numeric-owner).
 Moreover tarfile lacks support for xz compression under
 Python v2.7.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>string</em>) – filename to use for archive extraction or creation</p></li>
 <li><p><strong>create_from_file_list</strong> (<em>bool</em>) – use file list not entire directory to create the archive</p></li>
@@ -1288,7 +1292,7 @@ Python v2.7.</p>
 <span class="sig-name descname"><span class="pre">append_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files_to_append</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/archive/tar.html#ArchiveTar.append_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.archive.tar.ArchiveTar.append_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append files to an already existing uncompressed tar archive</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_dir</strong> (<em>string</em>) – data source directory</p></li>
 <li><p><strong>files_to_append</strong> (<em>list</em>) – list of items to append</p></li>
@@ -1303,7 +1307,7 @@ Python v2.7.</p>
 <span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/archive/tar.html#ArchiveTar.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.archive.tar.ArchiveTar.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create uncompressed tar archive</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_dir</strong> (<em>string</em>) – data source directory</p></li>
 <li><p><strong>exclude</strong> (<em>list</em>) – list of excluded items</p></li>
@@ -1318,7 +1322,7 @@ Python v2.7.</p>
 <span class="sig-name descname"><span class="pre">create_gnu_gzip_compressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/archive/tar.html#ArchiveTar.create_gnu_gzip_compressed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.archive.tar.ArchiveTar.create_gnu_gzip_compressed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create gzip compressed tar archive</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_dir</strong> (<em>string</em>) – data source directory</p></li>
 <li><p><strong>exclude</strong> (<em>list</em>) – list of excluded items</p></li>
@@ -1332,7 +1336,7 @@ Python v2.7.</p>
 <span class="sig-name descname"><span class="pre">create_xz_compressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xz_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/archive/tar.html#ArchiveTar.create_xz_compressed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.archive.tar.ArchiveTar.create_xz_compressed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create XZ compressed tar archive</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_dir</strong> (<em>string</em>) – data source directory</p></li>
 <li><p><strong>exclude</strong> (<em>list</em>) – list of excluded items</p></li>
@@ -1348,7 +1352,7 @@ Python v2.7.</p>
 <span class="sig-name descname"><span class="pre">extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/archive/tar.html#ArchiveTar.extract"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.archive.tar.ArchiveTar.extract" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract tar archive contents</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dest_dir</strong> (<em>string</em>) – target data directory</p>
 </dd>
 </dl>

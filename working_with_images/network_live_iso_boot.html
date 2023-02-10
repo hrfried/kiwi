@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Booting a Live ISO Image from Network &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Booting a Live ISO Image from Network &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Booting a Live ISO Image from Network</li>
       <li class="wy-breadcrumbs-aside">
@@ -1240,10 +1244,10 @@ the network:</p>
 <p>The PXE boot process loads the configured kernel and initrd from
 the PXE server. For this reason, those two files must be extracted
 from the live ISO image and copied to the PXE server as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mount <span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3.iso /mnt
-$ cp /mnt/boot/x86_64/loader/initrd /srv/tftpboot/boot/initrd
-$ cp /mnt/boot/x86_64/loader/linux /srv/tftpboot/boot/linux
-$ umount /mnt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mount<span class="w"> </span><span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3.iso<span class="w"> </span>/mnt
+$<span class="w"> </span>cp<span class="w"> </span>/mnt/boot/x86_64/loader/initrd<span class="w"> </span>/srv/tftpboot/boot/initrd
+$<span class="w"> </span>cp<span class="w"> </span>/mnt/boot/x86_64/loader/linux<span class="w"> </span>/srv/tftpboot/boot/linux
+$<span class="w"> </span>umount<span class="w"> </span>/mnt
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1257,7 +1261,7 @@ in KIWI NG. This requires the export of the live ISO file as remote
 block device which is typically done with the <strong class="command">vblade</strong>
 toolkit. Install the following package on the system which is
 expected to export the live ISO image:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ zypper <span class="k">in</span> vblade
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>zypper<span class="w"> </span><span class="k">in</span><span class="w"> </span>vblade
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1268,7 +1272,7 @@ must provide a compatible aoe kernel module compared to the
 kernel used in the live ISO image.</p>
 </div>
 <p>Once done, export the live ISO image as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vbladed <span class="m">0</span> <span class="m">1</span> INTERFACE <span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3.iso
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>vbladed<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>INTERFACE<span class="w"> </span><span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3.iso
 </pre></div>
 </div>
 <p>The above command exports the given ISO file as a block storage
@@ -1300,9 +1304,9 @@ clients</p>
 </div>
 <p>Edit the file <code class="file docutils literal notranslate"><span class="pre">/srv/tftpboot/pxelinux.cfg/default</span></code> and create
 a boot entry of the form:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LABEL Live-Boot
-    kernel boot/linux
-    append <span class="nv">initrd</span><span class="o">=</span>boot/initrd rd.kiwi.live.pxe <span class="nv">root</span><span class="o">=</span>live:AOEINTERFACE<span class="o">=</span>e0.1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LABEL<span class="w"> </span>Live-Boot
+<span class="w">    </span>kernel<span class="w"> </span>boot/linux
+<span class="w">    </span>append<span class="w"> </span><span class="nv">initrd</span><span class="o">=</span>boot/initrd<span class="w"> </span>rd.kiwi.live.pxe<span class="w"> </span><span class="nv">root</span><span class="o">=</span>live:AOEINTERFACE<span class="o">=</span>e0.1
 </pre></div>
 </div>
 <ul class="simple">
@@ -1318,7 +1322,7 @@ is supported.</p></li>
 <p>Within the network which has access to the PXE server and the
 exported live ISO image, any network client can now boot the
 live system. A test based on QEMU is done as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo qemu -boot n
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>qemu<span class="w"> </span>-boot<span class="w"> </span>n
 </pre></div>
 </div>
 </li>

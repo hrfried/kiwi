@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.utils.compress &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.utils.compress &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.utils.compress</li>
       <li class="wy-breadcrumbs-aside">
@@ -1248,7 +1252,7 @@
 
 
 <div class="viewcode-block" id="Compress"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress">[docs]</a><span class="k">class</span> <span class="nc">Compress</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **File compression / decompression**</span>
 
 <span class="sd">    :param bool keep_source: Request to keep the uncompressed source</span>
@@ -1273,7 +1277,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">uncompressed_filename</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="Compress.xz"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.xz">[docs]</a>    <span class="k">def</span> <span class="nf">xz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create XZ compressed file</span>
 
 <span class="sd">        :param list options: custom xz compression options</span>
@@ -1289,7 +1293,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressed_filename</span></div>
 
 <div class="viewcode-block" id="Compress.gzip"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.gzip">[docs]</a>    <span class="k">def</span> <span class="nf">gzip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create gzip(max compression) compressed file</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">options</span> <span class="o">=</span> <span class="p">[</span>
@@ -1304,7 +1308,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressed_filename</span></div>
 
 <div class="viewcode-block" id="Compress.uncompress"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.uncompress">[docs]</a>    <span class="k">def</span> <span class="nf">uncompress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temporary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Uncompress with format autodetection</span>
 
 <span class="sd">        By default the original source file will be changed into</span>
@@ -1333,7 +1337,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncompressed_filename</span></div>
 
 <div class="viewcode-block" id="Compress.get_format"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.get_format">[docs]</a>    <span class="k">def</span> <span class="nf">get_format</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Detect compression format</span>
 
 <span class="sd">        :return: compression format name or None if it couldn&#39;t be inferred</span>

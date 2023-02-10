@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.shell &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.system.shell &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.system.shell</li>
       <li class="wy-breadcrumbs-aside">
@@ -1243,12 +1247,12 @@
 
 
 <div class="viewcode-block" id="Shell"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.shell.Shell">[docs]</a><span class="k">class</span> <span class="nc">Shell</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Special character handling for shell evaluated code**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="Shell.quote"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.shell.Shell.quote">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">quote</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Quote characters which have a special meaning for bash</span>
 <span class="sd">        but should be used as normal characters. actually I had</span>
 <span class="sd">        planned to use pipes.quote but it does not quote as I</span>
@@ -1269,7 +1273,7 @@
 
 <div class="viewcode-block" id="Shell.quote_key_value_file"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.shell.Shell.quote_key_value_file">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">quote_key_value_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Quote given input file which has to be of the form</span>
 <span class="sd">        key=value to be able to become sourced by the shell</span>
 
@@ -1287,7 +1291,7 @@
 
 <div class="viewcode-block" id="Shell.run_common_function"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.shell.Shell.run_common_function">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">run_common_function</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run a function implemented in config/functions.sh</span>
 
 <span class="sd">        :param str name: function name</span>
@@ -1307,7 +1311,7 @@
 
 <div class="viewcode-block" id="Shell.format_to_variable_value"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.shell.Shell.format_to_variable_value">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">format_to_variable_value</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Format given variable value to return a string value</span>
 <span class="sd">        representation that can be sourced by shell scripts.</span>
 <span class="sd">        If the provided value is not representable as a string</span>

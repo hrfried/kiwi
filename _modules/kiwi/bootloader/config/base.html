@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.base &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.bootloader.config.base &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../config.html">kiwi.bootloader.config</a></li>
       <li class="breadcrumb-item active">kiwi.bootloader.config.base</li>
@@ -1252,7 +1256,7 @@
 
 
 <div class="viewcode-block" id="BootLoaderConfigBase"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase">[docs]</a><span class="k">class</span> <span class="nc">BootLoaderConfigBase</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Base class for bootloader configuration**</span>
 
 <span class="sd">    :param object xml_state: instance of :class:`XMLState`</span>
@@ -1278,7 +1282,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">post_init</span><span class="p">(</span><span class="n">custom_args</span><span class="p">)</span>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.post_init"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Post initialization method</span>
 
 <span class="sd">        Store custom arguments by default</span>
@@ -1288,7 +1292,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span> <span class="o">=</span> <span class="n">custom_args</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.write"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write config data to config file.</span>
 
 <span class="sd">        Implementation in specialized bootloader class required</span>
@@ -1296,7 +1300,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.write_meta_data"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.write_meta_data">[docs]</a>    <span class="k">def</span> <span class="nf">write_meta_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boot_options</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write bootloader setup meta data files</span>
 
 <span class="sd">        :param string root_device: root device node</span>
@@ -1309,7 +1313,7 @@
 <div class="viewcode-block" id="BootLoaderConfigBase.setup_disk_image_config"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_disk_image_config">[docs]</a>    <span class="k">def</span> <span class="nf">setup_disk_image_config</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">boot_uuid</span><span class="p">,</span> <span class="n">root_uuid</span><span class="p">,</span> <span class="n">hypervisor</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">initrd</span><span class="p">,</span> <span class="n">boot_options</span><span class="o">=</span><span class="p">{}</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create boot config file to boot from disk.</span>
 
 <span class="sd">        :param string boot_uuid: boot device UUID</span>
@@ -1334,7 +1338,7 @@
 <div class="viewcode-block" id="BootLoaderConfigBase.setup_install_image_config"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_install_image_config">[docs]</a>    <span class="k">def</span> <span class="nf">setup_install_image_config</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">mbrid</span><span class="p">,</span> <span class="n">hypervisor</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">initrd</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create boot config file to boot from install media in EFI mode.</span>
 
 <span class="sd">        :param string mbrid: mbrid file name on boot device</span>
@@ -1349,7 +1353,7 @@
 <div class="viewcode-block" id="BootLoaderConfigBase.setup_live_image_config"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_live_image_config">[docs]</a>    <span class="k">def</span> <span class="nf">setup_live_image_config</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">mbrid</span><span class="p">,</span> <span class="n">hypervisor</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">initrd</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create boot config file to boot live ISO image in EFI mode.</span>
 
 <span class="sd">        :param string mbrid: mbrid file name on boot device</span>
@@ -1362,7 +1366,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.setup_disk_boot_images"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_disk_boot_images">[docs]</a>    <span class="k">def</span> <span class="nf">setup_disk_boot_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boot_uuid</span><span class="p">,</span> <span class="n">lookup_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create bootloader images for disk boot</span>
 
 <span class="sd">        Some bootloaders requires to build a boot image the bootloader</span>
@@ -1377,7 +1381,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.setup_install_boot_images"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_install_boot_images">[docs]</a>    <span class="k">def</span> <span class="nf">setup_install_boot_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbrid</span><span class="p">,</span> <span class="n">lookup_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create bootloader images for ISO boot an install media</span>
 
 <span class="sd">        :param string mbrid: mbrid file name on boot device</span>
@@ -1388,7 +1392,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.setup_live_boot_images"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_live_boot_images">[docs]</a>    <span class="k">def</span> <span class="nf">setup_live_boot_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbrid</span><span class="p">,</span> <span class="n">lookup_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create bootloader images for ISO boot a live ISO image</span>
 
 <span class="sd">        :param string mbrid: mbrid file name on boot device</span>
@@ -1399,7 +1403,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.setup_sysconfig_bootloader"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.setup_sysconfig_bootloader">[docs]</a>    <span class="k">def</span> <span class="nf">setup_sysconfig_bootloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create or update etc/sysconfig/bootloader by parameters</span>
 <span class="sd">        required according to the bootloader setup</span>
 
@@ -1408,7 +1412,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.create_efi_path"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.create_efi_path">[docs]</a>    <span class="k">def</span> <span class="nf">create_efi_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_sub_dir</span><span class="o">=</span><span class="s1">&#39;boot/efi&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create standard EFI boot directory structure</span>
 
 <span class="sd">        :param string in_sub_dir: toplevel directory</span>
@@ -1424,7 +1428,7 @@
         <span class="k">return</span> <span class="n">efi_boot_path</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.get_boot_theme"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_theme">[docs]</a>    <span class="k">def</span> <span class="nf">get_boot_theme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader Theme name</span>
 
 <span class="sd">        :return: theme name</span>
@@ -1439,7 +1443,7 @@
         <span class="k">return</span> <span class="n">theme</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.get_boot_timeout_seconds"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_timeout_seconds">[docs]</a>    <span class="k">def</span> <span class="nf">get_boot_timeout_seconds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader timeout in seconds</span>
 
 <span class="sd">        If no timeout is specified the default timeout applies</span>
@@ -1454,7 +1458,7 @@
         <span class="k">return</span> <span class="n">timeout_seconds</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.get_continue_on_timeout"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_continue_on_timeout">[docs]</a>    <span class="k">def</span> <span class="nf">get_continue_on_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if the boot should continue after boot timeout or not</span>
 
 <span class="sd">        :return: True or False</span>
@@ -1468,7 +1472,7 @@
         <span class="k">return</span> <span class="n">continue_on_timeout</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.failsafe_boot_entry_requested"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.failsafe_boot_entry_requested">[docs]</a>    <span class="k">def</span> <span class="nf">failsafe_boot_entry_requested</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if a failsafe boot entry is requested</span>
 
 <span class="sd">        :return: True or False</span>
@@ -1480,7 +1484,7 @@
         <span class="k">return</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.get_boot_cmdline"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_cmdline">[docs]</a>    <span class="k">def</span> <span class="nf">get_boot_cmdline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boot_device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Boot commandline arguments passed to the kernel</span>
 
 <span class="sd">        :param string boot_device: boot device node</span>
@@ -1499,7 +1503,7 @@
         <span class="k">return</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.get_install_image_boot_default"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_install_image_boot_default">[docs]</a>    <span class="k">def</span> <span class="nf">get_install_image_boot_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loader</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provide the default boot menu entry identifier for install images</span>
 
 <span class="sd">        The install image can be configured to provide more than</span>
@@ -1555,7 +1559,7 @@
             <span class="k">return</span> <span class="n">menu_list</span><span class="p">[</span><span class="n">boot_id</span><span class="p">]</span><span class="o">.</span><span class="n">menu_id</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.get_boot_path"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_path">[docs]</a>    <span class="k">def</span> <span class="nf">get_boot_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;disk&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader lookup path on boot device</span>
 
 <span class="sd">        If the bootloader reads the data it needs to boot, it does</span>
@@ -1607,7 +1611,7 @@
         <span class="k">return</span> <span class="n">bootpath</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.quote_title"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.quote_title">[docs]</a>    <span class="k">def</span> <span class="nf">quote_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Quote special characters in the title name</span>
 
 <span class="sd">        Not all characters can be displayed correctly in the bootloader</span>
@@ -1625,7 +1629,7 @@
         <span class="k">return</span> <span class="n">name</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.get_menu_entry_title"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_menu_entry_title">[docs]</a>    <span class="k">def</span> <span class="nf">get_menu_entry_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plain</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Prefixed menu entry title</span>
 
 <span class="sd">        If no displayname is specified in the image description,</span>
@@ -1652,7 +1656,7 @@
         <span class="k">return</span> <span class="n">title</span> <span class="o">+</span> <span class="s1">&#39; [ &#39;</span> <span class="o">+</span> <span class="n">type_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; ]&#39;</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.get_menu_entry_install_title"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_menu_entry_install_title">[docs]</a>    <span class="k">def</span> <span class="nf">get_menu_entry_install_title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Prefixed menu entry title for install images</span>
 
 <span class="sd">        If no displayname is specified in the image description,</span>
@@ -1668,7 +1672,7 @@
         <span class="k">return</span> <span class="n">title</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigBase.get_gfxmode"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_gfxmode">[docs]</a>    <span class="k">def</span> <span class="nf">get_gfxmode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Graphics mode according to bootloader target</span>
 
 <span class="sd">        Bootloaders which support a graphics mode can be configured</span>

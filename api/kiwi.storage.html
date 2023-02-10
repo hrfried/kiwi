@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.storage Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.storage Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.storage Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1234,13 +1238,13 @@
 <span class="sig-name descname"><span class="pre">get_byte_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/device_provider.html#DeviceProvider.get_byte_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.device_provider.DeviceProvider.get_byte_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Size of device in bytes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>device</strong> (<em>string</em>) – node name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>byte value from blockdev</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
@@ -1259,13 +1263,13 @@ Implementation in specialized device provider class</p>
 <span class="sig-name descname"><span class="pre">get_uuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/device_provider.html#DeviceProvider.get_uuid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.device_provider.DeviceProvider.get_uuid" title="Permalink to this definition">¶</a></dt>
 <dd><p>UUID of device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>device</strong> (<em>string</em>) – node name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>UUID from blkid</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1278,10 +1282,10 @@ Implementation in specialized device provider class</p>
 <p>By default this is always False and needs an implementation
 in the the specialized device provider class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1310,7 +1314,7 @@ in the the specialized device provider class</p>
 <dd><p>Create boot partition</p>
 <p>Populates kiwi_BootPart(id) and optional kiwi_BootPartClone(id)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p></li>
 <li><p><strong>clone</strong> (<em>int</em>) – create [clone] cop(y/ies) of the boot partition</p></li>
@@ -1329,7 +1333,7 @@ in the the specialized device provider class</p>
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>table</strong> (<em>dict</em>) – partition table spec</p>
 </dd>
 </dl>
@@ -1341,7 +1345,7 @@ in the the specialized device provider class</p>
 <dd><p>Create EFI bios grub partition</p>
 <p>Populates kiwi_BiosGrub(id)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p>
 </dd>
 </dl>
@@ -1353,7 +1357,7 @@ in the the specialized device provider class</p>
 <dd><p>Create EFI partition</p>
 <p>Populates kiwi_EfiPart(id)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p>
 </dd>
 </dl>
@@ -1379,7 +1383,7 @@ in the the specialized device provider class</p>
 <dd><p>Create prep partition</p>
 <p>Populates kiwi_PrepPart(id)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p>
 </dd>
 </dl>
@@ -1391,7 +1395,7 @@ in the the specialized device provider class</p>
 <dd><p>Create root partition for use with LVM</p>
 <p>Populates kiwi_RootPart(id)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p></li>
 <li><p><strong>clone</strong> (<em>int</em>) – create [clone] cop(y/ies) of the lvm roo partition</p></li>
@@ -1407,7 +1411,7 @@ in the the specialized device provider class</p>
 <p>Populates kiwi_RootPart(id) and kiwi_BootPart(id) if no extra
 boot partition is requested</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p></li>
 <li><p><strong>clone</strong> (<em>int</em>) – create [clone] cop(y/ies) of the root partition</p></li>
@@ -1424,7 +1428,7 @@ boot partition is requested</p>
 as the default raid device node at boot time which is
 configured to be kiwi_RaidDev(/dev/mdX)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p></li>
 <li><p><strong>clone</strong> (<em>int</em>) – create [clone] cop(y/ies) of the raid root partition</p></li>
@@ -1442,7 +1446,7 @@ contain a squashfs readonly filesystem. The partition size
 should be the size of the squashfs filesystem in order to
 avoid wasting disk space</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p></li>
 <li><p><strong>clone</strong> (<em>int</em>) – create [clone] cop(y/ies) of the ro root partition</p></li>
@@ -1457,7 +1461,7 @@ avoid wasting disk space</p>
 <dd><p>Create spare partition for custom use</p>
 <p>Populates kiwi_SparePart(id)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p>
 </dd>
 </dl>
@@ -1469,7 +1473,7 @@ avoid wasting disk space</p>
 <dd><p>Create swap partition</p>
 <p>Populates kiwi_SwapPart(id)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mbsize</strong> (<em>str</em>) – partition size string</p>
 </dd>
 </dl>
@@ -1481,10 +1485,10 @@ avoid wasting disk space</p>
 <dd><p>Names of partition devices</p>
 <p>Note that the mapping requires an explicit map() call</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>instances of MappedDevice</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -1503,10 +1507,10 @@ avoid wasting disk space</p>
 <p>The information is taken from the storage provider. If
 the storage provider is loop based the disk is it too</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1587,7 +1591,7 @@ For DASD disks create a new VTOC table</p>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.storage.device_provider.DeviceProvider" title="kiwi.storage.device_provider.DeviceProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeviceProvider</span></code></a></p>
 <p><strong>Create and manage loop device file for block operations</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>string</em>) – loop file name to create</p></li>
 <li><p><strong>filesize_mbytes</strong> (<em>int</em>) – size of the loop file</p></li>
@@ -1602,7 +1606,7 @@ For DASD disks create a new VTOC table</p>
 The file to loop is created with the size specified in the
 constructor unless an existing one should not be overwritten</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>overwrite</strong> (<em>bool</em>) – overwrite existing file to loop</p>
 </dd>
 </dl>
@@ -1613,10 +1617,10 @@ constructor unless an existing one should not be overwritten</p>
 <span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/loop_device.html#LoopDevice.get_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.loop_device.LoopDevice.get_device" title="Permalink to this definition">¶</a></dt>
 <dd><p>Device node name</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>device node name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1627,10 +1631,10 @@ constructor unless an existing one should not be overwritten</p>
 <span class="sig-name descname"><span class="pre">is_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/loop_device.html#LoopDevice.is_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.loop_device.LoopDevice.is_loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Always True</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1647,7 +1651,7 @@ constructor unless an existing one should not be overwritten</p>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.storage.device_provider.DeviceProvider" title="kiwi.storage.device_provider.DeviceProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeviceProvider</span></code></a></p>
 <p><strong>Implements luks setup on a storage device</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>storage_provider</strong> (<em>object</em>) – Instance of class based on DeviceProvider</p>
 </dd>
 </dl>
@@ -1658,7 +1662,7 @@ constructor unless an existing one should not be overwritten</p>
 at creation time of this image. Make sure your host system
 is secure while this process runs</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>passphrase</strong> (<em>string</em>) – credentials</p></li>
 <li><p><strong>os</strong> (<em>string</em>) – distribution name to match distribution specific
@@ -1677,7 +1681,7 @@ to unlock the luks device</p></li>
 <span class="sig-name descname"><span class="pre">create_crypttab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/luks_device.html#LuksDevice.create_crypttab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.luks_device.LuksDevice.create_crypttab" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create crypttab, setting the UUID of the storage device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – file path name</p>
 </dd>
 </dl>
@@ -1688,7 +1692,7 @@ to unlock the luks device</p></li>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_random_keyfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/luks_device.html#LuksDevice.create_random_keyfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.luks_device.LuksDevice.create_random_keyfile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create keyfile with random data</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – file path name</p>
 </dd>
 </dl>
@@ -1699,10 +1703,10 @@ to unlock the luks device</p></li>
 <span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#kiwi.storage.mapped_device.MappedDevice" title="kiwi.storage.mapped_device.MappedDevice"><span class="pre">MappedDevice</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/storage/luks_device.html#LuksDevice.get_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.luks_device.LuksDevice.get_device" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instance of MappedDevice providing the luks device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>mapped luks device</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#kiwi.storage.mapped_device.MappedDevice" title="kiwi.storage.mapped_device.MappedDevice">MappedDevice</a></p>
 </dd>
 </dl>
@@ -1714,10 +1718,10 @@ to unlock the luks device</p></li>
 <dd><p>Check if storage provider is loop based</p>
 <p>Return loop status from base storage provider</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1734,7 +1738,7 @@ to unlock the luks device</p></li>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.storage.device_provider.DeviceProvider" title="kiwi.storage.device_provider.DeviceProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeviceProvider</span></code></a></p>
 <p><strong>Hold a reference on a single device</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>device_provider</strong> (<em>object</em>) – Instance of class based on DeviceProvider</p></li>
 <li><p><strong>device</strong> (<em>string</em>) – Device node name</p></li>
@@ -1746,10 +1750,10 @@ to unlock the luks device</p></li>
 <span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/mapped_device.html#MappedDevice.get_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.mapped_device.MappedDevice.get_device" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mapped device node name</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>device node name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1761,10 +1765,10 @@ to unlock the luks device</p></li>
 <dd><p>Check if storage provider is loop based</p>
 <p>Return loop status from base storage provider</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1781,7 +1785,7 @@ to unlock the luks device</p></li>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.storage.device_provider.DeviceProvider" title="kiwi.storage.device_provider.DeviceProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeviceProvider</span></code></a></p>
 <p><strong>Implement raid setup on a storage device</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>storage_provider</strong> (<em>object</em>) – Instance of class based on DeviceProvider</p>
 </dd>
 </dl>
@@ -1791,7 +1795,7 @@ to unlock the luks device</p></li>
 <dd><p>Create a raid array in degraded mode with one device missing.
 This only works in the raid levels 0(striping) and 1(mirroring)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>raid_level</strong> (<em>string</em>) – raid level name</p>
 </dd>
 </dl>
@@ -1802,7 +1806,7 @@ This only works in the raid levels 0(striping) and 1(mirroring)</p>
 <span class="sig-name descname"><span class="pre">create_raid_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/raid_device.html#RaidDevice.create_raid_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.raid_device.RaidDevice.create_raid_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create mdadm config file from mdadm request</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – config file name</p>
 </dd>
 </dl>
@@ -1813,10 +1817,10 @@ This only works in the raid levels 0(striping) and 1(mirroring)</p>
 <span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#kiwi.storage.mapped_device.MappedDevice" title="kiwi.storage.mapped_device.MappedDevice"><span class="pre">MappedDevice</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/storage/raid_device.html#RaidDevice.get_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.raid_device.RaidDevice.get_device" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instance of MappedDevice providing the raid device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>mapped raid device</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#kiwi.storage.mapped_device.MappedDevice" title="kiwi.storage.mapped_device.MappedDevice">MappedDevice</a></p>
 </dd>
 </dl>
@@ -1828,10 +1832,10 @@ This only works in the raid levels 0(striping) and 1(mirroring)</p>
 <dd><p>Check if storage provider is loop based</p>
 <p>Return loop status from base storage provider</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1852,7 +1856,7 @@ This only works in the raid levels 0(striping) and 1(mirroring)</p>
 <span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_devices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#kiwi.storage.device_provider.DeviceProvider" title="kiwi.storage.device_provider.DeviceProvider"><span class="pre">DeviceProvider</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/storage/clone_device.html#CloneDevice.clone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.clone_device.CloneDevice.clone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clone source device to target device(s)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>target_devices</strong> (<em>list</em>) – List of target DeviceProvider instances</p>
 </dd>
 </dl>
@@ -1871,7 +1875,7 @@ This only works in the raid levels 0(striping) and 1(mirroring)</p>
 <p>Methods from this class provides information required
 before building a disk image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xml_state</strong> (<em>object</em>) – Instance of XMLState</p></li>
 <li><p><strong>root_dir</strong> (<em>string</em>) – root directory path name</p></li>
@@ -1883,10 +1887,10 @@ before building a disk image</p>
 <span class="sig-name descname"><span class="pre">boot_partition_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/setup.html#DiskSetup.boot_partition_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.setup.DiskSetup.boot_partition_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Size of the boot partition in mbytes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boot size mbytes</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -1897,10 +1901,10 @@ before building a disk image</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_boot_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/setup.html#DiskSetup.get_boot_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.setup.DiskSetup.get_boot_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filesystem Label to use for the boot partition</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>label name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1911,16 +1915,16 @@ before building a disk image</p>
 <span class="sig-name descname"><span class="pre">get_disksize_mbytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_clone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_clone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/setup.html#DiskSetup.get_disksize_mbytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.setup.DiskSetup.get_disksize_mbytes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Precalculate disk size requirements in mbytes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root_clone</strong> (<em>int</em>) – root partition gets cloned, N+1 times the size is needed</p></li>
 <li><p><strong>boot_clone</strong> (<em>int</em>) – boot partition gets cloned, N+1 times the size is needed</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>disk size mbytes</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
@@ -1931,10 +1935,10 @@ before building a disk image</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_efi_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/setup.html#DiskSetup.get_efi_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.setup.DiskSetup.get_efi_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filesystem Label to use for the EFI partition</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>label name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1947,10 +1951,10 @@ before building a disk image</p>
 <p>If not specified in the XML configuration the default
 root label is set to ‘ROOT’</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>label name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1964,10 +1968,10 @@ the bootpartition attribute from the type, however if it is not
 set it depends on some other type configuration parameters if
 we need a boot partition or not</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>

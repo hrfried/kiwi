@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Circumvent debootstrap &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Circumvent debootstrap &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Circumvent debootstrap</li>
       <li class="wy-breadcrumbs-aside">
@@ -1244,9 +1248,9 @@ allows for an alternative process which is based on a prebuilt
 bootstrap-root archive provided as a package.</p>
 <p>To make use of a <code class="xref py py-obj docutils literal notranslate"><span class="pre">bootstrap_package</span></code>, the name of that package
 needs to be referenced in the KIWI NG description as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span> <span class="na">bootstrap_package=</span><span class="s">&quot;bootstrap-root&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;b&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="w"> </span><span class="na">bootstrap_package=</span><span class="s">&quot;bootstrap-root&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;b&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/packages&gt;</span>
 </pre></div>
 </div>
@@ -1272,41 +1276,41 @@ requires some background knowledge about the Open Build Service
 <ol class="arabic">
 <li><p>Create an OBS project and repository setup that matches your image target</p></li>
 <li><p>Create an image build package</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>osc mkpac bootstrap-root
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>osc<span class="w"> </span>mkpac<span class="w"> </span>bootstrap-root
 </pre></div>
 </div>
 </li>
 <li><p>Create the following <code class="file docutils literal notranslate"><span class="pre">appliance.kiwi</span></code> file</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;bootstrap-root&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;description</span> <span class="na">type=</span><span class="s">&quot;system&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;author&gt;</span>The Author<span class="nt">&lt;/author&gt;</span>
-        <span class="nt">&lt;contact&gt;</span>author@example.com<span class="nt">&lt;/contact&gt;</span>
-        <span class="nt">&lt;specification&gt;</span>prebuilt bootstrap rootfs for ...<span class="nt">&lt;/specification&gt;</span>
-    <span class="nt">&lt;/description&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;bootstrap-root&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;system&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;author&gt;</span>The<span class="w"> </span>Author<span class="nt">&lt;/author&gt;</span>
+<span class="w">        </span><span class="nt">&lt;contact&gt;</span>author@example.com<span class="nt">&lt;/contact&gt;</span>
+<span class="w">        </span><span class="nt">&lt;specification&gt;</span>prebuilt<span class="w"> </span>bootstrap<span class="w"> </span>rootfs<span class="w"> </span>for<span class="w"> </span>...<span class="nt">&lt;/specification&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/description&gt;</span>
 
-    <span class="nt">&lt;preferences&gt;</span>
-        <span class="nt">&lt;version&gt;</span>1.0.1<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;packagemanager&gt;</span>apt<span class="nt">&lt;/packagemanager&gt;</span>
-        <span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;tbz&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/preferences&gt;</span>
+<span class="w">    </span><span class="nt">&lt;preferences&gt;</span>
+<span class="w">        </span><span class="nt">&lt;version&gt;</span>1.0.1<span class="nt">&lt;/version&gt;</span>
+<span class="w">        </span><span class="nt">&lt;packagemanager&gt;</span>apt<span class="nt">&lt;/packagemanager&gt;</span>
+<span class="w">        </span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;tbz&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/preferences&gt;</span>
 
-    <span class="nt">&lt;repository</span> <span class="na">type=</span><span class="s">&quot;rpm-md&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;source</span> <span class="na">path=</span><span class="s">&quot;obsrepositories:/&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/repository&gt;</span>
+<span class="w">    </span><span class="nt">&lt;repository</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;rpm-md&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;source</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;obsrepositories:/&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/repository&gt;</span>
 
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
-        <span class="cm">&lt;!-- packages included so OBS adds it as a build dependency, however this is installed by debootstrap --&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;mawk&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- packages included so OBS adds it as a build dependency, however this is installed by debootstrap --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;mawk&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
 
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
-        <span class="cm">&lt;!-- bootstrap done via debootstrap --&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- bootstrap done via debootstrap --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>osc add appliance.kiwi
-osc ci
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>osc<span class="w"> </span>add<span class="w"> </span>appliance.kiwi
+osc<span class="w"> </span>ci
 </pre></div>
 </div>
 </li>

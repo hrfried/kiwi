@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.storage.device_provider &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.storage.device_provider &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.storage.device_provider</li>
       <li class="wy-breadcrumbs-aside">
@@ -1239,11 +1243,11 @@
 
 
 <div class="viewcode-block" id="DeviceProvider"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.device_provider.DeviceProvider">[docs]</a><span class="k">class</span> <span class="nc">DeviceProvider</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Base class for any class providing storage devices**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="DeviceProvider.get_device"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.device_provider.DeviceProvider.get_device">[docs]</a>    <span class="k">def</span> <span class="nf">get_device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Representation of device nodes</span>
 
 <span class="sd">        Could provide one ore more devices representing the storage</span>
@@ -1254,7 +1258,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DeviceProvider.get_uuid"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.device_provider.DeviceProvider.get_uuid">[docs]</a>    <span class="k">def</span> <span class="nf">get_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        UUID of device</span>
 
 <span class="sd">        :param string device: node name</span>
@@ -1269,7 +1273,7 @@
         <span class="k">return</span> <span class="n">uuid_call</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DeviceProvider.get_byte_size"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.device_provider.DeviceProvider.get_byte_size">[docs]</a>    <span class="k">def</span> <span class="nf">get_byte_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Size of device in bytes</span>
 
 <span class="sd">        :param string device: node name</span>
@@ -1284,7 +1288,7 @@
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">blockdev_call</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="DeviceProvider.is_loop"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.device_provider.DeviceProvider.is_loop">[docs]</a>    <span class="k">def</span> <span class="nf">is_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if device provider is loop based</span>
 
 <span class="sd">        By default this is always False and needs an implementation</span>

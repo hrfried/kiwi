@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.iso_tools.xorriso &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.iso_tools.xorriso &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../iso_tools.html">kiwi.iso_tools</a></li>
       <li class="breadcrumb-item active">kiwi.iso_tools.xorriso</li>
@@ -1246,14 +1250,14 @@
 
 
 <div class="viewcode-block" id="IsoToolsXorrIso"><a class="viewcode-back" href="../../../api/kiwi.iso_tools.html#kiwi.iso_tools.xorriso.IsoToolsXorrIso">[docs]</a><span class="k">class</span> <span class="nc">IsoToolsXorrIso</span><span class="p">(</span><span class="n">IsoToolsBase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **xorriso wrapper class**</span>
 
 <span class="sd">    Implementation of Parameter API for iso creation tools using</span>
 <span class="sd">    the libburnia project. Addressed here is the tool xorriso</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="IsoToolsXorrIso.has_iso_hybrid_capability"><a class="viewcode-back" href="../../../api/kiwi.iso_tools.html#kiwi.iso_tools.xorriso.IsoToolsXorrIso.has_iso_hybrid_capability">[docs]</a>    <span class="k">def</span> <span class="nf">has_iso_hybrid_capability</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Indicate if the iso tool has the capability to embed a</span>
 <span class="sd">        partition table into the iso such that it can be</span>
 <span class="sd">        used as both; an iso and a disk</span>
@@ -1265,7 +1269,7 @@
         <span class="k">return</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="IsoToolsXorrIso.get_tool_name"><a class="viewcode-back" href="../../../api/kiwi.iso_tools.html#kiwi.iso_tools.xorriso.IsoToolsXorrIso.get_tool_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_tool_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Lookup xorriso in search path</span>
 
 <span class="sd">        :raises KiwiIsoToolError: if xorriso tool is not found</span>
@@ -1282,7 +1286,7 @@
 <div class="viewcode-block" id="IsoToolsXorrIso.init_iso_creation_parameters"><a class="viewcode-back" href="../../../api/kiwi.iso_tools.html#kiwi.iso_tools.xorriso.IsoToolsXorrIso.init_iso_creation_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">init_iso_creation_parameters</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a set of standard parameters</span>
 
 <span class="sd">        :param list custom_args: custom ISO meta data</span>
@@ -1354,7 +1358,7 @@
         <span class="p">]</span></div>
 
 <div class="viewcode-block" id="IsoToolsXorrIso.add_efi_loader_parameters"><a class="viewcode-back" href="../../../api/kiwi.iso_tools.html#kiwi.iso_tools.xorriso.IsoToolsXorrIso.add_efi_loader_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">add_efi_loader_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loader_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add ISO creation parameters to embed the EFI loader</span>
 
 <span class="sd">        In order to boot the ISO from EFI, the EFI binary is added as</span>
@@ -1376,7 +1380,7 @@
 <div class="viewcode-block" id="IsoToolsXorrIso.create_iso"><a class="viewcode-back" href="../../../api/kiwi.iso_tools.html#kiwi.iso_tools.xorriso.IsoToolsXorrIso.create_iso">[docs]</a>    <span class="k">def</span> <span class="nf">create_iso</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">hidden_files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates the iso file with the given filename using xorriso</span>
 
 <span class="sd">        :param str filename: output filename</span>

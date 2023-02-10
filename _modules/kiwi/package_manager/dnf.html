@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.package_manager.dnf &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.package_manager.dnf &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../package_manager.html">kiwi.package_manager</a></li>
       <li class="breadcrumb-item active">kiwi.package_manager.dnf</li>
@@ -1251,7 +1255,7 @@
 
 
 <div class="viewcode-block" id="PackageManagerDnf"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf">[docs]</a><span class="k">class</span> <span class="nc">PackageManagerDnf</span><span class="p">(</span><span class="n">PackageManagerBase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    ***Implements base class for installation/deletion of</span>
 <span class="sd">    packages and collections using dnf***</span>
 
@@ -1260,7 +1264,7 @@
 <span class="sd">        configuration</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="PackageManagerDnf.post_init"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Post initialization method</span>
 
 <span class="sd">        :param list custom_args: custom dnf arguments</span>
@@ -1272,7 +1276,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">command_env</span> <span class="o">=</span> <span class="n">runtime_config</span><span class="p">[</span><span class="s1">&#39;command_env&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.request_package"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.request_package">[docs]</a>    <span class="k">def</span> <span class="nf">request_package</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Queue a package request</span>
 
 <span class="sd">        :param str name: package name</span>
@@ -1280,7 +1284,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">package_requests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.request_collection"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.request_collection">[docs]</a>    <span class="k">def</span> <span class="nf">request_collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Queue a collection request</span>
 
 <span class="sd">        :param str name: dnf group ID name</span>
@@ -1288,7 +1292,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">collection_requests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;@</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.request_product"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.request_product">[docs]</a>    <span class="k">def</span> <span class="nf">request_product</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Queue a product request</span>
 
 <span class="sd">        There is no product definition in the fedora repo data</span>
@@ -1298,7 +1302,7 @@
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.request_package_exclusion"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.request_package_exclusion">[docs]</a>    <span class="k">def</span> <span class="nf">request_package_exclusion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Queue a package exclusion(skip) request</span>
 
 <span class="sd">        :param str name: package name</span>
@@ -1308,7 +1312,7 @@
 <div class="viewcode-block" id="PackageManagerDnf.setup_repository_modules"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.setup_repository_modules">[docs]</a>    <span class="k">def</span> <span class="nf">setup_repository_modules</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">collection_modules</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup repository modules and streams</span>
 
 <span class="sd">        :param dict collection_modules:</span>
@@ -1354,7 +1358,7 @@
 <div class="viewcode-block" id="PackageManagerDnf.process_install_requests_bootstrap"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.process_install_requests_bootstrap">[docs]</a>    <span class="k">def</span> <span class="nf">process_install_requests_bootstrap</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">root_bind</span><span class="p">:</span> <span class="n">RootBind</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">bootstrap_package</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">command_call_type</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Process package install requests for bootstrap phase (no chroot)</span>
 
 <span class="sd">        :param object root_bind: unused</span>
@@ -1383,7 +1387,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.process_install_requests"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.process_install_requests">[docs]</a>    <span class="k">def</span> <span class="nf">process_install_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">command_call_type</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Process package install requests for image phase (chroot)</span>
 
 <span class="sd">        :return: process results in command type</span>
@@ -1414,7 +1418,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.process_delete_requests"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.process_delete_requests">[docs]</a>    <span class="k">def</span> <span class="nf">process_delete_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">command_call_type</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Process package delete requests (chroot)</span>
 
 <span class="sd">        :param bool force: force deletion: true|false</span>
@@ -1463,7 +1467,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.update"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">command_call_type</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Process package update requests (chroot)</span>
 
 <span class="sd">        :return: process results in command type</span>
@@ -1483,14 +1487,14 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.process_only_required"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.process_only_required">[docs]</a>    <span class="k">def</span> <span class="nf">process_only_required</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup package processing only for required packages</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="s1">&#39;--setopt=install_weak_deps=False&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;--setopt=install_weak_deps=False&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.process_plus_recommended"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.process_plus_recommended">[docs]</a>    <span class="k">def</span> <span class="nf">process_plus_recommended</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup package processing to also include recommended dependencies.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="s1">&#39;--setopt=install_weak_deps=False&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">:</span>
@@ -1499,7 +1503,7 @@
 <div class="viewcode-block" id="PackageManagerDnf.match_package_installed"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.match_package_installed">[docs]</a>    <span class="k">def</span> <span class="nf">match_package_installed</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">package_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">package_manager_output</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Match expression to indicate a package has been installed</span>
 
 <span class="sd">        This match for the package to be installed in the output</span>
@@ -1524,7 +1528,7 @@
 <div class="viewcode-block" id="PackageManagerDnf.match_package_deleted"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.match_package_deleted">[docs]</a>    <span class="k">def</span> <span class="nf">match_package_deleted</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">package_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">package_manager_output</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Match expression to indicate a package has been deleted</span>
 
 <span class="sd">        :param str package_name: package_name</span>
@@ -1544,7 +1548,7 @@
 <div class="viewcode-block" id="PackageManagerDnf.post_process_install_requests_bootstrap"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.post_process_install_requests_bootstrap">[docs]</a>    <span class="k">def</span> <span class="nf">post_process_install_requests_bootstrap</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">root_bind</span><span class="p">:</span> <span class="n">RootBind</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Move the rpm database to the place as it is expected by the</span>
 <span class="sd">        rpm package installed during bootstrap phase</span>
 
@@ -1556,7 +1560,7 @@
             <span class="n">rpmdb</span><span class="o">.</span><span class="n">set_database_to_image_path</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="PackageManagerDnf.clean_leftovers"><a class="viewcode-back" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf.clean_leftovers">[docs]</a>    <span class="k">def</span> <span class="nf">clean_leftovers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Cleans package manager related data not needed in the</span>
 <span class="sd">        resulting image such as custom macros</span>
 <span class="sd">        &quot;&quot;&quot;</span>

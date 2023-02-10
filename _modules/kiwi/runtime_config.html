@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.runtime_config &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.runtime_config &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.runtime_config</li>
       <li class="wy-breadcrumbs-aside">
@@ -1251,7 +1255,7 @@
 
 
 <div class="viewcode-block" id="RuntimeConfig"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig">[docs]</a><span class="k">class</span> <span class="nc">RuntimeConfig</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements reading of runtime configuration file:**</span>
 
 <span class="sd">    1. Check for --config provided from the CLI</span>
@@ -1291,7 +1295,7 @@
                     <span class="n">RUNTIME_CONFIG</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{}</span>
 
 <div class="viewcode-block" id="RuntimeConfig.get_credentials_verification_metadata_signing_key_file"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_credentials_verification_metadata_signing_key_file">[docs]</a>    <span class="k">def</span> <span class="nf">get_credentials_verification_metadata_signing_key_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return verification metadata signing key file, used for</span>
 <span class="sd">        signature creation of rootfs verification metadata:</span>
 
@@ -1311,7 +1315,7 @@
         <span class="k">return</span> <span class="n">signing_key_file</span> <span class="k">if</span> <span class="n">signing_key_file</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_obs_download_server_url"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_obs_download_server_url">[docs]</a>    <span class="k">def</span> <span class="nf">get_obs_download_server_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return URL of buildservice download server in:</span>
 
 <span class="sd">        obs:</span>
@@ -1331,7 +1335,7 @@
             <span class="n">Defaults</span><span class="o">.</span><span class="n">get_obs_download_server_url</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_obs_api_server_url"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_obs_api_server_url">[docs]</a>    <span class="k">def</span> <span class="nf">get_obs_api_server_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return URL of buildservice API server in:</span>
 
 <span class="sd">        obs:</span>
@@ -1351,7 +1355,7 @@
             <span class="n">Defaults</span><span class="o">.</span><span class="n">get_obs_api_server_url</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_obs_api_credentials"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_obs_api_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">get_obs_api_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return OBS API credentials if configured:</span>
 
 <span class="sd">        obs:</span>
@@ -1367,7 +1371,7 @@
             <span class="k">return</span> <span class="n">obs_users</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.is_obs_public"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.is_obs_public">[docs]</a>    <span class="k">def</span> <span class="nf">is_obs_public</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if the buildservice configuration is public or private in:</span>
 
 <span class="sd">        obs:</span>
@@ -1386,7 +1390,7 @@
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">obs_public</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_package_changes"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_package_changes">[docs]</a>    <span class="k">def</span> <span class="nf">get_package_changes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return boolean value to express if the image build and bundle</span>
 <span class="sd">        should contain a .changes file. The .changes file contains</span>
 <span class="sd">        the package changelog information from all packages installed</span>
@@ -1417,7 +1421,7 @@
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">bundle_package_changes</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_bundle_compression"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_bundle_compression">[docs]</a>    <span class="k">def</span> <span class="nf">get_bundle_compression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return boolean value to express if the image bundle should</span>
 <span class="sd">        contain XZ compressed image results or not.</span>
 
@@ -1445,7 +1449,7 @@
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">bundle_compress</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_xz_options"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_xz_options">[docs]</a>    <span class="k">def</span> <span class="nf">get_xz_options</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return list of XZ compression options in:</span>
 
 <span class="sd">        xz:</span>
@@ -1466,7 +1470,7 @@
         <span class="k">return</span> <span class="n">xz_options</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">xz_options</span> <span class="k">else</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_container_compression"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_container_compression">[docs]</a>    <span class="k">def</span> <span class="nf">get_container_compression</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return compression for container images</span>
 
 <span class="sd">        container:</span>
@@ -1497,7 +1501,7 @@
             <span class="k">return</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_container_compression</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_iso_tool_category"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_iso_tool_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_iso_tool_category</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return tool category which should be used to build iso images</span>
 
 <span class="sd">        iso:</span>
@@ -1526,7 +1530,7 @@
             <span class="k">return</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_iso_tool_category</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_oci_archive_tool"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_oci_archive_tool">[docs]</a>    <span class="k">def</span> <span class="nf">get_oci_archive_tool</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return OCI archive tool which should be used on creation of</span>
 <span class="sd">        container archives for OCI compliant images, e.g docker</span>
 
@@ -1546,7 +1550,7 @@
         <span class="k">return</span> <span class="n">oci_archive_tool</span> <span class="ow">or</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_oci_archive_tool</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_mapper_tool"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_mapper_tool">[docs]</a>    <span class="k">def</span> <span class="nf">get_mapper_tool</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return partition mapper tool</span>
 
 <span class="sd">        mapper:</span>
@@ -1565,7 +1569,7 @@
         <span class="k">return</span> <span class="n">part_mapper_tool</span> <span class="ow">or</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_part_mapper_tool</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_max_size_constraint"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_max_size_constraint">[docs]</a>    <span class="k">def</span> <span class="nf">get_max_size_constraint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the maximum allowed size of the built image. The value is</span>
 <span class="sd">        returned in bytes and it is specified in build_constraints element</span>
 <span class="sd">        with the max_size attribute. The value can be specified in bytes or</span>
@@ -1586,7 +1590,7 @@
         <span class="k">return</span> <span class="n">StringToSize</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">max_size</span><span class="p">)</span> <span class="k">if</span> <span class="n">max_size</span> <span class="k">else</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="RuntimeConfig.get_disabled_runtime_checks"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.runtime_config.RuntimeConfig.get_disabled_runtime_checks">[docs]</a>    <span class="k">def</span> <span class="nf">get_disabled_runtime_checks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns disabled runtime checks. Checks can be disabled with:</span>
 
 <span class="sd">        runtime_checks:</span>

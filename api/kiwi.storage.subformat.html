@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.storage.subformat Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.storage.subformat Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.storage.subformat Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1230,7 +1234,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Base class to create disk formats from a raw disk image</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xml_state</strong> (<em>object</em>) – Instance of XMLState</p></li>
 <li><p><strong>root_dir</strong> (<em>string</em>) – root directory path name</p></li>
@@ -1252,13 +1256,13 @@
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_qemu_option_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/subformat/base.html#DiskFormatBase.get_qemu_option_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.subformat.base.DiskFormatBase.get_qemu_option_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create list of qemu options from custom_args dict</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – arguments</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>qemu option list</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -1269,13 +1273,13 @@
 <span class="sig-name descname"><span class="pre">get_target_file_path_for_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/subformat/base.html#DiskFormatBase.get_target_file_path_for_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.subformat.base.DiskFormatBase.get_target_file_path_for_format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create target file path name for specified format</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>format_name</strong> (<em>string</em>) – disk format name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>file path name</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1286,10 +1290,10 @@
 <span class="sig-name descname"><span class="pre">has_raw_disk</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/subformat/base.html#DiskFormatBase.has_raw_disk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.subformat.base.DiskFormatBase.has_raw_disk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if the base raw disk image exists</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1301,7 +1305,7 @@
 <dd><p>Post initialization method</p>
 <p>Implementation in specialized disk format class if required</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – unused</p>
 </dd>
 </dl>
@@ -1316,13 +1320,13 @@ If the disk got changed the method returns True, if
 the new size is the same as the current size nothing
 gets resized and the method returns False</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>size</strong> (<em>int</em>) – size in bytes</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True or False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -1338,7 +1342,7 @@ as compressed file. Subformats which creates additional
 metadata files or want to use other result flags needs
 to overwrite this method</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>result</strong> (<em>object</em>) – Instance of Result</p>
 </dd>
 </dl>
@@ -1367,13 +1371,13 @@ to overwrite this method</p>
 convetion. Therefore it’s required to provide a suitable
 name by overriding the base class method</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>format_name</strong> (<em>string</em>) – gce</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>file path name</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1385,7 +1389,7 @@ name by overriding the base class method</p>
 <dd><p>GCE disk format post initialization method</p>
 <p>Store disk tag from custom args</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – <p>custom gce argument dictionary</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;--tag&#39;</span><span class="p">:</span> <span class="s1">&#39;billing_code&#39;</span><span class="p">}</span>
 </pre></div>
@@ -1403,7 +1407,7 @@ provided result instance. In this case compression is unwanted
 because the gce tarball is already created as a compressed
 archive</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>result</strong> (<em>object</em>) – Instance of Result</p>
 </dd>
 </dl>
@@ -1432,7 +1436,7 @@ archive</p>
 <dd><p>vmdk disk format post initialization method</p>
 <p>Store qemu options as list from custom args dict</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – custom qemu arguments dictionary</p>
 </dd>
 </dl>
@@ -1443,7 +1447,7 @@ archive</p>
 <span class="sig-name descname"><span class="pre">store_to_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="kiwi.system.html#kiwi.system.result.Result" title="kiwi.system.result.Result"><span class="pre">Result</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/subformat/ova.html#DiskFormatOva.store_to_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.subformat.ova.DiskFormatOva.store_to_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Store the resulting ova file into the provided result instance.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>result</strong> (<em>object</em>) – Instance of Result</p>
 </dd>
 </dl>
@@ -1471,7 +1475,7 @@ archive</p>
 <dd><p>qcow2 disk format post initialization method</p>
 <p>Store qemu options as list from custom args dict</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – custom qemu arguments dictionary</p>
 </dd>
 </dl>
@@ -1487,7 +1491,7 @@ Since the format conversion only takes the real bytes into
 account such that the sparseness of the raw disk will not
 result in the output format and can be taken one by one</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>result</strong> (<em>object</em>) – Instance of Result</p>
 </dd>
 </dl>
@@ -1564,10 +1568,10 @@ provided Vagrantfile)</p></li>
 that will be included in <code class="docutils literal notranslate"><span class="pre">metadata.json</span></code>.</p>
 <p>The default implementation returns an empty dictionary.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dictionary that is serializable to JSON</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -1584,10 +1588,10 @@ forwarded to <code class="xref py py-func docutils literal notranslate"><span cl
 parameter <code class="docutils literal notranslate"><span class="pre">custom_settings</span></code> and included in the <code class="docutils literal notranslate"><span class="pre">Vagrantfile</span></code>.</p>
 <p>The default implementation returns nothing.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>additional vagrant settings</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1599,7 +1603,7 @@ parameter <code class="docutils literal notranslate"><span class="pre">custom_se
 <dd><p>vagrant disk format post initialization method</p>
 <p>store vagrantconfig information provided via custom_args</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – <p>Contains instance of xml_parse::vagrantconfig</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;vagrantconfig&#39;</span><span class="p">:</span> <span class="nb">object</span><span class="p">}</span>
 </pre></div>
@@ -1616,7 +1620,7 @@ parameter <code class="docutils literal notranslate"><span class="pre">custom_se
 provided result instance. In this case compression is unwanted
 because the box is already created as a compressed tarball</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>result</strong> (<em>object</em>) – Instance of Result</p>
 </dd>
 </dl>
@@ -1646,14 +1650,14 @@ make the this base class methods effective</p>
 <span class="sig-name descname"><span class="pre">create_box_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temp_image_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/storage/subformat/vagrant_libvirt.html#DiskFormatVagrantLibVirt.create_box_img"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.subformat.vagrant_libvirt.DiskFormatVagrantLibVirt.create_box_img" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the qcow2 disk image box for libvirt vagrant provider</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>temp_image_dir</strong> (<em>str</em>) – Path to the temporary directory used to build the box image</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of files relevant for the libvirt box to be
 included in the vagrant box</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -1664,11 +1668,11 @@ included in the vagrant box</p>
 <span class="sig-name descname"><span class="pre">get_additional_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/subformat/vagrant_libvirt.html#DiskFormatVagrantLibVirt.get_additional_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.subformat.vagrant_libvirt.DiskFormatVagrantLibVirt.get_additional_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide box metadata needed to create the box in vagrant</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a dictionary containing the virtual image format
 and the size of the image.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -1679,10 +1683,10 @@ and the size of the image.</p>
 <span class="sig-name descname"><span class="pre">get_additional_vagrant_config_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/storage/subformat/vagrant_libvirt.html#DiskFormatVagrantLibVirt.get_additional_vagrant_config_settings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.storage.subformat.vagrant_libvirt.DiskFormatVagrantLibVirt.get_additional_vagrant_config_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns settings for the libvirt provider telling vagrant to use kvm.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ruby code to be evaluated as string</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1714,14 +1718,14 @@ make the this base class methods effective</p>
 <p>This function creates the vmdk disk image and the ovf file.
 The latter is created via the class <code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualboxOvfTemplate</span></code>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>temp_image_dir</strong> (<em>str</em>) – Path to the temporary directory used to build the box image</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of files relevant for the virtualbox box to be
 included in the vagrant box</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -1733,10 +1737,10 @@ included in the vagrant box</p>
 <dd><p>Configure the default shared folder to use rsync when guest additions
 are not present inside the box.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ruby code to be evaluated as string</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1773,7 +1777,7 @@ make the this base class methods effective</p>
 <dd><p>vdi disk format post initialization method</p>
 <p>Store qemu options as list from custom args dict</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – custom qemu arguments dictionary</p>
 </dd>
 </dl>
@@ -1801,7 +1805,7 @@ make the this base class methods effective</p>
 <dd><p>vhd disk format post initialization method</p>
 <p>Store qemu options as list from custom args dict</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – custom qemu arguments dictionary</p>
 </dd>
 </dl>
@@ -1830,7 +1834,7 @@ make the this base class methods effective</p>
 <p>Store qemu options as list from custom args dict
 Extract disk tag from custom args</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – <p>custom vhdfixed and qemu argument dictionary</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;--tag&#39;</span><span class="p">:</span> <span class="s1">&#39;billing_code&#39;</span><span class="p">,</span> <span class="s1">&#39;--qemu-opt&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span>
 </pre></div>
@@ -1847,7 +1851,7 @@ Extract disk tag from custom args</p>
 provided result instance. In this case compressing the result
 is preferred as vhdfixed is not a compressed or dynamic format.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>result</strong> (<em>object</em>) – Instance of Result</p>
 </dd>
 </dl>
@@ -1875,7 +1879,7 @@ is preferred as vhdfixed is not a compressed or dynamic format.</p>
 <dd><p>vhdx disk format post initialization method</p>
 <p>Store qemu options as list from custom args dict</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – custom qemu arguments dictionary</p>
 </dd>
 </dl>
@@ -1903,7 +1907,7 @@ is preferred as vhdfixed is not a compressed or dynamic format.</p>
 <dd><p>vmdk disk format post initialization method</p>
 <p>Store qemu options as list from custom args dict</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – custom qemu arguments dictionary</p>
 </dd>
 </dl>
@@ -1916,7 +1920,7 @@ is preferred as vhdfixed is not a compressed or dynamic format.</p>
 provided result instance. This includes the vmdk image file
 and the VMware settings file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>result</strong> (<em>object</em>) – Instance of Result</p>
 </dd>
 </dl>
@@ -1933,7 +1937,7 @@ and the VMware settings file</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>DiskFormat factory</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>string</em>) – Format name</p></li>
 <li><p><strong>xml_state</strong> (<em>object</em>) – Instance of XMLState</p></li>

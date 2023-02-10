@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build an ISO Hybrid Live Image &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Build an ISO Hybrid Live Image &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../building_images.html">Building Images for Supported Types</a></li>
       <li class="breadcrumb-item active">Build an ISO Hybrid Live Image</li>
       <li class="wy-breadcrumbs-aside">
@@ -1233,13 +1237,13 @@ with other system storage components making it a useful pocket system for
 testing and demo- and debugging-purposes.</p>
 <p>To add a live ISO build to your appliance, create a <code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code> element with
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">image</span></code> set to <code class="xref py py-obj docutils literal notranslate"><span class="pre">iso</span></code> in your <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code> as shown below:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;Tumbleweed_appliance&quot;</span><span class="nt">&gt;</span>
-  <span class="cm">&lt;!-- snip --&gt;</span>
-  <span class="nt">&lt;preferences&gt;</span>
-    <span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;iso&quot;</span> <span class="na">primary=</span><span class="s">&quot;true&quot;</span> <span class="na">flags=</span><span class="s">&quot;overlay&quot;</span> <span class="na">hybridpersistent_filesystem=</span><span class="s">&quot;ext4&quot;</span> <span class="na">hybridpersistent=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-    <span class="cm">&lt;!-- additional preferences --&gt;</span>
-  <span class="nt">&lt;/preferences&gt;</span>
-  <span class="cm">&lt;!-- snip --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tumbleweed_appliance&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- snip --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;preferences&gt;</span>
+<span class="w">    </span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;iso&quot;</span><span class="w"> </span><span class="na">primary=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">flags=</span><span class="s">&quot;overlay&quot;</span><span class="w"> </span><span class="na">hybridpersistent_filesystem=</span><span class="s">&quot;ext4&quot;</span><span class="w"> </span><span class="na">hybridpersistent=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- additional preferences --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/preferences&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- snip --&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1263,17 +1267,17 @@ file. Possible values are <code class="xref py py-obj docutils literal notransla
 </ul>
 <p>With the appropriate settings present in <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code> KIWI NG can now
 build the image:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo kiwi-ng system build <span class="se">\</span>
-      --description kiwi/build-tests/x86/leap/test-image-live <span class="se">\</span>
-      --set-repo obs://openSUSE:Leap:15.3/standard <span class="se">\</span>
-      --target-dir /tmp/myimage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>kiwi-ng<span class="w"> </span>system<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--description<span class="w"> </span>kiwi/build-tests/x86/leap/test-image-live<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--set-repo<span class="w"> </span>obs://openSUSE:Leap:15.3/standard<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--target-dir<span class="w"> </span>/tmp/myimage
 </pre></div>
 </div>
 <p>The resulting image is saved in the folder <code class="file docutils literal notranslate"><span class="pre">/tmp/myimage</span></code> and can
 be tested with QEMU:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo qemu -cdrom <span class="se">\</span>
-      kiwi-test-image-live.x86_64-1.15.3.iso <span class="se">\</span>
-      -m <span class="m">4096</span> -serial stdio
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>qemu<span class="w"> </span>-cdrom<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>kiwi-test-image-live.x86_64-1.15.3.iso<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-m<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-serial<span class="w"> </span>stdio
 </pre></div>
 </div>
 <p>The image is now complete and ready to use. See <a class="reference internal" href="../working_with_images/iso_to_usb_stick_deployment.html#iso-to-usb-stick"><span class="std std-ref">Deploy ISO Image on an USB Stick</span></a> and

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Extending KIWI NG with Custom Operations &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Extending KIWI NG with Custom Operations &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../contributing.html">Contributing</a></li>
       <li class="breadcrumb-item active">Extending KIWI NG with Custom Operations</li>
       <li class="wy-breadcrumbs-aside">
@@ -1237,7 +1241,7 @@ providing additional KIWI NG commands implemented.</p>
 <p>Depending on the demand for custom plugins, the interface
 to hook in code into other parts of the KIWI NG processing
 needs to be extended.</p>
-<p>This description applies for version 9.24.56.</p>
+<p>This description applies for version 9.24.57.</p>
 </div>
 <section id="the-extension-section">
 <h2>The &lt;extension&gt; Section<a class="headerlink" href="#the-extension-section" title="Permalink to this heading">¶</a></h2>
@@ -1246,12 +1250,12 @@ to specify any XML structure and attributes as long as they are
 connected to a namespace. According to this any custom XML
 structure can be implemented like the following example shows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;image&gt;
-    ...
-    &lt;extension xmlns:my_plugin<span class="o">=</span><span class="s2">&quot;http://www.my_plugin.com&quot;</span>&gt;
-        &lt;my_plugin:my_feature&gt;
-            &lt;my_plugin:title <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;cool stuff&quot;</span>/&gt;
-        &lt;/my_plugin:my_feature&gt;
-    &lt;/extension&gt;
+<span class="w">    </span>...
+<span class="w">    </span>&lt;extension<span class="w"> </span>xmlns:my_plugin<span class="o">=</span><span class="s2">&quot;http://www.my_plugin.com&quot;</span>&gt;
+<span class="w">        </span>&lt;my_plugin:my_feature&gt;
+<span class="w">            </span>&lt;my_plugin:title<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;cool stuff&quot;</span>/&gt;
+<span class="w">        </span>&lt;/my_plugin:my_feature&gt;
+<span class="w">    </span>&lt;/extension&gt;
 &lt;/image&gt;
 </pre></div>
 </div>
@@ -1269,33 +1273,33 @@ The schema file must be a RELAX NG schema in the .rng format. We recommend
 to place the schema as <code class="file docutils literal notranslate"><span class="pre">/usr/share/xml/kiwi/my_plugin.rng</span></code></p>
 <p>For the above example the RELAX NG Schema in the compressed format
 <code class="file docutils literal notranslate"><span class="pre">my_plugin.rnc</span></code> would look like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">my_plugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://www.my_plugin.com&quot;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">my_plugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://www.my_plugin.com&quot;</span>
 
-<span class="nn">start</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="nn">k</span><span class="p">.</span><span class="nn">my_feature</span><span class="w"></span>
+<span class="nn">start</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="nn">k</span><span class="p">.</span><span class="nn">my_feature</span>
 
-<span class="nn">div</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">my_feature</span><span class="p">.</span><span class="n">attlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">empty</span><span class="w"></span>
-<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">my_feature</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">        </span><span class="n">element</span><span class="w"> </span><span class="n">my_plugin</span><span class="o">:</span><span class="n">my_feature</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">k</span><span class="p">.</span><span class="n">my_feature</span><span class="p">.</span><span class="n">attlist</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">            </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="nn">div</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">my_feature</span><span class="p">.</span><span class="n">attlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">empty</span>
+<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">my_feature</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">element</span><span class="w"> </span><span class="n">my_plugin</span><span class="o">:</span><span class="n">my_feature</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">k</span><span class="p">.</span><span class="n">my_feature</span><span class="p">.</span><span class="n">attlist</span><span class="w"> </span><span class="o">&amp;</span>
+<span class="w">            </span><span class="n">k</span><span class="p">.</span><span class="n">title</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="n">div</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">attribute</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">        </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">attlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">attribute</span><span class="w"></span>
-<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">        </span><span class="n">element</span><span class="w"> </span><span class="n">my_plugin</span><span class="o">:</span><span class="n">title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">attlist</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="n">div</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">attribute</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">attlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">attribute</span>
+<span class="w">    </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">element</span><span class="w"> </span><span class="n">my_plugin</span><span class="o">:</span><span class="n">title</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">k</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">attlist</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>In order to convert this schema to the .rng format just call:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ trang -I rnc -O rng my_plugin.rnc /usr/share/xml/kiwi/my_plugin.rng
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>trang<span class="w"> </span>-I<span class="w"> </span>rnc<span class="w"> </span>-O<span class="w"> </span>rng<span class="w"> </span>my_plugin.rnc<span class="w"> </span>/usr/share/xml/kiwi/my_plugin.rng
 </pre></div>
 </div>
 </section>
@@ -1304,11 +1308,11 @@ to place the schema as <code class="file docutils literal notranslate"><span cla
 <p>As mentioned above the mapping from the extension namespace to the
 correct RELAX NG schema file is handled by a XML catalog file. The
 XML catalog for the example use here looks like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span>?&gt;
-&lt;catalog <span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;urn:oasis:names:tc:entity:xmlns:xml:catalog&quot;</span>&gt;
-    &lt;system
-        <span class="nv">systemId</span><span class="o">=</span><span class="s2">&quot;http://www.my_plugin.com&quot;</span>
-        <span class="nv">uri</span><span class="o">=</span><span class="s2">&quot;file:////usr/share/xml/kiwi/my_plugin.rng&quot;</span>/&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;?xml<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span>?&gt;
+&lt;catalog<span class="w"> </span><span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;urn:oasis:names:tc:entity:xmlns:xml:catalog&quot;</span>&gt;
+<span class="w">    </span>&lt;system
+<span class="w">        </span><span class="nv">systemId</span><span class="o">=</span><span class="s2">&quot;http://www.my_plugin.com&quot;</span>
+<span class="w">        </span><span class="nv">uri</span><span class="o">=</span><span class="s2">&quot;file:////usr/share/xml/kiwi/my_plugin.rng&quot;</span>/&gt;
 &lt;/catalog&gt;
 </pre></div>
 </div>
@@ -1322,7 +1326,7 @@ Please consult the distribution manual about adding XML catalogs.</p>
 </div>
 <p>If the following command provides the information to the correct
 RELAX NG schema file you are ready for a first test:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xmlcatalog /etc/xml/catalog http://www.my_plugin.com
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xmlcatalog<span class="w"> </span>/etc/xml/catalog<span class="w"> </span>http://www.my_plugin.com
 </pre></div>
 </div>
 </section>

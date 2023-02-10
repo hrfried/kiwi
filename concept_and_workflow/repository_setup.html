@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setting up Repositories &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Setting up Repositories &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../concept_and_workflow.html">Concept and Workflow</a></li>
       <li class="breadcrumb-item active">Setting up Repositories</li>
       <li class="wy-breadcrumbs-aside">
@@ -1229,14 +1233,14 @@ the image description. Therefore at least one repository <strong>must</strong> b
 defined, as KIWI NG will otherwise not be able to fetch any packages.</p>
 <p>A repository is added to the description via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">repository</span></code> element,
 which is a child of the top-level <code class="xref py py-obj docutils literal notranslate"><span class="pre">image</span></code> element:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
-    <span class="cm">&lt;!-- snip --&gt;</span>
-    <span class="nt">&lt;repository</span> <span class="na">type=</span><span class="s">&quot;rpm-md&quot;</span> <span class="na">alias=</span><span class="s">&quot;kiwi&quot;</span> <span class="na">priority=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;source</span> <span class="na">path=</span><span class="s">&quot;obs://Virtualization:Appliances:Builder/openSUSE_Leap_15.3&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/repository&gt;</span>
-    <span class="nt">&lt;repository</span> <span class="na">type=</span><span class="s">&quot;rpm-md&quot;</span> <span class="na">alias=</span><span class="s">&quot;OS&quot;</span> <span class="na">imageinclude=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;source</span> <span class="na">path=</span><span class="s">&quot;{exc_repo}&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/repository&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- snip --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;repository</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;rpm-md&quot;</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;kiwi&quot;</span><span class="w"> </span><span class="na">priority=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;source</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;obs://Virtualization:Appliances:Builder/openSUSE_Leap_15.3&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/repository&gt;</span>
+<span class="w">    </span><span class="nt">&lt;repository</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;rpm-md&quot;</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;OS&quot;</span><span class="w"> </span><span class="na">imageinclude=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;source</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;{exc_repo}&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/repository&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1286,7 +1290,7 @@ parameter for each file created by KIWI NG.</p>
 for a <code class="xref py py-obj docutils literal notranslate"><span class="pre">dnf</span></code> compatible repository configuration could look like
 this</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">repo_file</span><span class="o">=</span><span class="nv">$1</span>
-<span class="nb">echo</span> <span class="s1">&#39;module_hotfixes = 1&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">repo_file</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;module_hotfixes = 1&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">repo_file</span><span class="si">}</span>
 </pre></div>
 </div>
 <div class="admonition note">

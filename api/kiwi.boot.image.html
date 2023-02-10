@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.boot.image Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.boot.image Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.boot.image Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1240,7 +1244,7 @@
 <span class="sig-name descname"><span class="pre">create_initrd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mbrid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="kiwi.system.html#kiwi.system.identifier.SystemIdentifier" title="kiwi.system.identifier.SystemIdentifier"><span class="pre">SystemIdentifier</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">install_initrd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/base.html#BootImageBase.create_initrd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.base.BootImageBase.create_initrd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements creation of the initrd</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<a class="reference internal" href="kiwi.system.html#kiwi.system.identifier.SystemIdentifier" title="kiwi.system.identifier.SystemIdentifier"><em>SystemIdentifier</em></a>) – instance of SystemIdentifier</p></li>
 <li><p><strong>basename</strong> (<em>str</em>) – base initrd file name</p></li>
@@ -1256,10 +1260,10 @@
 <span class="sig-name descname"><span class="pre">get_boot_description_directory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/base.html#BootImageBase.get_boot_description_directory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.base.BootImageBase.get_boot_description_directory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide path to the boot image XML description</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>path name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1270,7 +1274,7 @@
 <span class="sig-name descname"><span class="pre">get_boot_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#kiwi.boot.image.base.boot_names_type" title="kiwi.boot.image.base.boot_names_type"><span class="pre">boot_names_type</span></a></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/base.html#BootImageBase.get_boot_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.base.BootImageBase.get_boot_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides kernel and initrd names for the boot image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p>Contains boot_names_type tuple</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">boot_names_type</span><span class="p">(</span>
     <span class="n">kernel_name</span><span class="o">=</span><span class="s1">&#39;INSTALLED_KERNEL&#39;</span><span class="p">,</span>
@@ -1282,7 +1286,7 @@
 </div>
 </p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#kiwi.boot.image.base.boot_names_type" title="kiwi.boot.image.base.boot_names_type">boot_names_type</a></p>
 </dd>
 </dl>
@@ -1311,7 +1315,7 @@ boot image to the boot image state XML description</p>
 archive definitions with the bootinclude attribute. Thus
 for kiwi boot images the method is a noop</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>str</em>) – file path name</p></li>
 <li><p><strong>install_media</strong> (<em>bool</em>) – include also for installation media initrd</p></li>
@@ -1327,7 +1331,7 @@ for kiwi boot images the method is a noop</p>
 <p>For kiwi boot no modules configuration is required. Thus in
 such a case this method is a noop.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>module</strong> (<em>str</em>) – module to include</p></li>
 <li><p><strong>install_media</strong> (<em>bool</em>) – include the module for install initrds</p></li>
@@ -1341,10 +1345,10 @@ such a case this method is a noop.</p>
 <span class="sig-name descname"><span class="pre">is_prepared</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/base.html#BootImageBase.is_prepared"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.base.BootImageBase.is_prepared" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if initrd system is prepared.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1364,7 +1368,7 @@ description boot attribute</p>
 <p>For kiwi boot no modules configuration is required. Thus in
 such a case this method is a noop.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>module</strong> (<em>str</em>) – module to omit</p></li>
 <li><p><strong>install_media</strong> (<em>bool</em>) – omit the module for install initrds</p></li>
@@ -1395,7 +1399,7 @@ is only needed if there is no other root system available</p>
 <p>For kiwi boot no modules configuration is required. Thus in
 such a case this method is a noop.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>modules</strong> (<em>list</em>) – list of modules to include</p></li>
 <li><p><strong>install_media</strong> (<em>bool</em>) – lists the modules for install initrds</p></li>
@@ -1414,7 +1418,7 @@ deployment. For instance, initrds recreated on kernel update.</p>
 <p>For kiwi boot no specific configuration is required for initrds
 recreation, thus this method is a noop in that case.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>config</strong> (<em>dict</em>) – dictonary including configuration parameters</p></li>
 <li><p><strong>config_file</strong> (<em>str</em>) – configuration file to write</p></li>
@@ -1470,7 +1474,7 @@ recreation, thus this method is a noop in that case.</p>
 Call dracut as chroot operation to create the initrd and move
 the result into the image build target directory</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<a class="reference internal" href="kiwi.system.html#kiwi.system.identifier.SystemIdentifier" title="kiwi.system.identifier.SystemIdentifier"><em>SystemIdentifier</em></a>) – unused</p></li>
 <li><p><strong>basename</strong> (<em>str</em>) – base initrd file name</p></li>
@@ -1491,7 +1495,7 @@ the result into the image build target directory</p>
 <span class="sig-name descname"><span class="pre">include_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">install_media</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/dracut.html#BootImageDracut.include_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.dracut.BootImageDracut.include_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Include file to dracut boot image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>str</em>) – file path name</p></li>
 <li><p><strong>install_media</strong> (<em>bool</em>) – unused</p></li>
@@ -1505,7 +1509,7 @@ the result into the image build target directory</p>
 <span class="sig-name descname"><span class="pre">include_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">install_media</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/dracut.html#BootImageDracut.include_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.dracut.BootImageDracut.include_module" title="Permalink to this definition">¶</a></dt>
 <dd><p>Include module to dracut boot image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>module</strong> (<em>str</em>) – module to include</p></li>
 <li><p><strong>install_media</strong> (<em>bool</em>) – unused</p></li>
@@ -1519,7 +1523,7 @@ the result into the image build target directory</p>
 <span class="sig-name descname"><span class="pre">omit_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">install_media</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/dracut.html#BootImageDracut.omit_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.dracut.BootImageDracut.omit_module" title="Permalink to this definition">¶</a></dt>
 <dd><p>Omit module to dracut boot image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>module</strong> (<em>str</em>) – module to omit</p></li>
 <li><p><strong>install_media</strong> (<em>bool</em>) – unused</p></li>
@@ -1549,7 +1553,7 @@ the result into the image build target directory</p>
 <span class="sig-name descname"><span class="pre">set_static_modules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">install_media</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/dracut.html#BootImageDracut.set_static_modules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.dracut.BootImageDracut.set_static_modules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set static dracut modules list for boot image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>modules</strong> (<em>list</em>) – list of the modules to include</p></li>
 <li><p><strong>install_media</strong> (<em>bool</em>) – unused</p></li>
@@ -1563,7 +1567,7 @@ the result into the image build target directory</p>
 <span class="sig-name descname"><span class="pre">write_system_config_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/dracut.html#BootImageDracut.write_system_config_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.dracut.BootImageDracut.write_system_config_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes modules configuration into a dracut configuration file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>config</strong> (<em>dict</em>) – a dictionary containing the modules to add and omit</p></li>
 <li><p><strong>conf_file</strong> (<em>str</em>) – configuration file to write</p></li>
@@ -1596,7 +1600,7 @@ itself after first boot by the result of dracut.</p>
 <span class="sig-name descname"><span class="pre">create_initrd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mbrid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="kiwi.system.html#kiwi.system.identifier.SystemIdentifier" title="kiwi.system.identifier.SystemIdentifier"><span class="pre">SystemIdentifier</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">install_initrd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/boot/image/builtin_kiwi.html#BootImageKiwi.create_initrd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.boot.image.builtin_kiwi.BootImageKiwi.create_initrd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create initrd from prepared boot system tree and compress the result</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mbrid</strong> (<a class="reference internal" href="kiwi.system.html#kiwi.system.identifier.SystemIdentifier" title="kiwi.system.identifier.SystemIdentifier"><em>SystemIdentifier</em></a>) – instance of ImageIdentifier</p></li>
 <li><p><strong>basename</strong> (<em>str</em>) – base initrd file name</p></li>
@@ -1638,7 +1642,7 @@ the initrd from</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>BootImge Factory</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xml_state</strong> (<em>object</em>) – Instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLState</span></code></p></li>
 <li><p><strong>target_dir</strong> (<em>string</em>) – target dir to store the initrd</p></li>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.storage.subformat.vagrant_virtualbox &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.storage.subformat.vagrant_virtualbox &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../subformat.html">kiwi.storage.subformat</a></li>
       <li class="breadcrumb-item active">kiwi.storage.subformat.vagrant_virtualbox</li>
@@ -1247,7 +1251,7 @@
 
 
 <div class="viewcode-block" id="DiskFormatVagrantVirtualBox"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_virtualbox.DiskFormatVagrantVirtualBox">[docs]</a><span class="k">class</span> <span class="nc">DiskFormatVagrantVirtualBox</span><span class="p">(</span><span class="n">DiskFormatVagrantBase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Create a vagrant box for the virtualbox provider**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -1256,7 +1260,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">image_format</span> <span class="o">=</span> <span class="s1">&#39;vagrant.virtualbox.box&#39;</span></div>
 
 <div class="viewcode-block" id="DiskFormatVagrantVirtualBox.get_additional_vagrant_config_settings"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_virtualbox.DiskFormatVagrantVirtualBox.get_additional_vagrant_config_settings">[docs]</a>    <span class="k">def</span> <span class="nf">get_additional_vagrant_config_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Configure the default shared folder to use rsync when guest additions</span>
 <span class="sd">        are not present inside the box.</span>
 
@@ -1277,7 +1281,7 @@
         <span class="k">return</span> <span class="n">extra_settings</span></div>
 
 <div class="viewcode-block" id="DiskFormatVagrantVirtualBox.create_box_img"><a class="viewcode-back" href="../../../../api/kiwi.storage.subformat.html#kiwi.storage.subformat.vagrant_virtualbox.DiskFormatVagrantVirtualBox.create_box_img">[docs]</a>    <span class="k">def</span> <span class="nf">create_box_img</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp_image_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create the vmdk image for the Virtualbox vagrant provider.</span>
 
 <span class="sd">        This function creates the vmdk disk image and the ovf file.</span>

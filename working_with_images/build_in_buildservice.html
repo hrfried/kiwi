@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building in the Open Build Service &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Building in the Open Build Service &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Building in the Open Build Service</li>
       <li class="wy-breadcrumbs-aside">
@@ -1223,7 +1227,7 @@
 <p class="admonition-title">Note</p>
 <p><strong>Abstract</strong></p>
 <p>This document gives a brief overview how to build images with
-KIWI NG in version 9.24.56 inside of the Open Build Service.
+KIWI NG in version 9.24.57 inside of the Open Build Service.
 A tutorial on the Open Buildservice itself can be found here:
 <a class="reference external" href="https://en.opensuse.org/openSUSE:Build_Service_Tutorial">https://en.opensuse.org/openSUSE:Build_Service_Tutorial</a></p>
 </div>
@@ -1268,13 +1272,13 @@ repository as described in the following section:
 local build (where your distributions package manager will resolve the
 dependencies and install the packages), OBS will <strong>not</strong> build your image
 if there are multiple packages that could be chosen to satisfy the
-dependencies of your packages <a class="footnote-reference brackets" href="#f1" id="id1">1</a>. This shows errors like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unresolvable: have choice <span class="k">for</span> SOMEPACKAGE: SOMEPAKAGE_1 SOMEPACKAGE_2
+dependencies of your packages <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. This shows errors like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unresolvable:<span class="w"> </span>have<span class="w"> </span>choice<span class="w"> </span><span class="k">for</span><span class="w"> </span>SOMEPACKAGE:<span class="w"> </span>SOMEPAKAGE_1<span class="w"> </span>SOMEPACKAGE_2
 </pre></div>
 </div>
 <p>This can be solved by explicitly specifying one of the two packages in
 the project configuration via the following setting:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Prefer: SOMEPACKAGE_1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Prefer:<span class="w"> </span>SOMEPACKAGE_1
 </pre></div>
 </div>
 <p>Place the above line into the project configuration, which can be
@@ -1301,8 +1305,8 @@ declaration (<code class="xref py py-obj docutils literal notranslate"><span cla
 
 <span class="cm">&lt;!-- OBS-Profiles: foo_profile bar_profile --&gt;</span>
 
-<span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;openSUSE-Leap-15.1&quot;</span><span class="nt">&gt;</span>
-  <span class="cp">&lt;!-- image description with the profiles foo_profile and bar_profile</span>
+<span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;openSUSE-Leap-15.1&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="cp">&lt;!-- image description with the profiles foo_profile and bar_profile</span>
 <span class="cp">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1318,21 +1322,21 @@ but requires an additional <code class="file docutils literal notranslate"><span
 
 <span class="cm">&lt;!-- OBS-Profiles: @BUILD_FLAVOR@ --&gt;</span>
 
-<span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;openSUSE-Leap-15.1&quot;</span><span class="nt">&gt;</span>
-  <span class="cp">&lt;!-- image description with the profiles foo_profile and bar_profile</span>
+<span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;openSUSE-Leap-15.1&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="cp">&lt;!-- image description with the profiles foo_profile and bar_profile</span>
 <span class="cp">&lt;/image&gt;</span>
 </pre></div>
 </div>
 <p>The file <code class="file docutils literal notranslate"><span class="pre">_multibuild</span></code> would have the following contents:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;multibuild&gt;</span>
-  <span class="nt">&lt;flavor&gt;</span>foo_profile<span class="nt">&lt;/flavor&gt;</span>
-  <span class="nt">&lt;flavor&gt;</span>bar_profile<span class="nt">&lt;/flavor&gt;</span>
+<span class="w">  </span><span class="nt">&lt;flavor&gt;</span>foo_profile<span class="nt">&lt;/flavor&gt;</span>
+<span class="w">  </span><span class="nt">&lt;flavor&gt;</span>bar_profile<span class="nt">&lt;/flavor&gt;</span>
 <span class="nt">&lt;/multibuild&gt;</span>
 </pre></div>
 </div>
 </li>
 <li><p>Subfolders in OBS projects are ignored by default by <strong class="command">osc</strong> and
-must be explicitly added via <strong class="command">osc add $FOLDER</strong> <a class="footnote-reference brackets" href="#f2" id="id2">2</a>. Bear that
+must be explicitly added via <strong class="command">osc add $FOLDER</strong> <a class="footnote-reference brackets" href="#f2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. Bear that
 in mind when adding the overlay files inside the <code class="file docutils literal notranslate"><span class="pre">root/</span></code> directory
 to your project.</p></li>
 <li><p>OBS ignores file permissions. Therefore <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> and
@@ -1356,8 +1360,8 @@ repository’s checkbox can be found at the bottom of the selection screen
 that appears when clicking <code class="xref py py-obj docutils literal notranslate"><span class="pre">Add</span> <span class="pre">from</span> <span class="pre">a</span> <span class="pre">Distribution</span></code> in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Repositories</span></code>
 tab. Or specify it manually in the project configuration (it can be
 accessed via <code class="docutils literal notranslate"><span class="pre">osc</span> <span class="pre">meta</span> <span class="pre">-e</span> <span class="pre">prj</span></code>):</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repository</span> <span class="na">name=</span><span class="s">&quot;images&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;arch&gt;</span>x86_64<span class="nt">&lt;/arch&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repository</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;images&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arch&gt;</span>x86_64<span class="nt">&lt;/arch&gt;</span>
 <span class="nt">&lt;/repository&gt;</span>
 </pre></div>
 </div>
@@ -1367,8 +1371,8 @@ your dependent packages. These repositories can be provided in two ways:</p>
 <li><p>Add the repositories to the project configuration on OBS and omit them
 from <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>. Provide only the following repository inside
 the image description:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repository</span> <span class="na">type=</span><span class="s">&quot;rpm-md&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">path=</span><span class="s">&quot;obsrepositories:/&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repository</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;rpm-md&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;source</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;obsrepositories:/&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/repository&gt;</span>
 </pre></div>
 </div>
@@ -1377,7 +1381,7 @@ your appliance.</p>
 <p>Additional repositories can be added by invoking <code class="docutils literal notranslate"><span class="pre">osc</span> <span class="pre">meta</span> <span class="pre">-e</span> <span class="pre">prj</span></code> and
 adding a line of the following form as a child of <code class="docutils literal notranslate"><span class="pre">&lt;repository</span>
 <span class="pre">name=&quot;images&quot;&gt;</span></code>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;path</span> <span class="na">project=</span><span class="s">&quot;$OBS_PROJECT&quot;</span> <span class="na">repository=</span><span class="s">&quot;$REPOSITORY_NAME&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;path</span><span class="w"> </span><span class="na">project=</span><span class="s">&quot;$OBS_PROJECT&quot;</span><span class="w"> </span><span class="na">repository=</span><span class="s">&quot;$REPOSITORY_NAME&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>The order in which you add repositories matters: if a package is present
@@ -1387,29 +1391,29 @@ repository paths are included as well.</p>
 <p>Don’t forget to add the repository from the
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">Virtualization:Appliances:Builder</span></code> project, providing the latest stable
 version of KIWI NG (which you are very likely using for your local builds).</p>
-<p>The following example repository configuration <a class="footnote-reference brackets" href="#f3" id="id3">3</a> adds the
+<p>The following example repository configuration <a class="footnote-reference brackets" href="#f3" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> adds the
 repositories from the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Virtualization:Appliances:Builder</span></code> project and
 those from the latest snapshot of openSUSE Tumbleweed:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span> <span class="na">name=</span><span class="s">&quot;Virtualization:Appliances:Images:openSUSE-Tumbleweed&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;title&gt;</span>Tumbleweed JeOS images<span class="nt">&lt;/title&gt;</span>
-  <span class="nt">&lt;description&gt;</span>Host JeOS images for Tumbleweed<span class="nt">&lt;/description&gt;</span>
-  <span class="nt">&lt;repository</span> <span class="na">name=</span><span class="s">&quot;images&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;path</span> <span class="na">project=</span><span class="s">&quot;Virtualization:Appliances:Builder&quot;</span> <span class="na">repository=</span><span class="s">&quot;Factory&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;path</span> <span class="na">project=</span><span class="s">&quot;openSUSE:Factory&quot;</span> <span class="na">repository=</span><span class="s">&quot;snapshot&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;arch&gt;</span>x86_64<span class="nt">&lt;/arch&gt;</span>
-  <span class="nt">&lt;/repository&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Virtualization:Appliances:Images:openSUSE-Tumbleweed&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;title&gt;</span>Tumbleweed<span class="w"> </span>JeOS<span class="w"> </span>images<span class="nt">&lt;/title&gt;</span>
+<span class="w">  </span><span class="nt">&lt;description&gt;</span>Host<span class="w"> </span>JeOS<span class="w"> </span>images<span class="w"> </span>for<span class="w"> </span>Tumbleweed<span class="nt">&lt;/description&gt;</span>
+<span class="w">  </span><span class="nt">&lt;repository</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;images&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;path</span><span class="w"> </span><span class="na">project=</span><span class="s">&quot;Virtualization:Appliances:Builder&quot;</span><span class="w"> </span><span class="na">repository=</span><span class="s">&quot;Factory&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;path</span><span class="w"> </span><span class="na">project=</span><span class="s">&quot;openSUSE:Factory&quot;</span><span class="w"> </span><span class="na">repository=</span><span class="s">&quot;snapshot&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arch&gt;</span>x86_64<span class="nt">&lt;/arch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/repository&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </pre></div>
 </div>
 <p>The above can be simplified further using the path expansion of the last
 repository to:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span> <span class="na">name=</span><span class="s">&quot;Virtualization:Appliances:Images:openSUSE-Tumbleweed&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;title&gt;</span>Tumbleweed JeOS images<span class="nt">&lt;/title&gt;</span>
-  <span class="nt">&lt;description&gt;</span>Host JeOS images for Tumbleweed<span class="nt">&lt;/description&gt;</span>
-  <span class="nt">&lt;repository</span> <span class="na">name=</span><span class="s">&quot;images&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;path</span> <span class="na">project=</span><span class="s">&quot;Virtualization:Appliances:Builder&quot;</span> <span class="na">repository=</span><span class="s">&quot;Factory&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;arch&gt;</span>x86_64<span class="nt">&lt;/arch&gt;</span>
-  <span class="nt">&lt;/repository&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Virtualization:Appliances:Images:openSUSE-Tumbleweed&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;title&gt;</span>Tumbleweed<span class="w"> </span>JeOS<span class="w"> </span>images<span class="nt">&lt;/title&gt;</span>
+<span class="w">  </span><span class="nt">&lt;description&gt;</span>Host<span class="w"> </span>JeOS<span class="w"> </span>images<span class="w"> </span>for<span class="w"> </span>Tumbleweed<span class="nt">&lt;/description&gt;</span>
+<span class="w">  </span><span class="nt">&lt;repository</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;images&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;path</span><span class="w"> </span><span class="na">project=</span><span class="s">&quot;Virtualization:Appliances:Builder&quot;</span><span class="w"> </span><span class="na">repository=</span><span class="s">&quot;Factory&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arch&gt;</span>x86_64<span class="nt">&lt;/arch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/repository&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </pre></div>
 </div>
@@ -1423,9 +1427,9 @@ you have installed the latest stable KIWI NG as described in
 <a class="reference internal" href="../installation.html#kiwi-installation"><span class="std std-ref">Installation</span></a> then you should add the following repository to
 your projects configuration (accessible via <strong class="command">osc meta -e
 prjconf</strong>), so that OBS will pick the latest stable KIWI NG version too:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repository</span> <span class="na">name=</span><span class="s">&quot;images&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;path</span> <span class="na">project=</span><span class="s">&quot;Virtualization:Appliances:Builder&quot;</span> <span class="na">repository=</span><span class="s">&quot;$DISTRO&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;arch&gt;</span>x86_64<span class="nt">&lt;/arch&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repository</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;images&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;path</span><span class="w"> </span><span class="na">project=</span><span class="s">&quot;Virtualization:Appliances:Builder&quot;</span><span class="w"> </span><span class="na">repository=</span><span class="s">&quot;$DISTRO&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arch&gt;</span>x86_64<span class="nt">&lt;/arch&gt;</span>
 <span class="nt">&lt;/repository&gt;</span>
 </pre></div>
 </div>
@@ -1458,15 +1462,15 @@ unpredictable). This has the consequence that the download URL of your
 image will change with every rebuild (and thus break automated
 scripts). OBS can create symbolic links with static names to the latest
 build by adding the following line to the project configuration:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Repotype: staticlinks
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Repotype:<span class="w"> </span>staticlinks
 </pre></div>
 </div>
 <p>If build Vagrant images (see <a class="reference internal" href="disk_setup_for_vagrant.html#setup-vagrant"><span class="std std-ref">Image Description for Vagrant</span></a>) add the repository-type
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">vagrant</span></code>. OBS creates a <code class="xref py py-obj docutils literal notranslate"><span class="pre">boxes/</span></code> subdirectory in your download
-repositories, which contains JSON files for Vagrant <a class="footnote-reference brackets" href="#f4" id="id4">4</a>.</p>
+repositories, which contains JSON files for Vagrant <a class="footnote-reference brackets" href="#f4" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 <p>If you have added your repositories to <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>, you probably see
 errors of the following type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unresolvable: have choice <span class="k">for</span> SOMEPACKAGE: SOMEPAKAGE_1 SOMEPACKAGE_2
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unresolvable:<span class="w"> </span>have<span class="w"> </span>choice<span class="w"> </span><span class="k">for</span><span class="w"> </span>SOMEPACKAGE:<span class="w"> </span>SOMEPAKAGE_1<span class="w"> </span>SOMEPACKAGE_2
 </pre></div>
 </div>
 <p>Instead of starting from scratch and manually adding <code class="docutils literal notranslate"><span class="pre">Prefer:</span></code> statements
@@ -1474,29 +1478,33 @@ to the project configuration, we recommend to copy the current project
 configuration of the testing project
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">Virtualization:Appliances:Images:Testing_$ARCH:$DISTRO</span></code> into your own project.
 It provides a good starting point and can be adapted to your OBS project.</p>
-<dl class="footnote brackets">
-<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>This is a design decision made by OBS: as it’s purpose is to build
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>This is a design decision made by OBS: as it’s purpose is to build
 packages in a reproducible fashion it cannot make a decision which
 package to choose from multiple available ones. A package manager build
 for end-users on the other hand <strong>must</strong> make an a choice, as it would
 be otherwise hardly usable.</p>
-</dd>
-<dt class="label" id="f2"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><code class="file docutils literal notranslate"><span class="pre">osc</span></code> compresses added folders into a <a class="reference external" href="https://en.wikipedia.org/wiki/Cpio">cpio</a> archive and decompresses it
+</aside>
+<aside class="footnote brackets" id="f2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><code class="file docutils literal notranslate"><span class="pre">osc</span></code> compresses added folders into a <a class="reference external" href="https://en.wikipedia.org/wiki/Cpio">cpio</a> archive and decompresses it
 before running your builds. The only downside of this is, that the
 contents of your overlay is not conveniently visible via the web
 interface.</p>
-</dd>
-<dt class="label" id="f3"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>Taken from the project
+</aside>
+<aside class="footnote brackets" id="f3" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Taken from the project
 <a class="reference external" href="https://build.opensuse.org/project/show/Virtualization:Appliances:Images:openSUSE-Tumbleweed">Virtualization:Appliances:Images:openSUSE-Tumbleweed</a></p>
-</dd>
-<dt class="label" id="f4"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>Vagrant uses these JSON files for automatic updates of your
+</aside>
+<aside class="footnote brackets" id="f4" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>Vagrant uses these JSON files for automatic updates of your
 Vagrant boxes.</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 </section>

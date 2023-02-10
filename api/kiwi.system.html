@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.system Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.system Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1231,7 +1235,7 @@
 <p><strong>Create a random ID to identify the system</strong></p>
 <p>The information is used to create the mbrid file as an example</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>image_id</strong> (<em>str</em>) – hex identifier string</p>
 </dd>
 </dl>
@@ -1247,10 +1251,10 @@
 <span class="sig-name descname"><span class="pre">get_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/system/identifier.html#SystemIdentifier.get_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.identifier.SystemIdentifier.get_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Current hex identifier</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>hex id</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1261,7 +1265,7 @@
 <span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/identifier.html#SystemIdentifier.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.identifier.SystemIdentifier.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write current hex identifier to file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – file path name</p>
 </dd>
 </dl>
@@ -1272,7 +1276,7 @@
 <span class="sig-name descname"><span class="pre">write_to_disk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_provider</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="kiwi.storage.html#kiwi.storage.device_provider.DeviceProvider" title="kiwi.storage.device_provider.DeviceProvider"><span class="pre">DeviceProvider</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/identifier.html#SystemIdentifier.write_to_disk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.identifier.SystemIdentifier.write_to_disk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write current hex identifier to MBR at offset 0x1b8 on disk</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>device_provider</strong> (<em>object</em>) – Instance based on DeviceProvider</p>
 </dd>
 </dl>
@@ -1289,7 +1293,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Implementes kernel lookup and extraction from given root tree</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root_dir</strong> (<em>str</em>) – root directory path name</p></li>
 <li><p><strong>kernel_names</strong> (<em>list</em>) – list of kernel names to search for
@@ -1306,7 +1310,7 @@ names in this code</p></li>
 <p>If no file_name is given the target filename is set
 as kernel-&lt;kernel.version&gt;.kernel</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>target_dir</strong> (<em>str</em>) – target path name</p></li>
 <li><p><strong>filename</strong> (<em>str</em>) – base filename in target</p></li>
@@ -1322,7 +1326,7 @@ as kernel-&lt;kernel.version&gt;.kernel</p>
 <p>If no file_name is given the target filename is set
 as hypervisor-&lt;xen.name&gt;</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>target_dir</strong> (<em>str</em>) – target path name</p></li>
 <li><p><strong>filename</strong> (<em>str</em>) – base filename in target</p></li>
@@ -1336,18 +1340,18 @@ as hypervisor-&lt;xen.name&gt;</p>
 <span class="sig-name descname"><span class="pre">get_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raise_on_not_found</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#kiwi.system.kernel.kernel_type" title="kiwi.system.kernel.kernel_type"><span class="pre">kernel_type</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/system/kernel.html#Kernel.get_kernel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.kernel.Kernel.get_kernel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lookup kernel files and provide filename and version</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>raise_on_not_found</strong> (<em>bool</em>) – sets the method to raise an exception
 if the kernel is not found</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiKernelLookupError" title="kiwi.exceptions.KiwiKernelLookupError"><strong>KiwiKernelLookupError</strong></a> – if raise_on_not_found flag is active
 and kernel is not found</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple with filename, kernelname and version</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>tuple|None</p>
 </dd>
 </dl>
@@ -1358,10 +1362,10 @@ and kernel is not found</p>
 <span class="sig-name descname"><span class="pre">get_xen_hypervisor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#kiwi.system.kernel.xen_hypervisor_type" title="kiwi.system.kernel.xen_hypervisor_type"><span class="pre">xen_hypervisor_type</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/system/kernel.html#Kernel.get_xen_hypervisor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.kernel.Kernel.get_xen_hypervisor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lookup xen hypervisor and provide filename and hypervisor name</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple with filename and hypervisor name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>tuple|None</p>
 </dd>
 </dl>
@@ -1420,7 +1424,7 @@ and kernel is not found</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Implements preparation and installation of a new root system</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xml_state</strong> (<em>object</em>) – instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLState</span></code></p></li>
 <li><p><strong>root_dir</strong> (<em>str</em>) – Path to new root directory</p></li>
@@ -1443,14 +1447,14 @@ of the new root directory. If the removal is set with <code class="xref py py-ob
 only listed packages are deleted and any dependency break or leftover
 is ignored.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>manager</strong> (<em>object</em>) – instance of a <code class="xref py py-class docutils literal notranslate"><span class="pre">PackageManager</span></code> subclass</p></li>
 <li><p><strong>packages</strong> (<em>list</em>) – package list</p></li>
 <li><p><strong>force</strong> (<em>bool</em>) – force deletion true|false</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiSystemDeletePackagesFailed" title="kiwi.exceptions.KiwiSystemDeletePackagesFailed"><strong>KiwiSystemDeletePackagesFailed</strong></a> – if installation process fails</p>
 </dd>
 </dl>
@@ -1462,13 +1466,13 @@ is ignored.</p>
 <dd><p>Install system software using the package manager
 from the host, also known as bootstrapping</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>manager</strong> (<em>object</em>) – instance of a <code class="xref py py-class docutils literal notranslate"><span class="pre">PackageManager</span></code> subclass</p></li>
 <li><p><strong>plus_packages</strong> (<em>list</em>) – list of additional packages</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiBootStrapPhaseFailed" title="kiwi.exceptions.KiwiBootStrapPhaseFailed"><strong>KiwiBootStrapPhaseFailed</strong></a> – if the bootstrapping process fails either installing
 packages or including bootstrap archives</p>
 </dd>
@@ -1481,13 +1485,13 @@ packages or including bootstrap archives</p>
 <dd><p>Install one or more packages using the package manager inside
 of the new root directory</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>manager</strong> (<em>object</em>) – instance of a <code class="xref py py-class docutils literal notranslate"><span class="pre">PackageManager</span></code> subclass</p></li>
 <li><p><strong>packages</strong> (<em>list</em>) – package list</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiSystemInstallPackagesFailed" title="kiwi.exceptions.KiwiSystemInstallPackagesFailed"><strong>KiwiSystemInstallPackagesFailed</strong></a> – if installation process fails</p>
 </dd>
 </dl>
@@ -1501,10 +1505,10 @@ of the new root directory. This is done via a chroot operation
 and requires the desired package manager to became installed
 via the bootstrap phase</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>manager</strong> (<em>object</em>) – instance of a <code class="xref py py-class docutils literal notranslate"><span class="pre">PackageManager</span></code> subclass</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiInstallPhaseFailed" title="kiwi.exceptions.KiwiInstallPhaseFailed"><strong>KiwiInstallPhaseFailed</strong></a> – if the install process fails either installing
 packages or including any archive</p>
 </dd>
@@ -1519,13 +1523,13 @@ param is set to False uninstalls packages marked with
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">type=&quot;uninstall&quot;</span></code> if any; if force is set to True deletes packages
 marked with <code class="xref py py-obj docutils literal notranslate"><span class="pre">type=&quot;delete&quot;</span></code> if any.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>manager</strong> (<em>object</em>) – instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">PackageManager</span></code> subclass</p></li>
 <li><p><strong>force</strong> (<em>bool</em>) – Forced deletion True|False</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiPackagesDeletePhaseFailed" title="kiwi.exceptions.KiwiPackagesDeletePhaseFailed"><strong>KiwiPackagesDeletePhaseFailed</strong></a> – if the deletion packages process fails</p>
 </dd>
 </dl>
@@ -1537,17 +1541,17 @@ marked with <code class="xref py py-obj docutils literal notranslate"><span clas
 <dd><p>Set up repositories for software installation and return a
 package manager for performing software installation tasks</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>clear_cache</strong> (<em>bool</em>) – Flag the clear cache before configure anything</p></li>
 <li><p><strong>signing_keys</strong> (<em>list</em>) – Keys imported to the package manager</p></li>
 <li><p><strong>target_arch</strong> (<em>str</em>) – Target architecture name</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">PackageManager</span></code> subclass</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="kiwi.package_manager.html#kiwi.package_manager.PackageManager" title="kiwi.package_manager.PackageManager">PackageManager</a></p>
 </dd>
 </dl>
@@ -1560,10 +1564,10 @@ package manager for performing software installation tasks</p>
 the process uses the package manager from inside of the
 new root directory</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>manager</strong> (<em>object</em>) – instance of a <code class="xref py py-class docutils literal notranslate"><span class="pre">PackageManager</span></code> subclass</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiSystemUpdateFailed" title="kiwi.exceptions.KiwiSystemUpdateFailed"><strong>KiwiSystemUpdateFailed</strong></a> – if packages update fails</p>
 </dd>
 </dl>
@@ -1580,7 +1584,7 @@ new root directory</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Create bash readable .profile environment from the XML description</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>xml_state</strong> (<em>object</em>) – instance of :class`XMLState`</p>
 </dd>
 </dl>
@@ -1589,7 +1593,7 @@ new root directory</p>
 <span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/profile.html#Profile.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.profile.Profile.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add key/value pair to profile dictionary</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>key</strong> (<em>str</em>) – profile key</p></li>
 <li><p><strong>value</strong> (<em>str</em>) – profile value</p></li>
@@ -1603,7 +1607,7 @@ new root directory</p>
 <span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/profile.html#Profile.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.profile.Profile.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create bash quoted profile</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – file path name</p>
 </dd>
 </dl>
@@ -1631,7 +1635,7 @@ new root directory</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Collect image building results</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>result_files</strong> (<em>dict</em>) – dict of result files</p></li>
 <li><p><strong>class_version</strong> (<em>object</em>) – <a class="reference internal" href="#kiwi.system.result.Result" title="kiwi.system.result.Result"><code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code></a> class version</p></li>
@@ -1644,7 +1648,7 @@ new root directory</p>
 <span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_for_bundle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shasum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/result.html#Result.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.result.Result.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add result tuple to result_files list</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>key</strong> (<em>str</em>) – name</p></li>
 <li><p><strong>filename</strong> (<em>str</em>) – file path name</p></li>
@@ -1666,7 +1670,7 @@ new root directory</p>
 <span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">portable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/result.html#Result.dump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.result.Result.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Picke dump this instance to a file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>str</em>) – file path name</p></li>
 <li><p><strong>portable</strong> (<em>bool</em>) – If set to true also create a .json formatted variant
@@ -1675,7 +1679,7 @@ instance that could be expressed in a portable json
 document. Default is set to: True</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiResultError" title="kiwi.exceptions.KiwiResultError"><strong>KiwiResultError</strong></a> – if pickle fails to dump <a class="reference internal" href="#kiwi.system.result.Result" title="kiwi.system.result.Result"><code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code></a>
 instance</p>
 </dd>
@@ -1693,10 +1697,10 @@ instance</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">result_type</span></span></span><a class="reference internal" href="../_modules/kiwi/system/result.html#Result.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.result.Result.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load pickle dumped filename into a Result instance</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – file path name</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiResultError" title="kiwi.exceptions.KiwiResultError"><strong>KiwiResultError</strong></a> – if filename does not exist or pickle fails
 to load filename</p>
 </dd>
@@ -1716,13 +1720,13 @@ to load filename</p>
 Throws an exception if the limit is exceeded. If the size limit
 is set to None no verification is done.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>size_limit</strong> (<em>int</em>) – The size limit for filename in bytes.</p></li>
 <li><p><strong>filename</strong> (<em>str</em>) – File to verify.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiResultError" title="kiwi.exceptions.KiwiResultError"><strong>KiwiResultError</strong></a> – if filename exceeds the size limit</p>
 </dd>
 </dl>
@@ -1824,7 +1828,7 @@ is set to None no verification is done.</p>
 <p><strong>Implements binding/copying of host system paths
 into the new root directory</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root_dir</strong> (<em>str</em>) – root directory path name</p></li>
 <li><p><strong>cleanup_files</strong> (<em>list</em>) – list of files to cleanup, delete</p></li>
@@ -1848,7 +1852,7 @@ build system root</p></li>
 <span class="sig-name descname"><span class="pre">mount_kernel_file_systems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/root_bind.html#RootBind.mount_kernel_file_systems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.root_bind.RootBind.mount_kernel_file_systems" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bind mount kernel filesystems</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiMountKernelFileSystemsError" title="kiwi.exceptions.KiwiMountKernelFileSystemsError"><strong>KiwiMountKernelFileSystemsError</strong></a> – if some kernel filesystem
 fails to mount</p>
 </dd>
@@ -1865,11 +1869,11 @@ is used for the repository setup and the package manager
 cache to allow chroot operations without being forced to
 duplicate this data</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>host_dir</strong> (<em>str</em>) – directory to share between image root and build
 system root</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiMountSharedDirectoryError" title="kiwi.exceptions.KiwiMountSharedDirectoryError"><strong>KiwiMountSharedDirectoryError</strong></a> – if mount fails</p>
 </dd>
 </dl>
@@ -1885,7 +1889,7 @@ allow e.g DNS resolution in the way as it is configured on the
 buildsystem host. These config files only exists during the image
 build process and are not part of the final image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiSetupIntermediateConfigError" title="kiwi.exceptions.KiwiSetupIntermediateConfigError"><strong>KiwiSetupIntermediateConfigError</strong></a> – if the management of
 intermediate configuration files fails</p>
 </dd>
@@ -1897,7 +1901,7 @@ intermediate configuration files fails</p>
 <span class="sig-name descname"><span class="pre">umount_kernel_file_systems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/root_bind.html#RootBind.umount_kernel_file_systems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.root_bind.RootBind.umount_kernel_file_systems" title="Permalink to this definition">¶</a></dt>
 <dd><p>Umount kernel filesystems</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiMountKernelFileSystemsError" title="kiwi.exceptions.KiwiMountKernelFileSystemsError"><strong>KiwiMountKernelFileSystemsError</strong></a> – if some kernel filesystem
 fails to mount</p>
 </dd>
@@ -1917,7 +1921,7 @@ fails to mount</p>
 <p>Host system independent static default files and device nodes
 are created to initialize a new base system</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>root_dir</strong> (<em>str</em>) – root directory path name</p>
 </dd>
 </dl>
@@ -1937,7 +1941,7 @@ synced to the specified root_dir and the temporary location
 will be deleted. That way we never work on an incomplete
 initial setup</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiRootInitCreationError" title="kiwi.exceptions.KiwiRootInitCreationError"><strong>KiwiRootInitCreationError</strong></a> – if the init creation fails
 at some point</p>
 </dd>
@@ -1965,7 +1969,7 @@ some setup steps needs to be performed in order to provide
 a minimal work environment inside of the image according to
 the desired image type.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xml_state</strong> (<em>object</em>) – instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLState</span></code></p></li>
 <li><p><strong>root_dir</strong> (<em>str</em>) – root directory path name</p></li>
@@ -1991,7 +1995,7 @@ the desired image type.</p>
 <p>Pass the boot filesystem name and the partition number of
 the boot partition as parameters to the call</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filesystem</strong> (<em>str</em>) – boot filesystem name</p></li>
 <li><p><strong>boot_part_id</strong> (<em>int</em>) – boot partition number</p></li>
@@ -2008,7 +2012,7 @@ the boot partition as parameters to the call</p>
 <p>Pass the disk file name and the device node of the boot partition
 as parameters to the call</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>diskname</strong> (<em>str</em>) – file path name</p></li>
 <li><p><strong>boot_device_node</strong> (<em>str</em>) – boot device node name</p></li>
@@ -2065,7 +2069,7 @@ file in the image rootfs. Once called the fstab.script
 file will be deleted</p></li>
 </ol>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>fstab</strong> (<em>object</em>) – instance of Fstab</p>
 </dd>
 </dl>
@@ -2093,7 +2097,7 @@ deleted prior to the creation of a new recovery data set</p>
 <span class="sig-name descname"><span class="pre">export_modprobe_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/setup.html#SystemSetup.export_modprobe_setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.setup.SystemSetup.export_modprobe_setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Export etc/modprobe.d to given root_dir</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>target_root_dir</strong> (<em>str</em>) – path name</p>
 </dd>
 </dl>
@@ -2105,7 +2109,7 @@ deleted prior to the creation of a new recovery data set</p>
 <dd><p>Export image package changelog for comparision of
 actual changes of the installed packages</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>target_dir</strong> (<em>str</em>) – path name</p>
 </dd>
 </dl>
@@ -2117,7 +2121,7 @@ actual changes of the installed packages</p>
 <dd><p>Export image package list as metadata reference
 used by the open buildservice</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>target_dir</strong> (<em>str</em>) – path name</p>
 </dd>
 </dl>
@@ -2129,7 +2133,7 @@ used by the open buildservice</p>
 <dd><p>Export package verification result as metadata reference
 used by the open buildservice</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>target_dir</strong> (<em>str</em>) – path name</p>
 </dd>
 </dl>
@@ -2142,7 +2146,7 @@ used by the open buildservice</p>
 specified target directory. Supported is a tar
 archive named config-cdroot.tar[.compression-postfix]</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>target_dir</strong> (<em>str</em>) – directory to unpack archive to</p>
 </dd>
 </dl>
@@ -2179,7 +2183,7 @@ follows:</p>
 profiles</p></li>
 </ol>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>follow_links</strong> (<em>bool</em>) – follow symlinks true|false</p></li>
 <li><p><strong>preserve_owner_group</strong> (<em>bool</em>) – preserve permissions true|false</p></li>
@@ -2201,7 +2205,7 @@ the image repository configuration</p>
 <span class="sig-name descname"><span class="pre">script_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/system/setup.html#SystemSetup.script_exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.setup.SystemSetup.script_exists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if provided script base name exists in the image description</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – script base name</p>
 </dd>
 </dl>
@@ -2213,7 +2217,7 @@ the image repository configuration</p>
 <dd><p>Initialize the security context fields (extended attributes)
 on the files matching the security_context_file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>security_context_file</strong> (<em>str</em>) – path file name</p>
 </dd>
 </dl>
@@ -2319,16 +2323,16 @@ representation that can be sourced by shell scripts.
 If the provided value is not representable as a string
 (list, dict, tuple etc) an exception is raised</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>value</strong> (<em>any</em>) – a python variable</p>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiShellVariableValueError" title="kiwi.exceptions.KiwiShellVariableValueError"><strong>KiwiShellVariableValueError</strong></a> – if value is an iterable</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string value representation</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -2343,13 +2347,13 @@ planned to use pipes.quote but it does not quote as I
 had expected it. e.g ‘name_wit_a_$’ does not quote the $
 so we do it on our own for the scope of kiwi</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – message text</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>quoted text</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -2361,13 +2365,13 @@ so we do it on our own for the scope of kiwi</p>
 <dd><p>Quote given input file which has to be of the form
 key=value to be able to become sourced by the shell</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – file path name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>list of quoted text</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List[str]</p>
 </dd>
 </dl>
@@ -2378,7 +2382,7 @@ key=value to be able to become sourced by the shell</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run_common_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/shell.html#Shell.run_common_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.shell.Shell.run_common_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run a function implemented in config/functions.sh</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – function name</p></li>
 <li><p><strong>parameters</strong> (<em>list</em>) – function arguments</p></li>
@@ -2398,7 +2402,7 @@ key=value to be able to become sourced by the shell</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Provide source tree size information</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>source_dir</strong> (<em>str</em>) – source directory path name</p>
 </dd>
 </dl>
@@ -2407,10 +2411,10 @@ key=value to be able to become sourced by the shell</p>
 <span class="sig-name descname"><span class="pre">accumulate_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/kiwi/system/size.html#SystemSize.accumulate_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.size.SystemSize.accumulate_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate sum of all files in the source tree</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>number of files</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -2421,13 +2425,13 @@ key=value to be able to become sourced by the shell</p>
 <span class="sig-name descname"><span class="pre">accumulate_mbyte_file_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/kiwi/system/size.html#SystemSize.accumulate_mbyte_file_sizes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.size.SystemSize.accumulate_mbyte_file_sizes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate data size of all data in the source tree</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>exclude</strong> (<em>list</em>) – list of paths to exclude</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>mbytes</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
@@ -2444,16 +2448,16 @@ given size by a filesystem specific empiric factor to
 ensure the given data size can be stored in a filesystem
 of the customized size</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>size</strong> (<em>float</em>) – mbsize to update</p></li>
 <li><p><strong>requested_filesystem</strong> (<em>str</em>) – filesystem name</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>mbytes</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
@@ -2478,10 +2482,10 @@ not provide an alias, kiwi creates one for you. However it’s
 better to assign a human readable alias in the XML
 configuration</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>alias name as hexdigest</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -2492,10 +2496,10 @@ configuration</p>
 <span class="sig-name descname"><span class="pre">credentials_file_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/system/uri.html#Uri.credentials_file_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.uri.Uri.credentials_file_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filename to store repository credentials</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>credentials file name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -2506,10 +2510,10 @@ configuration</p>
 <span class="sig-name descname"><span class="pre">get_fragment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/system/uri.html#Uri.get_fragment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.uri.Uri.get_fragment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the fragment part of the URI.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>fragment part of the URI if any, empty string otherwise</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -2520,10 +2524,10 @@ configuration</p>
 <span class="sig-name descname"><span class="pre">is_public</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/system/uri.html#Uri.is_public"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.uri.Uri.is_public" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if URI is considered to be publicly reachable</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True|False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -2534,10 +2538,10 @@ configuration</p>
 <span class="sig-name descname"><span class="pre">is_remote</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/system/uri.html#Uri.is_remote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.uri.Uri.is_remote" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if URI is a remote or local location</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True|False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -2556,20 +2560,20 @@ configuration</p>
 be adapted e.g updated by the service URL in case of an
 open buildservice project name</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiUriStyleUnknown" title="kiwi.exceptions.KiwiUriStyleUnknown"><strong>KiwiUriStyleUnknown</strong></a> – if the uri scheme can’t be detected, is
 unknown or it is inconsistent with the build environment</p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>check_build_environment</strong> (<em>bool</em>) – specify if the uri translation
 should depend on the environment the build is called in. As of
 today this only effects the translation result if the image
 build happens inside of the Open Build Service</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>translated repository location</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -2586,7 +2590,7 @@ build happens inside of the Open Build Service</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Operations on users and groups in a root directory</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>root_dir</strong> (<em>str</em>) – root directory path name</p>
 </dd>
 </dl>
@@ -2595,7 +2599,7 @@ build happens inside of the Open Build Service</p>
 <span class="sig-name descname"><span class="pre">group_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/users.html#Users.group_add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.users.Users.group_add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add group with options</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>group_name</strong> (<em>str</em>) – group name</p></li>
 <li><p><strong>options</strong> (<em>list</em>) – groupadd options</p></li>
@@ -2609,13 +2613,13 @@ build happens inside of the Open Build Service</p>
 <span class="sig-name descname"><span class="pre">group_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/system/users.html#Users.group_exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.users.Users.group_exists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if group exists</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>group_name</strong> (<em>str</em>) – group name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -2626,7 +2630,7 @@ build happens inside of the Open Build Service</p>
 <span class="sig-name descname"><span class="pre">setup_home_for_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">home_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/users.html#Users.setup_home_for_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.users.Users.setup_home_for_user" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup user home directory</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>user_name</strong> (<em>str</em>) – user name</p></li>
 <li><p><strong>group_name</strong> (<em>str</em>) – group name</p></li>
@@ -2641,7 +2645,7 @@ build happens inside of the Open Build Service</p>
 <span class="sig-name descname"><span class="pre">user_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/users.html#Users.user_add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.users.Users.user_add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add user with options</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>user_name</strong> (<em>str</em>) – user name</p></li>
 <li><p><strong>options</strong> (<em>list</em>) – useradd options</p></li>
@@ -2655,13 +2659,13 @@ build happens inside of the Open Build Service</p>
 <span class="sig-name descname"><span class="pre">user_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/system/users.html#Users.user_exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.users.Users.user_exists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if user exists</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>user_name</strong> (<em>str</em>) – user name</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True|False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -2672,7 +2676,7 @@ build happens inside of the Open Build Service</p>
 <span class="sig-name descname"><span class="pre">user_modify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/users.html#Users.user_modify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.users.Users.user_modify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify user with options</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>user_name</strong> (<em>str</em>) – user name</p></li>
 <li><p><strong>options</strong> (<em>list</em>) – usermod options</p></li>

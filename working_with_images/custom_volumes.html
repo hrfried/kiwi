@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Disk Volumes &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Custom Disk Volumes &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Custom Disk Volumes</li>
       <li class="wy-breadcrumbs-aside">
@@ -1231,15 +1235,15 @@ filesystem supports it (e.g. btrfs).</p>
 using <code class="xref py py-obj docutils literal notranslate"><span class="pre">systemdisk</span></code>. This element is a child of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code>.
 Volumes themselves are added via (multiple) <code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code> child
 elements of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">systemdisk</span></code> element:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;openSUSE-Leap-15.1&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;btrfs&quot;</span> <span class="na">preferlvm=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;systemdisk</span> <span class="na">name=</span><span class="s">&quot;vgroup&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;volume</span> <span class="na">name=</span><span class="s">&quot;usr/lib&quot;</span> <span class="na">size=</span><span class="s">&quot;1G&quot;</span> <span class="na">label=</span><span class="s">&quot;library&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;volume</span> <span class="na">name=</span><span class="s">&quot;@root&quot;</span> <span class="na">freespace=</span><span class="s">&quot;500M&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;volume</span> <span class="na">name=</span><span class="s">&quot;etc_volume&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;etc&quot;</span> <span class="na">copy_on_write=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;volume</span> <span class="na">name=</span><span class="s">&quot;bin_volume&quot;</span> <span class="na">size=</span><span class="s">&quot;all&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;/usr/bin&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/systemdisk&gt;</span>
-  <span class="nt">&lt;/type&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;openSUSE-Leap-15.1&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;btrfs&quot;</span><span class="w"> </span><span class="na">preferlvm=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;systemdisk</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;vgroup&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;volume</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;usr/lib&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;1G&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;library&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;volume</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;@root&quot;</span><span class="w"> </span><span class="na">freespace=</span><span class="s">&quot;500M&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;volume</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;etc_volume&quot;</span><span class="w"> </span><span class="na">mountpoint=</span><span class="s">&quot;etc&quot;</span><span class="w"> </span><span class="na">copy_on_write=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;volume</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;bin_volume&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;all&quot;</span><span class="w"> </span><span class="na">mountpoint=</span><span class="s">&quot;/usr/bin&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/systemdisk&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1260,12 +1264,12 @@ volume.</p></li>
 <p>One can use the <code class="xref py py-obj docutils literal notranslate"><span class="pre">&#64;root</span></code> name to refer to the volume mounted at <code class="xref py py-obj docutils literal notranslate"><span class="pre">/</span></code>, in
 case some specific size attributes for the root volume have to be
 defined. For instance:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;volume</span> <span class="na">name=</span><span class="s">&quot;@root&quot;</span> <span class="na">size=</span><span class="s">&quot;4G&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;volume</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;@root&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;4G&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>In addition to the custom size of the root volume it’s also possible
 to setup the name of the root volume as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;volume</span> <span class="na">name=</span><span class="s">&quot;@root=rootlv&quot;</span> <span class="na">size=</span><span class="s">&quot;4G&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;volume</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;@root=rootlv&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;4G&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>If no name for the root volume is specified the

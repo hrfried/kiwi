@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build a WSL Container Image &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Build a WSL Container Image &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../building_images.html">Building Images for Supported Types</a></li>
       <li class="breadcrumb-item active">Build a WSL Container Image</li>
       <li class="wy-breadcrumbs-aside">
@@ -1232,7 +1236,7 @@ this command on your build host.</p>
 <p>Once the build host has the <strong class="command">appx</strong> installed, the
 following image type setup is required in the XML description
 <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;appx&quot;</span> <span class="na">metadata_path=</span><span class="s">&quot;/meta/data&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;appx&quot;</span><span class="w"> </span><span class="na">metadata_path=</span><span class="s">&quot;/meta/data&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>The <code class="file docutils literal notranslate"><span class="pre">/meta/data</span></code> path specifies a path that provides
@@ -1258,14 +1262,14 @@ build host</p>
 if a <code class="file docutils literal notranslate"><span class="pre">containerconfig</span></code> section is provided in the XML description.
 In the context of a WSL image the following container configuration
 parameters are taken into account:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;containerconfig</span> <span class="na">name=</span><span class="s">&quot;my-wsl-container&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;history</span>
-        <span class="na">created_by=</span><span class="s">&quot;Organisation&quot;</span>
-        <span class="na">author=</span><span class="s">&quot;Name&quot;</span>
-        <span class="na">application_id=</span><span class="s">&quot;AppIdentification&quot;</span>
-        <span class="na">package_version=</span><span class="s">&quot;https://docs.microsoft.com/en-us/windows/uwp/publish/package-version-numbering&quot;</span>
-        <span class="na">launcher=</span><span class="s">&quot;WSL-DistroLauncher-exe-file&quot;</span>
-    <span class="nt">&gt;</span>Container Description Text<span class="nt">&lt;/history&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;containerconfig</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;my-wsl-container&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;history</span>
+<span class="w">        </span><span class="na">created_by=</span><span class="s">&quot;Organisation&quot;</span>
+<span class="w">        </span><span class="na">author=</span><span class="s">&quot;Name&quot;</span>
+<span class="w">        </span><span class="na">application_id=</span><span class="s">&quot;AppIdentification&quot;</span>
+<span class="w">        </span><span class="na">package_version=</span><span class="s">&quot;https://docs.microsoft.com/en-us/windows/uwp/publish/package-version-numbering&quot;</span>
+<span class="w">        </span><span class="na">launcher=</span><span class="s">&quot;WSL-DistroLauncher-exe-file&quot;</span>
+<span class="w">    </span><span class="nt">&gt;</span>Container<span class="w"> </span>Description<span class="w"> </span>Text<span class="nt">&lt;/history&gt;</span>
 <span class="nt">&lt;/containerconfig&gt;</span>
 </pre></div>
 </div>
@@ -1303,7 +1307,7 @@ openSUSE TW:</p>
 <li><p>Make sure you have checked out the example image descriptions,
 see <a class="reference internal" href="../installation.html#example-descriptions"><span class="std std-ref">Example Appliance Descriptions</span></a>.</p></li>
 <li><p>Include the <code class="docutils literal notranslate"><span class="pre">Virtualization/WSL</span></code> repository to your list:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ zypper addrepo http://download.opensuse.org/repositories/Virtualization:/WSL/&lt;DIST&gt; WSL
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>zypper<span class="w"> </span>addrepo<span class="w"> </span>http://download.opensuse.org/repositories/Virtualization:/WSL/&lt;DIST&gt;<span class="w"> </span>WSL
 </pre></div>
 </div>
 <p>where the placeholder <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;DIST&gt;</span></code> is the preferred distribution.</p>
@@ -1311,7 +1315,7 @@ see <a class="reference internal" href="../installation.html#example-description
 <li><p>Install <strong class="command">fb-util-for-appx</strong> utility and a package that
 provides the <strong class="command">WSL-DistroLauncher</strong> metadata. See the
 above note about <code class="file docutils literal notranslate"><span class="pre">/meta/data</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ zypper <span class="k">in</span> fb-util-for-appx DISTRO_APPX_METADATA_PACKAGE
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>zypper<span class="w"> </span><span class="k">in</span><span class="w"> </span>fb-util-for-appx<span class="w"> </span>DISTRO_APPX_METADATA_PACKAGE
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1328,16 +1332,16 @@ Service worker that runs the KIWI NG build process.</p>
 <p>Edit the XML description file:
 <code class="file docutils literal notranslate"><span class="pre">kiwi/build-tests/x86/tumbleweed/test-image-wsl/appliance.kiwi</span></code>
 and add the following type and containerconfig:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;appx&quot;</span> <span class="na">metadata_path=</span><span class="s">&quot;/meta/data&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;containerconfig</span> <span class="na">name=</span><span class="s">&quot;Tumbleweed&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;history</span>
-            <span class="na">created_by=</span><span class="s">&quot;SUSE&quot;</span>
-            <span class="na">author=</span><span class="s">&quot;KIWI-Team&quot;</span>
-            <span class="na">application_id=</span><span class="s">&quot;tumbleweed&quot;</span>
-            <span class="na">package_version=</span><span class="s">&quot;2003.12.0.0&quot;</span>
-            <span class="na">launcher=</span><span class="s">&quot;openSUSE-Tumbleweed.exe&quot;</span>
-        <span class="nt">&gt;</span>Tumbleweed Appliance text based<span class="nt">&lt;/history&gt;</span>
-    <span class="nt">&lt;/containerconfig&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;appx&quot;</span><span class="w"> </span><span class="na">metadata_path=</span><span class="s">&quot;/meta/data&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;containerconfig</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tumbleweed&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;history</span>
+<span class="w">            </span><span class="na">created_by=</span><span class="s">&quot;SUSE&quot;</span>
+<span class="w">            </span><span class="na">author=</span><span class="s">&quot;KIWI-Team&quot;</span>
+<span class="w">            </span><span class="na">application_id=</span><span class="s">&quot;tumbleweed&quot;</span>
+<span class="w">            </span><span class="na">package_version=</span><span class="s">&quot;2003.12.0.0&quot;</span>
+<span class="w">            </span><span class="na">launcher=</span><span class="s">&quot;openSUSE-Tumbleweed.exe&quot;</span>
+<span class="w">        </span><span class="nt">&gt;</span>Tumbleweed<span class="w"> </span>Appliance<span class="w"> </span>text<span class="w"> </span>based<span class="nt">&lt;/history&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/containerconfig&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </pre></div>
 </div>
@@ -1351,10 +1355,10 @@ complete with respect to the requirements of the
 </div>
 </li>
 <li><p>Build the image with KIWI NG:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo kiwi-ng system build <span class="se">\</span>
-    --description kiwi/build-tests/x86/tumbleweed/test-image-wsl <span class="se">\</span>
-    --set-repo http://download.opensuse.org/tumbleweed/repo/oss <span class="se">\</span>
-    --target-dir /tmp/myimage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>kiwi-ng<span class="w"> </span>system<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span>kiwi/build-tests/x86/tumbleweed/test-image-wsl<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--set-repo<span class="w"> </span>http://download.opensuse.org/tumbleweed/repo/oss<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--target-dir<span class="w"> </span>/tmp/myimage
 </pre></div>
 </div>
 </li>

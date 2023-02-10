@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.utils.block &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.utils.block &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.utils.block</li>
       <li class="wy-breadcrumbs-aside">
@@ -1239,7 +1243,7 @@
 
 
 <div class="viewcode-block" id="BlockID"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.block.BlockID">[docs]</a><span class="k">class</span> <span class="nc">BlockID</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Get information from a block device**</span>
 
 <span class="sd">    :param str device:</span>
@@ -1258,7 +1262,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
 
 <div class="viewcode-block" id="BlockID.get_label"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.block.BlockID.get_label">[docs]</a>    <span class="k">def</span> <span class="nf">get_label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve filesystem label from block device</span>
 
 <span class="sd">        :return: block device label</span>
@@ -1268,7 +1272,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_blkid</span><span class="p">(</span><span class="s1">&#39;LABEL&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="BlockID.get_uuid"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.block.BlockID.get_uuid">[docs]</a>    <span class="k">def</span> <span class="nf">get_uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve filesystem uuid from block device</span>
 
 <span class="sd">        :return: uuid for the filesystem of the block device</span>
@@ -1278,7 +1282,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_blkid</span><span class="p">(</span><span class="s1">&#39;UUID&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="BlockID.get_filesystem"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.block.BlockID.get_filesystem">[docs]</a>    <span class="k">def</span> <span class="nf">get_filesystem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve filesystem type from block device</span>
 
 <span class="sd">        :return: filesystem type</span>
@@ -1288,7 +1292,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_blkid</span><span class="p">(</span><span class="s1">&#39;TYPE&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="BlockID.get_partition_count"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.block.BlockID.get_partition_count">[docs]</a>    <span class="k">def</span> <span class="nf">get_partition_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve number of partitions from block device</span>
 
 <span class="sd">        :return: A number</span>
@@ -1305,7 +1309,7 @@
         <span class="k">return</span> <span class="n">partition_count</span></div>
 
 <div class="viewcode-block" id="BlockID.get_blkid"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.block.BlockID.get_blkid">[docs]</a>    <span class="k">def</span> <span class="nf">get_blkid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_type</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve information for specified metadata ID from block device</span>
 
 <span class="sd">        :param string id_type: metadata ID, see man blkid for details</span>

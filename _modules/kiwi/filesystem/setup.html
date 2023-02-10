@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.filesystem.setup &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.filesystem.setup &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../filesystem.html">kiwi.filesystem</a></li>
       <li class="breadcrumb-item active">kiwi.filesystem.setup</li>
@@ -1243,7 +1247,7 @@
 
 
 <div class="viewcode-block" id="FileSystemSetup"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.setup.FileSystemSetup">[docs]</a><span class="k">class</span> <span class="nc">FileSystemSetup</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implement filesystem setup methods**</span>
 
 <span class="sd">    Methods from this class provides information</span>
@@ -1269,7 +1273,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">requested_filesystem</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_filesystem</span><span class="p">()</span>
 
 <div class="viewcode-block" id="FileSystemSetup.get_size_mbytes"><a class="viewcode-back" href="../../../api/kiwi.filesystem.html#kiwi.filesystem.setup.FileSystemSetup.get_size_mbytes">[docs]</a>    <span class="k">def</span> <span class="nf">get_size_mbytes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filesystem</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Precalculate the requires size in mbytes to store all data</span>
 <span class="sd">        from the root directory in the requested filesystem. Return</span>
 <span class="sd">        the configured value if present, if not return the calculated</span>

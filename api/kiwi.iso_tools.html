@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.iso_tools Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.iso_tools Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.iso_tools Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1242,7 +1246,7 @@
 <dd><p>Create iso file</p>
 <p>Implementation in specialized tool class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>str</em>) – unused</p></li>
 <li><p><strong>hidden_files</strong> (<em>list</em>) – unused</p></li>
@@ -1257,10 +1261,10 @@
 <dd><p>Return caller name for iso creation tool</p>
 <p>Implementation in specialized tool class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tool name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1281,7 +1285,7 @@ used as both; an iso and a disk</p>
 <dd><p>Create a set of standard parameters for the main isolinux loader</p>
 <p>Implementation in specialized tool class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>list</em>) – unused</p>
 </dd>
 </dl>
@@ -1292,7 +1296,7 @@ used as both; an iso and a disk</p>
 <span class="sig-name descname"><span class="pre">list_iso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isofile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/iso_tools/base.html#IsoToolsBase.list_iso"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.iso_tools.base.IsoToolsBase.list_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>List contents of an ISO image</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>isofile</strong> (<em>str</em>) – unused</p>
 </dd>
 </dl>
@@ -1332,7 +1336,7 @@ bootloader/config/grub2.py</p>
 <span class="sig-name descname"><span class="pre">create_iso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/iso_tools/xorriso.html#IsoToolsXorrIso.create_iso"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.iso_tools.xorriso.IsoToolsXorrIso.create_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the iso file with the given filename using xorriso</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>str</em>) – output filename</p></li>
 <li><p><strong>hidden_files</strong> (<em>list</em>) – list of hidden files</p></li>
@@ -1346,13 +1350,13 @@ bootloader/config/grub2.py</p>
 <span class="sig-name descname"><span class="pre">get_tool_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/iso_tools/xorriso.html#IsoToolsXorrIso.get_tool_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.iso_tools.xorriso.IsoToolsXorrIso.get_tool_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lookup xorriso in search path</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiIsoToolError" title="kiwi.exceptions.KiwiIsoToolError"><strong>KiwiIsoToolError</strong></a> – if xorriso tool is not found</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>xorriso tool path</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1365,10 +1369,10 @@ bootloader/config/grub2.py</p>
 partition table into the iso such that it can be
 used as both; an iso and a disk</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1379,7 +1383,7 @@ used as both; an iso and a disk</p>
 <span class="sig-name descname"><span class="pre">init_iso_creation_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/iso_tools/xorriso.html#IsoToolsXorrIso.init_iso_creation_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.iso_tools.xorriso.IsoToolsXorrIso.init_iso_creation_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a set of standard parameters</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>list</em>) – custom ISO meta data</p>
 </dd>
 </dl>
@@ -1401,7 +1405,7 @@ used as both; an iso and a disk</p>
 <dd><p>Include checksum tag in the ISO so it can be verified with
 the mediacheck program.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>isofile</strong> (<em>str</em>) – path to the ISO file</p>
 </dd>
 </dl>
@@ -1412,7 +1416,7 @@ the mediacheck program.</p>
 <span class="sig-name descname"><span class="pre">setup_isolinux_boot_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/iso_tools/iso.html#Iso.setup_isolinux_boot_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.iso_tools.iso.Iso.setup_isolinux_boot_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the base boot path into the isolinux loader binary</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiIsoLoaderError" title="kiwi.exceptions.KiwiIsoLoaderError"><strong>KiwiIsoLoaderError</strong></a> – if loader/isolinux.bin is not found</p>
 </dd>
 </dl>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Disk Partitions &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Custom Disk Partitions &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Custom Disk Partitions</li>
       <li class="wy-breadcrumbs-aside">
@@ -1238,7 +1242,7 @@ partition table are needed. For this purpose the <code class="xref py py-obj doc
 exists and allows to add custom entries like shown in the following
 example:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;partitions&gt;</span>
-    <span class="nt">&lt;partition</span> <span class="na">name=</span><span class="s">&quot;var&quot;</span> <span class="na">size=</span><span class="s">&quot;100&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;/var&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;ext3&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;partition</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;var&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="na">mountpoint=</span><span class="s">&quot;/var&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;ext3&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/partitions&gt;</span>
 </pre></div>
 </div>
@@ -1289,7 +1293,7 @@ system</p>
 <p>Despite the customization options of the partition table shown above
 there are the following limitations:</p>
 <ol class="arabic">
-<li><p>The root partition is always the last one</p>
+<li><p>By default the root partition is always the last one</p>
 <p>Disk imags build with KIWI NG are designed to be expandable.
 For this feature to work the partition containing the system
 rootfs must always be the last one. If this is unwanted for
@@ -1297,18 +1301,24 @@ some reason KIWI NG offers an opportunity for one extra/spare
 partition with the option to be also placed at the end of the
 table. For details lookup <code class="xref py py-obj docutils literal notranslate"><span class="pre">spare_part</span></code> in <a class="reference internal" href="../image_description/elements.html#image-description-elements"><span class="std std-ref">Image Description Elements</span></a></p>
 </li>
-<li><p>There can be no gaps in the partition table</p>
-<p>The way partitions are configured does not allow for gaps in the
-table. As of today there was no use case were it made sense to
-leave a gap between table entries. However, leaving some space
+<li><p>By default there are no gaps in the partition table</p>
+<p>The way partitions are configured is done such that there are no
+gaps in the table of the image. However, leaving some space
 free at the <strong>end</strong> of the partition geometry is possible in the
 following ways:</p>
 <ul>
 <li><p><strong>Deploy with unpartitioned free space.</strong></p>
 <p>To leave space unpartitioned on first boot of a disk image
-it is possible to configured an <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;oem-systemsize&gt;</span></code> which is
+it is possible to configure an <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;oem-systemsize&gt;</span></code> which is
 smaller than the disk the image gets deployed to. Details
 about this setting can be found in <a class="reference internal" href="../image_description/elements.html#image-description-elements"><span class="std std-ref">Image Description Elements</span></a></p>
+</li>
+<li><p><strong>Build with unpartitioned free space.</strong></p>
+<p>To leave space unpartitioned at build time of the image it
+is possible to disable <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;oem-resize&gt;</span></code> and configure an
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;oem-systemsize&gt;</span></code> which is smaller than the kiwi calculated
+disk size or the fixed setting for the disk size via the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">size&gt;</span></code> element.</p>
 </li>
 <li><p><strong>Build with unpartitioned free space.</strong></p>
 <p>Setting some unpartitioned free space on the disk can be done using

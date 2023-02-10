@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.utils Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.utils Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.utils Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1230,7 +1234,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Get information from a block device</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>device</strong> (<em>str</em>) – block device node name name. The device can
 also be specified as UUID=&lt;uuid&gt;</p>
 </dd>
@@ -1240,13 +1244,13 @@ also be specified as UUID=&lt;uuid&gt;</p>
 <span class="sig-name descname"><span class="pre">get_blkid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/block.html#BlockID.get_blkid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.block.BlockID.get_blkid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve information for specified metadata ID from block device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id_type</strong> (<em>string</em>) – metadata ID, see man blkid for details</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>ID of the block device</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1257,10 +1261,10 @@ also be specified as UUID=&lt;uuid&gt;</p>
 <span class="sig-name descname"><span class="pre">get_filesystem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/block.html#BlockID.get_filesystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.block.BlockID.get_filesystem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve filesystem type from block device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>filesystem type</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1271,10 +1275,10 @@ also be specified as UUID=&lt;uuid&gt;</p>
 <span class="sig-name descname"><span class="pre">get_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/block.html#BlockID.get_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.block.BlockID.get_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve filesystem label from block device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>block device label</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1285,10 +1289,10 @@ also be specified as UUID=&lt;uuid&gt;</p>
 <span class="sig-name descname"><span class="pre">get_partition_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/kiwi/utils/block.html#BlockID.get_partition_count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.block.BlockID.get_partition_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve number of partitions from block device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A number</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -1299,10 +1303,10 @@ also be specified as UUID=&lt;uuid&gt;</p>
 <span class="sig-name descname"><span class="pre">get_uuid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/block.html#BlockID.get_uuid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.block.BlockID.get_uuid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve filesystem uuid from block device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>uuid for the filesystem of the block device</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1319,7 +1323,7 @@ also be specified as UUID=&lt;uuid&gt;</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Manage checksum creation for files</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_filename</strong> (<em>str</em>) – source file name to build checksum for</p></li>
 <li><p><strong>checksum_filename</strong> (<em>str</em>) – target file with checksum information</p></li>
@@ -1333,16 +1337,16 @@ also be specified as UUID=&lt;uuid&gt;</p>
 in the provided filename. If the checksum matches the
 method returns True, or False in case it does not match</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>checksum</strong> (<em>str</em>) – checksum string to compare</p></li>
 <li><p><strong>filename</strong> (<em>str</em>) – filename containing checksum</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True or False</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -1353,13 +1357,13 @@ method returns True, or False in case it does not match</p>
 <span class="sig-name descname"><span class="pre">md5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/checksum.html#Checksum.md5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.checksum.Checksum.md5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create md5 checksum</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – filename for checksum</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>checksum</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1370,7 +1374,7 @@ method returns True, or False in case it does not match</p>
 <span class="sig-name descname"><span class="pre">sha256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/checksum.html#Checksum.sha256"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.checksum.Checksum.sha256" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create sha256 checksum</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – filename for checksum</p>
 </dd>
 </dl>
@@ -1387,7 +1391,7 @@ method returns True, or False in case it does not match</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>File compression / decompression</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>keep_source</strong> (<em>bool</em>) – Request to keep the uncompressed source</p></li>
 <li><p><strong>source_filename</strong> (<em>str</em>) – Source file name to compress</p></li>
@@ -1403,10 +1407,10 @@ compression suffix</p></li>
 <span class="sig-name descname"><span class="pre">get_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.get_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.get_format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detect compression format</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>compression format name or None if it couldn’t be inferred</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>Optional[str]</p>
 </dd>
 </dl>
@@ -1426,7 +1430,7 @@ compression suffix</p></li>
 the uncompressed variant. If temporary is set to True
 a temporary file is created instead</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>temporary</strong> (<em>bool</em>) – uncompress to a temporary file</p>
 </dd>
 </dl>
@@ -1437,7 +1441,7 @@ a temporary file is created instead</p>
 <span class="sig-name descname"><span class="pre">xz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.xz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.xz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create XZ compressed file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>options</strong> (<em>list</em>) – custom xz compression options</p>
 </dd>
 </dl>
@@ -1458,7 +1462,7 @@ a temporary file is created instead</p>
 <span class="sig-name descname"><span class="pre">sync_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_trailing_slash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/utils/sync.html#DataSync.sync_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.sync.DataSync.sync_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sync data from source to target using the rsync protocol</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>options</strong> (<em>list</em>) – rsync options</p></li>
 <li><p><strong>exclude</strong> (<em>list</em>) – file patterns to exclude</p></li>
@@ -1472,18 +1476,18 @@ with a slash the data structure below will be synced to the
 target_dir. If it does not end with a slash the source_dir
 and its contents are synced to the target_dir. For example</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span>
-  └── some_data
+<span class="w">  </span>└──<span class="w"> </span>some_data
 
-<span class="m">1</span>. $ rsync -a <span class="nb">source</span> target
-
-target
-  └── <span class="nb">source</span>
-        └── some_data
-
-<span class="m">2</span>. $ rsync -a source/ target
+<span class="m">1</span>.<span class="w"> </span>$<span class="w"> </span>rsync<span class="w"> </span>-a<span class="w"> </span><span class="nb">source</span><span class="w"> </span>target
 
 target
-  └── some_data
+<span class="w">  </span>└──<span class="w"> </span><span class="nb">source</span>
+<span class="w">        </span>└──<span class="w"> </span>some_data
+
+<span class="m">2</span>.<span class="w"> </span>$<span class="w"> </span>rsync<span class="w"> </span>-a<span class="w"> </span>source/<span class="w"> </span>target
+
+target
+<span class="w">  </span>└──<span class="w"> </span>some_data
 </pre></div>
 </div>
 <p>The parameter force_trailing_slash can be used to make
@@ -1498,10 +1502,10 @@ if not already present</p>
 <dd><p>Check if the target directory supports extended filesystem
 attributes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True or False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1518,7 +1522,7 @@ attributes</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>Read and Write sysconfig style files</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>source_file</strong> (<em>str</em>) – source file path</p>
 </dd>
 </dl>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.volume_manager Package &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.volume_manager Package &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -29,12 +29,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1204,7 +1208,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Python API</a></li>
       <li class="breadcrumb-item active">kiwi.volume_manager Package</li>
       <li class="wy-breadcrumbs-aside">
@@ -1229,7 +1233,7 @@
 <dd><p>Bases: <a class="reference internal" href="kiwi.storage.html#kiwi.storage.device_provider.DeviceProvider" title="kiwi.storage.device_provider.DeviceProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeviceProvider</span></code></a></p>
 <p><strong>Implements base class for volume management interface</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mountpoint</strong> (<em>str</em>) – root mountpoint for volumes</p></li>
 <li><p><strong>device_map</strong> (<em>object</em>) – dictionary of low level DeviceProvider intances</p></li>
@@ -1246,7 +1250,7 @@ arguments, subset of the custom_args information suitable to
 be passed to a FileSystem instance</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="kiwi.html#kiwi.exceptions.KiwiVolumeManagerSetupError" title="kiwi.exceptions.KiwiVolumeManagerSetupError"><strong>KiwiVolumeManagerSetupError</strong></a> – if the given root_dir doesn’t exist</p>
 </dd>
 </dl>
@@ -1279,7 +1283,7 @@ be passed to a FileSystem instance</p></li>
 <dd><p>Implements creation of volumes</p>
 <p>Implementation in specialized volume manager class required</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filesystem_name</strong> (<em>str</em>) – unused</p>
 </dd>
 </dl>
@@ -1292,10 +1296,10 @@ be passed to a FileSystem instance</p></li>
 paths and provides information about the volume configured as
 the one eating all the rest space</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list of canonical_volume_type tuples</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list</p>
 </dd>
 </dl>
@@ -1306,10 +1310,10 @@ the one eating all the rest space</p>
 <span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/volume_manager/base.html#VolumeManagerBase.get_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.volume_manager.base.VolumeManagerBase.get_device" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return current DeviceProvider dictionary</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>device_map</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -1321,7 +1325,7 @@ the one eating all the rest space</p>
 <dd><p>Implements setup of the fstab entries. The method should
 return a list of fstab compatible entries</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>persistency_type</strong> (<em>str</em>) – unused</p></li>
 <li><p><strong>filesystem_name</strong> (<em>str</em>) – unused</p></li>
@@ -1336,10 +1340,10 @@ return a list of fstab compatible entries</p>
 <dd><p>Provides mount point directory</p>
 <p>Effective use of the directory is guaranteed only after sync_data</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>directory path name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>string</p>
 </dd>
 </dl>
@@ -1351,7 +1355,7 @@ return a list of fstab compatible entries</p>
 <dd><p>Implements size lookup for the given path and desired
 filesystem according to the specified size type</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>volume</strong> (<em>tuple</em>) – volume to check size for</p></li>
 <li><p><strong>all_volumes</strong> (<em>list</em>) – list of all volume tuples</p></li>
@@ -1364,10 +1368,10 @@ requested size which can be greater than the minimum
 needed size.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>mbsize</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
@@ -1387,10 +1391,10 @@ their mount options</p>
 <p>The information is taken from the storage provider. If
 the storage provider is loop based the volume manager is it too</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True of False</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1409,7 +1413,7 @@ the storage provider is loop based the volume manager is it too</p>
 <dd><p>Post initialization method</p>
 <p>Implementation in specialized volume manager class if required</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – unused</p>
 </dd>
 </dl>
@@ -1427,7 +1431,7 @@ the storage provider is loop based the volume manager is it too</p>
 <dd><p>Implements setup required prior to the creation of volumes</p>
 <p>Implementation in specialized volume manager class required</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – unused</p>
 </dd>
 </dl>
@@ -1445,7 +1449,7 @@ the mounts of all volumes</p>
 <span class="sig-name descname"><span class="pre">sync_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/volume_manager/base.html#VolumeManagerBase.sync_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.volume_manager.base.VolumeManagerBase.sync_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements sync of root directory to mounted volumes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>exclude</strong> (<em>list</em>) – file patterns to exclude</p>
 </dd>
 </dl>
@@ -1469,7 +1473,7 @@ the mounts of all volumes</p>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.volume_manager.base.VolumeManagerBase" title="kiwi.volume_manager.base.VolumeManagerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">VolumeManagerBase</span></code></a></p>
 <p>Implements btrfs sub-volume management</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>subvol_mount_list</strong> (<em>list</em>) – list of mounted btrfs subvolumes</p></li>
 <li><p><strong>toplevel_mount</strong> (<em>object</em>) – <code class="xref py py-class docutils literal notranslate"><span class="pre">MountManager</span></code> for root mountpoint</p></li>
@@ -1484,7 +1488,7 @@ the mounts of all volumes</p>
 way to have different filesystems per btrfs subvolume. Thus
 the filesystem_name has no effect for btrfs</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filesystem_name</strong> (<em>string</em>) – unused</p>
 </dd>
 </dl>
@@ -1496,16 +1500,16 @@ the filesystem_name has no effect for btrfs</p>
 <dd><p>Implements creation of the fstab entries. The method
 returns a list of fstab compatible entries</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>persistency_type</strong> (<em>string</em>) – by-label | by-uuid</p></li>
 <li><p><strong>filesystem_name</strong> (<em>string</em>) – unused</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>list of fstab entries</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -1517,10 +1521,10 @@ returns a list of fstab compatible entries</p>
 <dd><p>Provides btrfs root mount point directory</p>
 <p>Effective use of the directory is guaranteed only after sync_data</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>directory path name</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>string</p>
 </dd>
 </dl>
@@ -1531,10 +1535,10 @@ returns a list of fstab compatible entries</p>
 <span class="sig-name descname"><span class="pre">get_volumes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/volume_manager/btrfs.html#VolumeManagerBtrfs.get_volumes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.get_volumes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return dict of volumes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>volumes dictionary</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -1552,7 +1556,7 @@ returns a list of fstab compatible entries</p>
 <dd><p>Post initialization method</p>
 <p>Store custom btrfs initialization arguments</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>list</em>) – custom btrfs volume manager arguments</p>
 </dd>
 </dl>
@@ -1574,7 +1578,7 @@ the setup method also created the &#64;/.snapshots/1/snapshot
 subvolumes. There is no concept of a volume manager name, thus
 the name argument is not used for btrfs</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>string</em>) – unused</p>
 </dd>
 </dl>
@@ -1587,7 +1591,7 @@ the name argument is not used for btrfs</p>
 <p>If snapshots are activated the root filesystem is synced
 into the first snapshot</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>exclude</strong> (<em>list</em>) – files to exclude from sync</p>
 </dd>
 </dl>
@@ -1598,10 +1602,10 @@ into the first snapshot</p>
 <span class="sig-name descname"><span class="pre">umount_volumes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/volume_manager/btrfs.html#VolumeManagerBtrfs.umount_volumes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.umount_volumes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Umount btrfs subvolumes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if all subvolumes are successfully unmounted</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1623,7 +1627,7 @@ into the first snapshot</p>
 <dd><p>Create configured lvm volumes and filesystems</p>
 <p>All volumes receive the same filesystem</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filesystem_name</strong> (<em>str</em>) – volumes filesystem name</p>
 </dd>
 </dl>
@@ -1635,10 +1639,10 @@ into the first snapshot</p>
 <dd><p>Dictionary of MappedDevice instances per volume</p>
 <p>Note: The mapping requires an explicit create_volumes() call</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>root plus volume device map</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -1650,16 +1654,16 @@ into the first snapshot</p>
 <dd><p>Implements creation of the fstab entries. The method
 returns a list of fstab compatible entries</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>persistency_type</strong> (<em>str</em>) – unused</p></li>
 <li><p><strong>filesystem_name</strong> (<em>str</em>) – volumes filesystem name</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>fstab entries</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -1670,10 +1674,10 @@ returns a list of fstab compatible entries</p>
 <span class="sig-name descname"><span class="pre">get_volumes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/volume_manager/lvm.html#VolumeManagerLVM.get_volumes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.volume_manager.lvm.VolumeManagerLVM.get_volumes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return dict of volumes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>volumes dictionary</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -1691,7 +1695,7 @@ returns a list of fstab compatible entries</p>
 <dd><p>Post initialization method</p>
 <p>Store custom lvm initialization arguments</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>custom_args</strong> (<em>list</em>) – custom lvm volume manager arguments</p>
 </dd>
 </dl>
@@ -1704,7 +1708,7 @@ returns a list of fstab compatible entries</p>
 <p>In case of LVM a new volume group is created on a PV
 initialized storage device</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – volume group name</p>
 </dd>
 </dl>
@@ -1715,10 +1719,10 @@ initialized storage device</p>
 <span class="sig-name descname"><span class="pre">umount_volumes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/volume_manager/lvm.html#VolumeManagerLVM.umount_volumes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.volume_manager.lvm.VolumeManagerLVM.umount_volumes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Umount lvm volumes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if all subvolumes are successfully unmounted</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -1735,7 +1739,7 @@ initialized storage device</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>VolumeManager factory</strong></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – volume management name</p></li>
 <li><p><strong>device_map</strong> (<em>dict</em>) – dictionary of low level DeviceProvider intances</p></li>

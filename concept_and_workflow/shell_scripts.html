@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Defined Scripts &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>User Defined Scripts &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../concept_and_workflow.html">Concept and Workflow</a></li>
       <li class="breadcrumb-item active">User Defined Scripts</li>
       <li class="wy-breadcrumbs-aside">
@@ -1284,7 +1288,7 @@ is called with the <code class="xref py py-obj docutils literal notranslate"><sp
 <p>In this mode a script can start like the following template:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># The magic bits are still not set</span>
 
-<span class="nb">echo</span> <span class="s2">&quot;break&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;break&quot;</span>
 /bin/bash
 </pre></div>
 </div>
@@ -1297,11 +1301,11 @@ execution of the script code, there is also the advantage to
 have control on the session during the process of the image
 creation. Listing the active sessions for script execution
 can be done as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo screen -list
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>screen<span class="w"> </span>-list
 
-There is a screen on:
-     <span class="m">19699</span>.pts-4.asterix     <span class="o">(</span>Attached<span class="o">)</span>
-<span class="m">1</span> Socket <span class="k">in</span> /run/screens/S-root.
+There<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>screen<span class="w"> </span>on:
+<span class="w">     </span><span class="m">19699</span>.pts-4.asterix<span class="w">     </span><span class="o">(</span>Attached<span class="o">)</span>
+<span class="m">1</span><span class="w"> </span>Socket<span class="w"> </span><span class="k">in</span><span class="w"> </span>/run/screens/S-root.
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1323,8 +1327,8 @@ script:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#======================================</span>
 <span class="c1"># Include functions &amp; variables</span>
 <span class="c1">#--------------------------------------</span>
-<span class="nb">test</span> -f /.kconfig <span class="o">&amp;&amp;</span> . /.kconfig
-<span class="nb">test</span> -f /.profile <span class="o">&amp;&amp;</span> . /.profile
+<span class="nb">test</span><span class="w"> </span>-f<span class="w"> </span>/.kconfig<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>.<span class="w"> </span>/.kconfig
+<span class="nb">test</span><span class="w"> </span>-f<span class="w"> </span>/.profile<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>.<span class="w"> </span>/.profile
 
 ...
 </pre></div>
@@ -1385,7 +1389,7 @@ mount or a SysV init service with the <code class="xref py py-obj docutils liter
 The function requires the service name and the value <code class="docutils literal notranslate"><span class="pre">on</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code> as
 parameters.</p>
 <p>Example to enable the sshd service on boot:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>baseService sshd on
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>baseService<span class="w"> </span>sshd<span class="w"> </span>on
 </pre></div>
 </div>
 </dd>
@@ -1521,10 +1525,10 @@ symlink creation into <code class="file docutils literal notranslate"><span clas
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#======================================</span>
 <span class="c1"># Make machine-id consistent with dbus</span>
 <span class="c1">#--------------------------------------</span>
-<span class="k">if</span> <span class="o">[</span> -e /var/lib/dbus/machine-id <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    rm /var/lib/dbus/machine-id
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-e<span class="w"> </span>/var/lib/dbus/machine-id<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>rm<span class="w"> </span>/var/lib/dbus/machine-id
 <span class="k">fi</span>
-ln -s /etc/machine-id /var/lib/dbus/machine-id
+ln<span class="w"> </span>-s<span class="w"> </span>/etc/machine-id<span class="w"> </span>/var/lib/dbus/machine-id
 </pre></div>
 </div>
 </div>

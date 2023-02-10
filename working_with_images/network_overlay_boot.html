@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Booting a Root Filesystem from Network &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Booting a Root Filesystem from Network &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Booting a Root Filesystem from Network</li>
       <li class="wy-breadcrumbs-aside">
@@ -1248,10 +1252,10 @@ is required:</p>
 <ul>
 <li><p>Create dracut configuration to include the <code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-overlay</span></code> module</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> kiwi/build-tests/x86/tumbleweed/test-image-pxe
-$ mkdir -p root/etc/dracut.conf.d
-$ <span class="nb">cd</span> root/etc/dracut.conf.d
-$ <span class="nb">echo</span> <span class="s1">&#39;add_dracutmodules+=&quot; kiwi-overlay &quot;&#39;</span> &gt; overlay.conf
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>kiwi/build-tests/x86/tumbleweed/test-image-pxe
+$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>root/etc/dracut.conf.d
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>root/etc/dracut.conf.d
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;add_dracutmodules+=&quot; kiwi-overlay &quot;&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>overlay.conf
 </pre></div>
 </div>
 </div></blockquote>
@@ -1265,8 +1269,8 @@ from the network:</p>
 <p>The PXE boot process loads the configured kernel and initrd from
 the PXE server. For this reason, the following files must be
 copied to the PXE server as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cp *.initrd /srv/tftpboot/boot/initrd
-$ cp *.kernel /srv/tftpboot/boot/linux
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cp<span class="w"> </span>*.initrd<span class="w"> </span>/srv/tftpboot/boot/initrd
+$<span class="w"> </span>cp<span class="w"> </span>*.kernel<span class="w"> </span>/srv/tftpboot/boot/linux
 </pre></div>
 </div>
 </li>
@@ -1285,7 +1289,7 @@ must provide a compatible aoe kernel module compared to the
 kernel used inside of the root filesystem image.</p>
 </div>
 <p>Once done, export the filesystem from the KIS build above as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vbladed <span class="m">0</span> <span class="m">1</span> IFACE <span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>vbladed<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>IFACE<span class="w"> </span><span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3
 </pre></div>
 </div>
 <p>The above command exports the given filesystem image file as a block
@@ -1304,17 +1308,17 @@ can see the exported block device.</p>
 <dt>Export via NBD:</dt><dd><p>Install the <code class="xref py py-obj docutils literal notranslate"><span class="pre">nbd</span></code> package on the system which is expected
 to export the root filesystem</p>
 <p>Once done, export the filesystem from the KIS build above as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ losetup /dev/loop0 <span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>losetup<span class="w"> </span>/dev/loop0<span class="w"> </span><span class="o">{</span>exc_image_base_name<span class="o">}</span>.x86_64-1.15.3
 
-$ vi /etc/nbd-server/config
+$<span class="w"> </span>vi<span class="w"> </span>/etc/nbd-server/config
 
-  <span class="o">[</span>generic<span class="o">]</span>
-      <span class="nv">user</span> <span class="o">=</span> root
-      <span class="nv">group</span> <span class="o">=</span> root
-  <span class="o">[</span>export<span class="o">]</span>
-      <span class="nv">exportname</span> <span class="o">=</span> /dev/loop0
+<span class="w">  </span><span class="o">[</span>generic<span class="o">]</span>
+<span class="w">      </span><span class="nv">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>root
+<span class="w">      </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>root
+<span class="w">  </span><span class="o">[</span>export<span class="o">]</span>
+<span class="w">      </span><span class="nv">exportname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/dev/loop0
 
-$ nbd-server
+$<span class="w"> </span>nbd-server
 </pre></div>
 </div>
 </dd>
@@ -1330,18 +1334,18 @@ clients</p>
 <p>Edit the file <code class="file docutils literal notranslate"><span class="pre">/srv/tftpboot/pxelinux.cfg/default</span></code> and create
 a boot entry of the form:</p>
 <dl>
-<dt>Using NBD:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LABEL Overlay-Boot
-    kernel boot/linux
-    append <span class="nv">initrd</span><span class="o">=</span>boot/initrd <span class="nv">root</span><span class="o">=</span>overlay:nbd<span class="o">=</span>server-ip:export
+<dt>Using NBD:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LABEL<span class="w"> </span>Overlay-Boot
+<span class="w">    </span>kernel<span class="w"> </span>boot/linux
+<span class="w">    </span>append<span class="w"> </span><span class="nv">initrd</span><span class="o">=</span>boot/initrd<span class="w"> </span><span class="nv">root</span><span class="o">=</span>overlay:nbd<span class="o">=</span>server-ip:export
 </pre></div>
 </div>
 <p>The boot parameter <code class="xref py py-obj docutils literal notranslate"><span class="pre">root=overlay:nbd=server-ip:export</span></code> specifies
 the NBD server IP address and the name of the export as used in
 <code class="file docutils literal notranslate"><span class="pre">/etc/nbd-server/config</span></code></p>
 </dd>
-<dt>Using AoE:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LABEL Overlay-Boot
-    kernel boot/linux
-    append <span class="nv">initrd</span><span class="o">=</span>boot/initrd <span class="nv">root</span><span class="o">=</span>overlay:aoe<span class="o">=</span>AOEINTERFACE
+<dt>Using AoE:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LABEL<span class="w"> </span>Overlay-Boot
+<span class="w">    </span>kernel<span class="w"> </span>boot/linux
+<span class="w">    </span>append<span class="w"> </span><span class="nv">initrd</span><span class="o">=</span>boot/initrd<span class="w"> </span><span class="nv">root</span><span class="o">=</span>overlay:aoe<span class="o">=</span>AOEINTERFACE
 </pre></div>
 </div>
 <p>The boot parameter <code class="xref py py-obj docutils literal notranslate"><span class="pre">root=overlay:aoe=AOEINTERFACE</span></code> specifies the
@@ -1353,7 +1357,7 @@ interface name as it was exported by the <strong class="command">vbladed</strong
 <p>Within the network which has access to the PXE server and the
 exported root filesystem image, any network client can now boot the
 system. A test based on QEMU can be done as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo qemu -boot n
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>qemu<span class="w"> </span>-boot<span class="w"> </span>n
 </pre></div>
 </div>
 </li>

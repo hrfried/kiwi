@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.volume_manager.btrfs &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.volume_manager.btrfs &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../volume_manager.html">kiwi.volume_manager</a></li>
       <li class="breadcrumb-item active">kiwi.volume_manager.btrfs</li>
@@ -1264,14 +1268,14 @@
 
 
 <div class="viewcode-block" id="VolumeManagerBtrfs"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs">[docs]</a><span class="k">class</span> <span class="nc">VolumeManagerBtrfs</span><span class="p">(</span><span class="n">VolumeManagerBase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements btrfs sub-volume management</span>
 
 <span class="sd">    :param list subvol_mount_list: list of mounted btrfs subvolumes</span>
 <span class="sd">    :param object toplevel_mount: :class:`MountManager` for root mountpoint</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="VolumeManagerBtrfs.post_init"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Post initialization method</span>
 
 <span class="sd">        Store custom btrfs initialization arguments</span>
@@ -1296,7 +1300,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">toplevel_volume</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBtrfs.setup"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup btrfs volume management</span>
 
 <span class="sd">        In case of btrfs a toplevel(@) subvolume is created and marked</span>
@@ -1354,7 +1358,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_set_default_volume</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBtrfs.create_volumes"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.create_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">create_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filesystem_name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create configured btrfs subvolumes</span>
 
 <span class="sd">        Any btrfs subvolume is of the same btrfs filesystem. There is no</span>
@@ -1409,7 +1413,7 @@
                     <span class="p">)</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBtrfs.get_fstab"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.get_fstab">[docs]</a>    <span class="k">def</span> <span class="nf">get_fstab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">persistency_type</span><span class="o">=</span><span class="s1">&#39;by-label&#39;</span><span class="p">,</span> <span class="n">filesystem_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements creation of the fstab entries. The method</span>
 <span class="sd">        returns a list of fstab compatible entries</span>
 
@@ -1445,7 +1449,7 @@
         <span class="k">return</span> <span class="n">fstab_entries</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBtrfs.get_volumes"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.get_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">get_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return dict of volumes</span>
 
 <span class="sd">        :return: volumes dictionary</span>
@@ -1467,7 +1471,7 @@
         <span class="k">return</span> <span class="n">volumes</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBtrfs.mount_volumes"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.mount_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">mount_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Mount btrfs subvolumes</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">toplevel_mount</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span>
@@ -1494,7 +1498,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">volumes_mounted_initially</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBtrfs.umount_volumes"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.umount_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">umount_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Umount btrfs subvolumes</span>
 
 <span class="sd">        :return: True if all subvolumes are successfully unmounted</span>
@@ -1515,7 +1519,7 @@
         <span class="k">return</span> <span class="n">all_volumes_umounted</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBtrfs.get_mountpoint"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.get_mountpoint">[docs]</a>    <span class="k">def</span> <span class="nf">get_mountpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides btrfs root mount point directory</span>
 
 <span class="sd">        Effective use of the directory is guaranteed only after sync_data</span>
@@ -1530,7 +1534,7 @@
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">sync_target</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBtrfs.sync_data"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.sync_data">[docs]</a>    <span class="k">def</span> <span class="nf">sync_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sync data into btrfs filesystem</span>
 
 <span class="sd">        If snapshots are activated the root filesystem is synced</span>
@@ -1553,7 +1557,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_create_snapper_quota_configuration</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBtrfs.set_property_readonly_root"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs.set_property_readonly_root">[docs]</a>    <span class="k">def</span> <span class="nf">set_property_readonly_root</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the root volume to be a readonly filesystem</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">root_is_snapshot</span> <span class="o">=</span> \

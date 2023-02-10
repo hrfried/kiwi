@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.volume_manager.base &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.volume_manager.base &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../volume_manager.html">kiwi.volume_manager</a></li>
       <li class="breadcrumb-item active">kiwi.volume_manager.base</li>
@@ -1255,7 +1259,7 @@
 
 
 <div class="viewcode-block" id="VolumeManagerBase"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase">[docs]</a><span class="k">class</span> <span class="nc">VolumeManagerBase</span><span class="p">(</span><span class="n">DeviceProvider</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements base class for volume management interface**</span>
 
 <span class="sd">    :param str mountpoint: root mountpoint for volumes</span>
@@ -1329,7 +1333,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">post_init</span><span class="p">(</span><span class="n">custom_args</span><span class="p">)</span>
 
 <div class="viewcode-block" id="VolumeManagerBase.post_init"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.post_init">[docs]</a>    <span class="k">def</span> <span class="nf">post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Post initialization method</span>
 
 <span class="sd">        Implementation in specialized volume manager class if required</span>
@@ -1339,7 +1343,7 @@
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.setup"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements setup required prior to the creation of volumes</span>
 
 <span class="sd">        Implementation in specialized volume manager class required</span>
@@ -1349,7 +1353,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.create_volumes"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.create_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">create_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filesystem_name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements creation of volumes</span>
 
 <span class="sd">        Implementation in specialized volume manager class required</span>
@@ -1372,7 +1376,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.get_fstab"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.get_fstab">[docs]</a>    <span class="k">def</span> <span class="nf">get_fstab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">persistency_type</span><span class="p">,</span> <span class="n">filesystem_name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements setup of the fstab entries. The method should</span>
 <span class="sd">        return a list of fstab compatible entries</span>
 
@@ -1382,14 +1386,14 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.get_volumes"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.get_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">get_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements return of dictionary of volumes and</span>
 <span class="sd">        their mount options</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.mount_volumes"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.mount_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">mount_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements mounting of all volumes below one master directory</span>
 
 <span class="sd">        Implementation in specialized volume manager class required</span>
@@ -1397,7 +1401,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.umount_volumes"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.umount_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">umount_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements umounting of all volumes</span>
 
 <span class="sd">        Implementation in specialized volume manager class required</span>
@@ -1405,7 +1409,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.is_loop"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.is_loop">[docs]</a>    <span class="k">def</span> <span class="nf">is_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if storage provider is loop based</span>
 
 <span class="sd">        The information is taken from the storage provider. If</span>
@@ -1418,7 +1422,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_provider_root</span><span class="o">.</span><span class="n">is_loop</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.get_device"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.get_device">[docs]</a>    <span class="k">def</span> <span class="nf">get_device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return current DeviceProvider dictionary</span>
 
 <span class="sd">        :return: device_map</span>
@@ -1428,7 +1432,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_map</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.create_volume_paths_in_root_dir"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.create_volume_paths_in_root_dir">[docs]</a>    <span class="k">def</span> <span class="nf">create_volume_paths_in_root_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements creation of volume paths in the given root directory</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">volume</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">volumes</span><span class="p">:</span>
@@ -1444,7 +1448,7 @@
                     <span class="n">Path</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">volume_image_path</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.get_canonical_volume_list"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.get_canonical_volume_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_canonical_volume_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements hierarchical sorting of volumes according to their</span>
 <span class="sd">        paths and provides information about the volume configured as</span>
 <span class="sd">        the one eating all the rest space</span>
@@ -1476,7 +1480,7 @@
 <div class="viewcode-block" id="VolumeManagerBase.get_volume_mbsize"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.get_volume_mbsize">[docs]</a>    <span class="k">def</span> <span class="nf">get_volume_mbsize</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">all_volumes</span><span class="p">,</span> <span class="n">filesystem_name</span><span class="p">,</span> <span class="n">resize_on_boot</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements size lookup for the given path and desired</span>
 <span class="sd">        filesystem according to the specified size type</span>
 
@@ -1537,7 +1541,7 @@
         <span class="k">return</span> <span class="n">mbsize</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.get_mountpoint"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.get_mountpoint">[docs]</a>    <span class="k">def</span> <span class="nf">get_mountpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides mount point directory</span>
 
 <span class="sd">        Effective use of the directory is guaranteed only after sync_data</span>
@@ -1549,7 +1553,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mountpoint</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.sync_data"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.sync_data">[docs]</a>    <span class="k">def</span> <span class="nf">sync_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements sync of root directory to mounted volumes</span>
 
 <span class="sd">        :param list exclude: file patterns to exclude</span>
@@ -1566,19 +1570,19 @@
 <div class="viewcode-block" id="VolumeManagerBase.create_verity_layer"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.create_verity_layer">[docs]</a>    <span class="k">def</span> <span class="nf">create_verity_layer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">blocks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        veritysetup on LVM devices is not supported</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.create_verification_metadata"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.create_verification_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">create_verification_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_node</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write verification block on LVM devices is not supported</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.set_property_readonly_root"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.set_property_readonly_root">[docs]</a>    <span class="k">def</span> <span class="nf">set_property_readonly_root</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements setup of read-only root property</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="n">KiwiVolumeManagerSetupError</span><span class="p">(</span>
@@ -1586,7 +1590,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="VolumeManagerBase.setup_mountpoint"><a class="viewcode-back" href="../../../api/kiwi.volume_manager.html#kiwi.volume_manager.base.VolumeManagerBase.setup_mountpoint">[docs]</a>    <span class="k">def</span> <span class="nf">setup_mountpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implements creation of a master directory holding</span>
 <span class="sd">        the mounts of all volumes</span>
 <span class="sd">        &quot;&quot;&quot;</span>

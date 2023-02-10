@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building in a Self-Contained Environment &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Building in a Self-Contained Environment &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../plugins.html">KIWI Plugins</a></li>
       <li class="breadcrumb-item active">Building in a Self-Contained Environment</li>
       <li class="wy-breadcrumbs-aside">
@@ -1247,7 +1251,7 @@ be reduced to the requirements of the KIWI NG <code class="xref py py-obj docuti
 <p>Add the KIWI NG repo from the Open Build Service. For details see
 <a class="reference internal" href="../installation.html#installation-from-obs"><span class="std std-ref">Installation from OBS</span></a>. The following KIWI NG plugin needs to be
 installed on the build system:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo zypper <span class="k">in</span> python3-kiwi_boxed_plugin
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>zypper<span class="w"> </span><span class="k">in</span><span class="w"> </span>python3-kiwi_boxed_plugin
 </pre></div>
 </div>
 </section>
@@ -1273,10 +1277,10 @@ capabilities of the <code class="xref py py-obj docutils literal notranslate"><s
 is exactly the same as with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code> command. The separation between
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">boxbuild</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code> options is done using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--</span></code> separator like
 shown in the following example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ kiwi-ng --type iso system boxbuild --box leap -- <span class="se">\</span>
-      --description kiwi/build-tests/x86/leap/test-image-disk <span class="se">\</span>
-      --set-repo obs://openSUSE:Leap:15.3/standard <span class="se">\</span>
-      --target-dir /tmp/myimage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kiwi-ng<span class="w"> </span>--type<span class="w"> </span>iso<span class="w"> </span>system<span class="w"> </span>boxbuild<span class="w"> </span>--box<span class="w"> </span>leap<span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--description<span class="w"> </span>kiwi/build-tests/x86/leap/test-image-disk<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--set-repo<span class="w"> </span>obs://openSUSE:Leap:15.3/standard<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--target-dir<span class="w"> </span>/tmp/myimage
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1305,7 +1309,7 @@ Because this runs through an SSH connection the host must allow
 connections from the box. If you plan to use <code class="xref py py-obj docutils literal notranslate"><span class="pre">sshfs</span></code> add the
 following SSH public key to the <code class="file docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code>
 file of the user which is expected to call <code class="xref py py-obj docutils literal notranslate"><span class="pre">boxbuild</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCtiqDaYgEMkr7za7qc4iPXftgu/j3sodPOtpoG8PinwRX6/3xZteOJzCH2qCZjEgA5zsP9lxy/119cWXvdxFUvyEINjH77unzRnaHj/yTXPhHuhHgAiEubuHer2gZoOs+UH4cGJLKCrabjTjZdeK9KvL+hoAgJaWxDUvGsXYDQTBHXlKjniOL1MGbltDBHnYhu4k+PjjJ+UEBN+8+F74Y5fYgIovXXY88WQrybuEr1eAYjhvk/ln6TKw1P6uvVMuIbAGUgnZFntDCI91Qw8ps1j+lX3vNc8ZBoOwM6nHZqq4FAqbXuH+NvQFS/xDM6wwZQhAe+14dTQBA5F1mgCVf+fSbteb0/CraSGmgKIM8aPnK8rfF+BY6Jar3AJFKVRPshRzrQj6CWYu3BfmOLupCpqOK2XFyoU2lEpaZDejgPSJq/IBGZdjKplWJFF8ZRQ01a8eX8K2fjrQt/4k9c7Pjlg1aDH8Sf+5+vcehlSNs1d50wnFoaIPrgDdy04omiaJ8= kiwi@boxbuild&quot;</span> &gt;&gt; ~/.ssh/authorized_keys
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCtiqDaYgEMkr7za7qc4iPXftgu/j3sodPOtpoG8PinwRX6/3xZteOJzCH2qCZjEgA5zsP9lxy/119cWXvdxFUvyEINjH77unzRnaHj/yTXPhHuhHgAiEubuHer2gZoOs+UH4cGJLKCrabjTjZdeK9KvL+hoAgJaWxDUvGsXYDQTBHXlKjniOL1MGbltDBHnYhu4k+PjjJ+UEBN+8+F74Y5fYgIovXXY88WQrybuEr1eAYjhvk/ln6TKw1P6uvVMuIbAGUgnZFntDCI91Qw8ps1j+lX3vNc8ZBoOwM6nHZqq4FAqbXuH+NvQFS/xDM6wwZQhAe+14dTQBA5F1mgCVf+fSbteb0/CraSGmgKIM8aPnK8rfF+BY6Jar3AJFKVRPshRzrQj6CWYu3BfmOLupCpqOK2XFyoU2lEpaZDejgPSJq/IBGZdjKplWJFF8ZRQ01a8eX8K2fjrQt/4k9c7Pjlg1aDH8Sf+5+vcehlSNs1d50wnFoaIPrgDdy04omiaJ8= kiwi@boxbuild&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ssh/authorized_keys
 </pre></div>
 </div>
 <p>The public key mentioned here is associated with an SSH key pair

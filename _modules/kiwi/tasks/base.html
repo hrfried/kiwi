@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.tasks.base &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.tasks.base &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.tasks.base</li>
       <li class="wy-breadcrumbs-aside">
@@ -1253,7 +1257,7 @@
 
 
 <div class="viewcode-block" id="CliTask"><a class="viewcode-back" href="../../../api/kiwi.tasks.html#kiwi.tasks.base.CliTask">[docs]</a><span class="k">class</span> <span class="nc">CliTask</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for all task classes, loads the task and provides</span>
 <span class="sd">    the interface to the command options and the XML description</span>
 
@@ -1361,7 +1365,7 @@
 <div class="viewcode-block" id="CliTask.load_xml_description"><a class="viewcode-back" href="../../../api/kiwi.tasks.html#kiwi.tasks.base.CliTask.load_xml_description">[docs]</a>    <span class="k">def</span> <span class="nf">load_xml_description</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">description_directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kiwi_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load, upgrade, validate XML description</span>
 
 <span class="sd">        :param str description_directory:</span>
@@ -1421,7 +1425,7 @@
 <div class="viewcode-block" id="CliTask.quadruple_token"><a class="viewcode-back" href="../../../api/kiwi.tasks.html#kiwi.tasks.base.CliTask.quadruple_token">[docs]</a>    <span class="k">def</span> <span class="nf">quadruple_token</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper method for commandline options of the form --option a,b,c,d</span>
 
 <span class="sd">        Make sure to provide a common result for option values which</span>
@@ -1438,7 +1442,7 @@
 <div class="viewcode-block" id="CliTask.tentuple_token"><a class="viewcode-back" href="../../../api/kiwi.tasks.html#kiwi.tasks.base.CliTask.tentuple_token">[docs]</a>    <span class="k">def</span> <span class="nf">tentuple_token</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper method for commandline options of the</span>
 <span class="sd">        form --option a,b,c,d,e,f,g,h,i,j</span>
 
@@ -1454,7 +1458,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ntuple_token</span><span class="p">(</span><span class="n">option</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="CliTask.run_checks"><a class="viewcode-back" href="../../../api/kiwi.tasks.html#kiwi.tasks.base.CliTask.run_checks">[docs]</a>    <span class="k">def</span> <span class="nf">run_checks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checks</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method runs the given runtime checks excluding the ones disabled</span>
 <span class="sd">        in the runtime configuration file.</span>
 
@@ -1483,7 +1487,7 @@
     <span class="k">def</span> <span class="nf">_ntuple_token</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tuple_count</span><span class="p">:</span> <span class="nb">int</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper method for commandline options of the form --option a,b,c,d,e,f</span>
 
 <span class="sd">        Make sure to provide a common result for option values which</span>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Installation &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> KIWI NG
-            <img src="_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            KIWI NG
+              <img src="_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
@@ -1225,7 +1229,7 @@
 <p>Apart from the preferred method to install KIWI NG via a distribution
 package manager, it is also available on <a class="reference external" href="https://pypi.org/project/kiwi/">pypi</a>
 and can be installed using Python’s package manager pip as follows:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo pip install kiwi
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>kiwi
 </pre></div>
 </div>
 <section id="installation-from-obs">
@@ -1242,14 +1246,14 @@ copy the URL. In Firefox it is the menu <span class="menuselection">Copy link ad
 <li><p>Insert the copied URL from the last step into your shell. The <code class="docutils literal notranslate"><span class="pre">DIST</span></code>
 placeholder contains the respective distribution.
 Use <strong class="command">zypper addrepo</strong> to add it to the list of your repositories:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo zypper addrepo <span class="se">\</span>
-      http://download.opensuse.org/repositories/Virtualization:/Appliances:/Builder/&lt;DIST&gt; <span class="se">\</span>
-      kiwi-appliance-builder
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>zypper<span class="w"> </span>addrepo<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>http://download.opensuse.org/repositories/Virtualization:/Appliances:/Builder/&lt;DIST&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>kiwi-appliance-builder
 </pre></div>
 </div>
 </li>
 <li><p>Install KIWI NG:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo zypper --gpg-auto-import-keys install python3-kiwi
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>zypper<span class="w"> </span>--gpg-auto-import-keys<span class="w"> </span>install<span class="w"> </span>python3-kiwi
 </pre></div>
 </div>
 </li>
@@ -1260,10 +1264,10 @@ Use <strong class="command">zypper addrepo</strong> to add it to the list of you
 <p>If your distribution is not using <strong class="command">zypper</strong>, please use your
 package manager’s appropriate command instead. For <strong class="command">dnf</strong>,
 as an example, that is:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo dnf config-manager <span class="se">\</span>
-      --add-repo https://download.opensuse.org/repositories/Virtualization:/Appliances:/Builder/&lt;DIST&gt;/Virtualization:Appliances:Builder.repo
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--add-repo<span class="w"> </span>https://download.opensuse.org/repositories/Virtualization:/Appliances:/Builder/&lt;DIST&gt;/Virtualization:Appliances:Builder.repo
 
-<span class="gp">$ </span>sudo dnf install python3-kiwi
+<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3-kiwi
 </pre></div>
 </div>
 </div>
@@ -1286,11 +1290,11 @@ name can be different from the instructions provided in:
 </div>
 <p>To install KIWI NG for the desired distribution, run the following command:</p>
 <dl>
-<dt>Leap/Tumbleweed:</dt><dd><div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo zypper install python3-kiwi
+<dt>Leap/Tumbleweed:</dt><dd><div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>python3-kiwi
 </pre></div>
 </div>
 </dd>
-<dt>Fedora/Rawhide:</dt><dd><div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo dnf install kiwi-cli
+<dt>Fedora/Rawhide:</dt><dd><div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>kiwi-cli
 </pre></div>
 </div>
 </dd>
@@ -1305,9 +1309,9 @@ which are used for integration testing of the KIWI NG builder itself.
 These descriptions are required to build prior any KIWI NG release
 and are also used as the base for this documentation. Please check
 them out when working with this reference guide:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/OSInside/kiwi
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/OSInside/kiwi
 
-<span class="gp">$ </span>tree -L <span class="m">3</span> kiwi/build-tests
+<span class="gp">$ </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">3</span><span class="w"> </span>kiwi/build-tests
 </pre></div>
 </div>
 </dd>
@@ -1315,7 +1319,7 @@ them out when working with this reference guide:</p>
 with the next generation KIWI NG. Contributions from the community makes up
 the contents of this repository and users who need an example for a specific
 use case and distribution can clone the project as follows:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/OSInside/kiwi-descriptions
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/OSInside/kiwi-descriptions
 </pre></div>
 </div>
 </dd>

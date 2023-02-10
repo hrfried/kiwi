@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build a Virtual Disk Image &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Build a Virtual Disk Image &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../building_images.html">Building Images for Supported Types</a></li>
       <li class="breadcrumb-item active">Build a Virtual Disk Image</li>
       <li class="wy-breadcrumbs-aside">
@@ -1239,23 +1243,23 @@ procedure which is why we call it a <em>simple</em> disk image.</p>
 disabled. An example configuration for a 42 GB large VMDK image with
 512 MB RAM, an IDE controller and a bridged network interface is shown
 below:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;Tumbleweed_appliance&quot;</span><span class="nt">&gt;</span>
-  <span class="cm">&lt;!-- snip --&gt;</span>
-  <span class="nt">&lt;preferences&gt;</span>
-    <span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span> <span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;bootloader</span> <span class="na">name=</span><span class="s">&quot;grub2&quot;</span> <span class="na">timeout=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;size</span> <span class="na">unit=</span><span class="s">&quot;G&quot;</span><span class="nt">&gt;</span>42<span class="nt">&lt;/size&gt;</span>
-      <span class="nt">&lt;oemconfig&gt;</span>
-          <span class="nt">&lt;oem-resize&gt;</span>false<span class="nt">&lt;/oem-resize&gt;</span>
-      <span class="nt">&lt;/oemconfig&gt;</span>
-      <span class="nt">&lt;machine</span> <span class="na">memory=</span><span class="s">&quot;512&quot;</span> <span class="na">guestOS=</span><span class="s">&quot;suse&quot;</span> <span class="na">HWversion=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;vmdisk</span> <span class="na">id=</span><span class="s">&quot;0&quot;</span> <span class="na">controller=</span><span class="s">&quot;ide&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;vmnic</span> <span class="na">driver=</span><span class="s">&quot;e1000&quot;</span> <span class="na">interface=</span><span class="s">&quot;0&quot;</span> <span class="na">mode=</span><span class="s">&quot;bridged&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;/machine&gt;</span>
-    <span class="nt">&lt;/type&gt;</span>
-    <span class="cm">&lt;!-- additional preferences --&gt;</span>
-  <span class="nt">&lt;/preferences&gt;</span>
-  <span class="cm">&lt;!-- snip --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tumbleweed_appliance&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- snip --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;preferences&gt;</span>
+<span class="w">    </span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;bootloader</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;size</span><span class="w"> </span><span class="na">unit=</span><span class="s">&quot;G&quot;</span><span class="nt">&gt;</span>42<span class="nt">&lt;/size&gt;</span>
+<span class="w">      </span><span class="nt">&lt;oemconfig&gt;</span>
+<span class="w">          </span><span class="nt">&lt;oem-resize&gt;</span>false<span class="nt">&lt;/oem-resize&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/oemconfig&gt;</span>
+<span class="w">      </span><span class="nt">&lt;machine</span><span class="w"> </span><span class="na">memory=</span><span class="s">&quot;512&quot;</span><span class="w"> </span><span class="na">guestOS=</span><span class="s">&quot;suse&quot;</span><span class="w"> </span><span class="na">HWversion=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;vmdisk</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">controller=</span><span class="s">&quot;ide&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;vmnic</span><span class="w"> </span><span class="na">driver=</span><span class="s">&quot;e1000&quot;</span><span class="w"> </span><span class="na">interface=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">mode=</span><span class="s">&quot;bridged&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/machine&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/type&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- additional preferences --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/preferences&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- snip --&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1278,18 +1282,18 @@ and <a class="reference internal" href="#disk-the-machine-element"><span class="
 <p>Once your image description is finished (or you are content with a image
 from the <a class="reference internal" href="../installation.html#example-descriptions"><span class="std std-ref">example descriptions</span></a> and use one of
 them) build the image with KIWI NG:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo kiwi-ng system build <span class="se">\</span>
-     --description kiwi/build-tests/x86/leap/test-image-disk-simple <span class="se">\</span>
-     --set-repo obs://openSUSE:Leap:15.3/standard <span class="se">\</span>
-     --target-dir /tmp/myimage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>kiwi-ng<span class="w"> </span>system<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--description<span class="w"> </span>kiwi/build-tests/x86/leap/test-image-disk-simple<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--set-repo<span class="w"> </span>obs://openSUSE:Leap:15.3/standard<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--target-dir<span class="w"> </span>/tmp/myimage
 </pre></div>
 </div>
 <p>The created image will be in the target directory <code class="file docutils literal notranslate"><span class="pre">/tmp/myimage</span></code> with
 the file extension <code class="file docutils literal notranslate"><span class="pre">.raw</span></code>.</p>
 <p>The live image can then be tested with QEMU:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo qemu <span class="se">\</span>
-    -drive <span class="nv">file</span><span class="o">=</span>kiwi-test-image-disk-simple.x86_64-1.15.3.raw,format<span class="o">=</span>raw,if<span class="o">=</span>virtio <span class="se">\</span>
-    -m <span class="m">4096</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>qemu<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-drive<span class="w"> </span><span class="nv">file</span><span class="o">=</span>kiwi-test-image-disk-simple.x86_64-1.15.3.raw,format<span class="o">=</span>raw,if<span class="o">=</span>virtio<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-m<span class="w"> </span><span class="m">4096</span>
 </pre></div>
 </div>
 <p>For further information how to setup the image to work within a cloud
@@ -1303,9 +1307,9 @@ framework see:</p>
 <section id="setting-up-the-bootloader-of-the-image">
 <span id="disk-bootloader"></span><h2>Setting up the Bootloader of the Image<a class="headerlink" href="#setting-up-the-bootloader-of-the-image" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;preferences&gt;</span>
-  <span class="nt">&lt;type&gt;</span>
-     <span class="nt">&lt;bootloader</span> <span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/type&gt;</span>
+<span class="w">  </span><span class="nt">&lt;type&gt;</span>
+<span class="w">     </span><span class="nt">&lt;bootloader</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/preferences&gt;</span>
 </pre></div>
 </div>
@@ -1319,12 +1323,12 @@ image and offers several options for customizing its configuration.</p>
 disk image. The following example shows a image description where 20 GB are
 added to the virtual machine image of which 5 GB are left unpartitioned:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;preferences&gt;</span>
-  <span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span> <span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;size</span> <span class="na">unit=</span><span class="s">&quot;G&quot;</span> <span class="na">additive=</span><span class="s">&quot;true&quot;</span> <span class="na">unpartitioned=</span><span class="s">&quot;5&quot;</span><span class="nt">&gt;</span>20<span class="nt">&lt;/size&gt;</span>
-    <span class="nt">&lt;oemconfig&gt;</span>
-        <span class="nt">&lt;oem-resize&gt;</span>false<span class="nt">&lt;/oem-resize&gt;</span>
-    <span class="nt">&lt;/oemconfig&gt;</span>
-  <span class="nt">&lt;/type&gt;</span>
+<span class="w">  </span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;size</span><span class="w"> </span><span class="na">unit=</span><span class="s">&quot;G&quot;</span><span class="w"> </span><span class="na">additive=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">unpartitioned=</span><span class="s">&quot;5&quot;</span><span class="nt">&gt;</span>20<span class="nt">&lt;/size&gt;</span>
+<span class="w">    </span><span class="nt">&lt;oemconfig&gt;</span>
+<span class="w">        </span><span class="nt">&lt;oem-resize&gt;</span>false<span class="nt">&lt;/oem-resize&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/oemconfig&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/preferences&gt;</span>
 </pre></div>
 </div>
@@ -1391,12 +1395,12 @@ forwards them.</p>
 <p>The following example adds the two entries <code class="xref py py-obj docutils literal notranslate"><span class="pre">numvcpus</span> <span class="pre">=</span> <span class="pre">&quot;4&quot;</span></code> and
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">cpuid.coresPerSocket</span> <span class="pre">=</span> <span class="pre">&quot;2&quot;</span></code> into the VM configuration file:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;preferences&gt;</span>
-  <span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span> <span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;machine</span> <span class="na">memory=</span><span class="s">&quot;512&quot;</span> <span class="na">guestOS=</span><span class="s">&quot;suse&quot;</span> <span class="na">HWversion=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;vmconfig-entry&gt;</span>numvcpus = &quot;4&quot;<span class="nt">&lt;/vmconfig-entry&gt;</span>
-      <span class="nt">&lt;vmconfig-entry&gt;</span>cpuid.coresPerSocket = &quot;2&quot;<span class="nt">&lt;/vmconfig-entry&gt;</span>
-    <span class="nt">&lt;/machine&gt;</span>
-  <span class="nt">&lt;/type&gt;</span>
+<span class="w">  </span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;machine</span><span class="w"> </span><span class="na">memory=</span><span class="s">&quot;512&quot;</span><span class="w"> </span><span class="na">guestOS=</span><span class="s">&quot;suse&quot;</span><span class="w"> </span><span class="na">HWversion=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;vmconfig-entry&gt;</span>numvcpus<span class="w"> </span>=<span class="w"> </span>&quot;4&quot;<span class="nt">&lt;/vmconfig-entry&gt;</span>
+<span class="w">      </span><span class="nt">&lt;vmconfig-entry&gt;</span>cpuid.coresPerSocket<span class="w"> </span>=<span class="w"> </span>&quot;2&quot;<span class="nt">&lt;/vmconfig-entry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/machine&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/preferences&gt;</span>
 </pre></div>
 </div>
@@ -1410,11 +1414,11 @@ to specify the driver which is being used.</p>
 <p>In the following example we add a bridged network interface using the
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">e1000</span></code> driver:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;preferences&gt;</span>
-  <span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span> <span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;machine</span> <span class="na">memory=</span><span class="s">&quot;4096&quot;</span> <span class="na">guestOS=</span><span class="s">&quot;suse&quot;</span> <span class="na">HWversion=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;vmnic</span> <span class="na">driver=</span><span class="s">&quot;e1000&quot;</span> <span class="na">interface=</span><span class="s">&quot;0&quot;</span> <span class="na">mode=</span><span class="s">&quot;bridged&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/machine&gt;</span>
-  <span class="nt">&lt;/type&gt;</span>
+<span class="w">  </span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;machine</span><span class="w"> </span><span class="na">memory=</span><span class="s">&quot;4096&quot;</span><span class="w"> </span><span class="na">guestOS=</span><span class="s">&quot;suse&quot;</span><span class="w"> </span><span class="na">HWversion=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;vmnic</span><span class="w"> </span><span class="na">driver=</span><span class="s">&quot;e1000&quot;</span><span class="w"> </span><span class="na">interface=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">mode=</span><span class="s">&quot;bridged&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/machine&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/preferences&gt;</span>
 </pre></div>
 </div>
@@ -1437,11 +1441,11 @@ times, each time for each disk or disk controller present.</p>
 <p>Note that this element is only used for <code class="xref py py-obj docutils literal notranslate"><span class="pre">vmdk</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">ova</span></code> image formats.</p>
 <p>The following example adds a disk with the ID 0 using an IDE controller:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;preferences&gt;</span>
-  <span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span> <span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;machine</span> <span class="na">memory=</span><span class="s">&quot;512&quot;</span> <span class="na">guestOS=</span><span class="s">&quot;suse&quot;</span> <span class="na">HWversion=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;vmdisk</span> <span class="na">id=</span><span class="s">&quot;0&quot;</span> <span class="na">controller=</span><span class="s">&quot;ide&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/machine&gt;</span>
-  <span class="nt">&lt;/type&gt;</span>
+<span class="w">  </span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;vmdk&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;machine</span><span class="w"> </span><span class="na">memory=</span><span class="s">&quot;512&quot;</span><span class="w"> </span><span class="na">guestOS=</span><span class="s">&quot;suse&quot;</span><span class="w"> </span><span class="na">HWversion=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;vmdisk</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">controller=</span><span class="s">&quot;ide&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/machine&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/preferences&gt;</span>
 </pre></div>
 </div>
@@ -1468,12 +1472,12 @@ machine using the <code class="xref py py-obj docutils literal notranslate"><spa
 following example we add two drives: one with a SCSCI and another with a
 IDE controller:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;preferences&gt;</span>
-  <span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span> <span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;machine</span> <span class="na">memory=</span><span class="s">&quot;512&quot;</span> <span class="na">xen_loader=</span><span class="s">&quot;hvmloader&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;vmdvd</span> <span class="na">id=</span><span class="s">&quot;0&quot;</span> <span class="na">controller=</span><span class="s">&quot;scsi&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;vmdvd</span> <span class="na">id=</span><span class="s">&quot;1&quot;</span> <span class="na">controller=</span><span class="s">&quot;ide&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/machine&gt;</span>
-  <span class="nt">&lt;/type&gt;</span>
+<span class="w">  </span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span><span class="w"> </span><span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;machine</span><span class="w"> </span><span class="na">memory=</span><span class="s">&quot;512&quot;</span><span class="w"> </span><span class="na">xen_loader=</span><span class="s">&quot;hvmloader&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;vmdvd</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">controller=</span><span class="s">&quot;scsi&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;vmdvd</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">controller=</span><span class="s">&quot;ide&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/machine&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/preferences&gt;</span>
 </pre></div>
 </div>

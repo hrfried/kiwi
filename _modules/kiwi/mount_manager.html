@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.mount_manager &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.mount_manager &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.mount_manager</li>
       <li class="wy-breadcrumbs-aside">
@@ -1247,7 +1251,7 @@
 
 
 <div class="viewcode-block" id="MountManager"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.mount_manager.MountManager">[docs]</a><span class="k">class</span> <span class="nc">MountManager</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements methods for mounting, umounting and mount checking**</span>
 
 <span class="sd">    If a MountManager instance is used to mount a device the caller</span>
@@ -1270,7 +1274,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">mountpoint</span> <span class="o">=</span> <span class="n">mountpoint</span>
 
 <div class="viewcode-block" id="MountManager.bind_mount"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.mount_manager.MountManager.bind_mount">[docs]</a>    <span class="k">def</span> <span class="nf">bind_mount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bind mount the device to the mountpoint</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_mounted</span><span class="p">():</span>
@@ -1279,7 +1283,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="MountManager.tmpfs_mount"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.mount_manager.MountManager.tmpfs_mount">[docs]</a>    <span class="k">def</span> <span class="nf">tmpfs_mount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        tmpfs mount the device to the mountpoint</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_mounted</span><span class="p">():</span>
@@ -1288,7 +1292,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="MountManager.mount"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.mount_manager.MountManager.mount">[docs]</a>    <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Standard mount the device to the mountpoint</span>
 
 <span class="sd">        :param list options: mount options</span>
@@ -1302,7 +1306,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="MountManager.umount_lazy"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.mount_manager.MountManager.umount_lazy">[docs]</a>    <span class="k">def</span> <span class="nf">umount_lazy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Umount by the mountpoint directory in lazy mode</span>
 
 <span class="sd">        Release the mount in any case, however the time when the mounted</span>
@@ -1313,7 +1317,7 @@
             <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;umount&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mountpoint</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="MountManager.umount"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.mount_manager.MountManager.umount">[docs]</a>    <span class="k">def</span> <span class="nf">umount</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raise_on_busy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Umount by the mountpoint directory</span>
 
 <span class="sd">        Wait up to 10sec trying to umount. If the resource stays</span>
@@ -1352,7 +1356,7 @@
                         <span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">open_files_info</span> <span class="o">=</span> <span class="s1">&#39;For further details install: lsof&#39;</span>
-                    <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"></span>
+                    <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">                        Failed to umount: </span><span class="si">{0}</span><span class="s1">.</span>
 
 <span class="s1">                        Your build host system is in an inconsistent state.</span>
@@ -1365,7 +1369,7 @@
 <span class="s1">                        files created so far. There is no guarantee that the</span>
 <span class="s1">                        produced results are valid.</span>
 
-<span class="s1">                        </span><span class="si">{1}</span><span class="s1"></span>
+<span class="s1">                        </span><span class="si">{1}</span>
 <span class="s1">                    &#39;&#39;&#39;</span><span class="p">)</span>
                     <span class="k">raise</span> <span class="n">KiwiUmountBusyError</span><span class="p">(</span>
                         <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mountpoint</span><span class="p">,</span> <span class="n">open_files_info</span><span class="p">)</span>
@@ -1381,7 +1385,7 @@
         <span class="k">return</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="MountManager.is_mounted"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.mount_manager.MountManager.is_mounted">[docs]</a>    <span class="k">def</span> <span class="nf">is_mounted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if mounted</span>
 
 <span class="sd">        :return: True or False</span>

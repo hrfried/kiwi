@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.setup &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.system.setup &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.system.setup</li>
       <li class="wy-breadcrumbs-aside">
@@ -1277,7 +1281,7 @@
 
 
 <div class="viewcode-block" id="SystemSetup"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup">[docs]</a><span class="k">class</span> <span class="nc">SystemSetup</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implementation of system setup steps supported by kiwi**</span>
 
 <span class="sd">    Kiwi is not responsible for the system configuration, however</span>
@@ -1302,7 +1306,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_oemconfig_lookup</span><span class="p">()</span>
 
 <div class="viewcode-block" id="SystemSetup.import_description"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.import_description">[docs]</a>    <span class="k">def</span> <span class="nf">import_description</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Import XML descriptions, custom scripts, archives and</span>
 <span class="sd">        script helper methods</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1325,7 +1329,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_import_cdroot_archive</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="SystemSetup.script_exists"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.script_exists">[docs]</a>    <span class="k">def</span> <span class="nf">script_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if provided script base name exists in the image description</span>
 
 <span class="sd">        :param str name: script base name</span>
@@ -1333,7 +1337,7 @@
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">description_dir</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="SystemSetup.cleanup"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.cleanup">[docs]</a>    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Delete all traces of a kiwi description which are not</span>
 <span class="sd">        required in the later image</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1345,7 +1349,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.import_repositories_marked_as_imageinclude"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.import_repositories_marked_as_imageinclude">[docs]</a>    <span class="k">def</span> <span class="nf">import_repositories_marked_as_imageinclude</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Those &lt;repository&gt; sections which are marked with the</span>
 <span class="sd">        imageinclude attribute should be permanently added to</span>
 <span class="sd">        the image repository configuration</span>
@@ -1403,7 +1407,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.import_cdroot_files"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.import_cdroot_files">[docs]</a>    <span class="k">def</span> <span class="nf">import_cdroot_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy cdroot files from the image description to the</span>
 <span class="sd">        specified target directory. Supported is a tar</span>
 <span class="sd">        archive named config-cdroot.tar[.compression-postfix]</span>
@@ -1424,7 +1428,7 @@
 <div class="viewcode-block" id="SystemSetup.import_overlay_files"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.import_overlay_files">[docs]</a>    <span class="k">def</span> <span class="nf">import_overlay_files</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">follow_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">preserve_owner_group</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy overlay files from the image description to</span>
 <span class="sd">        the image root tree. Supported are a root/ directory</span>
 <span class="sd">        or a root.tar.gz tarball. The root/ directory takes</span>
@@ -1466,7 +1470,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.setup_machine_id"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.setup_machine_id">[docs]</a>    <span class="k">def</span> <span class="nf">setup_machine_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup systemd machine id</span>
 
 <span class="sd">        There are various states of /etc/machine-id:</span>
@@ -1495,7 +1499,7 @@
                     <span class="n">f</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.setup_permissions"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.setup_permissions">[docs]</a>    <span class="k">def</span> <span class="nf">setup_permissions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check and Fix permissions using chkstat</span>
 
 <span class="sd">        Call chkstat in system mode which reads /etc/sysconfig/security</span>
@@ -1524,7 +1528,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.setup_keyboard_map"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.setup_keyboard_map">[docs]</a>    <span class="k">def</span> <span class="nf">setup_keyboard_map</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup console keyboard</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="s1">&#39;keytable&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">preferences</span><span class="p">:</span>
@@ -1554,7 +1558,7 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.setup_locale"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.setup_locale">[docs]</a>    <span class="k">def</span> <span class="nf">setup_locale</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup UTF8 system wide locale</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="s1">&#39;locale&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">preferences</span><span class="p">:</span>
@@ -1578,7 +1582,7 @@
                 <span class="p">])</span></div>
 
 <div class="viewcode-block" id="SystemSetup.setup_timezone"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.setup_timezone">[docs]</a>    <span class="k">def</span> <span class="nf">setup_timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup timezone symlink</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="s1">&#39;timezone&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">preferences</span><span class="p">:</span>
@@ -1602,7 +1606,7 @@
                 <span class="p">])</span></div>
 
 <div class="viewcode-block" id="SystemSetup.setup_groups"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.setup_groups">[docs]</a>    <span class="k">def</span> <span class="nf">setup_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add groups for configured users</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">system_users</span> <span class="o">=</span> <span class="n">Users</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">)</span>
@@ -1618,7 +1622,7 @@
                     <span class="n">system_users</span><span class="o">.</span><span class="n">group_add</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.setup_users"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.setup_users">[docs]</a>    <span class="k">def</span> <span class="nf">setup_users</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add/Modify configured users</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">system_users</span> <span class="o">=</span> <span class="n">Users</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">)</span>
@@ -1675,7 +1679,7 @@
                     <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.setup_plymouth_splash"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.setup_plymouth_splash">[docs]</a>    <span class="k">def</span> <span class="nf">setup_plymouth_splash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup the KIWI configured splash theme as default</span>
 
 <span class="sd">        The method uses the plymouth-set-default-theme tool to setup the</span>
@@ -1694,7 +1698,7 @@
                     <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.import_image_identifier"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.import_image_identifier">[docs]</a>    <span class="k">def</span> <span class="nf">import_image_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create etc/ImageID identifier file</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">image_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">xml_data</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span>
@@ -1709,7 +1713,7 @@
                 <span class="n">identifier</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image_id</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="SystemSetup.set_selinux_file_contexts"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.set_selinux_file_contexts">[docs]</a>    <span class="k">def</span> <span class="nf">set_selinux_file_contexts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">security_context_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the security context fields (extended attributes)</span>
 <span class="sd">        on the files matching the security_context_file</span>
 
@@ -1760,7 +1764,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.setup_selinux_file_contexts"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.setup_selinux_file_contexts">[docs]</a>    <span class="k">def</span> <span class="nf">setup_selinux_file_contexts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set SELinux file security contexts if the default context file is found</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">security_context</span> <span class="o">=</span> <span class="s1">&#39;/etc/selinux/targeted/contexts/files/file_contexts&#39;</span>
@@ -1768,7 +1772,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_selinux_file_contexts</span><span class="p">(</span><span class="n">security_context</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.export_modprobe_setup"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.export_modprobe_setup">[docs]</a>    <span class="k">def</span> <span class="nf">export_modprobe_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Export etc/modprobe.d to given root_dir</span>
 
 <span class="sd">        :param str target_root_dir: path name</span>
@@ -1785,7 +1789,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.export_package_list"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.export_package_list">[docs]</a>    <span class="k">def</span> <span class="nf">export_package_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Export image package list as metadata reference</span>
 <span class="sd">        used by the open buildservice</span>
 
@@ -1816,7 +1820,7 @@
         <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
 <div class="viewcode-block" id="SystemSetup.export_package_changes"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.export_package_changes">[docs]</a>    <span class="k">def</span> <span class="nf">export_package_changes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Export image package changelog for comparision of</span>
 <span class="sd">        actual changes of the installed packages</span>
 
@@ -1845,7 +1849,7 @@
         <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
 <div class="viewcode-block" id="SystemSetup.export_package_verification"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.export_package_verification">[docs]</a>    <span class="k">def</span> <span class="nf">export_package_verification</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Export package verification result as metadata reference</span>
 <span class="sd">        used by the open buildservice</span>
 
@@ -1873,7 +1877,7 @@
         <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
 <div class="viewcode-block" id="SystemSetup.call_disk_script"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.call_disk_script">[docs]</a>    <span class="k">def</span> <span class="nf">call_disk_script</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Call disk.sh script chrooted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_call_script</span><span class="p">(</span>
@@ -1881,7 +1885,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.call_pre_disk_script"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.call_pre_disk_script">[docs]</a>    <span class="k">def</span> <span class="nf">call_pre_disk_script</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Call pre_disk_sync.sh script chrooted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_call_script</span><span class="p">(</span>
@@ -1889,7 +1893,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.call_post_bootstrap_script"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.call_post_bootstrap_script">[docs]</a>    <span class="k">def</span> <span class="nf">call_post_bootstrap_script</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Call post_bootstrap.sh script chrooted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_call_script</span><span class="p">(</span>
@@ -1897,7 +1901,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.call_config_script"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.call_config_script">[docs]</a>    <span class="k">def</span> <span class="nf">call_config_script</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Call config.sh script chrooted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_call_script</span><span class="p">(</span>
@@ -1905,7 +1909,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.call_image_script"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.call_image_script">[docs]</a>    <span class="k">def</span> <span class="nf">call_image_script</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Call images.sh script chrooted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_call_script</span><span class="p">(</span>
@@ -1915,7 +1919,7 @@
 <div class="viewcode-block" id="SystemSetup.call_edit_boot_config_script"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.call_edit_boot_config_script">[docs]</a>    <span class="k">def</span> <span class="nf">call_edit_boot_config_script</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">filesystem</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">boot_part_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">working_directory</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Call configured editbootconfig script _NON_ chrooted</span>
 
 <span class="sd">        Pass the boot filesystem name and the partition number of</span>
@@ -1935,7 +1939,7 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">diskname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">boot_device_node</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">working_directory</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Call configured editbootinstall script _NON_ chrooted</span>
 
 <span class="sd">        Pass the disk file name and the device node of the boot partition</span>
@@ -1952,7 +1956,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.create_fstab"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.create_fstab">[docs]</a>    <span class="k">def</span> <span class="nf">create_fstab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fstab</span><span class="p">:</span> <span class="n">Fstab</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create etc/fstab from given Fstab object</span>
 
 <span class="sd">        Custom fstab modifications are possible and handled</span>
@@ -2002,7 +2006,7 @@
             <span class="n">Path</span><span class="o">.</span><span class="n">wipe</span><span class="p">(</span><span class="n">fstab_script_file</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.create_init_link_from_linuxrc"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.create_init_link_from_linuxrc">[docs]</a>    <span class="k">def</span> <span class="nf">create_init_link_from_linuxrc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        kiwi boot images provides the linuxrc script, however the kernel</span>
 <span class="sd">        also expects an init executable to be present. This method creates</span>
 <span class="sd">        a hard link to the linuxrc file</span>
@@ -2012,7 +2016,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.create_recovery_archive"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.create_recovery_archive">[docs]</a>    <span class="k">def</span> <span class="nf">create_recovery_archive</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a compressed recovery archive from the root tree</span>
 <span class="sd">        for use with kiwi&#39;s recvoery system. The method creates</span>
 <span class="sd">        additional data into the image root filesystem which is</span>
@@ -2170,7 +2174,7 @@
             <span class="k">break</span>
 
     <span class="k">def</span> <span class="nf">_import_custom_archives</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Import custom tar archive files</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">archive_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -2214,7 +2218,7 @@
                 <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_import_custom_scripts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Import custom scripts</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># custom_scripts defines a dictionary with all script hooks</span>
@@ -2398,7 +2402,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">(</span><span class="n">oemconfig</span><span class="o">.</span><span class="n">get_oem_inplace_recovery</span><span class="p">())</span>
 
     <span class="k">def</span> <span class="nf">_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section_content</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper method to return the text for XML elements of the</span>
 <span class="sd">        following structure: &lt;section&gt;text&lt;/section&gt;.</span>
 <span class="sd">        &quot;&quot;&quot;</span>

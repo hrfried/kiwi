@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Description for Amazon EC2 &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Image Description for Amazon EC2 &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Image Description for Amazon EC2</li>
       <li class="wy-breadcrumbs-aside">
@@ -1250,27 +1254,27 @@ description as follows:</p>
 package names of the SUSE distribution and might be different
 on other distributions.</p>
 </div>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;aws-cli&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;grub2-x86_64-xen&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;xen-libs&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;xen-tools-domU&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;cloud-init&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;aws-cli&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;grub2-x86_64-xen&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xen-libs&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xen-tools-domU&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;cloud-init&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 </li>
 <li><p>Image Type definition</p>
 <p>Update the oem image type setup as follows</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span> <span class="na">image=</span><span class="s">&quot;oem&quot;</span>
-      <span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span>
-      <span class="na">kernelcmdline=</span><span class="s">&quot;console=xvc0 multipath=off net.ifnames=0&quot;</span>
-      <span class="na">devicepersistency=</span><span class="s">&quot;by-label&quot;</span>
-      <span class="na">firmware=</span><span class="s">&quot;ec2&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;bootloader</span> <span class="na">name=</span><span class="s">&quot;grub2&quot;</span> <span class="na">timeout=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;size</span> <span class="na">unit=</span><span class="s">&quot;M&quot;</span><span class="nt">&gt;</span>10240<span class="nt">&lt;/size&gt;</span>
-  <span class="nt">&lt;machine</span> <span class="na">xen_loader=</span><span class="s">&quot;hvmloader&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;oemconfig&gt;</span>
-      <span class="nt">&lt;oem-resize&gt;</span>false<span class="nt">&lt;/oem-resize&gt;</span>
-  <span class="nt">&lt;/oemconfig&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;type</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;oem&quot;</span>
+<span class="w">      </span><span class="na">filesystem=</span><span class="s">&quot;ext4&quot;</span>
+<span class="w">      </span><span class="na">kernelcmdline=</span><span class="s">&quot;console=xvc0 multipath=off net.ifnames=0&quot;</span>
+<span class="w">      </span><span class="na">devicepersistency=</span><span class="s">&quot;by-label&quot;</span>
+<span class="w">      </span><span class="na">firmware=</span><span class="s">&quot;ec2&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;bootloader</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;size</span><span class="w"> </span><span class="na">unit=</span><span class="s">&quot;M&quot;</span><span class="nt">&gt;</span>10240<span class="nt">&lt;/size&gt;</span>
+<span class="w">  </span><span class="nt">&lt;machine</span><span class="w"> </span><span class="na">xen_loader=</span><span class="s">&quot;hvmloader&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;oemconfig&gt;</span>
+<span class="w">      </span><span class="nt">&lt;oem-resize&gt;</span>false<span class="nt">&lt;/oem-resize&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/oemconfig&gt;</span>
 <span class="nt">&lt;/type&gt;</span>
 </pre></div>
 </div>
@@ -1281,59 +1285,59 @@ to customize the system by activating one ore more cloud init
 modules. For Amazon EC2 the following configuration file
 <code class="file docutils literal notranslate"><span class="pre">/etc/cloud/cloud.cfg</span></code> needs to be provided as part of the
 overlay files in your KIWI NG image description</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">users</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">users</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 
-<span class="nt">disable_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="nt">preserve_hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="nt">syslog_fix_perms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root:root</span><span class="w"></span>
+<span class="nt">disable_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">preserve_hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">syslog_fix_perms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root:root</span>
 
-<span class="nt">datasource_list</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">NoCloud</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Ec2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">None</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="nt">datasource_list</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">NoCloud</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Ec2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">None</span><span class="w"> </span><span class="p p-Indicator">]</span>
 
-<span class="nt">cloud_init_modules</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">migrator</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bootcmd</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write-files</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">growpart</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resizefs</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set_hostname</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update_hostname</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update_etc_hosts</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ca-certs</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rsyslog</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">users-groups</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh</span><span class="w"></span>
+<span class="nt">cloud_init_modules</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">migrator</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bootcmd</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write-files</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">growpart</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resizefs</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set_hostname</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update_hostname</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update_etc_hosts</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ca-certs</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rsyslog</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">users-groups</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh</span>
 
-<span class="nt">cloud_config_modules</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounts</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh-import-id</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">locale</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set-passwords</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">package-update-upgrade-install</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timezone</span><span class="w"></span>
+<span class="nt">cloud_config_modules</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mounts</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh-import-id</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">locale</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set-passwords</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">package-update-upgrade-install</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timezone</span>
 
-<span class="nt">cloud_final_modules</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts-per-once</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts-per-boot</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts-per-instance</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts-user</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh-authkey-fingerprints</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keys-to-console</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">phone-home</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">final-message</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">power-state-change</span><span class="w"></span>
+<span class="nt">cloud_final_modules</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts-per-once</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts-per-boot</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts-per-instance</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts-user</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh-authkey-fingerprints</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keys-to-console</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">phone-home</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">final-message</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">power-state-change</span>
 
-<span class="nt">system_info</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">default_user</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ec2-user</span><span class="w"></span>
-<span class="w">    </span><span class="nt">gecos</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cloud-init</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">user&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">lock_passwd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
-<span class="w">    </span><span class="nt">sudo</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;ALL=(ALL)</span><span class="nv"> </span><span class="s">NOPASSWD:ALL&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/bash</span><span class="w"></span>
-<span class="w">  </span><span class="nt">paths</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">cloud_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/cloud/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">templates_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/cloud/templates/</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ssh_svcname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sshd</span><span class="w"></span>
+<span class="nt">system_info</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">default_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ec2-user</span>
+<span class="w">    </span><span class="nt">gecos</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cloud-init</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">user&quot;</span>
+<span class="w">    </span><span class="nt">lock_passwd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">    </span><span class="nt">sudo</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;ALL=(ALL)</span><span class="nv"> </span><span class="s">NOPASSWD:ALL&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/bash</span>
+<span class="w">  </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">cloud_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/cloud/</span>
+<span class="w">    </span><span class="nt">templates_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/cloud/templates/</span>
+<span class="w">  </span><span class="nt">ssh_svcname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sshd</span>
 </pre></div>
 </div>
 </li>

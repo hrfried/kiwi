@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setting Up a Network Boot Server &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Setting Up a Network Boot Server &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
       <li class="breadcrumb-item active">Setting Up a Network Boot Server</li>
       <li class="wy-breadcrumbs-aside">
@@ -1279,15 +1283,15 @@ dhcp-no-override
 
 <span class="c1"># PXE menu.  The first part is the text displayed to the user.</span>
 <span class="c1"># The second is the timeout, in seconds.</span>
-pxe-prompt<span class="o">=</span><span class="s2">&quot;Booting FOG Client&quot;</span>, <span class="m">1</span>
+pxe-prompt<span class="o">=</span><span class="s2">&quot;Booting FOG Client&quot;</span>,<span class="w"> </span><span class="m">1</span>
 
 <span class="c1"># The known types are x86PC, PC98, IA64_EFI, Alpha, Arc_x86,</span>
 <span class="c1"># Intel_Lean_Client, IA32_EFI, BC_EFI, Xscale_EFI and X86-64_EFI</span>
 <span class="c1"># This option is first and will be the default if there is no input</span>
 <span class="c1"># from the user.</span>
-pxe-service<span class="o">=</span>X86PC, <span class="s2">&quot;Boot to FOG&quot;</span>, pxelinux.0
-pxe-service<span class="o">=</span>X86-64_EFI, <span class="s2">&quot;Boot to FOG UEFI&quot;</span>, ipxe
-pxe-service<span class="o">=</span>BC_EFI, <span class="s2">&quot;Boot to FOG UEFI PXE-BC&quot;</span>, ipxe
+pxe-service<span class="o">=</span>X86PC,<span class="w"> </span><span class="s2">&quot;Boot to FOG&quot;</span>,<span class="w"> </span>pxelinux.0
+pxe-service<span class="o">=</span>X86-64_EFI,<span class="w"> </span><span class="s2">&quot;Boot to FOG UEFI&quot;</span>,<span class="w"> </span>ipxe
+pxe-service<span class="o">=</span>BC_EFI,<span class="w"> </span><span class="s2">&quot;Boot to FOG UEFI PXE-BC&quot;</span>,<span class="w"> </span>ipxe
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1306,18 +1310,18 @@ dhcp-boot<span class="o">=</span>boot/grub2/i386-pc/core.0,,BOOT_SERVER_IP
 <p>When using grub the referenced dhcp-boot grub module must be genereated.
 To do this change the directory to <code class="file docutils literal notranslate"><span class="pre">TFTP_ROOT_DIR</span></code> and create
 the <code class="file docutils literal notranslate"><span class="pre">setvars.conf</span></code> with the following content:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="nv">root</span><span class="o">=(</span>tftp<span class="o">)</span>
-<span class="nb">set</span> <span class="nv">net_default_server</span><span class="o">=</span>BOOT_SERVER_IP
-<span class="nb">set</span> <span class="nv">prefix</span><span class="o">=</span>boot/grub2
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span><span class="nv">root</span><span class="o">=(</span>tftp<span class="o">)</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">net_default_server</span><span class="o">=</span>BOOT_SERVER_IP
+<span class="nb">set</span><span class="w"> </span><span class="nv">prefix</span><span class="o">=</span>boot/grub2
 </pre></div>
 </div>
 <p>Now call the following commands to create the grub module</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ grub2-mknetdir --net-directory<span class="o">=</span>TFTP_ROOT_DIR --subdir<span class="o">=</span>boot/grub2
-$ grub2-mkimage -O i386-pc-pxe <span class="se">\</span>
-    --output boot/grub2/i386-pc/core.0 <span class="se">\</span>
-    --prefix<span class="o">=</span>/boot/grub2 <span class="se">\</span>
-    -c setvars.conf <span class="se">\</span>
-  pxe tftp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>grub2-mknetdir<span class="w"> </span>--net-directory<span class="o">=</span>TFTP_ROOT_DIR<span class="w"> </span>--subdir<span class="o">=</span>boot/grub2
+$<span class="w"> </span>grub2-mkimage<span class="w"> </span>-O<span class="w"> </span>i386-pc-pxe<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span>boot/grub2/i386-pc/core.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--prefix<span class="o">=</span>/boot/grub2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-c<span class="w"> </span>setvars.conf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pxe<span class="w"> </span>tftp
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1328,7 +1332,7 @@ config file is expected at <code class="file docutils literal notranslate"><span
 </div></blockquote>
 <ol class="arabic" start="3">
 <li><p>Run the dnsmasq server by calling:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start dnsmasq
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>start<span class="w"> </span>dnsmasq
 </pre></div>
 </div>
 </li>

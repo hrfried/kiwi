@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic Workflow &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Basic Workflow &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../overview.html">Overview</a></li>
       <li class="breadcrumb-item active">Basic Workflow</li>
       <li class="wy-breadcrumbs-aside">
@@ -1234,7 +1238,7 @@ software sources (repositories) available. After the installation is
 complete the system usually reboots and enters a configuration procedure
 upon start-up. The configuration may be fully automatic or it may include
 user interaction.</p>
-<p>This description applies for version 9.24.56.</p>
+<p>This description applies for version 9.24.57.</p>
 </div>
 <p>A system image (usually called “image”), is a <em>complete installation</em> of a Linux
 system within a file. The image represents an operational system and,
@@ -1304,8 +1308,8 @@ can be read directly without booting from the media.</p>
 <li><p>Archives included in the <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code> file.</p>
 <p>The archives that are included in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages&gt;</span></code> using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;archive&gt;</span></code>
 subsection:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;archive</span> <span class="na">name=</span><span class="s">&quot;custom-archive.tgz&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;archive</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;custom-archive.tgz&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/packages&gt;</span>
 </pre></div>
 </div>

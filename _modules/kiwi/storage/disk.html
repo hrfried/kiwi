@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.storage.disk &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.storage.disk &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.storage.disk</li>
       <li class="wy-breadcrumbs-aside">
@@ -1262,14 +1266,14 @@
 
 
 <div class="viewcode-block" id="Disk"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk">[docs]</a><span class="k">class</span> <span class="nc">Disk</span><span class="p">(</span><span class="n">DeviceProvider</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Implements storage disk and partition table setup**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">table_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">storage_provider</span><span class="p">:</span> <span class="n">DeviceProvider</span><span class="p">,</span>
         <span class="n">start_sector</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">extended_layout</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a new Disk layout object</span>
 
 <span class="sd">        :param string table_type: Partition table type name</span>
@@ -1316,7 +1320,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">table_type</span> <span class="o">=</span> <span class="n">table_type</span>
 
 <div class="viewcode-block" id="Disk.get_device"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.get_device">[docs]</a>    <span class="k">def</span> <span class="nf">get_device</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">MappedDevice</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Names of partition devices</span>
 
 <span class="sd">        Note that the mapping requires an explicit map() call</span>
@@ -1333,7 +1337,7 @@
         <span class="k">return</span> <span class="n">device_map</span></div>
 
 <div class="viewcode-block" id="Disk.is_loop"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.is_loop">[docs]</a>    <span class="k">def</span> <span class="nf">is_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if storage provider is loop based</span>
 
 <span class="sd">        The information is taken from the storage provider. If</span>
@@ -1348,7 +1352,7 @@
 <div class="viewcode-block" id="Disk.create_custom_partitions"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_custom_partitions">[docs]</a>    <span class="k">def</span> <span class="nf">create_custom_partitions</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">table_entries</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ptable_entry_type</span><span class="p">]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create partitions from custom data set</span>
 
 <span class="sd">        .. code:: python</span>
@@ -1378,7 +1382,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="n">id_name</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_root_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_root_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_root_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">clone</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create root partition</span>
 
 <span class="sd">        Populates kiwi_RootPart(id) and kiwi_BootPart(id) if no extra</span>
@@ -1399,7 +1403,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_BootPart&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_root_lvm_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_root_lvm_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_root_lvm_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">clone</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create root partition for use with LVM</span>
 
 <span class="sd">        Populates kiwi_RootPart(id)</span>
@@ -1415,7 +1419,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_RootPart&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_root_raid_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_root_raid_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_root_raid_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">clone</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create root partition for use with MD Raid</span>
 
 <span class="sd">        Populates kiwi_RootPart(id) and kiwi_RaidPart(id) as well</span>
@@ -1434,7 +1438,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_RaidPart&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_root_readonly_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_root_readonly_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_root_readonly_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">clone</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create root readonly partition for use with overlayfs</span>
 
 <span class="sd">        Populates kiwi_ReadOnlyPart(id), the partition is meant to</span>
@@ -1453,7 +1457,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_ROPart&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_boot_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_boot_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_boot_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">clone</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create boot partition</span>
 
 <span class="sd">        Populates kiwi_BootPart(id) and optional kiwi_BootPartClone(id)</span>
@@ -1469,7 +1473,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_BootPart&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_prep_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_prep_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_prep_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create prep partition</span>
 
 <span class="sd">        Populates kiwi_PrepPart(id)</span>
@@ -1482,7 +1486,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_PrepPart&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_spare_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_spare_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_spare_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create spare partition for custom use</span>
 
 <span class="sd">        Populates kiwi_SparePart(id)</span>
@@ -1495,7 +1499,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_SparePart&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_swap_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_swap_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_swap_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create swap partition</span>
 
 <span class="sd">        Populates kiwi_SwapPart(id)</span>
@@ -1508,7 +1512,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_SwapPart&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_efi_csm_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_efi_csm_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_efi_csm_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create EFI bios grub partition</span>
 
 <span class="sd">        Populates kiwi_BiosGrub(id)</span>
@@ -1521,7 +1525,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_BiosGrub&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_efi_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_efi_partition">[docs]</a>    <span class="k">def</span> <span class="nf">create_efi_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create EFI partition</span>
 
 <span class="sd">        Populates kiwi_EfiPart(id)</span>
@@ -1534,7 +1538,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_public_id_map</span><span class="p">(</span><span class="s1">&#39;kiwi_EfiPart&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.activate_boot_partition"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.activate_boot_partition">[docs]</a>    <span class="k">def</span> <span class="nf">activate_boot_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Activate boot partition</span>
 
 <span class="sd">        Note: not all Partitioner instances supports this</span>
@@ -1551,7 +1555,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">partitioner</span><span class="o">.</span><span class="n">set_flag</span><span class="p">(</span><span class="n">partition_id</span><span class="p">,</span> <span class="s1">&#39;f.active&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.create_hybrid_mbr"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_hybrid_mbr">[docs]</a>    <span class="k">def</span> <span class="nf">create_hybrid_mbr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Turn partition table into a hybrid GPT/MBR table</span>
 
 <span class="sd">        Note: only GPT tables supports this</span>
@@ -1559,7 +1563,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">partitioner</span><span class="o">.</span><span class="n">set_hybrid_mbr</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Disk.create_mbr"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.create_mbr">[docs]</a>    <span class="k">def</span> <span class="nf">create_mbr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Turn partition table into MBR (msdos table)</span>
 
 <span class="sd">        Note: only GPT tables supports this</span>
@@ -1567,7 +1571,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">partitioner</span><span class="o">.</span><span class="n">set_mbr</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Disk.set_start_sector"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.set_start_sector">[docs]</a>    <span class="k">def</span> <span class="nf">set_start_sector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_sector</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set start sector</span>
 
 <span class="sd">        Note: only effective on DOS tables</span>
@@ -1575,7 +1579,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">partitioner</span><span class="o">.</span><span class="n">set_start_sector</span><span class="p">(</span><span class="n">start_sector</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.wipe"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.wipe">[docs]</a>    <span class="k">def</span> <span class="nf">wipe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Zap (destroy) any GPT and MBR data structures if present</span>
 <span class="sd">        For DASD disks create a new VTOC table</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1610,7 +1614,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.map_partitions"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.map_partitions">[docs]</a>    <span class="k">def</span> <span class="nf">map_partitions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Map/Activate partitions</span>
 
 <span class="sd">        In order to access the partitions through a device node it is</span>
@@ -1632,7 +1636,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Disk.get_public_partition_id_map"><a class="viewcode-back" href="../../../api/kiwi.storage.html#kiwi.storage.disk.Disk.get_public_partition_id_map">[docs]</a>    <span class="k">def</span> <span class="nf">get_public_partition_id_map</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Populated partition name to number map</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span>
@@ -1642,7 +1646,7 @@
     <span class="k">def</span> <span class="nf">_create_clones</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">clone</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">type_flag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mbsize</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create [clone] cop(y/ies) of the given partition name</span>
 
 <span class="sd">        The name of a clone partition uses the following name policy:</span>
@@ -1664,7 +1668,7 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_parse_size</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        parse size value. This can be one of the following</span>
 
 <span class="sd">        * A number_string</span>

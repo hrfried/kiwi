@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.template.grub2 &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.bootloader.template.grub2 &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.bootloader.template.grub2</li>
       <li class="wy-breadcrumbs-aside">
@@ -1237,7 +1241,7 @@
 
 
 <div class="viewcode-block" id="BootLoaderTemplateGrub2"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2">[docs]</a><span class="k">class</span> <span class="nc">BootLoaderTemplateGrub2</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **grub2 configuraton file templates**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1245,8 +1249,8 @@
 <span class="s1">            # kiwi generated one time grub2 config file</span>
 <span class="s1">            set btrfs_relative_path=&quot;y&quot;</span>
 <span class="s1">            export btrfs_relative_path</span>
-<span class="s1">            search $</span><span class="si">{search_params}</span><span class="s1"></span>
-<span class="s1">            set default=$</span><span class="si">{default_boot}</span><span class="s1"></span>
+<span class="s1">            search $</span><span class="si">{search_params}</span>
+<span class="s1">            set default=$</span><span class="si">{default_boot}</span>
 <span class="s1">            if [ -n &quot;$$extra_cmdline&quot; ]; then</span>
 <span class="s1">              submenu &quot;Bootable snapshot $$snapshot_num&quot; {</span>
 <span class="s1">                menuentry &quot;If OK, run snapper rollback and reboot.&quot; { true; }</span>
@@ -1258,11 +1262,11 @@
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            set timeout=$</span><span class="si">{boot_timeout}</span><span class="s1"></span>
+<span class="s1">            set timeout=$</span><span class="si">{boot_timeout}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">timeout_style</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            set timeout_style=$</span><span class="si">{boot_timeout_style}</span><span class="s1"></span>
+<span class="s1">            set timeout_style=$</span><span class="si">{boot_timeout_style}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">header_hybrid</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
@@ -1281,16 +1285,16 @@
 <span class="s1">            if [ &quot;$$</span><span class="si">{grub_platform}</span><span class="s1">&quot; = &quot;efi&quot; ]; then</span>
 <span class="s1">                echo &quot;Please press &#39;t&#39; to show the boot menu on this console&quot;</span>
 <span class="s1">            fi</span>
-<span class="s1">            set gfxmode=$</span><span class="si">{gfxmode}</span><span class="s1"></span>
+<span class="s1">            set gfxmode=$</span><span class="si">{gfxmode}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">header_serial</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            $</span><span class="si">{serial_line_setup}</span><span class="s1"></span>
+<span class="s1">            $</span><span class="si">{serial_line_setup}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">header_terminal_setup</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">            terminal_input $</span><span class="si">{terminal_setup}</span><span class="s1"></span>
-<span class="s1">            terminal_output $</span><span class="si">{terminal_setup}</span><span class="s1"></span>
+<span class="s1">            terminal_input $</span><span class="si">{terminal_setup}</span>
+<span class="s1">            terminal_output $</span><span class="si">{terminal_setup}</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
@@ -1303,19 +1307,19 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">header_theme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span> <span class="o">+</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">            if [ -f $$</span><span class="si">{font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont $$</span><span class="si">{font}</span><span class="s1"></span>
+<span class="s1">                loadfont $$</span><span class="si">{font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{ascii_font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{ascii_font}</span><span class="s1"></span>
+<span class="s1">                loadfont ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{ascii_font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{sans_bold_14_font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{sans_bold_14_font}</span><span class="s1"></span>
+<span class="s1">                loadfont ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{sans_bold_14_font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{sans_10_font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{sans_10_font}</span><span class="s1"></span>
+<span class="s1">                loadfont ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{sans_10_font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{sans_12_font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{sans_12_font}</span><span class="s1"></span>
+<span class="s1">                loadfont ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$$</span><span class="si">{sans_12_font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{boot_directory_name}</span><span class="s1">/themes/$</span><span class="si">{theme}</span><span class="s1">/theme.txt ];then</span>
 <span class="s1">                set theme=($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{boot_directory_name}</span><span class="s1">/themes/$</span><span class="si">{theme}</span><span class="s1">/theme.txt</span>
@@ -1325,19 +1329,19 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">header_theme_iso</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span> <span class="o">+</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">            if [ -f $$</span><span class="si">{font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont $$</span><span class="si">{font}</span><span class="s1"></span>
+<span class="s1">                loadfont $$</span><span class="si">{font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)/boot/$$</span><span class="si">{ascii_font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont ($$root)/boot/$$</span><span class="si">{ascii_font}</span><span class="s1"></span>
+<span class="s1">                loadfont ($$root)/boot/$$</span><span class="si">{ascii_font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)/boot/$$</span><span class="si">{sans_bold_14_font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont ($$root)/boot/$$</span><span class="si">{sans_bold_14_font}</span><span class="s1"></span>
+<span class="s1">                loadfont ($$root)/boot/$$</span><span class="si">{sans_bold_14_font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)/boot/$$</span><span class="si">{sans_10_font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont ($$root)/boot/$$</span><span class="si">{sans_10_font}</span><span class="s1"></span>
+<span class="s1">                loadfont ($$root)/boot/$$</span><span class="si">{sans_10_font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)/boot/$$</span><span class="si">{sans_12_font}</span><span class="s1"> ];then</span>
-<span class="s1">                loadfont ($$root)/boot/$$</span><span class="si">{sans_12_font}</span><span class="s1"></span>
+<span class="s1">                loadfont ($$root)/boot/$$</span><span class="si">{sans_12_font}</span>
 <span class="s1">            fi</span>
 <span class="s1">            if [ -f ($$root)/boot/$</span><span class="si">{boot_directory_name}</span><span class="s1">/themes/$</span><span class="si">{theme}</span><span class="s1">/theme.txt ];then</span>
 <span class="s1">                set theme=($$root)/boot/$</span><span class="si">{boot_directory_name}</span><span class="s1">/themes/$</span><span class="si">{theme}</span><span class="s1">/theme.txt</span>
@@ -1363,9 +1367,9 @@
 <span class="s1">            menuentry &quot;$</span><span class="si">{title}</span><span class="s1">&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> $$</span><span class="si">{extra_cmdline}</span><span class="s1"> $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{boot_options}</span><span class="s1"></span>
+<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> $$</span><span class="si">{extra_cmdline}</span><span class="s1"> $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1375,7 +1379,7 @@
 <span class="s1">                echo Loading hypervisor...</span>
 <span class="s1">                multiboot $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{hypervisor}</span><span class="s1"> dummy</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy $</span><span class="si">{boot_options}</span><span class="s1"></span>
+<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy $</span><span class="si">{boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
 <span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"> dummy</span>
 <span class="s1">            }</span>
@@ -1385,9 +1389,9 @@
 <span class="s1">            menuentry &quot;$</span><span class="si">{title}</span><span class="s1">&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> $$</span><span class="si">{extra_cmdline}</span><span class="s1"> $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{boot_options}</span><span class="s1"></span>
+<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> $$</span><span class="si">{extra_cmdline}</span><span class="s1"> $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1395,9 +1399,9 @@
 <span class="s1">            menuentry &quot;Failsafe -- $</span><span class="si">{title}</span><span class="s1">&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> $$</span><span class="si">{extra_cmdline}</span><span class="s1"> $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{failsafe_boot_options}</span><span class="s1"></span>
+<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> $$</span><span class="si">{extra_cmdline}</span><span class="s1"> $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{failsafe_boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1407,7 +1411,7 @@
 <span class="s1">                echo Loading hypervisor...</span>
 <span class="s1">                multiboot $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{hypervisor}</span><span class="s1"> dummy</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy $</span><span class="si">{failsafe_boot_options}</span><span class="s1"></span>
+<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy $</span><span class="si">{failsafe_boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
 <span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"> dummy</span>
 <span class="s1">            }</span>
@@ -1417,9 +1421,9 @@
 <span class="s1">            menuentry &quot;Failsafe -- $</span><span class="si">{title}</span><span class="s1">&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> $$</span><span class="si">{extra_cmdline}</span><span class="s1"> $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{failsafe_boot_options}</span><span class="s1"></span>
+<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> $$</span><span class="si">{extra_cmdline}</span><span class="s1"> $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{failsafe_boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1427,9 +1431,9 @@
 <span class="s1">            menuentry &quot;Install $</span><span class="si">{title}</span><span class="s1">&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> cdinst=1 $</span><span class="si">{boot_options}</span><span class="s1"></span>
+<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> cdinst=1 $</span><span class="si">{boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1439,7 +1443,7 @@
 <span class="s1">                echo Loading hypervisor...</span>
 <span class="s1">                multiboot $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{hypervisor}</span><span class="s1"> dummy</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy cdinst=1 $</span><span class="si">{failsafe_boot_options}</span><span class="s1"></span>
+<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy cdinst=1 $</span><span class="si">{failsafe_boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
 <span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"> dummy</span>
 <span class="s1">            }</span>
@@ -1449,9 +1453,9 @@
 <span class="s1">            menuentry &quot;Install $</span><span class="si">{title}</span><span class="s1">&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> cdinst=1 $</span><span class="si">{boot_options}</span><span class="s1"></span>
+<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> cdinst=1 $</span><span class="si">{boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1459,9 +1463,9 @@
 <span class="s1">            menuentry &quot;Mediacheck&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> mediacheck=1 plymouth.enable=0 $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{boot_options}</span><span class="s1"></span>
+<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> mediacheck=1 plymouth.enable=0 $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1471,7 +1475,7 @@
 <span class="s1">                echo Loading hypervisor...</span>
 <span class="s1">                multiboot $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{hypervisor}</span><span class="s1"> dummy</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy mediacheck=1 plymouth.enable=0 $</span><span class="si">{failsafe_boot_options}</span><span class="s1"></span>
+<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy mediacheck=1 plymouth.enable=0 $</span><span class="si">{failsafe_boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
 <span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"> dummy</span>
 <span class="s1">            }</span>
@@ -1481,9 +1485,9 @@
 <span class="s1">            menuentry &quot;Mediacheck&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> mediacheck=1 plymouth.enable=0 $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{boot_options}</span><span class="s1"></span>
+<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> mediacheck=1 plymouth.enable=0 $$</span><span class="si">{isoboot}</span><span class="s1"> $</span><span class="si">{boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1491,9 +1495,9 @@
 <span class="s1">            menuentry &quot;Failsafe -- Install $</span><span class="si">{title}</span><span class="s1">&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> cdinst=1 $</span><span class="si">{failsafe_boot_options}</span><span class="s1"></span>
+<span class="s1">                $$linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> cdinst=1 $</span><span class="si">{failsafe_boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                $$initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1503,7 +1507,7 @@
 <span class="s1">                echo Loading hypervisor...</span>
 <span class="s1">                multiboot $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{hypervisor}</span><span class="s1"> dummy</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy cdinst=1 $</span><span class="si">{failsafe_boot_options}</span><span class="s1"></span>
+<span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> dummy cdinst=1 $</span><span class="si">{failsafe_boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
 <span class="s1">                module $</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"> dummy</span>
 <span class="s1">            }</span>
@@ -1513,9 +1517,9 @@
 <span class="s1">            menuentry &quot;Failsafe -- Install $</span><span class="si">{title}</span><span class="s1">&quot; --class os --unrestricted {</span>
 <span class="s1">                set gfxpayload=keep</span>
 <span class="s1">                echo Loading kernel...</span>
-<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> cdinst=1 $</span><span class="si">{failsafe_boot_options}</span><span class="s1"></span>
+<span class="s1">                linux ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{kernel_file}</span><span class="s1"> cdinst=1 $</span><span class="si">{failsafe_boot_options}</span>
 <span class="s1">                echo Loading initrd...</span>
-<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span><span class="s1"></span>
+<span class="s1">                initrd ($$root)$</span><span class="si">{bootpath}</span><span class="s1">/$</span><span class="si">{initrd_file}</span>
 <span class="s1">            }</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
@@ -1528,7 +1532,7 @@
 <div class="viewcode-block" id="BootLoaderTemplateGrub2.get_iso_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_iso_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_iso_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">failsafe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hybrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">terminal</span><span class="o">=</span><span class="s1">&#39;gfxterm&#39;</span><span class="p">,</span> <span class="n">checkiso</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader configuration template for live ISO media</span>
 
 <span class="sd">        :param bool failsafe: with failsafe true|false</span>
@@ -1571,7 +1575,7 @@
 <div class="viewcode-block" id="BootLoaderTemplateGrub2.get_multiboot_iso_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_multiboot_iso_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_multiboot_iso_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">failsafe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">terminal</span><span class="o">=</span><span class="s1">&#39;gfxterm&#39;</span><span class="p">,</span> <span class="n">checkiso</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader configuration template for live ISO media with</span>
 <span class="sd">        hypervisor, e.g Xen dom0</span>
 
@@ -1605,7 +1609,7 @@
 <div class="viewcode-block" id="BootLoaderTemplateGrub2.get_install_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_install_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_install_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">failsafe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hybrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">terminal</span><span class="o">=</span><span class="s1">&#39;gfxterm&#39;</span><span class="p">,</span> <span class="n">with_timeout</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader configuration template for install media</span>
 
 <span class="sd">        :param bool failsafe: with failsafe true|false</span>
@@ -1645,7 +1649,7 @@
 <div class="viewcode-block" id="BootLoaderTemplateGrub2.get_multiboot_install_template"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.template.html#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_multiboot_install_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_multiboot_install_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">failsafe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">terminal</span><span class="o">=</span><span class="s1">&#39;gfxterm&#39;</span><span class="p">,</span> <span class="n">with_timeout</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bootloader configuration template for install media with</span>
 <span class="sd">        hypervisor, e.g Xen dom0</span>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.solver.sat &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>kiwi.solver.sat &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -27,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> KIWI NG
-            <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../../../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1202,7 +1206,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">kiwi.solver.sat</li>
       <li class="wy-breadcrumbs-aside">
@@ -1250,13 +1254,13 @@
 
 
 <div class="viewcode-block" id="Sat"><a class="viewcode-back" href="../../../api/kiwi.solver.html#kiwi.solver.sat.Sat">[docs]</a><span class="k">class</span> <span class="nc">Sat</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **Sat Solver class to run package solver operations**</span>
 
 <span class="sd">    The class uses SUSE&#39;s libsolv sat plugin</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        An instance of Sat auto loads the python solv plugin which is a</span>
 <span class="sd">        python binding to the libsolv C library. An exception is raised</span>
 <span class="sd">        if the module failed to load. On success a new solver pool is</span>
@@ -1299,7 +1303,7 @@
         <span class="k">return</span> <span class="n">dist_type</span></div>
 
 <div class="viewcode-block" id="Sat.add_repository"><a class="viewcode-back" href="../../../api/kiwi.solver.html#kiwi.solver.sat.Sat.add_repository">[docs]</a>    <span class="k">def</span> <span class="nf">add_repository</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">solver_repository</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a repository solvable to the pool. This basically add the</span>
 <span class="sd">        required repository metadata which is needed to run a solver</span>
 <span class="sd">        operation later.</span>
@@ -1313,7 +1317,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">createwhatprovides</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Sat.solve"><a class="viewcode-back" href="../../../api/kiwi.solver.html#kiwi.solver.sat.Sat.solve">[docs]</a>    <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_names</span><span class="p">,</span> <span class="n">skip_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_recommended</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Solve dependencies for the given job list. The list is allowed</span>
 <span class="sd">        to contain element names of the following format:</span>
 
@@ -1358,7 +1362,7 @@
         <span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_evaluate_solver_problems</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">solver_problems</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Iterate over solver problems and their solutions</span>
 
 <span class="sd">        The method creates a pretty print XML information</span>
@@ -1394,7 +1398,7 @@
             <span class="k">return</span> <span class="n">xml_data_domtree</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="s2">&quot;    &quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_evaluate_solver_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">solver_transaction</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Iterate over solver result and return a data dictionary</span>
 
 <span class="sd">        :param object solver_transaction:</span>
@@ -1430,7 +1434,7 @@
         <span class="k">return</span> <span class="n">result</span>
 
     <span class="k">def</span> <span class="nf">_setup_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_names</span><span class="p">,</span> <span class="n">skip_missing</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a solver job list from given list of job names</span>
 
 <span class="sd">        :param list job_names: list of package,pattern,group names</span>

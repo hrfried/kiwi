@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adding and Removing Packages &mdash; KIWI NG 9.24.56 documentation</title>
+  <title>Adding and Removing Packages &mdash; KIWI NG 9.24.57 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -30,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> KIWI NG
-            <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            KIWI NG
+              <img src="../_static/kiwi-logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -1205,7 +1209,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../concept_and_workflow.html">Concept and Workflow</a></li>
       <li class="breadcrumb-item active">Adding and Removing Packages</li>
       <li class="wy-breadcrumbs-aside">
@@ -1222,17 +1226,17 @@
 <p>On top of the <a class="reference internal" href="repository_setup.html#repositories"><span class="std std-ref">Setting up Repositories</span></a> setup the package setup is
 required. KIWI NG allows the end user to completely customize the selection
 of packages via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">packages</span></code> element.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;udev&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;filesystem&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;openSUSE-release&quot;</span><span class="nt">/&gt;</span>
-        <span class="cm">&lt;!-- additional packages installed before the chroot is created --&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;patterns-openSUSE-base&quot;</span><span class="nt">/&gt;</span>
-        <span class="cm">&lt;!-- additional packages to be installed into the chroot --&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;udev&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;filesystem&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;openSUSE-release&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- additional packages installed before the chroot is created --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;patterns-openSUSE-base&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- additional packages to be installed into the chroot --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1264,11 +1268,11 @@ a <code class="xref py py-obj docutils literal notranslate"><span class="pre">pa
 <span id="package-element"></span><h2>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">package</span></code> element<a class="headerlink" href="#the-package-element" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">package</span></code> element represents a single package to be installed (or
 removed), whose name is specified via the mandatory <code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code> attribute:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
-    <span class="cm">&lt;!-- snip --&gt;</span>
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;udev&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- snip --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;udev&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1280,11 +1284,11 @@ pass them in this context too. For example, RPM based package managers
 (like <strong class="command">dnf</strong> or <strong class="command">zypper</strong>) can install packages via their
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">Provides:</span></code>. This can be used to add a package that provides a certain
 capability (e.g. <code class="xref py py-obj docutils literal notranslate"><span class="pre">Provides:</span> <span class="pre">/usr/bin/my-binary</span></code>) via:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
-    <span class="cm">&lt;!-- snip --&gt;</span>
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;/usr/bin/my-binary&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- snip --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;/usr/bin/my-binary&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1295,13 +1299,13 @@ description. Therefore, relying on <code class="xref py py-obj docutils literal 
 <p>Packages can also be included only on specific host architectures via the
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">arch</span></code> attribute. KIWI NG compares the <code class="xref py py-obj docutils literal notranslate"><span class="pre">arch</span></code> attributes value with the host
 architecture that builds the image according to the output of <code class="xref py py-obj docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-m</span></code>.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
-    <span class="cm">&lt;!-- snip --&gt;</span>
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;grub2-x86_64-efi&quot;</span> <span class="na">arch=</span><span class="s">&quot;x86_64&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;shim&quot;</span> <span class="na">arch=</span><span class="s">&quot;x86_64&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- snip --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;grub2-x86_64-efi&quot;</span><span class="w"> </span><span class="na">arch=</span><span class="s">&quot;x86_64&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;shim&quot;</span><span class="w"> </span><span class="na">arch=</span><span class="s">&quot;x86_64&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1316,9 +1320,9 @@ which are not available in the package manager’s native format. KIWI NG
 supports the inclusion of ordinary tar archives via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">archive</span></code> element,
 whose <code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code> attribute specifies the filename of the archive (KIWI NG looks
 for the archive in the image description folder).</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;archive</span> <span class="na">name=</span><span class="s">&quot;custom-program1.tgz&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;archive</span> <span class="na">name=</span><span class="s">&quot;custom-program2.tar&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;archive</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;custom-program1.tgz&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;archive</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;custom-program2.tar&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/packages&gt;</span>
 </pre></div>
 </div>
@@ -1364,22 +1368,22 @@ dependencies of that tool (as one would have when using
 custom program in <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code>. We ship its source code via an
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">archive</span></code> element and add the build tools (<code class="xref py py-obj docutils literal notranslate"><span class="pre">ninja</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">meson</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">clang</span></code>) to
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;image&quot;&gt;</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;uninstall&quot;&gt;</span></code>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
-    <span class="cm">&lt;!-- snip --&gt;</span>
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;ca-certificates&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;coreutils&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;ninja&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;clang&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;meson&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;archive</span> <span class="na">name=</span><span class="s">&quot;foo_app_sources.tar.gz&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
-    <span class="cm">&lt;!-- These packages will be uninstalled after running config.sh --&gt;</span>
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;uninstall&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;ninja&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;meson&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;clang&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- snip --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ca-certificates&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;coreutils&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ninja&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;clang&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;meson&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;archive</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;foo_app_sources.tar.gz&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- These packages will be uninstalled after running config.sh --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;uninstall&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ninja&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;meson&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;clang&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
@@ -1388,11 +1392,11 @@ custom program in <code class="file docutils literal notranslate"><span class="p
 <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> (for further details, see
 <a class="reference internal" href="shell_scripts.html#working-with-kiwi-user-defined-scripts"><span class="std std-ref">User Defined Scripts</span></a>), for example to build
 <code class="docutils literal notranslate"><span class="pre">foo_app</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pushd</span> /opt/src/foo_app
-mkdir build
-<span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span>clang
-meson build
-<span class="nb">cd</span> build <span class="o">&amp;&amp;</span> ninja <span class="o">&amp;&amp;</span> ninja install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pushd</span><span class="w"> </span>/opt/src/foo_app
+mkdir<span class="w"> </span>build
+<span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span>clang
+meson<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ninja<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ninja<span class="w"> </span>install
 <span class="nb">popd</span>
 </pre></div>
 </div>
@@ -1436,14 +1440,14 @@ and recommended by the specified patterns and packages.</p></li>
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">packages</span></code> collection. This useful to exclude certain packages from being
 installed when using patterns with <code class="xref py py-obj docutils literal notranslate"><span class="pre">patternType=&quot;plusRecommended&quot;</span></code> as shown
 in the following example:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span> <span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span> <span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;packages</span> <span class="na">type=</span><span class="s">&quot;image&quot;</span> <span class="na">patternType=</span><span class="s">&quot;plusRecommended&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;namedCollection</span> <span class="na">name=</span><span class="s">&quot;network-server&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;kernel&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;ignore</span> <span class="na">name=</span><span class="s">&quot;ejabberd&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;ignore</span> <span class="na">name=</span><span class="s">&quot;puppet-server&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/packages&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;7.4&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="w"> </span><span class="na">patternType=</span><span class="s">&quot;plusRecommended&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;namedCollection</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;network-server&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;grub2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kernel&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ignore</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ejabberd&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ignore</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;puppet-server&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
