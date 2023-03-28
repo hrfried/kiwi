@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.defaults &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi.defaults &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -218,6 +218,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1294,6 +1295,8 @@
 <span class="n">PRE_DISK_SYNC_SCRIPT</span> <span class="o">=</span> <span class="s1">&#39;pre_disk_sync.sh&#39;</span>
 <span class="n">POST_BOOTSTRAP_SCRIPT</span> <span class="o">=</span> <span class="s1">&#39;post_bootstrap.sh&#39;</span>
 <span class="n">POST_PREPARE_SCRIPT</span> <span class="o">=</span> <span class="s1">&#39;config.sh&#39;</span>
+<span class="n">POST_PREPARE_OVERLAY_SCRIPT</span> <span class="o">=</span> <span class="s1">&#39;config-overlay.sh&#39;</span>
+<span class="n">POST_HOST_PREPARE_OVERLAY_SCRIPT</span> <span class="o">=</span> <span class="s1">&#39;config-host-overlay.sh&#39;</span>
 <span class="n">PRE_CREATE_SCRIPT</span> <span class="o">=</span> <span class="s1">&#39;images.sh&#39;</span>
 <span class="n">EDIT_BOOT_CONFIG_SCRIPT</span> <span class="o">=</span> <span class="s1">&#39;edit_boot_config.sh&#39;</span>
 <span class="n">EDIT_BOOT_INSTALL_SCRIPT</span> <span class="o">=</span> <span class="s1">&#39;edit_boot_install.sh&#39;</span>
@@ -1558,6 +1561,30 @@
         <span class="k">return</span> <span class="p">[</span>
             <span class="s1">&#39;--archive&#39;</span><span class="p">,</span> <span class="s1">&#39;--hard-links&#39;</span><span class="p">,</span> <span class="s1">&#39;--xattrs&#39;</span><span class="p">,</span> <span class="s1">&#39;--acls&#39;</span><span class="p">,</span>
             <span class="s1">&#39;--one-file-system&#39;</span><span class="p">,</span> <span class="s1">&#39;--inplace&#39;</span>
+        <span class="p">]</span></div>
+
+<div class="viewcode-block" id="Defaults.get_removed_files_name"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_removed_files_name">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_removed_files_name</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides base file name to store removed files</span>
+<span class="sd">        in a delta root build</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;removed&#39;</span></div>
+
+<div class="viewcode-block" id="Defaults.get_exclude_list_for_removed_files_detection"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_exclude_list_for_removed_files_detection">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_exclude_list_for_removed_files_detection</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides list of files/dirs to exclude from the removed</span>
+<span class="sd">        files detection in a delta root build</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="s1">&#39;etc/hosts.kiwi&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;etc/hosts.sha&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;etc/resolv.conf.kiwi&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;etc/resolv.conf.sha&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;etc/sysconfig/proxy.kiwi&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;etc/sysconfig/proxy.sha&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;usr/lib/sysimage/rpm&#39;</span>
         <span class="p">]</span></div>
 
 <div class="viewcode-block" id="Defaults.get_exclude_list_for_root_data_sync"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_exclude_list_for_root_data_sync">[docs]</a>    <span class="nd">@staticmethod</span>

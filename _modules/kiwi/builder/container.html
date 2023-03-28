@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.builder.container &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi.builder.container &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -218,6 +218,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1274,6 +1275,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">bundle_format</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_bundle_format</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">container_config</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_container_config</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">requested_container_type</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_name</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delta_root</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_delta_root</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_image</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_image_md5</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ensure_empty_tmpdirs</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1284,7 +1286,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">container_config</span><span class="p">[</span><span class="s1">&#39;metadata_path&#39;</span><span class="p">]</span> <span class="o">=</span> \
             <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_metadata_path</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_derived_from_image_uri</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_derived_from_image_uri</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta_root</span><span class="p">:</span>
             <span class="c1"># The base image is expected to be unpacked by the kiwi</span>
             <span class="c1"># prepare step and stored inside of the root_dir/image directory.</span>
             <span class="c1"># In addition a md5 file of the image is expected too</span>
@@ -1383,33 +1385,34 @@
             <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">shasum</span><span class="o">=</span><span class="kc">True</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
-            <span class="n">key</span><span class="o">=</span><span class="s1">&#39;image_packages&#39;</span><span class="p">,</span>
-            <span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_package_list</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
-            <span class="p">),</span>
-            <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">shasum</span><span class="o">=</span><span class="kc">False</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
-            <span class="n">key</span><span class="o">=</span><span class="s1">&#39;image_changes&#39;</span><span class="p">,</span>
-            <span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_package_changes</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
-            <span class="p">),</span>
-            <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">compress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">shasum</span><span class="o">=</span><span class="kc">False</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
-            <span class="n">key</span><span class="o">=</span><span class="s1">&#39;image_verified&#39;</span><span class="p">,</span>
-            <span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_package_verification</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
-            <span class="p">),</span>
-            <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">shasum</span><span class="o">=</span><span class="kc">False</span>
-        <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta_root</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                <span class="n">key</span><span class="o">=</span><span class="s1">&#39;image_packages&#39;</span><span class="p">,</span>
+                <span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_package_list</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
+                <span class="p">),</span>
+                <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">shasum</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                <span class="n">key</span><span class="o">=</span><span class="s1">&#39;image_changes&#39;</span><span class="p">,</span>
+                <span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_package_changes</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
+                <span class="p">),</span>
+                <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">compress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">shasum</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                <span class="n">key</span><span class="o">=</span><span class="s1">&#39;image_verified&#39;</span><span class="p">,</span>
+                <span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_package_verification</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
+                <span class="p">),</span>
+                <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">shasum</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span></div></div>
 </pre></div>
 

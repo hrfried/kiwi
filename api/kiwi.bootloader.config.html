@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config Package &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi.bootloader.config Package &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -221,6 +221,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1275,11 +1276,17 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_cmdline">
-<span class="sig-name descname"><span class="pre">get_boot_cmdline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boot_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.get_boot_cmdline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_cmdline" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_boot_cmdline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boot_device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.get_boot_cmdline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_cmdline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Boot commandline arguments passed to the kernel</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>boot_device</strong> (<em>string</em>) – boot device node</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>boot_device</strong> (<em>string</em>) – boot device node. If no extra boot device exists
+then boot device equals root device. In case of
+an overlay setup the boot device equals the
+readonly root device</p></li>
+<li><p><strong>write_device</strong> (<em>string</em>) – optional overlay write device node</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>kernel boot arguments</p>
@@ -1597,12 +1604,13 @@ required according to the bootloader setup</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.bootloader.config.base.BootLoaderConfigBase.write_meta_data">
-<span class="sig-name descname"><span class="pre">write_meta_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.write_meta_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.write_meta_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">write_meta_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/base.html#BootLoaderConfigBase.write_meta_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.base.BootLoaderConfigBase.write_meta_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write bootloader setup meta data files</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root_device</strong> (<em>string</em>) – root device node</p></li>
+<li><p><strong>write_device</strong> (<em>string</em>) – overlay root write device node</p></li>
 <li><p><strong>boot_options</strong> (<em>string</em>) – kernel options as string</p></li>
 </ul>
 </dd>
@@ -1749,7 +1757,7 @@ the iso filesystem</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.write_meta_data">
-<span class="sig-name descname"><span class="pre">write_meta_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/grub2.html#BootLoaderConfigGrub2.write_meta_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.write_meta_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">write_meta_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/grub2.html#BootLoaderConfigGrub2.write_meta_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.write_meta_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write bootloader setup meta data files</p>
 <ul class="simple">
 <li><p>cmdline arguments initialization</p></li>
@@ -1761,6 +1769,7 @@ the iso filesystem</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root_device</strong> (<em>string</em>) – root device node</p></li>
+<li><p><strong>write_device</strong> (<em>string</em>) – overlay root write device node</p></li>
 <li><p><strong>boot_options</strong> (<em>string</em>) – kernel options as string</p></li>
 <li><p><strong>iso_boot</strong> (<em>bool</em>) – indicate target is an ISO</p></li>
 </ul>

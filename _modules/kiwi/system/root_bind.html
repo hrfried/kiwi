@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.root_bind &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi.system.root_bind &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -218,6 +218,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1294,7 +1295,7 @@
         <span class="c1"># share the following directory with the host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shared_location</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_shared_cache_location</span><span class="p">()</span>
 
-<div class="viewcode-block" id="RootBind.mount_kernel_file_systems"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.root_bind.RootBind.mount_kernel_file_systems">[docs]</a>    <span class="k">def</span> <span class="nf">mount_kernel_file_systems</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="RootBind.mount_kernel_file_systems"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.root_bind.RootBind.mount_kernel_file_systems">[docs]</a>    <span class="k">def</span> <span class="nf">mount_kernel_file_systems</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delta_root</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bind mount kernel filesystems</span>
 
@@ -1302,16 +1303,18 @@
 <span class="sd">            fails to mount</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># Yes this bind mount to yourself looks weird and should not</span>
-            <span class="c1"># be needed at all. The reason why it exists is to overcome</span>
-            <span class="c1"># an issue that appears if you run containers in kiwi scripts</span>
-            <span class="c1"># via e.g podman or docker. There is some information about the</span>
-            <span class="c1"># topic here: https://github.com/moby/moby/issues/34817</span>
-            <span class="n">shared_mount</span> <span class="o">=</span> <span class="n">MountManager</span><span class="p">(</span>
-                <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="n">mountpoint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
-            <span class="p">)</span>
-            <span class="n">shared_mount</span><span class="o">.</span><span class="n">bind_mount</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mount_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shared_mount</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">delta_root</span><span class="p">:</span>
+                <span class="c1"># Yes this bind mount to yourself looks weird and should not</span>
+                <span class="c1"># be needed at all. The reason why it exists is to overcome</span>
+                <span class="c1"># an issue that appears if you run containers in kiwi scripts</span>
+                <span class="c1"># via e.g podman or docker. There is some information about the</span>
+                <span class="c1"># topic here: https://github.com/moby/moby/issues/34817</span>
+                <span class="n">shared_mount</span> <span class="o">=</span> <span class="n">MountManager</span><span class="p">(</span>
+                    <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="n">mountpoint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
+                <span class="p">)</span>
+                <span class="n">shared_mount</span><span class="o">.</span><span class="n">bind_mount</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mount_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shared_mount</span><span class="p">)</span>
+
             <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bind_locations</span><span class="p">:</span>
                 <span class="n">location_mount_target</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="n">location</span>

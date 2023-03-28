@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.builder.live &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi.builder.live &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -218,6 +218,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1499,6 +1500,7 @@
             <span class="n">container_image</span><span class="o">.</span><span class="n">name</span>
         <span class="p">)</span>
         <span class="n">Path</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">media_dir</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;/LiveOS&#39;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="n">container_image</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="mo">0o644</span><span class="p">)</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span>
             <span class="n">container_image</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">media_dir</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;/LiveOS/squashfs.img&#39;</span>
         <span class="p">)</span>
@@ -1588,6 +1590,7 @@
 
         <span class="c1"># Move initrd to iso filesystem structure</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">initrd_filename</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">initrd_filename</span><span class="p">,</span> <span class="mo">0o644</span><span class="p">)</span>
             <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">initrd_filename</span><span class="p">,</span> <span class="n">boot_path</span> <span class="o">+</span> <span class="s1">&#39;/initrd&#39;</span>
             <span class="p">)</span>

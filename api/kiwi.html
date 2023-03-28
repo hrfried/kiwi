@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi Package &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi Package &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -221,6 +221,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -2298,6 +2299,13 @@ devices.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="kiwi.defaults.Defaults.get_exclude_list_for_removed_files_detection">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_exclude_list_for_removed_files_detection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/defaults.html#Defaults.get_exclude_list_for_removed_files_detection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.defaults.Defaults.get_exclude_list_for_removed_files_detection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides list of files/dirs to exclude from the removed
+files detection in a delta root build</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="kiwi.defaults.Defaults.get_exclude_list_for_root_data_sync">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_exclude_list_for_root_data_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">no_tmpdirs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/defaults.html#Defaults.get_exclude_list_for_root_data_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.defaults.Defaults.get_exclude_list_for_root_data_sync" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides the list of files or folders that are created
@@ -2867,6 +2875,13 @@ handled as ‘ix86’ in general</p>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.defaults.Defaults.get_removed_files_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_removed_files_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/defaults.html#Defaults.get_removed_files_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.defaults.Defaults.get_removed_files_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides base file name to store removed files
+in a delta root build</p>
 </dd></dl>
 
 <dl class="py method">
@@ -4933,6 +4948,11 @@ intentional</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="kiwi.mount_manager.MountManager.overlay_mount">
+<span class="sig-name descname"><span class="pre">overlay_mount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/mount_manager.html#MountManager.overlay_mount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.mount_manager.MountManager.overlay_mount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="kiwi.mount_manager.MountManager.tmpfs_mount">
 <span class="sig-name descname"><span class="pre">tmpfs_mount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/mount_manager.html#MountManager.tmpfs_mount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.mount_manager.MountManager.tmpfs_mount" title="Permalink to this definition">¶</a></dt>
 <dd><p>tmpfs mount the device to the mountpoint</p>
@@ -5082,6 +5102,20 @@ protected paths and leave them untouched</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>root</strong> (<em>string</em>) – start at directory</p></li>
 <li><p><strong>path</strong> (<em>string</em>) – path name below root</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.path.Path.rename">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cur</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/path.html#Path.rename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.path.Path.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move path from cur name to new name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cur</strong> (<em>string</em>) – current path name</p></li>
+<li><p><strong>new</strong> (<em>string</em>) – new path name</p></li>
 </ul>
 </dd>
 </dl>
@@ -6118,6 +6152,31 @@ configured profiles</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="kiwi.xml_state.XMLState.get_bootloader_config_options">
+<span class="sig-name descname"><span class="pre">get_bootloader_config_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/xml_state.html#XMLState.get_bootloader_config_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.xml_state.XMLState.get_bootloader_config_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom options used in the bootloader configuration</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.xml_state.XMLState.get_bootloader_install_options">
+<span class="sig-name descname"><span class="pre">get_bootloader_install_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/xml_state.html#XMLState.get_bootloader_install_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.xml_state.XMLState.get_bootloader_install_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom options used in the bootloader installation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.xml_state.XMLState.get_bootloader_options">
+<span class="sig-name descname"><span class="pre">get_bootloader_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/xml_state.html#XMLState.get_bootloader_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.xml_state.XMLState.get_bootloader_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom options used in the process to
+run bootloader setup workloads</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.xml_state.XMLState.get_bootloader_shim_options">
+<span class="sig-name descname"><span class="pre">get_bootloader_shim_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/xml_state.html#XMLState.get_bootloader_shim_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.xml_state.XMLState.get_bootloader_shim_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom options used in the process to setup secure boot</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="kiwi.xml_state.XMLState.get_bootstrap_archives">
 <span class="sig-name descname"><span class="pre">get_bootstrap_archives</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="reference internal" href="../_modules/kiwi/xml_state.html#XMLState.get_bootstrap_archives"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.xml_state.XMLState.get_bootstrap_archives" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of archive names from the type=”bootstrap” packages section(s)</p>
@@ -6285,6 +6344,21 @@ selected build type</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.xml_state.XMLState.get_build_type_bootloader_settings_section">
+<span class="sig-name descname"><span class="pre">get_build_type_bootloader_settings_section</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/kiwi/xml_state.html#XMLState.get_build_type_bootloader_settings_section"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.xml_state.XMLState.get_build_type_bootloader_settings_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>First bootloadersettings section from the build
+type bootloader section</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>&lt;bootloadersettings&gt; section reference</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>xml_parse::bootloadersettings</p>
 </dd>
 </dl>
 </dd></dl>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.install.grub2 &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi.bootloader.install.grub2 &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -218,6 +218,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1282,6 +1283,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">arch</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_platform_name</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span> <span class="o">=</span> <span class="n">custom_args</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">install_arguments</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shim_install_arguments</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">efi_mount</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root_mount</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1298,6 +1300,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">volumes</span> <span class="o">=</span> <span class="n">custom_args</span><span class="p">[</span><span class="s1">&#39;system_volumes&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">custom_args</span> <span class="ow">and</span> <span class="s1">&#39;firmware&#39;</span> <span class="ow">in</span> <span class="n">custom_args</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span> <span class="o">=</span> <span class="n">custom_args</span><span class="p">[</span><span class="s1">&#39;firmware&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">custom_args</span> <span class="ow">and</span> <span class="s1">&#39;install_options&#39;</span> <span class="ow">in</span> <span class="n">custom_args</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">install_arguments</span> <span class="o">=</span> <span class="n">custom_args</span><span class="p">[</span><span class="s1">&#39;install_options&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">custom_args</span> <span class="ow">and</span> <span class="s1">&#39;shim_options&#39;</span> <span class="ow">in</span> <span class="n">custom_args</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shim_install_arguments</span> <span class="o">=</span> <span class="n">custom_args</span><span class="p">[</span><span class="s1">&#39;shim_options&#39;</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">():</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">custom_args</span> <span class="ow">or</span> <span class="s1">&#39;efi_device&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">custom_args</span><span class="p">:</span>
@@ -1486,7 +1492,8 @@
                 <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
                     <span class="p">[</span>
                         <span class="s1">&#39;chroot&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_mount</span><span class="o">.</span><span class="n">mountpoint</span><span class="p">,</span>
-                        <span class="s1">&#39;shim-install&#39;</span><span class="p">,</span> <span class="s1">&#39;--removable&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;shim-install&#39;</span><span class="p">,</span> <span class="s1">&#39;--removable&#39;</span>
+                    <span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">shim_install_arguments</span> <span class="o">+</span> <span class="p">[</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
                     <span class="p">]</span>
                 <span class="p">)</span>

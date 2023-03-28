@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system Package &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi.system Package &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -221,6 +221,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1849,7 +1850,7 @@ build system root</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.system.root_bind.RootBind.mount_kernel_file_systems">
-<span class="sig-name descname"><span class="pre">mount_kernel_file_systems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/root_bind.html#RootBind.mount_kernel_file_systems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.root_bind.RootBind.mount_kernel_file_systems" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">mount_kernel_file_systems</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/root_bind.html#RootBind.mount_kernel_file_systems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.root_bind.RootBind.mount_kernel_file_systems" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bind mount kernel filesystems</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
@@ -1976,6 +1977,18 @@ the desired image type.</p>
 </ul>
 </dd>
 </dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.system.setup.SystemSetup.call_config_host_overlay_script">
+<span class="sig-name descname"><span class="pre">call_config_host_overlay_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">working_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/setup.html#SystemSetup.call_config_host_overlay_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.setup.SystemSetup.call_config_host_overlay_script" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call config-host-overlay.sh script _NON_ chrooted</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.system.setup.SystemSetup.call_config_overlay_script">
+<span class="sig-name descname"><span class="pre">call_config_overlay_script</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/setup.html#SystemSetup.call_config_overlay_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.setup.SystemSetup.call_config_overlay_script" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call config-overlay.sh script chrooted</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.system.setup.SystemSetup.call_config_script">
 <span class="sig-name descname"><span class="pre">call_config_script</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/system/setup.html#SystemSetup.call_config_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.system.setup.SystemSetup.call_config_script" title="Permalink to this definition">¶</a></dt>

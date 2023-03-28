@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Defined Scripts &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>User Defined Scripts &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -221,6 +221,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1247,6 +1248,21 @@ and after users have been set and the <em>overlay tree directory</em>
 has been applied. It is usually used to apply a permanent and final
 change of data in the root tree, such as modifying a package provided
 config file.</p>
+</dd>
+<dt>config-overlay.sh</dt><dd><p>Available only if <code class="xref py py-obj docutils literal notranslate"><span class="pre">delta_root=&quot;true&quot;</span></code> is set. In this case the
+script runs at the end of the <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>
+prior the umount of the overlay root tree. It runs after an
+eventually given <code class="xref py py-obj docutils literal notranslate"><span class="pre">config.sh</span></code> and is the last entry point to
+change the delta root tree.</p>
+</dd>
+<dt>config-host-overlay.sh</dt><dd><p>Available only if <code class="xref py py-obj docutils literal notranslate"><span class="pre">delta_root=&quot;true&quot;</span></code> is set. In this case the
+script runs at the end of the <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>
+prior the umount of the overlay root tree. The script is called
+<strong>NOT CHROOTED</strong> from the host with the image root directory as
+its working directory. It runs after an eventually given
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">config.sh</span></code> and is together with an eventually given
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">config-overlay.sh</span></code> script, the last entry point to change the
+delta root tree.</p>
 </dd>
 <dt>images.sh</dt><dd><p>is executed at the beginning of the <a class="reference internal" href="../concept_and_workflow.html#create-step"><span class="std std-ref">image
 creation process</span></a>. It runs in the same image root tree

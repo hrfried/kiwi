@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -218,6 +218,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1283,6 +1284,7 @@
 <span class="sd">                {&#39;grub_directory_name&#39;: &#39;grub|grub2&#39;}</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span> <span class="o">=</span> <span class="n">custom_args</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_options</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">arch</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_platform_name</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">arch</span> <span class="o">==</span> <span class="s1">&#39;x86_64&#39;</span><span class="p">:</span>
             <span class="c1"># grub2 support for bios and efi systems</span>
@@ -1311,6 +1313,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">boot_directory_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">[</span><span class="s1">&#39;grub_directory_name&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">boot_directory_name</span> <span class="o">=</span> <span class="s1">&#39;grub&#39;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span> <span class="ow">and</span> <span class="s1">&#39;config_options&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config_options</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">[</span><span class="s1">&#39;config_options&#39;</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">terminal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_bootloader_console</span><span class="p">()</span> \
             <span class="ow">or</span> <span class="s1">&#39;gfxterm&#39;</span>
@@ -1393,7 +1398,9 @@
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">config</span><span class="p">:</span>
                 <span class="n">config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="BootLoaderConfigGrub2.write_meta_data"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.write_meta_data">[docs]</a>    <span class="k">def</span> <span class="nf">write_meta_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boot_options</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="BootLoaderConfigGrub2.write_meta_data"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.write_meta_data">[docs]</a>    <span class="k">def</span> <span class="nf">write_meta_data</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">root_device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">write_device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boot_options</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write bootloader setup meta data files</span>
 
@@ -1403,16 +1410,19 @@
 <span class="sd">        * etc/sysconfig/bootloader</span>
 
 <span class="sd">        :param string root_device: root device node</span>
+<span class="sd">        :param string write_device: overlay root write device node</span>
 <span class="sd">        :param string boot_options: kernel options as string</span>
 <span class="sd">        :param bool iso_boot: indicate target is an ISO</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cmdline</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_boot_cmdline</span><span class="p">(</span><span class="n">root_device</span><span class="p">),</span> <span class="n">boot_options</span><span class="p">]</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_boot_cmdline</span><span class="p">(</span><span class="n">root_device</span><span class="p">,</span> <span class="n">write_device</span><span class="p">),</span> <span class="n">boot_options</span><span class="p">]</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cmdline_failsafe</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
             <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cmdline</span><span class="p">,</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_failsafe_kernel_options</span><span class="p">(),</span> <span class="n">boot_options</span><span class="p">]</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">root_reference</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_root_cmdline_parameter</span><span class="p">(</span><span class="n">root_device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root_reference</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_root_cmdline_parameter</span><span class="p">(</span>
+            <span class="n">root_device</span>
+        <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_setup_default_grub</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_setup_sysconfig_bootloader</span><span class="p">()</span>
@@ -1533,7 +1543,12 @@
             <span class="s1">&#39;efi_image_name&#39;</span><span class="p">:</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_efi_image_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch</span><span class="p">),</span>
             <span class="s1">&#39;terminal_setup&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminal</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiboot</span><span class="p">:</span>
+        <span class="n">custom_template_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_custom_template</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">custom_template_path</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Using custom boot template&#39;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">custom_template_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">custom_template_file</span><span class="p">:</span>
+                <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">custom_template_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiboot</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Using multiboot install template&#39;</span><span class="p">)</span>
             <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;hypervisor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hypervisor</span>
             <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grub2</span><span class="o">.</span><span class="n">get_multiboot_install_template</span><span class="p">(</span>
@@ -1770,6 +1785,7 @@
 <span class="sd">        * DEFAULT_APPEND</span>
 <span class="sd">        * FAILSAFE_APPEND</span>
 <span class="sd">        * SECURE_BOOT</span>
+<span class="sd">        * TRUSTED_BOOT</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">sysconfig_bootloader_entries</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;LOADER_TYPE&#39;</span><span class="p">:</span>
@@ -1777,6 +1793,8 @@
             <span class="s1">&#39;LOADER_LOCATION&#39;</span><span class="p">:</span>
                 <span class="s1">&#39;none&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;mbr&#39;</span>
         <span class="p">}</span>
+        <span class="k">if</span> <span class="s1">&#39;--set-trusted-boot&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_options</span><span class="p">:</span>
+            <span class="n">sysconfig_bootloader_entries</span><span class="p">[</span><span class="s1">&#39;TRUSTED_BOOT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;yes&#39;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;uefi&#39;</span><span class="p">:</span>
             <span class="n">sysconfig_bootloader_entries</span><span class="p">[</span><span class="s1">&#39;SECURE_BOOT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;yes&#39;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmdline</span><span class="p">:</span>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.base &mdash; KIWI NG 9.24.57 documentation</title>
+  <title>kiwi.bootloader.config.base &mdash; KIWI NG 9.24.58 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -218,6 +218,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-containerconfig">&lt;preferences&gt;&lt;type&gt;&lt;containerconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-vagrantconfig">&lt;preferences&gt;&lt;type&gt;&lt;vagrantconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-systemdisk">&lt;preferences&gt;&lt;type&gt;&lt;systemdisk&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-bootloader-bootloadersettings">&lt;preferences&gt;&lt;type&gt;&lt;bootloader&gt;&lt;bootloadersettings&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-partitions">&lt;preferences&gt;&lt;type&gt;&lt;partitions&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-oemconfig">&lt;preferences&gt;&lt;type&gt;&lt;oemconfig&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../image_description/elements.html#preferences-type-size">&lt;preferences&gt;&lt;type&gt;&lt;size&gt;</a></li>
@@ -1299,11 +1300,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="BootLoaderConfigBase.write_meta_data"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.write_meta_data">[docs]</a>    <span class="k">def</span> <span class="nf">write_meta_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boot_options</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="BootLoaderConfigBase.write_meta_data"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.write_meta_data">[docs]</a>    <span class="k">def</span> <span class="nf">write_meta_data</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">root_device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">write_device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boot_options</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write bootloader setup meta data files</span>
 
 <span class="sd">        :param string root_device: root device node</span>
+<span class="sd">        :param string write_device: overlay root write device node</span>
 <span class="sd">        :param string boot_options: kernel options as string</span>
 
 <span class="sd">        Implementation in specialized bootloader class optional</span>
@@ -1483,11 +1487,18 @@
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="BootLoaderConfigBase.get_boot_cmdline"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_cmdline">[docs]</a>    <span class="k">def</span> <span class="nf">get_boot_cmdline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boot_device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="BootLoaderConfigBase.get_boot_cmdline"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.get_boot_cmdline">[docs]</a>    <span class="k">def</span> <span class="nf">get_boot_cmdline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boot_device</span><span class="p">,</span> <span class="n">write_device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Boot commandline arguments passed to the kernel</span>
 
-<span class="sd">        :param string boot_device: boot device node</span>
+<span class="sd">        :param string boot_device:</span>
+<span class="sd">            boot device node. If no extra boot device exists</span>
+<span class="sd">            then boot device equals root device. In case of</span>
+<span class="sd">            an overlay setup the boot device equals the</span>
+<span class="sd">            readonly root device</span>
+
+<span class="sd">        :param string write_device:</span>
+<span class="sd">            optional overlay write device node</span>
 
 <span class="sd">        :return: kernel boot arguments</span>
 
@@ -1497,7 +1508,14 @@
         <span class="n">custom_cmdline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_kernelcmdline</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">custom_cmdline</span><span class="p">:</span>
             <span class="n">cmdline</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">custom_cmdline</span>
-        <span class="n">custom_root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_root_cmdline_parameter</span><span class="p">(</span><span class="n">boot_device</span><span class="p">)</span>
+        <span class="n">overlay_cmdline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_root_overlay_cmdline_parameter</span><span class="p">(</span>
+            <span class="n">boot_device</span><span class="p">,</span> <span class="n">write_device</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">overlay_cmdline</span><span class="p">:</span>
+            <span class="n">cmdline</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">overlay_cmdline</span>
+        <span class="n">custom_root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_root_cmdline_parameter</span><span class="p">(</span>
+            <span class="n">boot_device</span>
+        <span class="p">)</span>
         <span class="k">if</span> <span class="n">custom_root</span> <span class="ow">and</span> <span class="n">custom_root</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cmdline</span><span class="p">:</span>
             <span class="n">cmdline</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">custom_root</span>
         <span class="k">return</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
@@ -1776,32 +1794,86 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sys_mount</span><span class="o">.</span><span class="n">bind_mount</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_get_root_cmdline_parameter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boot_device</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        root= argument passed to the kernel</span>
+
+<span class="sd">        :param string boot_device:</span>
+<span class="sd">            boot device node. If no extra boot device exists</span>
+<span class="sd">            then boot device equals root device. In case of</span>
+<span class="sd">            an overlay setup the boot device equals the</span>
+<span class="sd">            readonly root device</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cmdline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_kernelcmdline</span><span class="p">()</span>
-        <span class="n">persistency_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_devicepersistency</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">cmdline</span> <span class="ow">and</span> <span class="s1">&#39;root=&#39;</span> <span class="ow">in</span> <span class="n">cmdline</span><span class="p">:</span>
-            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
                 <span class="s1">&#39;Kernel root device explicitly set via kernelcmdline&#39;</span>
             <span class="p">)</span>
             <span class="n">root_search</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(root=(.*)[ ]+|root=(.*)$)&#39;</span><span class="p">,</span> <span class="n">cmdline</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">root_search</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">root_search</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">boot_device</span><span class="p">:</span>
-            <span class="n">block_operation</span> <span class="o">=</span> <span class="n">BlockID</span><span class="p">(</span><span class="n">boot_device</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">persistency_type</span> <span class="o">==</span> <span class="s1">&#39;by-label&#39;</span><span class="p">:</span>
-                <span class="n">blkid_type</span> <span class="o">=</span> <span class="s1">&#39;LABEL&#39;</span>
-            <span class="k">elif</span> <span class="n">persistency_type</span> <span class="o">==</span> <span class="s1">&#39;by-partuuid&#39;</span><span class="p">:</span>
-                <span class="n">blkid_type</span> <span class="o">=</span> <span class="s1">&#39;PARTUUID&#39;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">blkid_type</span> <span class="o">=</span> <span class="s1">&#39;UUID&#39;</span>
-            <span class="n">location</span> <span class="o">=</span> <span class="n">block_operation</span><span class="o">.</span><span class="n">get_blkid</span><span class="p">(</span><span class="n">blkid_type</span><span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_overlayroot</span><span class="p">():</span>
-                <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;root=overlay:</span><span class="si">{</span><span class="n">blkid_type</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="c1"># In case of an overlay setup the root partition is a squashfs</span>
+                <span class="c1"># In this case the root location can only be specified by the</span>
+                <span class="c1"># partition uuid because squashfs itself doesn&#39;t have one</span>
+                <span class="n">root_location</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_location</span><span class="p">(</span><span class="n">boot_device</span><span class="p">,</span> <span class="s1">&#39;by-partuuid&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s1">&#39;root=overlay:</span><span class="si">{0}</span><span class="s1">=</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">root_location</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">],</span> <span class="n">root_location</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+                <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;root=</span><span class="si">{</span><span class="n">blkid_type</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="n">root_location</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_location</span><span class="p">(</span><span class="n">boot_device</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s1">&#39;root=</span><span class="si">{0}</span><span class="s1">=</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">root_location</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">],</span> <span class="n">root_location</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+                <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
                 <span class="s1">&#39;No explicit root= cmdline provided&#39;</span>
             <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_root_overlay_cmdline_parameter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boot_device</span><span class="p">,</span> <span class="n">write_device</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        rd.root.overlay.write= argument passed to the kernel</span>
+
+<span class="sd">        :param string boot_device:</span>
+<span class="sd">            boot device node. If no extra boot device exists</span>
+<span class="sd">            then boot device equals root device. In case of</span>
+<span class="sd">            an overlay setup the boot device equals the</span>
+<span class="sd">            readonly root device</span>
+
+<span class="sd">        :param string write_device:</span>
+<span class="sd">            overlay write device</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">root_overlay_parameter</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">cmdline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_kernelcmdline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_overlayroot</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">cmdline</span> <span class="ow">and</span> <span class="s1">&#39;rd.root.overlay.write=&#39;</span> <span class="ow">in</span> <span class="n">cmdline</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s1">&#39;Overlay write device explicitly set via kernelcmdline&#39;</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">write_device</span> <span class="ow">and</span> <span class="n">write_device</span> <span class="o">!=</span> <span class="n">boot_device</span><span class="p">:</span>
+                <span class="n">write_location</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_location</span><span class="p">(</span><span class="n">write_device</span><span class="p">)</span>
+                <span class="n">root_overlay_parameter</span> <span class="o">=</span> <span class="s1">&#39;rd.root.overlay.write=</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">write_location</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">]</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">root_overlay_parameter</span>
+
+    <span class="k">def</span> <span class="nf">_get_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">persistency_type</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">persistency_type</span><span class="p">:</span>
+            <span class="n">persistency_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_devicepersistency</span><span class="p">()</span>
+        <span class="n">block_operation</span> <span class="o">=</span> <span class="n">BlockID</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">persistency_type</span> <span class="o">==</span> <span class="s1">&#39;by-label&#39;</span><span class="p">:</span>
+            <span class="n">blkid_type</span> <span class="o">=</span> <span class="s1">&#39;LABEL&#39;</span>
+        <span class="k">elif</span> <span class="n">persistency_type</span> <span class="o">==</span> <span class="s1">&#39;by-partuuid&#39;</span><span class="p">:</span>
+            <span class="n">blkid_type</span> <span class="o">=</span> <span class="s1">&#39;PARTUUID&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">persistency_type</span> <span class="o">=</span> <span class="s1">&#39;by-uuid&#39;</span>
+            <span class="n">blkid_type</span> <span class="o">=</span> <span class="s1">&#39;UUID&#39;</span>
+        <span class="n">location</span> <span class="o">=</span> <span class="n">block_operation</span><span class="o">.</span><span class="n">get_blkid</span><span class="p">(</span><span class="n">blkid_type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">blkid_type</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span>
+            <span class="s1">&#39;node&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;/dev/disk/</span><span class="si">{</span><span class="n">persistency_type</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="p">}</span>
 
     <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Cleaning up </span><span class="si">%s</span><span class="s1"> instance&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
