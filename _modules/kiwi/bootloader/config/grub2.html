@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.24.58 documentation</title>
+  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.24.59 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -1498,10 +1498,11 @@
         <span class="c1"># More details can be found in the individual methods.</span>
         <span class="c1"># One fine day the following fix methods can hopefully</span>
         <span class="c1"># be deleted...</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_fix_grub_to_support_dynamic_efi_and_bios_boot</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_fix_grub_root_device_reference</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="n">boot_options</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_fix_grub_loader_entries_boot_cmdline</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_fix_grub_loader_entries_linux_and_initrd_paths</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_overlayroot_write_partition</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fix_grub_to_support_dynamic_efi_and_bios_boot</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fix_grub_root_device_reference</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="n">boot_options</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fix_grub_loader_entries_boot_cmdline</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fix_grub_loader_entries_linux_and_initrd_paths</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_boot_script_efi</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_copy_grub_config_to_efi_path</span><span class="p">(</span>
@@ -2055,7 +2056,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">lookup_path</span><span class="p">:</span>
             <span class="n">lookup_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_dir</span>
         <span class="n">grub_image</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_unsigned_grub_loader</span><span class="p">(</span><span class="n">lookup_path</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">grub_image</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">grub_image</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_overlayroot_write_partition</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Using prebuilt unsigned efi image&#39;</span><span class="p">)</span>
             <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
                 <span class="p">[</span><span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="n">grub_image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_efi_image_name</span><span class="p">()]</span>
@@ -2290,8 +2291,8 @@
                 <span class="s1">&#39;set btrfs_relative_path=&quot;yes&quot;</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">)</span>
             <span class="p">)</span>
             <span class="n">early_boot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-                <span class="s1">&#39;search --file --set=root /boot/</span><span class="si">{0}{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="n">mbrid</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
+                <span class="s1">&#39;search --file --set=root /boot/mbrid</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
                 <span class="p">)</span>
             <span class="p">)</span>
             <span class="n">early_boot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
