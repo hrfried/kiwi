@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.repository.zypper &mdash; KIWI NG 9.24.59 documentation</title>
+  <title>kiwi.repository.zypper &mdash; KIWI NG 9.24.60 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -1238,6 +1238,7 @@
 <span class="c1"># along with kiwi.  If not, see &lt;http://www.gnu.org/licenses/&gt;</span>
 <span class="c1">#</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">from</span> <span class="nn">configparser</span> <span class="kn">import</span> <span class="n">ConfigParser</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
 
@@ -1351,11 +1352,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">command_env</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_zypper_runtime_environment</span><span class="p">()</span>
 
         <span class="c1"># config file parameters for zypper tool</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">runtime_zypper_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runtime_zypper_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">(</span><span class="n">interpolation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime_zypper_config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">)</span>
 
         <span class="c1"># config file parameters for libzypp library</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">runtime_zypp_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runtime_zypp_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">(</span><span class="n">interpolation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime_zypp_config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime_zypp_config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
             <span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="s1">&#39;credentials.global.dir&#39;</span><span class="p">,</span>
@@ -1542,8 +1543,17 @@
                 <span class="n">zypper_addrepo_command</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_env</span>
             <span class="p">)</span>
 
-        <span class="n">repo_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="n">repo_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">(</span><span class="n">interpolation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="n">repo_config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">repo_file</span><span class="p">)</span>
+
+        <span class="n">baseurl</span> <span class="o">=</span> <span class="n">uri</span>
+        <span class="n">uri_with_credentials_pattern</span> <span class="o">=</span> <span class="s1">&#39;^(.*):(.*)@(.*)$&#39;</span>
+        <span class="n">sensitive_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">uri_with_credentials_pattern</span><span class="p">,</span> <span class="n">baseurl</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sensitive_match</span><span class="p">:</span>
+            <span class="c1"># rewrite baseurl with credentials information because zypper</span>
+            <span class="c1"># addrepo does strange things with the provided url encoded data</span>
+            <span class="n">repo_config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;baseurl&#39;</span><span class="p">,</span> <span class="n">baseurl</span><span class="p">)</span>
+
         <span class="n">repo_config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
             <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;repo_gpgcheck&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span> <span class="k">if</span> <span class="n">repo_gpgcheck</span> <span class="k">else</span> <span class="s1">&#39;0&#39;</span>
         <span class="p">)</span>

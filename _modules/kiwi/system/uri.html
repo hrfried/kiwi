@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.uri &mdash; KIWI NG 9.24.59 documentation</title>
+  <title>kiwi.system.uri &mdash; KIWI NG 9.24.60 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -1241,7 +1241,7 @@
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
 <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">urlparse</span><span class="p">,</span> <span class="n">ParseResult</span>
+    <span class="n">urlparse</span><span class="p">,</span> <span class="n">ParseResult</span><span class="p">,</span> <span class="n">quote</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">Request</span>
@@ -1374,13 +1374,22 @@
         <span class="k">elif</span> <span class="n">uri</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s1">&#39;file&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_local_path</span><span class="p">(</span><span class="n">uri</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">uri</span><span class="o">.</span><span class="n">scheme</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">uri</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s1">&#39;ftp&#39;</span><span class="p">:</span>
+            <span class="n">netloc</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">netloc</span>
+            <span class="n">uri_with_credentials_pattern</span> <span class="o">=</span> <span class="s1">&#39;^(.*):(.*)@(.*)$&#39;</span>
+            <span class="n">sensitive_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">uri_with_credentials_pattern</span><span class="p">,</span> <span class="n">netloc</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sensitive_match</span><span class="p">:</span>
+                <span class="n">netloc</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">:</span><span class="si">{1}</span><span class="s2">@</span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">quote</span><span class="p">(</span><span class="n">sensitive_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span>
+                    <span class="n">quote</span><span class="p">(</span><span class="n">sensitive_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span>
+                    <span class="n">sensitive_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                <span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_credentials_uri</span><span class="p">()</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">uri</span><span class="o">.</span><span class="n">query</span><span class="p">:</span>
                 <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                    <span class="p">[</span><span class="n">uri</span><span class="o">.</span><span class="n">scheme</span><span class="p">,</span> <span class="s1">&#39;://&#39;</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">netloc</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">path</span><span class="p">]</span>
+                    <span class="p">[</span><span class="n">uri</span><span class="o">.</span><span class="n">scheme</span><span class="p">,</span> <span class="s1">&#39;://&#39;</span><span class="p">,</span> <span class="n">netloc</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">path</span><span class="p">]</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                    <span class="p">[</span><span class="n">uri</span><span class="o">.</span><span class="n">scheme</span><span class="p">,</span> <span class="s1">&#39;://&#39;</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">netloc</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">query</span><span class="p">]</span>
+                    <span class="p">[</span><span class="n">uri</span><span class="o">.</span><span class="n">scheme</span><span class="p">,</span> <span class="s1">&#39;://&#39;</span><span class="p">,</span> <span class="n">netloc</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">query</span><span class="p">]</span>
                 <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">KiwiUriStyleUnknown</span><span class="p">(</span>

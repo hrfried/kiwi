@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Host Requirements To Build Images &mdash; KIWI NG 9.24.59 documentation</title>
+  <title>Host Requirements To Build Images &mdash; KIWI NG 9.24.60 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -1247,9 +1247,15 @@ target distribution as well as the <code class="xref py py-obj docutils literal 
 </ul>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps-containers</span></code>:</dt><dd><ul class="simple">
-<li><p>Supports building <code class="xref py py-obj docutils literal notranslate"><span class="pre">docker</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">appx</span></code> image types.</p></li>
+<li><p>Supports building <code class="xref py py-obj docutils literal notranslate"><span class="pre">OCI</span></code> image types used with <code class="xref py py-obj docutils literal notranslate"><span class="pre">docker</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">podman</span></code>.</p></li>
 <li><p>Installs the distribution specific tool chain to build OCI
-compliant and WSL container images.</p></li>
+compliant container images.</p></li>
+</ul>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps-containers-wsl</span></code>:</dt><dd><ul class="simple">
+<li><p>Supports building <code class="xref py py-obj docutils literal notranslate"><span class="pre">appx</span></code> image types.</p></li>
+<li><p>Installs the distribution specific tool chain to build
+WSL compliant container images on Windows systems.</p></li>
 </ul>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps-iso-media</span></code>:</dt><dd><ul class="simple">

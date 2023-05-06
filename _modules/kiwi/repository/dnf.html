@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.repository.dnf &mdash; KIWI NG 9.24.59 documentation</title>
+  <title>kiwi.repository.dnf &mdash; KIWI NG 9.24.60 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -1441,7 +1441,7 @@
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">uri</span><span class="p">):</span>
             <span class="c1"># dnf requires local paths to take the file: type</span>
             <span class="n">uri</span> <span class="o">=</span> <span class="s1">&#39;file://&#39;</span> <span class="o">+</span> <span class="n">uri</span>
-        <span class="n">repo_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="n">repo_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">(</span><span class="n">interpolation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="n">repo_config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="n">repo_config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
             <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">name</span>
@@ -1539,7 +1539,7 @@
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_create_runtime_config_parser</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">(</span><span class="n">interpolation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_config</span><span class="p">[</span><span class="s2">&quot;main&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;cachedir&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">shared_dnf_dir</span><span class="p">[</span><span class="s1">&#39;cache-dir&#39;</span><span class="p">],</span>
             <span class="s2">&quot;reposdir&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">shared_dnf_dir</span><span class="p">[</span><span class="s1">&#39;reposd-dir&#39;</span><span class="p">],</span>
@@ -1562,7 +1562,7 @@
 
     <span class="k">def</span> <span class="nf">_create_runtime_plugin_config_parsers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_plugin_configs</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">plugin</span><span class="p">:</span> <span class="n">ConfigParser</span><span class="p">()</span> <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;priorities&quot;</span><span class="p">,</span> <span class="s2">&quot;versionlock&quot;</span><span class="p">)</span>
+            <span class="n">plugin</span><span class="p">:</span> <span class="n">ConfigParser</span><span class="p">(</span><span class="n">interpolation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;priorities&quot;</span><span class="p">,</span> <span class="s2">&quot;versionlock&quot;</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_plugin_configs</span><span class="p">[</span><span class="s2">&quot;priorities&quot;</span><span class="p">][</span><span class="s2">&quot;main&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_plugin_configs</span><span class="p">[</span><span class="s2">&quot;versionlock&quot;</span><span class="p">][</span><span class="s2">&quot;main&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">}</span>
