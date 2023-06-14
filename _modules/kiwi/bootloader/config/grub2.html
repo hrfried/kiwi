@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.24.61 documentation</title>
+  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.25.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -853,8 +853,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.package_manager.html#kiwi.package_manager.base.PackageManagerBase"><code class="docutils literal notranslate"><span class="pre">PackageManagerBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf4.PackageManagerDnf4"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/kiwi.package_manager.html#module-kiwi.package_manager.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.zypper</span></code> Module</a><ul>
@@ -897,8 +897,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.repository.html#kiwi.repository.base.RepositoryBase"><code class="docutils literal notranslate"><span class="pre">RepositoryBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/kiwi.repository.html#module-kiwi.repository.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.repository.html#kiwi.repository.dnf.RepositoryDnf"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/kiwi.repository.html#module-kiwi.repository.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.repository.html#kiwi.repository.dnf4.RepositoryDnf4"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/kiwi.repository.html#module-kiwi.repository.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.zypper</span></code> Module</a><ul>
@@ -1571,7 +1571,7 @@
             <span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_boot_script_efi</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_copy_grub_config_to_efi_path</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">boot_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_boot_script_efi</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">boot_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_boot_script_efi</span><span class="p">,</span> <span class="s1">&#39;iso&#39;</span>
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigGrub2.setup_live_image_config"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.setup_live_image_config">[docs]</a>    <span class="k">def</span> <span class="nf">setup_live_image_config</span><span class="p">(</span>
@@ -1635,7 +1635,7 @@
             <span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_boot_script_efi</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_copy_grub_config_to_efi_path</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">boot_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_boot_script_efi</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">boot_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_boot_script_efi</span><span class="p">,</span> <span class="s1">&#39;iso&#39;</span>
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="BootLoaderConfigGrub2.setup_install_boot_images"><a class="viewcode-back" href="../../../../api/kiwi.bootloader.config.html#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2.setup_install_boot_images">[docs]</a>    <span class="k">def</span> <span class="nf">setup_install_boot_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mbrid</span><span class="p">,</span> <span class="n">lookup_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1674,11 +1674,11 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_setup_EFI_path</span><span class="p">(</span><span class="n">lookup_path</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;efi&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_setup_efi_image</span><span class="p">(</span><span class="n">mbrid</span><span class="o">=</span><span class="n">mbrid</span><span class="p">,</span> <span class="n">lookup_path</span><span class="o">=</span><span class="n">lookup_path</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_setup_efi_image</span><span class="p">(</span><span class="n">mbrid</span><span class="o">=</span><span class="n">mbrid</span><span class="p">,</span> <span class="n">lookup_path</span><span class="o">=</span><span class="n">lookup_path</span><span class="p">,</span> <span class="n">target_type</span><span class="o">=</span><span class="s1">&#39;iso&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_copy_efi_modules_to_boot_directory</span><span class="p">(</span><span class="n">lookup_path</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;uefi&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_setup_secure_boot_efi_image</span><span class="p">(</span>
-                <span class="n">lookup_path</span><span class="o">=</span><span class="n">lookup_path</span><span class="p">,</span> <span class="n">mbrid</span><span class="o">=</span><span class="n">mbrid</span>
+                <span class="n">lookup_path</span><span class="o">=</span><span class="n">lookup_path</span><span class="p">,</span> <span class="n">mbrid</span><span class="o">=</span><span class="n">mbrid</span><span class="p">,</span> <span class="n">target_type</span><span class="o">=</span><span class="s1">&#39;iso&#39;</span>
             <span class="p">)</span>
 
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Creating loopback config&#39;</span><span class="p">)</span>
@@ -1731,7 +1731,9 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">xen_guest</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_copy_xen_modules_to_boot_directory</span><span class="p">(</span><span class="n">lookup_path</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">_copy_grub_config_to_efi_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_path</span><span class="p">,</span> <span class="n">config_file</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_copy_grub_config_to_efi_path</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">root_path</span><span class="p">,</span> <span class="n">config_file</span><span class="p">,</span> <span class="n">target_type</span><span class="o">=</span><span class="s1">&#39;disk&#39;</span>
+    <span class="p">):</span>
         <span class="n">efi_boot_path</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_shim_vendor_directory</span><span class="p">(</span>
             <span class="n">root_path</span>
         <span class="p">)</span>
@@ -1740,7 +1742,7 @@
             <span class="c1"># have them in their encoded early boot script. Thus</span>
             <span class="c1"># the following code tries to look up the vendor string</span>
             <span class="c1"># from the signed grub binary</span>
-            <span class="n">grub_image</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_signed_grub_loader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">)</span>
+            <span class="n">grub_image</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_signed_grub_loader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="n">target_type</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">grub_image</span> <span class="ow">and</span> <span class="n">grub_image</span><span class="o">.</span><span class="n">filename</span><span class="p">:</span>
                 <span class="n">bash_command</span> <span class="o">=</span> <span class="p">[</span>
                     <span class="s1">&#39;strings&#39;</span><span class="p">,</span> <span class="n">grub_image</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="s1">&#39;grep&#39;</span><span class="p">,</span> <span class="s1">&#39;EFI\/&#39;</span>
@@ -1994,7 +1996,9 @@
                         <span class="n">grub_default</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
                 <span class="n">grub_default</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">_setup_secure_boot_efi_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lookup_path</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mbrid</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_setup_secure_boot_efi_image</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">lookup_path</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mbrid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_type</span><span class="o">=</span><span class="s1">&#39;disk&#39;</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provide the shim loader and the shim signed grub2 loader</span>
 <span class="sd">        in the required boot path. Normally this task is done by</span>
@@ -2007,11 +2011,11 @@
 <span class="sd">        code should act as the fallback solution</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-            <span class="s1">&#39;--&gt; Running fallback setup for shim secure boot efi image&#39;</span>
+            <span class="s1">&#39;Running fallback setup for shim secure boot efi image&#39;</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">lookup_path</span><span class="p">:</span>
             <span class="n">lookup_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_dir</span>
-        <span class="n">grub_image</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_signed_grub_loader</span><span class="p">(</span><span class="n">lookup_path</span><span class="p">)</span>
+        <span class="n">grub_image</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_signed_grub_loader</span><span class="p">(</span><span class="n">lookup_path</span><span class="p">,</span> <span class="n">target_type</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">grub_image</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">KiwiBootLoaderGrubSecureBootError</span><span class="p">(</span>
                 <span class="s1">&#39;Signed grub2 efi loader not found&#39;</span>
@@ -2023,6 +2027,12 @@
             <span class="c1"># a grub image that got signed by the shim. The shim image</span>
             <span class="c1"># is the one that gets loaded by the firmware which itself</span>
             <span class="c1"># loads the second stage grub image</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;--&gt; Using shim image: </span><span class="si">{</span><span class="n">shim_image</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;--&gt; Using grub image: </span><span class="si">{</span><span class="n">grub_image</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="p">)</span>
             <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
                 <span class="p">[</span><span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="n">shim_image</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_efi_image_name</span><span class="p">()]</span>
             <span class="p">)</span>
@@ -2040,12 +2050,17 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># Without shim a self signed grub image is used that</span>
             <span class="c1"># gets loaded by the firmware</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;--&gt; No shim image, using grub image: </span><span class="si">{</span><span class="n">grub_image</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="p">)</span>
             <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
                 <span class="p">[</span><span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="n">grub_image</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_efi_image_name</span><span class="p">()]</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_create_efi_config_search</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">mbrid</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_setup_efi_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mbrid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lookup_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_setup_efi_image</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mbrid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lookup_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_type</span><span class="o">=</span><span class="s1">&#39;disk&#39;</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provide the unsigned grub2 efi image in the required boot path</span>
 <span class="sd">        If a prebuilt efi image as provided by the distribution could</span>
@@ -2055,9 +2070,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">lookup_path</span><span class="p">:</span>
             <span class="n">lookup_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_dir</span>
-        <span class="n">grub_image</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_unsigned_grub_loader</span><span class="p">(</span><span class="n">lookup_path</span><span class="p">)</span>
+        <span class="n">grub_image</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_unsigned_grub_loader</span><span class="p">(</span><span class="n">lookup_path</span><span class="p">,</span> <span class="n">target_type</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">grub_image</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_overlayroot_write_partition</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
-            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Using prebuilt unsigned efi image&#39;</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--&gt; Using prebuilt unsigned efi image: </span><span class="si">{</span><span class="n">grub_image</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
                 <span class="p">[</span><span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="n">grub_image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_efi_image_name</span><span class="p">()]</span>
             <span class="p">)</span>
@@ -2076,7 +2091,7 @@
             <span class="n">lookup_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_dir</span>
         <span class="n">grub_image</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_grub_bios_core_loader</span><span class="p">(</span><span class="n">lookup_path</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">grub_image</span><span class="p">:</span>
-            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Using prebuilt bios image&#39;</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--&gt; Using prebuilt bios image: </span><span class="si">{</span><span class="n">grub_image</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Creating bios image&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_create_bios_image</span><span class="p">(</span>

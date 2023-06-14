@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi Package &mdash; KIWI NG 9.24.61 documentation</title>
+  <title>kiwi Package &mdash; KIWI NG 9.25.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -856,8 +856,8 @@
 <li class="toctree-l4"><a class="reference internal" href="kiwi.package_manager.html#kiwi.package_manager.base.PackageManagerBase"><code class="docutils literal notranslate"><span class="pre">PackageManagerBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="kiwi.package_manager.html#module-kiwi.package_manager.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi.package_manager.html#module-kiwi.package_manager.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="kiwi.package_manager.html#kiwi.package_manager.dnf4.PackageManagerDnf4"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="kiwi.package_manager.html#module-kiwi.package_manager.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.zypper</span></code> Module</a><ul>
@@ -900,8 +900,8 @@
 <li class="toctree-l4"><a class="reference internal" href="kiwi.repository.html#kiwi.repository.base.RepositoryBase"><code class="docutils literal notranslate"><span class="pre">RepositoryBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="kiwi.repository.html#module-kiwi.repository.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="kiwi.repository.html#kiwi.repository.dnf.RepositoryDnf"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi.repository.html#module-kiwi.repository.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="kiwi.repository.html#kiwi.repository.dnf4.RepositoryDnf4"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="kiwi.repository.html#module-kiwi.repository.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.zypper</span></code> Module</a><ul>
@@ -2958,10 +2958,10 @@ to the file found</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.defaults.Defaults.get_signed_grub_loader">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_signed_grub_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#kiwi.defaults.grub_loader_type" title="kiwi.defaults.grub_loader_type"><span class="pre">grub_loader_type</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/defaults.html#Defaults.get_signed_grub_loader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.defaults.Defaults.get_signed_grub_loader" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_signed_grub_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'disk'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#kiwi.defaults.grub_loader_type" title="kiwi.defaults.grub_loader_type"><span class="pre">grub_loader_type</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/defaults.html#Defaults.get_signed_grub_loader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.defaults.Defaults.get_signed_grub_loader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides shim signed grub loader file path</p>
-<p>Searches distribution specific locations to find grub.efi
-below the given root path</p>
+<p>Searches distribution specific locations to find a grub
+EFI binary within the given root path</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>root_path</strong> (<em>str</em>) – image root path</p>
@@ -3075,10 +3075,10 @@ and directories created by kiwi during runtime</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.defaults.Defaults.get_unsigned_grub_loader">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_unsigned_grub_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/defaults.html#Defaults.get_unsigned_grub_loader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.defaults.Defaults.get_unsigned_grub_loader" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_unsigned_grub_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'disk'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/kiwi/defaults.html#Defaults.get_unsigned_grub_loader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.defaults.Defaults.get_unsigned_grub_loader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides unsigned grub efi loader file path</p>
-<p>Searches distribution specific locations to find grub.efi
-below the given root path</p>
+<p>Searches distribution specific locations to find a distro
+grub EFI binary within the given root path</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>root_path</strong> (<em>string</em>) – image root path</p>

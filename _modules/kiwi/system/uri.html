@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.uri &mdash; KIWI NG 9.24.61 documentation</title>
+  <title>kiwi.system.uri &mdash; KIWI NG 9.25.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -853,8 +853,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.base.PackageManagerBase"><code class="docutils literal notranslate"><span class="pre">PackageManagerBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.package_manager.html#kiwi.package_manager.dnf4.PackageManagerDnf4"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.package_manager.html#module-kiwi.package_manager.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.zypper</span></code> Module</a><ul>
@@ -897,8 +897,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.repository.html#kiwi.repository.base.RepositoryBase"><code class="docutils literal notranslate"><span class="pre">RepositoryBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.repository.html#module-kiwi.repository.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.repository.html#kiwi.repository.dnf.RepositoryDnf"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.repository.html#module-kiwi.repository.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.repository.html#kiwi.repository.dnf4.RepositoryDnf4"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.repository.html#module-kiwi.repository.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.zypper</span></code> Module</a><ul>
@@ -1246,7 +1246,7 @@
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">Request</span>
 <span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="c1"># project</span>
@@ -1426,18 +1426,18 @@
 
 <div class="viewcode-block" id="Uri.alias"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.uri.Uri.alias">[docs]</a>    <span class="k">def</span> <span class="nf">alias</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create hexdigest from URI as alias</span>
+<span class="sd">        Create hex representation of uuid4</span>
 
 <span class="sd">        If the repository definition from the XML description does</span>
 <span class="sd">        not provide an alias, kiwi creates one for you. However it&#39;s</span>
 <span class="sd">        better to assign a human readable alias in the XML</span>
 <span class="sd">        configuration</span>
 
-<span class="sd">        :return: alias name as hexdigest</span>
+<span class="sd">        :return: alias name as hex representation of uuid4</span>
 
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span></div>
+        <span class="k">return</span> <span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span></div>
 
 <div class="viewcode-block" id="Uri.is_remote"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.uri.Uri.is_remote">[docs]</a>    <span class="k">def</span> <span class="nf">is_remote</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>

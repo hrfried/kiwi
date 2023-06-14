@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Description Elements &mdash; KIWI NG 9.24.61 documentation</title>
+  <title>Image Description Elements &mdash; KIWI NG 9.25.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -856,8 +856,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.package_manager.html#kiwi.package_manager.base.PackageManagerBase"><code class="docutils literal notranslate"><span class="pre">PackageManagerBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.package_manager.html#kiwi.package_manager.dnf4.PackageManagerDnf4"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../api/kiwi.package_manager.html#module-kiwi.package_manager.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.zypper</span></code> Module</a><ul>
@@ -900,8 +900,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.repository.html#kiwi.repository.base.RepositoryBase"><code class="docutils literal notranslate"><span class="pre">RepositoryBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../api/kiwi.repository.html#module-kiwi.repository.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.repository.html#kiwi.repository.dnf.RepositoryDnf"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/kiwi.repository.html#module-kiwi.repository.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.repository.html#kiwi.repository.dnf4.RepositoryDnf4"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../api/kiwi.repository.html#module-kiwi.repository.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.zypper</span></code> Module</a><ul>
@@ -1227,7 +1227,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This document provides a reference for the elements
-and attributes of the KIWI NG XML document in version 9.24.61</p>
+and attributes of the KIWI NG XML document in version 9.25.0</p>
 </div>
 <section id="image">
 <span id="sec-image"></span><h2>&lt;image&gt;<a class="headerlink" href="#image" title="Permalink to this heading">¶</a></h2>
@@ -1371,7 +1371,7 @@ table shows which package manager is connected to which distributor:</p>
 <td><p>zypper</p></td>
 </tr>
 <tr class="row-odd"><td><p>RedHat</p></td>
-<td><p>dnf</p></td>
+<td><p>dnf4 / dnf5</p></td>
 </tr>
 <tr class="row-even"><td><p>Debian Based</p></td>
 <td><p>apt</p></td>
@@ -1493,7 +1493,7 @@ manager to define the distribution release.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The release version information is currently
-used in dnf and microdnf package managers only. It might
+used in dnf/dnf5 and microdnf package managers only. It might
 happen that it gets applied to the other package manager
 backends as well. This will happen on demand though.</p>
 </div>
@@ -2285,7 +2285,7 @@ For details see: <a class="reference internal" href="../building_images/build_ex
 </div>
 <p>The mandatory repository element specifies the location and type of a
 repository to be used by the package manager as a package installation
-source. KIWI NG supports apt, dnf, pacman and zypper as package managers,
+source. KIWI NG supports apt, dnf4, dnf5, pacman and zypper as package managers,
 specified with the packagemanager element. The repository element has
 the following optional attributes:</p>
 <dl>
@@ -2515,8 +2515,9 @@ with the name “patterns-” are representing a pattern package.</p>
 <p>Collections on RedHat</p>
 <p>On RedHat based distributions collections are called <code class="xref py py-obj docutils literal notranslate"><span class="pre">groups</span></code> and are
 extra metadata. To get the names of these groups type the following
-command: <code class="xref py py-obj docutils literal notranslate"><span class="pre">$</span> <span class="pre">dnf</span> <span class="pre">group</span> <span class="pre">list</span></code>. Please note that group names are allowed
-to contain whitespace characters.</p>
+command: <code class="xref py py-obj docutils literal notranslate"><span class="pre">$</span> <span class="pre">dnf</span> <span class="pre">group</span> <span class="pre">list</span> <span class="pre">-v</span></code>. Please note that since KIWI NG v9.23.39,
+group IDs are allowed only, e.g.:
+&lt;namedCollection name=”minimal-environment”/&gt;</p>
 </div>
 </section>
 <section id="packages-collectionmodule">

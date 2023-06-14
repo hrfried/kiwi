@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.defaults &mdash; KIWI NG 9.24.61 documentation</title>
+  <title>kiwi.defaults &mdash; KIWI NG 9.25.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -853,8 +853,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.package_manager.html#kiwi.package_manager.base.PackageManagerBase"><code class="docutils literal notranslate"><span class="pre">PackageManagerBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.package_manager.html#kiwi.package_manager.dnf4.PackageManagerDnf4"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/kiwi.package_manager.html#module-kiwi.package_manager.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.zypper</span></code> Module</a><ul>
@@ -897,8 +897,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.repository.html#kiwi.repository.base.RepositoryBase"><code class="docutils literal notranslate"><span class="pre">RepositoryBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/kiwi.repository.html#module-kiwi.repository.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.repository.html#kiwi.repository.dnf.RepositoryDnf"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/kiwi.repository.html#module-kiwi.repository.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.repository.html#kiwi.repository.dnf4.RepositoryDnf4"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/kiwi.repository.html#module-kiwi.repository.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.zypper</span></code> Module</a><ul>
@@ -2030,11 +2030,12 @@
             <span class="n">shim_pattern_type</span><span class="p">(</span><span class="s1">&#39;/usr/lib/shim/shim*.efi.signed&#39;</span><span class="p">,</span> <span class="s1">&#39;shimx64.efi&#39;</span><span class="p">),</span>
             <span class="n">shim_pattern_type</span><span class="p">(</span><span class="s1">&#39;/usr/share/efi/*/shim.efi&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
             <span class="n">shim_pattern_type</span><span class="p">(</span><span class="s1">&#39;/usr/lib64/efi/shim.efi&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-            <span class="n">shim_pattern_type</span><span class="p">(</span><span class="s1">&#39;/boot/efi/EFI/*/shim*.efi&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="n">shim_pattern_type</span><span class="p">(</span><span class="s1">&#39;/boot/efi/EFI/*/shim[a-z]*.efi&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="n">shim_pattern_type</span><span class="p">(</span><span class="s1">&#39;/boot/efi/EFI/*/shim.efi&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
             <span class="n">shim_pattern_type</span><span class="p">(</span><span class="s1">&#39;/usr/lib/shim/shim*.efi&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="p">]</span>
         <span class="k">for</span> <span class="n">shim_file_pattern</span> <span class="ow">in</span> <span class="n">shim_file_patterns</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">shim_file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">iglob</span><span class="p">(</span><span class="n">root_path</span> <span class="o">+</span> <span class="n">shim_file_pattern</span><span class="o">.</span><span class="n">pattern</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">shim_file</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">iglob</span><span class="p">(</span><span class="n">root_path</span> <span class="o">+</span> <span class="n">shim_file_pattern</span><span class="o">.</span><span class="n">pattern</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">):</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">shim_file_pattern</span><span class="o">.</span><span class="n">binaryname</span><span class="p">:</span>
                     <span class="n">binaryname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">shim_file</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
@@ -2089,12 +2090,14 @@
                 <span class="k">return</span> <span class="n">font_dir</span></div>
 
 <div class="viewcode-block" id="Defaults.get_unsigned_grub_loader"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_unsigned_grub_loader">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_unsigned_grub_loader</span><span class="p">(</span><span class="n">root_path</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_unsigned_grub_loader</span><span class="p">(</span>
+        <span class="n">root_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;disk&#39;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides unsigned grub efi loader file path</span>
 
-<span class="sd">        Searches distribution specific locations to find grub.efi</span>
-<span class="sd">        below the given root path</span>
+<span class="sd">        Searches distribution specific locations to find a distro</span>
+<span class="sd">        grub EFI binary within the given root path</span>
 
 <span class="sd">        :param string root_path: image root path</span>
 
@@ -2102,16 +2105,28 @@
 
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">unsigned_grub_file_patterns</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;/usr/share/grub*/*-efi/grub.efi&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/usr/lib/grub*/*-efi/grub.efi&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/boot/efi/EFI/*/grubx64.efi&#39;</span>
-        <span class="p">]</span>
-        <span class="k">for</span> <span class="n">unsigned_grub_file_pattern</span> <span class="ow">in</span> <span class="n">unsigned_grub_file_patterns</span><span class="p">:</span>
+        <span class="n">unsigned_grub_file</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">unsigned_grub_file_patterns</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;disk&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s1">&#39;/usr/share/grub*/*-efi/grub.efi&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;/usr/lib/grub*/*-efi/grub.efi&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;/boot/efi/EFI/*/grubx64.efi&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;/boot/efi/EFI/*/grubaa64.efi&#39;</span>
+            <span class="p">],</span>
+            <span class="s1">&#39;iso&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s1">&#39;/boot/efi/EFI/*/gcdx64.efi&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;/usr/share/grub*/*-efi/grub.efi&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;/usr/lib/grub*/*-efi/grub.efi&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;/boot/efi/EFI/*/grubx64.efi&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;/boot/efi/EFI/*/grubaa64.efi&#39;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">unsigned_grub_file_pattern</span> <span class="ow">in</span> <span class="n">unsigned_grub_file_patterns</span><span class="p">[</span><span class="n">target_type</span><span class="p">]:</span>
             <span class="k">for</span> <span class="n">unsigned_grub_file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">iglob</span><span class="p">(</span>
                 <span class="n">root_path</span> <span class="o">+</span> <span class="n">unsigned_grub_file_pattern</span>
             <span class="p">):</span>
-                <span class="k">return</span> <span class="n">unsigned_grub_file</span></div>
+                <span class="k">return</span> <span class="n">unsigned_grub_file</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="Defaults.get_grub_bios_core_loader"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_grub_bios_core_loader">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_grub_bios_core_loader</span><span class="p">(</span><span class="n">root_path</span><span class="p">):</span>
@@ -2194,12 +2209,14 @@
         <span class="k">return</span> <span class="s1">&#39;eltorito.img&#39;</span></div>
 
 <div class="viewcode-block" id="Defaults.get_signed_grub_loader"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_signed_grub_loader">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_signed_grub_loader</span><span class="p">(</span><span class="n">root_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">grub_loader_type</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">get_signed_grub_loader</span><span class="p">(</span>
+        <span class="n">root_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;disk&#39;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">grub_loader_type</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides shim signed grub loader file path</span>
 
-<span class="sd">        Searches distribution specific locations to find grub.efi</span>
-<span class="sd">        below the given root path</span>
+<span class="sd">        Searches distribution specific locations to find a grub</span>
+<span class="sd">        EFI binary within the given root path</span>
 
 <span class="sd">        :param str root_path: image root path</span>
 
@@ -2210,25 +2227,54 @@
         <span class="n">grub_pattern_type</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
             <span class="s1">&#39;grub_pattern_type&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;pattern&#39;</span><span class="p">,</span> <span class="s1">&#39;binaryname&#39;</span><span class="p">]</span>
         <span class="p">)</span>
-        <span class="n">signed_grub_file_patterns</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">grub_pattern_type</span><span class="p">(</span>
-                <span class="s1">&#39;/usr/share/efi/*/grub.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
-            <span class="p">),</span>
-            <span class="n">grub_pattern_type</span><span class="p">(</span>
-                <span class="s1">&#39;/usr/lib64/efi/grub.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
-            <span class="p">),</span>
-            <span class="n">grub_pattern_type</span><span class="p">(</span>
-                <span class="s1">&#39;/boot/efi/EFI/*/grub*.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
-            <span class="p">),</span>
-            <span class="n">grub_pattern_type</span><span class="p">(</span>
-                <span class="s1">&#39;/usr/share/grub*/*-efi/grub.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
-            <span class="p">),</span>
-            <span class="n">grub_pattern_type</span><span class="p">(</span>
-                <span class="s1">&#39;/usr/lib/grub/x86_64-efi-signed/grubx64.efi.signed&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;grubx64.efi&#39;</span>
-            <span class="p">)</span>
-        <span class="p">]</span>
-        <span class="k">for</span> <span class="n">signed_grub</span> <span class="ow">in</span> <span class="n">signed_grub_file_patterns</span><span class="p">:</span>
+        <span class="n">signed_grub_file_patterns</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;disk&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/usr/share/efi/*/grub.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/usr/lib64/efi/grub.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/boot/efi/EFI/*/grub*.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/usr/share/grub*/*-efi/grub.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/usr/lib/grub/x86_64-efi-signed/grubx64.efi.signed&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;grubx64.efi&#39;</span>
+                <span class="p">)</span>
+            <span class="p">],</span>
+            <span class="s1">&#39;iso&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/boot/efi/EFI/*/gcdx64.efi&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;grubx64.efi&#39;</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/boot/efi/EFI/*/gcdaa64.efi&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;grubaa64.efi&#39;</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/usr/share/efi/*/grub.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/usr/lib64/efi/grub.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/boot/efi/EFI/*/grub*.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/usr/share/grub*/*-efi/grub.efi&#39;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="p">),</span>
+                <span class="n">grub_pattern_type</span><span class="p">(</span>
+                    <span class="s1">&#39;/usr/lib/grub/x86_64-efi-signed/grubx64.efi.signed&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;grubx64.efi&#39;</span>
+                <span class="p">)</span>
+
+            <span class="p">]</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">signed_grub</span> <span class="ow">in</span> <span class="n">signed_grub_file_patterns</span><span class="p">[</span><span class="n">target_type</span><span class="p">]:</span>
             <span class="k">for</span> <span class="n">signed_grub_file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">iglob</span><span class="p">(</span><span class="n">root_path</span> <span class="o">+</span> <span class="n">signed_grub</span><span class="o">.</span><span class="n">pattern</span><span class="p">):</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">signed_grub</span><span class="o">.</span><span class="n">binaryname</span><span class="p">:</span>
                     <span class="n">binaryname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">signed_grub_file</span><span class="p">)</span>
@@ -3045,7 +3091,7 @@
 
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="s1">&#39;dnf&#39;</span></div>
+        <span class="k">return</span> <span class="s1">&#39;dnf4&#39;</span></div>
 
 <div class="viewcode-block" id="Defaults.get_default_packager_tool"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_default_packager_tool">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_default_packager_tool</span><span class="p">(</span><span class="n">package_manager</span><span class="p">):</span>
@@ -3058,7 +3104,7 @@
 
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">rpm_based</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;zypper&#39;</span><span class="p">,</span> <span class="s1">&#39;dnf&#39;</span><span class="p">,</span> <span class="s1">&#39;microdnf&#39;</span><span class="p">]</span>
+        <span class="n">rpm_based</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;zypper&#39;</span><span class="p">,</span> <span class="s1">&#39;dnf4&#39;</span><span class="p">,</span> <span class="s1">&#39;dnf5&#39;</span><span class="p">,</span> <span class="s1">&#39;microdnf&#39;</span><span class="p">]</span>
         <span class="n">deb_based</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apt&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">package_manager</span> <span class="ow">in</span> <span class="n">rpm_based</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;rpm&#39;</span>

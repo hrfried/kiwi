@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setting up Repositories &mdash; KIWI NG 9.24.61 documentation</title>
+  <title>Setting up Repositories &mdash; KIWI NG 9.25.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -856,8 +856,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.package_manager.html#kiwi.package_manager.base.PackageManagerBase"><code class="docutils literal notranslate"><span class="pre">PackageManagerBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.package_manager.html#kiwi.package_manager.dnf.PackageManagerDnf"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/kiwi.package_manager.html#module-kiwi.package_manager.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.package_manager.html#kiwi.package_manager.dnf4.PackageManagerDnf4"><code class="docutils literal notranslate"><span class="pre">PackageManagerDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../api/kiwi.package_manager.html#module-kiwi.package_manager.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.package_manager.zypper</span></code> Module</a><ul>
@@ -900,8 +900,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.repository.html#kiwi.repository.base.RepositoryBase"><code class="docutils literal notranslate"><span class="pre">RepositoryBase</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../api/kiwi.repository.html#module-kiwi.repository.dnf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf</span></code> Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.repository.html#kiwi.repository.dnf.RepositoryDnf"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/kiwi.repository.html#module-kiwi.repository.dnf4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.dnf4</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.repository.html#kiwi.repository.dnf4.RepositoryDnf4"><code class="docutils literal notranslate"><span class="pre">RepositoryDnf4</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../api/kiwi.repository.html#module-kiwi.repository.zypper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.repository.zypper</span></code> Module</a><ul>
@@ -1267,9 +1267,8 @@ the same package is available in more than one repository, then the one
 with the highest priority is used.</p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">alias</span></code>: Name to be used for this repository, it will appear as the
 repository’s name in the image, which is visible via <code class="docutils literal notranslate"><span class="pre">zypper</span> <span class="pre">repos</span></code> or
-<code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repolist</span></code>. KIWI NG will construct an alias from the path in the
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">source</span></code> child element (replacing each <code class="xref py py-obj docutils literal notranslate"><span class="pre">/</span></code> with a <code class="xref py py-obj docutils literal notranslate"><span class="pre">_</span></code>), if no value is
-given.</p></li>
+<code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repolist</span></code>. KIWI NG will construct an alias name as result of hex
+representation from uuid4, if no value is given.</p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">repository_gpgcheck</span></code>: Specify whether or not this specific repository is
 configured to to run repository signature validation. If not set, the
 package manager’s default is used.</p></li>
