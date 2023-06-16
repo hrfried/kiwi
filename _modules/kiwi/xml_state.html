@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.xml_state &mdash; KIWI NG 9.25.0 documentation</title>
+  <title>kiwi.xml_state &mdash; KIWI NG 9.25.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -1719,7 +1719,12 @@
             <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">package_list</span><span class="p">:</span>
                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">package</span><span class="o">.</span><span class="n">package_section</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_system_packages</span><span class="p">():</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_package_manager</span><span class="p">())</span>
+                <span class="n">package_manager_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_package_manager</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">package_manager_name</span> <span class="o">==</span> <span class="s1">&#39;dnf4&#39;</span><span class="p">:</span>
+                    <span class="c1"># The package name for dnf4 is just dnf. Thus</span>
+                    <span class="c1"># the name must be adapted in this case</span>
+                    <span class="n">package_manager_name</span> <span class="o">=</span> <span class="s1">&#39;dnf&#39;</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">package_manager_name</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">plus_packages</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">+=</span> <span class="n">plus_packages</span>
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">)))</span></div>
