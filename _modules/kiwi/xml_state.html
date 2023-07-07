@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.xml_state &mdash; KIWI NG 9.25.2 documentation</title>
+  <title>kiwi.xml_state &mdash; KIWI NG 9.25.3 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -2307,6 +2307,20 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bootloader_options</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="XMLState.get_build_type_bootloader_use_disk_password"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_use_disk_password">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_use_disk_password</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Indicate whether the bootloader configuration should use the</span>
+<span class="sd">        password protecting the encrypted root volume.</span>
+
+<span class="sd">        :return: True|False</span>
+
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">bootloader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_build_type_bootloader_section</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">bootloader</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">bootloader</span><span class="o">.</span><span class="n">get_use_disk_password</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
 <div class="viewcode-block" id="XMLState.get_build_type_oemconfig_section"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_oemconfig_section">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_oemconfig_section</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First oemconfig section from the build type section</span>
@@ -3593,6 +3607,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">luksversion</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_luks_version</span><span class="p">()</span>
         <span class="n">luksformat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_luksformat</span><span class="p">()</span>
+        <span class="n">luks_pbkdf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_luks_pbkdf</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">luksversion</span><span class="p">:</span>
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;--type&#39;</span><span class="p">)</span>
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">luksversion</span><span class="p">)</span>
@@ -3601,6 +3616,12 @@
                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">option</span><span class="o">.</span><span class="n">get_name</span><span class="p">())</span>
                 <span class="k">if</span> <span class="n">option</span><span class="o">.</span><span class="n">get_value</span><span class="p">():</span>
                     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">option</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">luks_pbkdf</span><span class="p">:</span>
+            <span class="c1"># Allow to override the pbkdf algorithm that cryptsetup</span>
+            <span class="c1"># uses by default. Cryptsetup may use argon2i by default,</span>
+            <span class="c1"># which is not supported by all bootloaders.</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;--pbkdf&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">luks_pbkdf</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="XMLState.get_derived_from_image_uri"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_derived_from_image_uri">[docs]</a>    <span class="k">def</span> <span class="nf">get_derived_from_image_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Uri</span><span class="p">]:</span>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.25.2 documentation</title>
+  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.25.3 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -1346,6 +1346,8 @@
             <span class="n">Defaults</span><span class="o">.</span><span class="n">get_volume_id</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">install_volid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_volid</span><span class="p">()</span> <span class="ow">or</span> \
             <span class="n">Defaults</span><span class="o">.</span><span class="n">get_install_volume_id</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_disk_password</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_bootloader_use_disk_password</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">live_boot_options</span> <span class="o">=</span> <span class="p">[</span>
             <span class="s1">&#39;root=live:CDLABEL=</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">volume_id</span><span class="p">),</span>
