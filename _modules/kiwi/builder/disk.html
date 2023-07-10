@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.builder.disk &mdash; KIWI NG 9.25.4 documentation</title>
+  <title>kiwi.builder.disk &mdash; KIWI NG 9.25.5 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -1348,6 +1348,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">hybrid_mbr</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_gpt_hybrid_mbr</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">force_mbr</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_force_mbr</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">luks</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_luks_credentials</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_disk_password</span> <span class="o">=</span> \
+            <span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_bootloader_use_disk_password</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">integrity_root</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_standalone_integrity</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">integrity_legacy_hmac</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_integrity_legacy_hmac</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">integrity_keyfile</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_integrity_keyfile</span><span class="p">()</span>
@@ -2748,9 +2750,6 @@
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">!=</span> <span class="s1">&#39;custom&#39;</span><span class="p">:</span>
             <span class="c1"># create bootloader config prior bootloader installation</span>
-            <span class="n">disk_password</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader_config</span><span class="o">.</span><span class="n">use_disk_password</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">luks</span><span class="p">:</span>
-                <span class="n">disk_password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">luks</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">bootloader_config</span><span class="o">.</span><span class="n">setup_disk_image_config</span><span class="p">(</span>
                     <span class="n">boot_options</span><span class="o">=</span><span class="n">custom_install_arguments</span>
@@ -2774,8 +2773,8 @@
                     <span class="n">bootloader</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
                 <span class="n">bootloader</span><span class="o">.</span><span class="n">secure_boot_install</span><span class="p">()</span>
 
-                <span class="k">if</span> <span class="n">disk_password</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">bootloader</span><span class="o">.</span><span class="n">set_disk_password</span><span class="p">(</span><span class="n">disk_password</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_disk_password</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">luks</span><span class="p">:</span>
+                    <span class="n">bootloader</span><span class="o">.</span><span class="n">set_disk_password</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">luks</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
                     <span class="s1">&#39;No install of bootcode on read-only root possible&#39;</span>
