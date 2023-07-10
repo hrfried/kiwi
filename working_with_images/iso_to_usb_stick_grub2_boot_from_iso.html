@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Booting a Live ISO Images from Grub2 &mdash; KIWI NG 9.25.3 documentation</title>
+  <title>Booting a Live ISO Images from Grub2 &mdash; KIWI NG 9.25.4 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -1263,12 +1263,12 @@ live ISO images supports this deployment mode.</p>
 <p>Be sure to set the path to the ISO image, you can set your own menu name.
 The drive identification for Grub2 can be checked at boot time
 by pressing the ‘c’ key and typing ‘ls’.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>menuentry<span class="w"> </span><span class="s2">&quot;Boot from openSUSE ISO&quot;</span><span class="w"> </span><span class="o">{</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>submenu<span class="w"> </span><span class="s2">&quot;Boot from openSUSE ISO&quot;</span><span class="w"> </span><span class="o">{</span>
 <span class="w">     </span><span class="nv">iso_path</span><span class="o">=</span><span class="s2">&quot;(hd0,gpt2)/path/to/openSUSE.iso&quot;</span>
 <span class="w">     </span><span class="nb">export</span><span class="w"> </span>iso_path
 <span class="w">     </span>loopback<span class="w"> </span>loop<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$iso_path</span><span class="s2">&quot;</span>
 <span class="w">     </span><span class="nv">root</span><span class="o">=(</span>loop<span class="o">)</span>
-<span class="w">     </span>configfile<span class="w"> </span>/boot/grub2/loopback.cfg
+<span class="w">     </span><span class="nb">source</span><span class="w"> </span>/boot/grub2/loopback.cfg
 <span class="w">     </span>loopback<span class="w"> </span>--delete<span class="w"> </span>loop
 <span class="o">}</span>
 </pre></div>

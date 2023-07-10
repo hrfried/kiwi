@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.xml_description &mdash; KIWI NG 9.25.3 documentation</title>
+  <title>kiwi.xml_description &mdash; KIWI NG 9.25.4 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -1236,16 +1236,14 @@
 <span class="c1"># You should have received a copy of the GNU General Public License</span>
 <span class="c1"># along with kiwi.  If not, see &lt;http://www.gnu.org/licenses/&gt;</span>
 <span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
 <span class="p">)</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">minidom</span>
-<span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">etree</span><span class="p">,</span>
-    <span class="n">isoschematron</span>
-<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
 
 <span class="c1"># project</span>
 <span class="kn">from</span> <span class="nn">kiwi.utils.temporary</span> <span class="kn">import</span> <span class="n">Temporary</span>
@@ -1303,18 +1301,26 @@
 
 <span class="sd">        :rtype: object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">isoschematron</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">schematron</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">isoschematron</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s1">&#39;lxml.isoschematron&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;schematron validation skipped: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">schema_doc</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">Defaults</span><span class="o">.</span><span class="n">get_schema_file</span><span class="p">())</span>
             <span class="n">relaxng</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">RelaxNG</span><span class="p">(</span><span class="n">schema_doc</span><span class="p">)</span>
-            <span class="n">schematron</span> <span class="o">=</span> <span class="n">isoschematron</span><span class="o">.</span><span class="n">Schematron</span><span class="p">(</span>
-                <span class="n">schema_doc</span><span class="p">,</span> <span class="n">store_report</span><span class="o">=</span><span class="kc">True</span>
-            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">isoschematron</span><span class="p">:</span>
+                <span class="n">schematron</span> <span class="o">=</span> <span class="n">isoschematron</span><span class="o">.</span><span class="n">Schematron</span><span class="p">(</span>
+                    <span class="n">schema_doc</span><span class="p">,</span> <span class="n">store_report</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">issue</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">KiwiSchemaImportError</span><span class="p">(</span><span class="n">issue</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">description</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
             <span class="n">validation_rng</span> <span class="o">=</span> <span class="n">relaxng</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
-            <span class="n">validation_schematron</span> <span class="o">=</span> <span class="n">schematron</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">schematron</span><span class="p">:</span>
+                <span class="n">validation_schematron</span> <span class="o">=</span> <span class="n">schematron</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">issue</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">KiwiValidationError</span><span class="p">(</span><span class="n">issue</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">validation_rng</span><span class="p">:</span>
@@ -1323,11 +1329,11 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
                 <span class="n">relaxng</span><span class="o">.</span><span class="n">error_log</span>
             <span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">validation_schematron</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">schematron</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">validation_schematron</span><span class="p">:</span>
             <span class="n">XMLDescription</span><span class="o">.</span><span class="n">_get_schematron_validation_details</span><span class="p">(</span>
                 <span class="n">schematron</span><span class="o">.</span><span class="n">validation_report</span>
             <span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">validation_rng</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">validation_schematron</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">validation_rng</span> <span class="ow">or</span> <span class="p">(</span><span class="n">schematron</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">validation_schematron</span><span class="p">):</span>
             <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
             <span class="k">raise</span> <span class="n">KiwiDescriptionInvalid</span><span class="p">(</span>
                 <span class="s1">&#39;Failed to validate schema and/or schematron rules. &#39;</span>
