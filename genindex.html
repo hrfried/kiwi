@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; KIWI NG 9.25.10 documentation</title>
+  <title>Index &mdash; KIWI NG 9.25.11 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
@@ -744,6 +744,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/kiwi.container.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/kiwi.container.html#module-kiwi.container.oci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.container.oci</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI"><code class="docutils literal notranslate"><span class="pre">ContainerImageOCI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/kiwi.container.html#kiwi.container.oci.OciConfig"><code class="docutils literal notranslate"><span class="pre">OciConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/kiwi.container.html#module-kiwi.container">Module Contents</a><ul>
@@ -1288,6 +1289,8 @@
         <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.add_repository">(kiwi.xml_state.XMLState method)</a>
 </li>
       </ul></li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.additional_names">additional_names (kiwi.container.oci.OciConfig attribute)</a>
+</li>
       <li><a href="api/kiwi.html#kiwi.xml_state.size_type.additive">additive (kiwi.xml_state.size_type attribute)</a>
 </li>
       <li><a href="api/kiwi.system.html#kiwi.system.uri.Uri.alias">alias() (kiwi.system.uri.Uri method)</a>
@@ -1510,6 +1513,10 @@
 </li>
       <li><a href="api/kiwi.html#kiwi.xml_state.description_type.contact">contact (kiwi.xml_state.description_type attribute)</a>
 </li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.container_name">container_name (kiwi.container.oci.OciConfig attribute)</a>
+</li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.container_tag">container_tag (kiwi.container.oci.OciConfig attribute)</a>
+</li>
       <li><a href="api/kiwi.builder.html#kiwi.builder.container.ContainerBuilder">ContainerBuilder (class in kiwi.builder.container)</a>
 </li>
       <li><a href="api/kiwi.container.html#kiwi.container.ContainerImage">ContainerImage (class in kiwi.container)</a>
@@ -1550,10 +1557,10 @@
 </li>
       <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.copy_strip_sections">copy_strip_sections() (kiwi.xml_state.XMLState method)</a>
 </li>
-      <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.copy_systemdisk_section">copy_systemdisk_section() (kiwi.xml_state.XMLState method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.copy_systemdisk_section">copy_systemdisk_section() (kiwi.xml_state.XMLState method)</a>
+</li>
       <li><a href="api/kiwi.system.html#kiwi.system.kernel.Kernel.copy_xen_hypervisor">copy_xen_hypervisor() (kiwi.system.kernel.Kernel method)</a>
 </li>
       <li><a href="api/kiwi.archive.html#kiwi.archive.cpio.ArchiveCpio.create">create() (kiwi.archive.cpio.ArchiveCpio method)</a>
@@ -1864,6 +1871,12 @@
 </li>
       <li><a href="api/kiwi.html#kiwi.firmware.FirmWare.efi_mode">efi_mode() (kiwi.firmware.FirmWare method)</a>
 </li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.entry_command">entry_command (kiwi.container.oci.OciConfig attribute)</a>
+</li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.entry_subcommand">entry_subcommand (kiwi.container.oci.OciConfig attribute)</a>
+</li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.environment">environment (kiwi.container.oci.OciConfig attribute)</a>
+</li>
       <li><a href="api/kiwi.html#kiwi.command.command_call_type.error">error (kiwi.command.command_call_type attribute)</a>
 
       <ul>
@@ -1872,10 +1885,10 @@
       </ul></li>
       <li><a href="api/kiwi.html#kiwi.command.command_call_type.error_available">error_available (kiwi.command.command_call_type attribute)</a>
 </li>
-      <li><a href="api/kiwi.html#kiwi.logger_filter.ErrorFilter">ErrorFilter (class in kiwi.logger_filter)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/kiwi.html#kiwi.logger_filter.ErrorFilter">ErrorFilter (class in kiwi.logger_filter)</a>
+</li>
       <li><a href="api/kiwi.system.html#kiwi.system.setup.SystemSetup.export_modprobe_setup">export_modprobe_setup() (kiwi.system.setup.SystemSetup method)</a>
 </li>
       <li><a href="api/kiwi.system.html#kiwi.system.setup.SystemSetup.export_package_changes">export_package_changes() (kiwi.system.setup.SystemSetup method)</a>
@@ -1883,6 +1896,8 @@
       <li><a href="api/kiwi.system.html#kiwi.system.setup.SystemSetup.export_package_list">export_package_list() (kiwi.system.setup.SystemSetup method)</a>
 </li>
       <li><a href="api/kiwi.system.html#kiwi.system.setup.SystemSetup.export_package_verification">export_package_verification() (kiwi.system.setup.SystemSetup method)</a>
+</li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.expose_ports">expose_ports (kiwi.container.oci.OciConfig attribute)</a>
 </li>
       <li><a href="api/kiwi.archive.html#kiwi.archive.cpio.ArchiveCpio.extract">extract() (kiwi.archive.cpio.ArchiveCpio method)</a>
 
@@ -2681,6 +2696,8 @@
       <li><a href="api/kiwi.storage.subformat.html#kiwi.storage.subformat.base.DiskFormatBase.has_raw_disk">has_raw_disk() (kiwi.storage.subformat.base.DiskFormatBase method)</a>
 </li>
       <li><a href="api/kiwi.html#kiwi.help.Help">Help (class in kiwi.help)</a>
+</li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.history">history (kiwi.container.oci.OciConfig attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -4119,6 +4136,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/kiwi.html#kiwi.xml_state.volume_type.label">label (kiwi.xml_state.volume_type attribute)</a>
 </li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.labels">labels (kiwi.container.oci.OciConfig attribute)</a>
+</li>
       <li><a href="api/kiwi.html#kiwi.firmware.FirmWare.legacy_bios_mode">legacy_bios_mode() (kiwi.firmware.FirmWare method)</a>
 </li>
       <li><a href="api/kiwi.iso_tools.html#kiwi.iso_tools.base.IsoToolsBase.list_iso">list_iso() (kiwi.iso_tools.base.IsoToolsBase method)</a>
@@ -4158,6 +4177,8 @@
       <li><a href="api/kiwi.system.html#kiwi.system.result.result_name_tags.m">m (kiwi.system.result.result_name_tags attribute)</a>
 </li>
       <li><a href="api/kiwi.html#kiwi.kiwi.main">main() (in module kiwi.kiwi)</a>
+</li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.maintainer">maintainer (kiwi.container.oci.OciConfig attribute)</a>
 </li>
       <li><a href="api/kiwi.storage.html#kiwi.storage.disk.Disk.map_partitions">map_partitions() (kiwi.storage.disk.Disk method)</a>
 </li>
@@ -4578,6 +4599,8 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig">OciConfig (class in kiwi.container.oci)</a>
+</li>
       <li><a href="api/kiwi.html#kiwi.firmware.FirmWare.ofw_mode">ofw_mode() (kiwi.firmware.FirmWare method)</a>
 </li>
       <li><a href="api/kiwi.boot.image.html#kiwi.boot.image.base.BootImageBase.omit_module">omit_module() (kiwi.boot.image.base.BootImageBase method)</a>
@@ -4586,10 +4609,10 @@
         <li><a href="api/kiwi.boot.image.html#kiwi.boot.image.dracut.BootImageDracut.omit_module">(kiwi.boot.image.dracut.BootImageDracut method)</a>
 </li>
       </ul></li>
-      <li><a href="api/kiwi.html#kiwi.firmware.FirmWare.opal_mode">opal_mode() (kiwi.firmware.FirmWare method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/kiwi.html#kiwi.firmware.FirmWare.opal_mode">opal_mode() (kiwi.firmware.FirmWare method)</a>
+</li>
       <li><a href="api/kiwi.html#kiwi.command.command_call_type.output">output (kiwi.command.command_call_type attribute)</a>
 
       <ul>
@@ -5322,6 +5345,8 @@
       </ul></li>
       <li><a href="api/kiwi.system.html#kiwi.system.result.result_file_type.use_for_bundle">use_for_bundle (kiwi.system.result.result_file_type attribute)</a>
 </li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.user">user (kiwi.container.oci.OciConfig attribute)</a>
+</li>
       <li><a href="api/kiwi.system.html#kiwi.system.users.Users.user_add">user_add() (kiwi.system.users.Users method)</a>
 </li>
       <li><a href="api/kiwi.system.html#kiwi.system.users.Users.user_exists">user_exists() (kiwi.system.users.Users method)</a>
@@ -5350,10 +5375,10 @@
 </li>
       <li><a href="api/kiwi.system.html#kiwi.system.kernel.kernel_type.version">version (kiwi.system.kernel.kernel_type attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/kiwi.storage.subformat.template.html#kiwi.storage.subformat.template.virtualbox_ovf.VirtualboxOvfTemplate">VirtualboxOvfTemplate (class in kiwi.storage.subformat.template.virtualbox_ovf)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/kiwi.storage.subformat.template.html#kiwi.storage.subformat.template.vmware_settings.VmwareSettingsTemplate">VmwareSettingsTemplate (class in kiwi.storage.subformat.template.vmware_settings)</a>
 </li>
       <li><a href="api/kiwi.html#kiwi.xml_state.volume_type">volume_type (class in kiwi.xml_state)</a>
@@ -5365,6 +5390,8 @@
       <li><a href="api/kiwi.volume_manager.html#kiwi.volume_manager.btrfs.VolumeManagerBtrfs">VolumeManagerBtrfs (class in kiwi.volume_manager.btrfs)</a>
 </li>
       <li><a href="api/kiwi.volume_manager.html#kiwi.volume_manager.lvm.VolumeManagerLVM">VolumeManagerLVM (class in kiwi.volume_manager.lvm)</a>
+</li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.volumes">volumes (kiwi.container.oci.OciConfig attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -5382,6 +5409,8 @@
         <li><a href="api/kiwi.storage.html#kiwi.storage.disk.Disk.wipe">(kiwi.storage.disk.Disk method)</a>
 </li>
       </ul></li>
+      <li><a href="api/kiwi.container.html#kiwi.container.oci.OciConfig.workingdir">workingdir (kiwi.container.oci.OciConfig attribute)</a>
+</li>
       <li><a href="api/kiwi.bootloader.config.html#kiwi.bootloader.config.base.BootLoaderConfigBase.write">write() (kiwi.bootloader.config.base.BootLoaderConfigBase method)</a>
 
       <ul>

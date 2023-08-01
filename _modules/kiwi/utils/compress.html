@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.utils.compress &mdash; KIWI NG 9.25.10 documentation</title>
+  <title>kiwi.utils.compress &mdash; KIWI NG 9.25.11 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -744,6 +744,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container.oci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.container.oci</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI"><code class="docutils literal notranslate"><span class="pre">ContainerImageOCI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#kiwi.container.oci.OciConfig"><code class="docutils literal notranslate"><span class="pre">OciConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container">Module Contents</a><ul>
@@ -1235,6 +1236,7 @@
 <span class="c1">#</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
 
 <span class="c1"># project</span>
 <span class="kn">from</span> <span class="nn">kiwi.utils.temporary</span> <span class="kn">import</span> <span class="n">Temporary</span>
@@ -1261,7 +1263,9 @@
 <span class="sd">    :param str uncompressed_filename:</span>
 <span class="sd">        Uncompressed file name path</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_filename</span><span class="p">,</span> <span class="n">keep_source_on_compress</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">source_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keep_source_on_compress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">source_filename</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">KiwiFileNotFound</span><span class="p">(</span>
                 <span class="s1">&#39;compression source file </span><span class="si">%s</span><span class="s1"> not found&#39;</span> <span class="o">%</span> <span class="n">source_filename</span>
@@ -1271,10 +1275,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">supported_zipper</span> <span class="o">=</span> <span class="p">[</span>
             <span class="s1">&#39;xz&#39;</span><span class="p">,</span> <span class="s1">&#39;gzip&#39;</span>
         <span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">compressed_filename</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">uncompressed_filename</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compressed_filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uncompressed_filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="Compress.xz"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.xz">[docs]</a>    <span class="k">def</span> <span class="nf">xz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Compress.xz"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.xz">[docs]</a>    <span class="k">def</span> <span class="nf">xz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create XZ compressed file</span>
 
@@ -1282,6 +1286,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">options</span><span class="p">:</span>
             <span class="n">options</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_xz_compression_options</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">options</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">keep_source</span><span class="p">:</span>
             <span class="n">options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;--keep&#39;</span><span class="p">)</span>
         <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
@@ -1290,7 +1295,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">compressed_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_filename</span> <span class="o">+</span> <span class="s1">&#39;.xz&#39;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressed_filename</span></div>
 
-<div class="viewcode-block" id="Compress.gzip"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.gzip">[docs]</a>    <span class="k">def</span> <span class="nf">gzip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Compress.gzip"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.gzip">[docs]</a>    <span class="k">def</span> <span class="nf">gzip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create gzip(max compression) compressed file</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1305,7 +1310,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">compressed_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_filename</span> <span class="o">+</span> <span class="s1">&#39;.gz&#39;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressed_filename</span></div>
 
-<div class="viewcode-block" id="Compress.uncompress"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.uncompress">[docs]</a>    <span class="k">def</span> <span class="nf">uncompress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temporary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Compress.uncompress"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.uncompress">[docs]</a>    <span class="k">def</span> <span class="nf">uncompress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temporary</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Uncompress with format autodetection</span>
 
@@ -1334,7 +1339,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">uncompressed_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp_file</span><span class="o">.</span><span class="n">name</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">uncompressed_filename</span></div>
 
-<div class="viewcode-block" id="Compress.get_format"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.get_format">[docs]</a>    <span class="k">def</span> <span class="nf">get_format</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Compress.get_format"><a class="viewcode-back" href="../../../api/kiwi.utils.html#kiwi.utils.compress.Compress.get_format">[docs]</a>    <span class="k">def</span> <span class="nf">get_format</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Detect compression format</span>
 
@@ -1355,7 +1360,8 @@
                         <span class="n">exc_t</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                         <span class="n">exc</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
                     <span class="p">)</span>
-                <span class="p">)</span></div></div>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div></div>
 </pre></div>
 
            </div>

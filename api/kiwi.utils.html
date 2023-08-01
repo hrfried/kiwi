@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.utils Package &mdash; KIWI NG 9.25.10 documentation</title>
+  <title>kiwi.utils Package &mdash; KIWI NG 9.25.11 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -747,6 +747,7 @@
 <li class="toctree-l3"><a class="reference internal" href="kiwi.container.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kiwi.container.html#module-kiwi.container.oci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.container.oci</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="kiwi.container.html#kiwi.container.oci.ContainerImageOCI"><code class="docutils literal notranslate"><span class="pre">ContainerImageOCI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="kiwi.container.html#kiwi.container.oci.OciConfig"><code class="docutils literal notranslate"><span class="pre">OciConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="kiwi.container.html#module-kiwi.container">Module Contents</a><ul>
@@ -1385,7 +1386,7 @@ method returns True, or False in case it does not match</p>
 <span id="kiwi-utils-compress-module"></span><h2><a class="reference internal" href="#module-kiwi.utils.compress" title="kiwi.utils.compress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.utils.compress</span></code></a> Module<a class="headerlink" href="#module-kiwi.utils.compress" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="kiwi.utils.compress.Compress">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.utils.compress.</span></span><span class="sig-name descname"><span class="pre">Compress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_source_on_compress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.utils.compress.</span></span><span class="sig-name descname"><span class="pre">Compress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_source_on_compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><strong>File compression / decompression</strong></p>
 <dl class="field-list simple">
@@ -1402,7 +1403,7 @@ compression suffix</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.utils.compress.Compress.get_format">
-<span class="sig-name descname"><span class="pre">get_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.get_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.get_format" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.get_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.get_format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detect compression format</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1416,13 +1417,13 @@ compression suffix</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.utils.compress.Compress.gzip">
-<span class="sig-name descname"><span class="pre">gzip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.gzip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.gzip" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">gzip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.gzip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.gzip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create gzip(max compression) compressed file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.utils.compress.Compress.uncompress">
-<span class="sig-name descname"><span class="pre">uncompress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temporary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.uncompress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.uncompress" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">uncompress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temporary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.uncompress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.uncompress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uncompress with format autodetection</p>
 <p>By default the original source file will be changed into
 the uncompressed variant. If temporary is set to True
@@ -1436,7 +1437,7 @@ a temporary file is created instead</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.utils.compress.Compress.xz">
-<span class="sig-name descname"><span class="pre">xz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.xz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.xz" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">xz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/kiwi/utils/compress.html#Compress.xz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.utils.compress.Compress.xz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create XZ compressed file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

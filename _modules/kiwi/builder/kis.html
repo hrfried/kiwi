@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.builder.kis &mdash; KIWI NG 9.25.10 documentation</title>
+  <title>kiwi.builder.kis &mdash; KIWI NG 9.25.11 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -744,6 +744,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container.oci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.container.oci</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI"><code class="docutils literal notranslate"><span class="pre">ContainerImageOCI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#kiwi.container.oci.OciConfig"><code class="docutils literal notranslate"><span class="pre">OciConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container">Module Contents</a><ul>
@@ -1343,8 +1344,7 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressed</span><span class="p">:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;xz compressing root filesystem image&#39;</span><span class="p">)</span>
                 <span class="n">compress</span> <span class="o">=</span> <span class="n">Compress</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
-                <span class="n">compress</span><span class="o">.</span><span class="n">xz</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xz_options</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">compress</span><span class="o">.</span><span class="n">compressed_filename</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">compress</span><span class="o">.</span><span class="n">xz</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xz_options</span><span class="p">)</span>
 
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating root filesystem MD5 checksum&#39;</span><span class="p">)</span>
             <span class="n">checksum</span> <span class="o">=</span> <span class="n">Checksum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>

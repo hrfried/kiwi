@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.container &mdash; KIWI NG 9.25.10 documentation</title>
+  <title>kiwi.container &mdash; KIWI NG 9.25.11 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -744,6 +744,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/kiwi.container.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/kiwi.container.html#module-kiwi.container.oci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.container.oci</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI"><code class="docutils literal notranslate"><span class="pre">ContainerImageOCI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.container.html#kiwi.container.oci.OciConfig"><code class="docutils literal notranslate"><span class="pre">OciConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/kiwi.container.html#module-kiwi.container">Module Contents</a><ul>
@@ -1240,6 +1241,7 @@
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
 
+<span class="kn">from</span> <span class="nn">kiwi.container.base</span> <span class="kn">import</span> <span class="n">ContainerImageBase</span>
 <span class="kn">from</span> <span class="nn">kiwi.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">KiwiContainerImageSetupError</span>
 <span class="p">)</span>
@@ -1258,7 +1260,7 @@
         <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># pragma: no cover</span>
 
 <div class="viewcode-block" id="ContainerImage.new"><a class="viewcode-back" href="../../api/kiwi.container.html#kiwi.container.ContainerImage.new">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Dict</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># noqa: E252</span>
+    <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Dict</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ContainerImageBase</span><span class="p">:</span>  <span class="c1"># noqa: E252</span>
         <span class="n">name_map</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;docker&#39;</span><span class="p">:</span> <span class="s1">&#39;OCI&#39;</span><span class="p">,</span>
             <span class="s1">&#39;oci&#39;</span><span class="p">:</span> <span class="s1">&#39;OCI&#39;</span><span class="p">,</span>

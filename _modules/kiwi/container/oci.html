@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.container.oci &mdash; KIWI NG 9.25.10 documentation</title>
+  <title>kiwi.container.oci &mdash; KIWI NG 9.25.11 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -744,6 +744,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container.oci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.container.oci</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI"><code class="docutils literal notranslate"><span class="pre">ContainerImageOCI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#kiwi.container.oci.OciConfig"><code class="docutils literal notranslate"><span class="pre">OciConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container">Module Contents</a><ul>
@@ -1236,20 +1237,40 @@
 <span class="c1">#</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
-<span class="p">)</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>  <span class="c1"># pragma: no cover</span>
+<span class="k">else</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>  <span class="c1"># pragma: no cover</span>
 
 <span class="c1"># project</span>
 <span class="kn">from</span> <span class="nn">kiwi.utils.compress</span> <span class="kn">import</span> <span class="n">Compress</span>
 <span class="kn">from</span> <span class="nn">kiwi.runtime_config</span> <span class="kn">import</span> <span class="n">RuntimeConfig</span>
 <span class="kn">from</span> <span class="nn">kiwi.defaults</span> <span class="kn">import</span> <span class="n">Defaults</span>
 <span class="kn">from</span> <span class="nn">kiwi.oci_tools</span> <span class="kn">import</span> <span class="n">OCI</span>
+<span class="kn">from</span> <span class="nn">kiwi.container.base</span> <span class="kn">import</span> <span class="n">ContainerImageBase</span>
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;kiwi&#39;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ContainerImageOCI"><a class="viewcode-back" href="../../../api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI">[docs]</a><span class="k">class</span> <span class="nc">ContainerImageOCI</span><span class="p">:</span>
+<div class="viewcode-block" id="OciConfig"><a class="viewcode-back" href="../../../api/kiwi.container.html#kiwi.container.oci.OciConfig">[docs]</a><span class="k">class</span> <span class="nc">OciConfig</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">container_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">container_tag</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">additional_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">entry_command</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">entry_subcommand</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">maintainer</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">user</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">workingdir</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">expose_ports</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">volumes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">environment</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+    <span class="n">labels</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+    <span class="n">history</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="ContainerImageOCI"><a class="viewcode-back" href="../../../api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI">[docs]</a><span class="k">class</span> <span class="nc">ContainerImageOCI</span><span class="p">(</span><span class="n">ContainerImageBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create oci container from a root directory</span>
 
@@ -1282,13 +1303,10 @@
 <span class="sd">            }</span>
 <span class="sd">        }</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">transport</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{}):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">transport</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">OciConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">=</span> <span class="n">root_dir</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">archive_transport</span> <span class="o">=</span> <span class="n">transport</span>
-        <span class="k">if</span> <span class="n">custom_args</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">oci_config</span> <span class="o">=</span> <span class="n">custom_args</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">oci_config</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oci_config</span> <span class="o">=</span> <span class="n">custom_args</span> <span class="ow">or</span> <span class="p">{}</span>
 
         <span class="c1"># for builds inside the buildservice we include a reference to the</span>
         <span class="c1"># specific build. Thus disturl label only exists inside the</span>
@@ -1324,7 +1342,7 @@
 <div class="viewcode-block" id="ContainerImageOCI.create"><a class="viewcode-back" href="../../../api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">base_image</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">ensure_empty_tmpdirs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">compress_archive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="p">):</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create compressed oci system container tar archive</span>
 
@@ -1393,8 +1411,7 @@
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">compress_archive</span><span class="p">:</span>
             <span class="n">compress</span> <span class="o">=</span> <span class="n">Compress</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-            <span class="n">compress</span><span class="o">.</span><span class="n">xz</span><span class="p">(</span><span class="n">RuntimeConfig</span><span class="p">()</span><span class="o">.</span><span class="n">get_xz_options</span><span class="p">())</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="n">compress</span><span class="o">.</span><span class="n">compressed_filename</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">compress</span><span class="o">.</span><span class="n">xz</span><span class="p">(</span><span class="n">RuntimeConfig</span><span class="p">()</span><span class="o">.</span><span class="n">get_xz_options</span><span class="p">())</span>
 
         <span class="k">return</span> <span class="n">filename</span></div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.iso_tools.xorriso &mdash; KIWI NG 9.25.10 documentation</title>
+  <title>kiwi.iso_tools.xorriso &mdash; KIWI NG 9.25.11 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -744,6 +744,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container.oci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.container.oci</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI"><code class="docutils literal notranslate"><span class="pre">ContainerImageOCI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#kiwi.container.oci.OciConfig"><code class="docutils literal notranslate"><span class="pre">OciConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container">Module Contents</a><ul>
@@ -1236,14 +1237,14 @@
 <span class="c1">#</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+    <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
 <span class="p">)</span>
 
 <span class="c1"># project</span>
 <span class="kn">from</span> <span class="nn">kiwi.iso_tools.base</span> <span class="kn">import</span> <span class="n">IsoToolsBase</span>
 <span class="kn">from</span> <span class="nn">kiwi.path</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">kiwi.command</span> <span class="kn">import</span> <span class="n">Command</span>
-<span class="kn">from</span> <span class="nn">kiwi.exceptions</span> <span class="kn">import</span> <span class="n">KiwiIsoToolError</span>
+<span class="kn">from</span> <span class="nn">kiwi.exceptions</span> <span class="kn">import</span> <span class="n">KiwiFileNotFound</span><span class="p">,</span> <span class="n">KiwiIsoToolError</span>
 <span class="kn">from</span> <span class="nn">kiwi.defaults</span> <span class="kn">import</span> <span class="n">Defaults</span>
 
 
@@ -1282,7 +1283,7 @@
         <span class="k">raise</span> <span class="n">KiwiIsoToolError</span><span class="p">(</span><span class="s1">&#39;xorriso tool not found&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="IsoToolsXorrIso.init_iso_creation_parameters"><a class="viewcode-back" href="../../../api/kiwi.iso_tools.html#kiwi.iso_tools.xorriso.IsoToolsXorrIso.init_iso_creation_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">init_iso_creation_parameters</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a set of standard parameters</span>
@@ -1332,9 +1333,12 @@
                 <span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">loader_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_path</span> <span class="o">+</span> <span class="s1">&#39;/loader/isolinux.bin&#39;</span>
-                <span class="n">mbr_file</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">which</span><span class="p">(</span>
+                <span class="n">mbr_file_c</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">which</span><span class="p">(</span>
                     <span class="s1">&#39;isohdpfx.bin&#39;</span><span class="p">,</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_syslinux_search_paths</span><span class="p">()</span>
                 <span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">mbr_file_c</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">KiwiFileNotFound</span><span class="p">(</span><span class="s2">&quot;isohdpfx.bin not found in the systlinux search paths&quot;</span><span class="p">)</span>
+                <span class="n">mbr_file</span> <span class="o">=</span> <span class="n">mbr_file_c</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">iso_loaders</span> <span class="o">+=</span> <span class="p">[</span>
                     <span class="s1">&#39;-boot_image&#39;</span><span class="p">,</span> <span class="s1">&#39;isolinux&#39;</span><span class="p">,</span> <span class="s1">&#39;bin_path=</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                         <span class="n">loader_file</span>

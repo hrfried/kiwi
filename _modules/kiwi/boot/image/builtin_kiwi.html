@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.boot.image.builtin_kiwi &mdash; KIWI NG 9.25.10 documentation</title>
+  <title>kiwi.boot.image.builtin_kiwi &mdash; KIWI NG 9.25.11 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -744,6 +744,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/kiwi.container.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/kiwi.container.html#module-kiwi.container.oci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.container.oci</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.container.html#kiwi.container.oci.ContainerImageOCI"><code class="docutils literal notranslate"><span class="pre">ContainerImageOCI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/kiwi.container.html#kiwi.container.oci.OciConfig"><code class="docutils literal notranslate"><span class="pre">OciConfig</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/kiwi.container.html#module-kiwi.container">Module Contents</a><ul>
@@ -1418,10 +1419,9 @@
             <span class="n">compress</span> <span class="o">=</span> <span class="n">Compress</span><span class="p">(</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span><span class="p">,</span> <span class="n">kiwi_initrd_basename</span><span class="p">])</span>
             <span class="p">)</span>
-            <span class="n">compress</span><span class="o">.</span><span class="n">xz</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initrd_filename</span> <span class="o">=</span> <span class="n">compress</span><span class="o">.</span><span class="n">xz</span><span class="p">(</span>
                 <span class="p">[</span><span class="s1">&#39;--check=crc32&#39;</span><span class="p">,</span> <span class="s1">&#39;--lzma2=dict=1MiB&#39;</span><span class="p">,</span> <span class="s1">&#39;--threads=0&#39;</span><span class="p">]</span>
-            <span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">initrd_filename</span> <span class="o">=</span> <span class="n">compress</span><span class="o">.</span><span class="n">compressed_filename</span></div>
+            <span class="p">)</span></div>
 
 <div class="viewcode-block" id="BootImageKiwi.cleanup"><a class="viewcode-back" href="../../../../api/kiwi.boot.image.html#kiwi.boot.image.builtin_kiwi.BootImageKiwi.cleanup">[docs]</a>    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp_directories</span><span class="p">:</span>
