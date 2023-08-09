@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.builder.install &mdash; KIWI NG 9.25.11 documentation</title>
+  <title>kiwi.builder.install &mdash; KIWI NG 9.25.12 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
@@ -1433,7 +1433,9 @@
                 <span class="s1">&#39;grub2&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span> <span class="n">root_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span>
                 <span class="n">boot_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">media_dir</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">custom_args</span><span class="o">=</span><span class="p">{</span>
                     <span class="s1">&#39;grub_directory_name&#39;</span><span class="p">:</span>
-                        <span class="n">Defaults</span><span class="o">.</span><span class="n">get_grub_boot_directory_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">)</span>
+                        <span class="n">Defaults</span><span class="o">.</span><span class="n">get_grub_boot_directory_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">),</span>
+                    <span class="s1">&#39;grub_load_command&#39;</span><span class="p">:</span>
+                        <span class="s1">&#39;configfile&#39;</span>
                 <span class="p">}</span>
             <span class="p">)</span>
             <span class="n">bootloader_config</span><span class="o">.</span><span class="n">setup_install_boot_images</span><span class="p">(</span>

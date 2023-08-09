@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.25.11 documentation</title>
+  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 9.25.12 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
@@ -1312,6 +1312,11 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">boot_directory_name</span> <span class="o">=</span> <span class="s1">&#39;grub&#39;</span>
 
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span> <span class="ow">and</span> <span class="s1">&#39;grub_load_command&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">grub_load</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">[</span><span class="s1">&#39;grub_load_command&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">grub_load</span> <span class="o">=</span> <span class="s1">&#39;source&#39;</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span> <span class="ow">and</span> <span class="s1">&#39;config_options&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">config_options</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">[</span><span class="s1">&#39;config_options&#39;</span><span class="p">]</span>
 
@@ -1541,7 +1546,7 @@
             <span class="s1">&#39;theme&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">theme</span><span class="p">,</span>
             <span class="s1">&#39;boot_timeout&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
             <span class="s1">&#39;boot_timeout_style&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout_style</span> <span class="ow">or</span> <span class="s1">&#39;menu&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;serial_line_setup&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">serial_line_setup</span> <span class="ow">or</span> <span class="s1">&#39;serial&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;serial_line_setup&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">serial_line_setup</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_menu_entry_install_title</span><span class="p">(),</span>
             <span class="s1">&#39;bootpath&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_boot_path</span><span class="p">(</span><span class="s1">&#39;iso&#39;</span><span class="p">),</span>
             <span class="s1">&#39;boot_directory_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_directory_name</span><span class="p">,</span>
@@ -1606,7 +1611,7 @@
             <span class="s1">&#39;theme&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">theme</span><span class="p">,</span>
             <span class="s1">&#39;boot_timeout&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
             <span class="s1">&#39;boot_timeout_style&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout_style</span> <span class="ow">or</span> <span class="s1">&#39;menu&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;serial_line_setup&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">serial_line_setup</span> <span class="ow">or</span> <span class="s1">&#39;serial&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;serial_line_setup&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">serial_line_setup</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_menu_entry_title</span><span class="p">(</span><span class="n">plain</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
             <span class="s1">&#39;bootpath&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_boot_path</span><span class="p">(</span><span class="s1">&#39;iso&#39;</span><span class="p">),</span>
             <span class="s1">&#39;boot_directory_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_directory_name</span><span class="p">,</span>
@@ -2313,8 +2318,9 @@
                 <span class="p">)</span>
             <span class="p">)</span>
             <span class="n">early_boot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-                <span class="s1">&#39;source ($root)</span><span class="si">{0}</span><span class="s1">/</span><span class="si">{1}</span><span class="s1">/grub.cfg</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">get_boot_path</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_directory_name</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
+                <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> ($root)</span><span class="si">{1}</span><span class="s1">/</span><span class="si">{2}</span><span class="s1">/grub.cfg</span><span class="si">{3}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">grub_load</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_boot_path</span><span class="p">(),</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">boot_directory_name</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
                 <span class="p">)</span>
             <span class="p">)</span>
 
@@ -2334,8 +2340,8 @@
                 <span class="p">)</span>
             <span class="p">)</span>
             <span class="n">early_boot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-                <span class="s1">&#39;source ($root)/boot/</span><span class="si">{0}</span><span class="s1">/grub.cfg</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">boot_directory_name</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
+                <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> ($root)/boot/</span><span class="si">{1}</span><span class="s1">/grub.cfg</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">grub_load</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_directory_name</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
                 <span class="p">)</span>
             <span class="p">)</span>
 
@@ -2553,7 +2559,7 @@
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_fix_grub_to_support_dynamic_efi_and_bios_boot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_file</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">():</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">arch</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;x86_64&#39;</span><span class="p">,</span> <span class="s1">&#39;ix86&#39;</span><span class="p">]:</span>
             <span class="c1"># On systems that are configured to use EFI with grub2</span>
             <span class="c1"># there is no support for dynamic EFI environment checking.</span>
             <span class="c1"># In this condition we change the grub config to add this</span>
