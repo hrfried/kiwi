@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.xml_state &mdash; KIWI NG 9.25.14 documentation</title>
+  <title>kiwi.xml_state &mdash; KIWI NG 9.25.15 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -11,7 +11,7 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/documentation_options.js?v=1b8481f6"></script>
+        <script src="../../_static/documentation_options.js?v=bffc05ef"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -3427,9 +3427,22 @@
 <span class="sd">        Get list of signing keys specified on the repositories</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">key_file_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">release_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_release_version</span><span class="p">()</span>
+        <span class="n">release_vars</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;$releasever&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;$</span><span class="si">{releasever}</span><span class="s1">&#39;</span>
+        <span class="p">]</span>
         <span class="k">for</span> <span class="n">repository</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_repository_sections</span><span class="p">()</span> <span class="ow">or</span> <span class="p">[]:</span>
             <span class="k">for</span> <span class="n">signing</span> <span class="ow">in</span> <span class="n">repository</span><span class="o">.</span><span class="n">get_source</span><span class="p">()</span><span class="o">.</span><span class="n">get_signing</span><span class="p">()</span> <span class="ow">or</span> <span class="p">[]:</span>
-                <span class="n">key_file_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Uri</span><span class="p">(</span><span class="n">signing</span><span class="o">.</span><span class="n">get_key</span><span class="p">())</span><span class="o">.</span><span class="n">translate</span><span class="p">())</span>
+                <span class="n">normalized_key_url</span> <span class="o">=</span> <span class="n">Uri</span><span class="p">(</span><span class="n">signing</span><span class="o">.</span><span class="n">get_key</span><span class="p">())</span><span class="o">.</span><span class="n">translate</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">release_version</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">release_var</span> <span class="ow">in</span> <span class="n">release_vars</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">release_var</span> <span class="ow">in</span> <span class="n">normalized_key_url</span><span class="p">:</span>
+                            <span class="n">normalized_key_url</span> <span class="o">=</span> <span class="n">normalized_key_url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                                <span class="n">release_var</span><span class="p">,</span> <span class="n">release_version</span>
+                            <span class="p">)</span>
+                <span class="k">if</span> <span class="n">normalized_key_url</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">key_file_list</span><span class="p">:</span>
+                    <span class="n">key_file_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">normalized_key_url</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">key_file_list</span></div>
 
 
