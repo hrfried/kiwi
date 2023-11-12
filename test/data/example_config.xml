@@ -91,6 +91,7 @@
                 <oem-resize>false</oem-resize>
             </oemconfig>
         </type>
+        <containerruntime>podman</containerruntime>
     </preferences>
     <preferences profiles="xenDomUFlavour">
         <type image="oem" filesystem="ext3" bootprofile="xen" bootkernel="xenk" kernelcmdline="splash">
@@ -196,6 +197,7 @@
             <signing key="file:key_b"/>
         </source>
     </repository>
+    <registry profiles="ec2Flavour" path="registry.opensuse.org"/>
     <packages type="image" patternType="plusRecommended">
         <namedCollection name="base"/>
         <product name="openSUSE"/>
@@ -218,6 +220,8 @@
         <package name="kernel-ec2"/>
         <package name="xen-tools" arch="x86_64"/>
         <package name="xen" arch="x86_64"/>
+        <package name="podman"/>
+        <container location="opensuse/distrobox"/>
     </packages>
     <packages type="image" profiles="xenDom0Flavour,xenDomUFlavour">
         <package name="kernel-xen"/>
