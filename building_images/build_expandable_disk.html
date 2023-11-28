@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build an Expandable Disk Image &mdash; KIWI NG 9.25.18 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <title>Build an Expandable Disk Image &mdash; KIWI NG 9.25.19 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -1020,6 +1022,14 @@ in the initrd</p>
 automatically without requiring user interaction. If multiple
 possible target devices are discovered the image is deployed to
 the first device. <code class="docutils literal notranslate"><span class="pre">kiwi_oemunattended</span></code> in the initrd</p>
+</dd>
+<dt>oemconfig.oem-unattended-id Element</dt><dd><p>The target disk device for the installation is selected according
+to the specified device ID. The device ID corresponds to the name of
+the device as it exists for the configured <code class="xref py py-obj docutils literal notranslate"><span class="pre">devicepersistency</span></code>. By
+default this is the <code class="xref py py-obj docutils literal notranslate"><span class="pre">by-uuid</span></code> device name. If no such representation
+exist e.g for ramdisk devices, the unix device node can be used
+to select. The given name must be present in the device list detected
+by kiwi.</p>
 </dd>
 <dt>oemconfig.oem-skip-verify Element</dt><dd><p>Do not perform the checksum verification process after install
 of the image to the target disk. The verification process computes

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.builder.live &mdash; KIWI NG 9.25.18 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <title>kiwi.builder.live &mdash; KIWI NG 9.25.19 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -718,6 +720,7 @@
 <span class="kn">from</span> <span class="nn">kiwi.runtime_config</span> <span class="kn">import</span> <span class="n">RuntimeConfig</span>
 <span class="kn">from</span> <span class="nn">kiwi.iso_tools.base</span> <span class="kn">import</span> <span class="n">IsoToolsBase</span>
 <span class="kn">from</span> <span class="nn">kiwi.xml_state</span> <span class="kn">import</span> <span class="n">XMLState</span>
+<span class="kn">from</span> <span class="nn">kiwi.command</span> <span class="kn">import</span> <span class="n">Command</span>
 
 <span class="kn">from</span> <span class="nn">kiwi.exceptions</span> <span class="kn">import</span> <span class="n">KiwiLiveBootImageError</span>
 
@@ -737,6 +740,9 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">xml_state</span><span class="p">:</span> <span class="n">XMLState</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">custom_args</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_bootloader_name</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">!=</span> <span class="s1">&#39;systemd_boot&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">=</span> <span class="s1">&#39;grub2&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">arch</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_platform_name</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">=</span> <span class="n">root_dir</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span> <span class="o">=</span> <span class="n">target_dir</span>
@@ -754,7 +760,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">live_type</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_default_live_iso_type</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span> <span class="o">=</span> <span class="n">BootImageDracut</span><span class="p">(</span>
-            <span class="n">xml_state</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
+            <span class="n">xml_state</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root_dir</span><span class="si">}</span><span class="s1">/boot&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">==</span> <span class="s1">&#39;systemd_boot&#39;</span> <span class="k">else</span> <span class="n">target_dir</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span> <span class="o">=</span> <span class="n">FirmWare</span><span class="p">(</span>
             <span class="n">xml_state</span>
@@ -823,7 +831,7 @@
             <span class="c1"># for compat boot. The complete bootloader setup will be</span>
             <span class="c1"># based on grub</span>
             <span class="n">bootloader_config</span> <span class="o">=</span> <span class="n">BootLoaderConfig</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
-                <span class="s1">&#39;grub2&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span> <span class="n">root_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span> <span class="n">root_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span>
                 <span class="n">boot_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">media_dir</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">custom_args</span><span class="o">=</span><span class="p">{</span>
                     <span class="s1">&#39;grub_directory_name&#39;</span><span class="p">:</span>
                         <span class="n">Defaults</span><span class="o">.</span><span class="n">get_grub_boot_directory_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">),</span>
@@ -860,13 +868,6 @@
             <span class="n">working_directory</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
         <span class="p">)</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">():</span>
-            <span class="n">efi_loader</span> <span class="o">=</span> <span class="n">Temporary</span><span class="p">(</span>
-                <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;efi-loader.&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
-            <span class="p">)</span><span class="o">.</span><span class="n">new_file</span><span class="p">()</span>
-            <span class="n">bootloader_config</span><span class="o">.</span><span class="n">_create_embedded_fat_efi_image</span><span class="p">(</span><span class="n">efi_loader</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-            <span class="n">custom_iso_args</span><span class="p">[</span><span class="s1">&#39;meta_data&#39;</span><span class="p">][</span><span class="s1">&#39;efi_loader&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">efi_loader</span><span class="o">.</span><span class="n">name</span>
-
         <span class="c1"># prepare dracut initrd call</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
 
@@ -887,10 +888,31 @@
             <span class="n">config_file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/etc/dracut.conf.d/02-livecd.conf&#39;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">create_initrd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mbrid</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">==</span> <span class="s1">&#39;systemd_boot&#39;</span><span class="p">:</span>
+            <span class="c1"># make sure the initrd name follows the dracut naming conventions</span>
+            <span class="n">boot_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">get_boot_names</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">initrd_filename</span><span class="p">:</span>
+                <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+                    <span class="p">[</span>
+                        <span class="s1">&#39;mv&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">initrd_filename</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                            <span class="p">[</span><span class="s1">&#39;/boot/&#39;</span><span class="p">,</span> <span class="n">boot_names</span><span class="o">.</span><span class="n">initrd_name</span><span class="p">]</span>
+                        <span class="p">)</span>
+                    <span class="p">]</span>
+                <span class="p">)</span>
+
+        <span class="c1"># create EFI FAT image</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">():</span>
+            <span class="n">efi_loader</span> <span class="o">=</span> <span class="n">Temporary</span><span class="p">(</span>
+                <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;efi-loader.&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">new_file</span><span class="p">()</span>
+            <span class="n">bootloader_config</span><span class="o">.</span><span class="n">_create_embedded_fat_efi_image</span><span class="p">(</span><span class="n">efi_loader</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">custom_iso_args</span><span class="p">[</span><span class="s1">&#39;meta_data&#39;</span><span class="p">][</span><span class="s1">&#39;efi_loader&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">efi_loader</span><span class="o">.</span><span class="n">name</span>
 
         <span class="c1"># setup kernel file(s) and initrd in ISO boot layout</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Setting up kernel file(s) and boot image in ISO boot layout&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_live_iso_kernel_and_initrd</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">!=</span> <span class="s1">&#39;systemd_boot&#39;</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Setting up kernel file(s) and boot image in ISO boot layout&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_setup_live_iso_kernel_and_initrd</span><span class="p">()</span>
 
         <span class="c1"># calculate size and decide if we need UDF</span>
         <span class="k">if</span> <span class="n">rootsize</span><span class="o">.</span><span class="n">accumulate_mbyte_file_sizes</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">4096</span><span class="p">:</span>

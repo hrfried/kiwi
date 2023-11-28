@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.iso_tools.xorriso &mdash; KIWI NG 9.25.18 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <title>kiwi.iso_tools.xorriso &mdash; KIWI NG 9.25.19 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -774,20 +776,21 @@
 
         <span class="k">if</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">is_x86_arch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">efi_mode</span><span class="p">:</span>
-                <span class="n">loader_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                    <span class="p">[</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">boot_path</span><span class="p">,</span> <span class="s1">&#39;loader&#39;</span><span class="p">,</span>
-                        <span class="n">Defaults</span><span class="o">.</span><span class="n">get_isolinux_bios_grub_loader</span><span class="p">()</span>
-                    <span class="p">]</span>
-                <span class="p">)</span>
                 <span class="n">mbr_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
                     <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">source_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_path</span><span class="p">,</span> <span class="s1">&#39;/loader/boot_hybrid.img&#39;</span><span class="p">]</span>
                 <span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">iso_loaders</span> <span class="o">+=</span> <span class="p">[</span>
-                    <span class="s1">&#39;-boot_image&#39;</span><span class="p">,</span> <span class="s1">&#39;grub&#39;</span><span class="p">,</span> <span class="s1">&#39;bin_path=</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loader_file</span><span class="p">),</span>
-                    <span class="s1">&#39;-boot_image&#39;</span><span class="p">,</span> <span class="s1">&#39;grub&#39;</span><span class="p">,</span> <span class="s1">&#39;grub2_mbr=</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mbr_file</span><span class="p">),</span>
-                    <span class="s1">&#39;-boot_image&#39;</span><span class="p">,</span> <span class="s1">&#39;grub&#39;</span><span class="p">,</span> <span class="s1">&#39;grub2_boot_info=on&#39;</span>
-                <span class="p">]</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">mbr_file</span><span class="p">):</span>
+                    <span class="n">loader_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                        <span class="p">[</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">boot_path</span><span class="p">,</span> <span class="s1">&#39;loader&#39;</span><span class="p">,</span>
+                            <span class="n">Defaults</span><span class="o">.</span><span class="n">get_isolinux_bios_grub_loader</span><span class="p">()</span>
+                        <span class="p">]</span>
+                    <span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">iso_loaders</span> <span class="o">+=</span> <span class="p">[</span>
+                        <span class="s1">&#39;-boot_image&#39;</span><span class="p">,</span> <span class="s1">&#39;grub&#39;</span><span class="p">,</span> <span class="s1">&#39;bin_path=</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loader_file</span><span class="p">),</span>
+                        <span class="s1">&#39;-boot_image&#39;</span><span class="p">,</span> <span class="s1">&#39;grub&#39;</span><span class="p">,</span> <span class="s1">&#39;grub2_mbr=</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mbr_file</span><span class="p">),</span>
+                        <span class="s1">&#39;-boot_image&#39;</span><span class="p">,</span> <span class="s1">&#39;grub&#39;</span><span class="p">,</span> <span class="s1">&#39;grub2_boot_info=on&#39;</span>
+                    <span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">loader_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_path</span> <span class="o">+</span> <span class="s1">&#39;/loader/isolinux.bin&#39;</span>
                 <span class="n">mbr_file_c</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">which</span><span class="p">(</span>

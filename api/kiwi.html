@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi Package &mdash; KIWI NG 9.25.18 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <title>kiwi Package &mdash; KIWI NG 9.25.19 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -4776,6 +4778,13 @@ dracut modules and former version of those dracut modules
 which could be no longer compatible with the builder.
 Therefore this runtime check maintains a min_version constraint
 for which we know this KIWI builder to be compatible with.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.runtime_checker.RuntimeChecker.check_efi_fat_image_has_correct_size">
+<span class="sig-name descname"><span class="pre">check_efi_fat_image_has_correct_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/runtime_checker.html#RuntimeChecker.check_efi_fat_image_has_correct_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.runtime_checker.RuntimeChecker.check_efi_fat_image_has_correct_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the efifatimagesize does not exceed the max
+El Torito load size of 65535 * 512 bytes</p>
 </dd></dl>
 
 <dl class="py method">

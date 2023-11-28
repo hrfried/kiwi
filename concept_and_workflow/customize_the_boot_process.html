@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customizing the Boot Process &mdash; KIWI NG 9.25.18 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <title>Customizing the Boot Process &mdash; KIWI NG 9.25.19 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -857,6 +859,21 @@ example <code class="xref py py-obj docutils literal notranslate"><span class="p
 OS deployment is <code class="xref py py-obj docutils literal notranslate"><span class="pre">/dev/sdj</span></code>. With <code class="xref py py-obj docutils literal notranslate"><span class="pre">rd.kiwi.oem.maxdisk=500G</span></code> the
 deployment will land on that RAID disk.</p>
 </dd>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.oem.installdevice</span></code></dt><dd><p>Configures the disk device that should be used in an OEM
+installation. This overwrites/resets any other oem device specific
+settings, e.g oem-device-filter, oem-unattended-id or rd.kiwi.oem.maxdisk
+from the cmdline and just continues the installation on the given
+device. However, the device must exist and must be a block special.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Non interactive mode activated by rd.kiwi.oem.installdevice</p>
+<p>When setting rd.kiwi.oem.installdevice explicitly on the
+kernel commandline, KIWI NG will not ask for confirmation
+of the device and just use it !</p>
+</div>
+<dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">rd.live.overlay.size</span></code></dt><dd><p>Tells a live ISO image the size for the <code class="xref py py-obj docutils literal notranslate"><span class="pre">tmpfs</span></code> filesystem that is used
 for the <code class="xref py py-obj docutils literal notranslate"><span class="pre">overlayfs</span></code> mount process. If the write area of the overlayfs
 mount uses this tmpfs, any new data written during the runtime of
