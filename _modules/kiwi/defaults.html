@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.defaults &mdash; KIWI NG 9.25.19 documentation</title>
+  <title>kiwi.defaults &mdash; KIWI NG 9.25.20 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
@@ -2469,6 +2469,9 @@
 
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">host_architecture</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_platform_name</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s1">&#39;s390&#39;</span> <span class="ow">in</span> <span class="n">host_architecture</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;kpartx&#39;</span>
         <span class="k">return</span> <span class="s1">&#39;partx&#39;</span></div>
 
 <div class="viewcode-block" id="Defaults.get_default_container_tag"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_default_container_tag">[docs]</a>    <span class="nd">@staticmethod</span>

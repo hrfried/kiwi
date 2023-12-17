@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.setup &mdash; KIWI NG 9.25.19 documentation</title>
+  <title>kiwi.system.setup &mdash; KIWI NG 9.25.20 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
@@ -1227,7 +1227,12 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">security_context</span> <span class="o">=</span> <span class="s1">&#39;/etc/selinux/targeted/contexts/files/file_contexts&#39;</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="n">security_context</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_selinux_file_contexts</span><span class="p">(</span><span class="n">security_context</span><span class="p">)</span></div>
+            <span class="k">if</span> <span class="n">Path</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;setfiles&#39;</span><span class="p">,</span> <span class="n">access_mode</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">X_OK</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_selinux_file_contexts</span><span class="p">(</span><span class="n">security_context</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s1">&#39;security_context found but setfiles tool not installed&#39;</span>
+                <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SystemSetup.export_modprobe_setup"><a class="viewcode-back" href="../../../api/kiwi.system.html#kiwi.system.setup.SystemSetup.export_modprobe_setup">[docs]</a>    <span class="k">def</span> <span class="nf">export_modprobe_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1476,8 +1481,8 @@
             <span class="n">Path</span><span class="o">.</span><span class="n">wipe</span><span class="p">(</span><span class="n">fstab_patch_file</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fstab_script_file</span><span class="p">):</span>
-            <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-                <span class="p">[</span><span class="s1">&#39;chroot&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;/etc/fstab.script&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_call_script</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;etc/fstab.script&#39;</span><span class="p">,</span> <span class="n">path_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
             <span class="p">)</span>
             <span class="n">Path</span><span class="o">.</span><span class="n">wipe</span><span class="p">(</span><span class="n">fstab_script_file</span><span class="p">)</span></div>
 
@@ -1792,8 +1797,10 @@
                 <span class="p">]</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_call_script</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">option_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">script_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_call_script</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">option_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path_prefix</span><span class="o">=</span><span class="n">defaults</span><span class="o">.</span><span class="n">IMAGE_METADATA_DIR</span>
+    <span class="p">):</span>
+        <span class="n">script_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="n">path_prefix</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">script_path</span><span class="p">):</span>
             <span class="n">options</span> <span class="o">=</span> <span class="n">option_list</span> <span class="ow">or</span> <span class="p">[]</span>
             <span class="k">if</span> <span class="n">log</span><span class="o">.</span><span class="n">getLogFlags</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;run-scripts-in-screen&#39;</span><span class="p">):</span>
@@ -1806,7 +1813,7 @@
             <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">script_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">X_OK</span><span class="p">):</span>
                 <span class="n">command</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;bash&#39;</span><span class="p">)</span>
             <span class="n">command</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">defaults</span><span class="o">.</span><span class="n">IMAGE_METADATA_DIR</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="n">path_prefix</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
             <span class="p">)</span>
             <span class="n">command</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
             <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">)</span>
@@ -1821,6 +1828,8 @@
                 <span class="k">raise</span> <span class="n">KiwiScriptFailed</span><span class="p">(</span>
                     <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> failed: </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
                 <span class="p">)</span>
+            <span class="c1"># if configured, assign SELinux labels</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setup_selinux_file_contexts</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_call_script_no_chroot</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">option_list</span><span class="p">,</span> <span class="n">working_directory</span>
