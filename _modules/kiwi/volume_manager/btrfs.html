@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.volume_manager.btrfs &mdash; KIWI NG 9.25.21 documentation</title>
+  <title>kiwi.volume_manager.btrfs &mdash; KIWI NG 9.25.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
@@ -1162,7 +1162,7 @@
             <span class="p">[</span><span class="s1">&#39;btrfs&#39;</span><span class="p">,</span> <span class="s1">&#39;subvolume&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mountpoint</span><span class="p">]</span>
         <span class="p">)</span>
         <span class="k">for</span> <span class="n">subvolume</span> <span class="ow">in</span> <span class="n">subvolume_list_call</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
-            <span class="n">id_search</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;ID (\d+) .*path (.*)&#39;</span><span class="p">,</span> <span class="n">subvolume</span><span class="p">)</span>
+            <span class="n">id_search</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;ID (\d+) .*path (.*)&#39;</span><span class="p">,</span> <span class="n">subvolume</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">id_search</span><span class="p">:</span>
                 <span class="n">volume_id</span> <span class="o">=</span> <span class="n">id_search</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">volume_path</span> <span class="o">=</span> <span class="n">id_search</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>

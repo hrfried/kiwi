@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.xml_state &mdash; KIWI NG 9.25.21 documentation</title>
+  <title>kiwi.xml_state &mdash; KIWI NG 9.25.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
@@ -1654,18 +1654,28 @@
         <span class="k">return</span> <span class="n">bootloader</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span> <span class="k">if</span> <span class="n">bootloader</span> <span class="k">else</span> \
             <span class="n">Defaults</span><span class="o">.</span><span class="n">get_default_bootloader</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="XMLState.get_build_type_bootloader_console"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_console">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_console</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="viewcode-block" id="XMLState.get_build_type_bootloader_console"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_console">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_console</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return bootloader console setting for selected build type</span>
 
-<span class="sd">        :return: console string</span>
+<span class="sd">        :return:</span>
+<span class="sd">            list of console settings for output (first element)</span>
+<span class="sd">            and input (second element)</span>
 
-<span class="sd">        :rtype: str</span>
+<span class="sd">        :rtype: list</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
         <span class="n">bootloader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_build_type_bootloader_section</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">bootloader</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">bootloader</span><span class="o">.</span><span class="n">get_console</span><span class="p">()</span>
-        <span class="k">return</span> <span class="kc">None</span></div>
+            <span class="n">combined_console</span> <span class="o">=</span> <span class="n">bootloader</span><span class="o">.</span><span class="n">get_console</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">combined_console</span><span class="p">:</span>
+                <span class="n">console_out</span><span class="p">,</span> <span class="o">*</span><span class="n">console_in</span> <span class="o">=</span> <span class="n">combined_console</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">console_in</span> <span class="o">=</span> <span class="n">console_out</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">console_in</span> <span class="k">else</span> <span class="n">console_in</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">console_out</span> <span class="k">if</span> <span class="n">console_out</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="n">console_in</span> <span class="k">if</span> <span class="n">console_in</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+                <span class="p">]</span>
+        <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="XMLState.get_build_type_bootloader_serial_line_setup"><a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_serial_line_setup">[docs]</a>    <span class="k">def</span> <span class="nf">get_build_type_bootloader_serial_line_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3484,7 +3494,7 @@
         <span class="k">return</span> <span class="n">name</span>
 
     <span class="k">def</span> <span class="nf">_to_mega_byte</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;(\d+)([MG]*)&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+)([MG]*)&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
             <span class="n">number</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">unit</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>

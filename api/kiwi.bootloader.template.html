@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.template Package &mdash; KIWI NG 9.25.21 documentation</title>
+  <title>kiwi.bootloader.template Package &mdash; KIWI NG 9.25.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
@@ -693,14 +693,15 @@
 <p><strong>grub2 configuraton file templates</strong></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_install_template">
-<span class="sig-name descname"><span class="pre">get_install_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">failsafe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hybrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terminal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gfxterm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/template/grub2.html#BootLoaderTemplateGrub2.get_install_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_install_template" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_install_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">failsafe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hybrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_graphics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_serial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/template/grub2.html#BootLoaderTemplateGrub2.get_install_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_install_template" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bootloader configuration template for install media</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>failsafe</strong> (<em>bool</em>) – with failsafe true|false</p></li>
 <li><p><strong>hybrid</strong> (<em>bool</em>) – with hybrid true|false</p></li>
-<li><p><strong>terminal</strong> (<em>string</em>) – output terminal name</p></li>
+<li><p><strong>has_graphics</strong> (<em>bool</em>) – supports graphics terminal</p></li>
+<li><p><strong>has_serial</strong> (<em>bool</em>) – supports serial terminal</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -714,14 +715,15 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_iso_template">
-<span class="sig-name descname"><span class="pre">get_iso_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">failsafe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hybrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terminal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gfxterm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkiso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/template/grub2.html#BootLoaderTemplateGrub2.get_iso_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_iso_template" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_iso_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">failsafe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hybrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_graphics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_serial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkiso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/template/grub2.html#BootLoaderTemplateGrub2.get_iso_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_iso_template" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bootloader configuration template for live ISO media</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>failsafe</strong> (<em>bool</em>) – with failsafe true|false</p></li>
 <li><p><strong>hybrid</strong> (<em>bool</em>) – with hybrid true|false</p></li>
-<li><p><strong>terminal</strong> (<em>string</em>) – output terminal name</p></li>
+<li><p><strong>has_graphics</strong> (<em>bool</em>) – supports graphics terminal</p></li>
+<li><p><strong>has_serial</strong> (<em>bool</em>) – supports serial terminal</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -735,14 +737,15 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_multiboot_install_template">
-<span class="sig-name descname"><span class="pre">get_multiboot_install_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">failsafe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terminal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gfxterm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/template/grub2.html#BootLoaderTemplateGrub2.get_multiboot_install_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_multiboot_install_template" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_multiboot_install_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">failsafe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_graphics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_serial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/template/grub2.html#BootLoaderTemplateGrub2.get_multiboot_install_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_multiboot_install_template" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bootloader configuration template for install media with
 hypervisor, e.g Xen dom0</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>failsafe</strong> (<em>bool</em>) – with failsafe true|false</p></li>
-<li><p><strong>terminal</strong> (<em>string</em>) – output terminal name</p></li>
+<li><p><strong>has_graphics</strong> (<em>bool</em>) – supports graphics terminal</p></li>
+<li><p><strong>has_serial</strong> (<em>bool</em>) – supports serial terminal</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -756,14 +759,15 @@ hypervisor, e.g Xen dom0</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_multiboot_iso_template">
-<span class="sig-name descname"><span class="pre">get_multiboot_iso_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">failsafe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terminal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gfxterm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkiso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/template/grub2.html#BootLoaderTemplateGrub2.get_multiboot_iso_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_multiboot_iso_template" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_multiboot_iso_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">failsafe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_graphics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_serial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkiso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/template/grub2.html#BootLoaderTemplateGrub2.get_multiboot_iso_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.template.grub2.BootLoaderTemplateGrub2.get_multiboot_iso_template" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bootloader configuration template for live ISO media with
 hypervisor, e.g Xen dom0</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>failsafe</strong> (<em>bool</em>) – with failsafe true|false</p></li>
-<li><p><strong>terminal</strong> (<em>string</em>) – output terminal name</p></li>
+<li><p><strong>has_graphics</strong> (<em>bool</em>) – supports graphics terminal</p></li>
+<li><p><strong>has_serial</strong> (<em>bool</em>) – supports serial terminal</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>

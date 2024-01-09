@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Description Elements &mdash; KIWI NG 9.25.21 documentation</title>
+  <title>Image Description Elements &mdash; KIWI NG 9.25.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
@@ -684,7 +684,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This document provides a reference for the elements
-and attributes of the KIWI NG XML document in version 9.25.21</p>
+and attributes of the KIWI NG XML document in version 9.25.22</p>
 </div>
 <section id="image">
 <span id="sec-image"></span><h2>&lt;image&gt;<a class="headerlink" href="#image" title="Permalink to this heading">¶</a></h2>
@@ -1582,9 +1582,22 @@ extra effort by the distributions.</p>
 attributes are supported:</p>
 <dl>
 <dt>console=”none|console|gfxterm|serial”:</dt><dd><p>Specifies the bootloader console. The attribute is available for the
-grub and isolinux bootloader types. Specifying none here will
-translate to setting console to an empty string. By default, the
-gfxterm (graphical terminal) option is used.</p>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">grub</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">isolinux</span></code> bootloader types. The behavior for setting up
+the console is different per bootloader:</p>
+<p>For <code class="xref py py-obj docutils literal notranslate"><span class="pre">isolinux</span></code> the console setting is taken as provided, whereas
+only the values <code class="xref py py-obj docutils literal notranslate"><span class="pre">serial</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">console</span></code> are taken into account.</p>
+<p>For <code class="xref py py-obj docutils literal notranslate"><span class="pre">grub</span></code> the console setting is split into the setting for the
+output and the input console:</p>
+<ul class="simple">
+<li><p>A single console value is provided. In this case the same value
+is used for the output and input console and applied if possible.
+Providing the <code class="xref py py-obj docutils literal notranslate"><span class="pre">none</span></code> value will skip the console setup for both.</p></li>
+<li><p>Two values separated by a space are provided. In this case the
+first value configures the output console and the second value
+configures the input console. The <code class="xref py py-obj docutils literal notranslate"><span class="pre">none</span></code> value can be used to skip
+one or the other console setup. More than two space separated
+values will be ignored.</p></li>
+</ul>
 </dd>
 <dt>grub_template=”filename”:</dt><dd><p>Specifies a custom grub bootloader template file which will be used
 instead of the one provided with Kiwi. A static bootloader template to

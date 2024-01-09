@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.system.setup &mdash; KIWI NG 9.25.21 documentation</title>
+  <title>kiwi.system.setup &mdash; KIWI NG 9.25.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
@@ -1227,7 +1227,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">security_context</span> <span class="o">=</span> <span class="s1">&#39;/etc/selinux/targeted/contexts/files/file_contexts&#39;</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="n">security_context</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">Path</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;setfiles&#39;</span><span class="p">,</span> <span class="n">access_mode</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">X_OK</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">Path</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;setfiles&#39;</span><span class="p">,</span> <span class="n">access_mode</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">X_OK</span><span class="p">,</span> <span class="n">root_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">set_selinux_file_contexts</span><span class="p">(</span><span class="n">security_context</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
