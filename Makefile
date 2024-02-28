@@ -117,8 +117,10 @@ build: clean tox
 	gzip dist/python-kiwi.tar
 	rm -rf kiwi-${version}
 	# update rpm changelog using reference file
-	helper/update_changelog.py --since package/python-kiwi.changes > \
-		dist/python-kiwi.changes
+	helper/update_changelog.py \
+		--since package/python-kiwi.changes \
+		--fix package/python-kiwi.changes.deb6ca.fix \
+	> dist/python-kiwi.changes
 	helper/update_changelog.py --file package/python-kiwi.changes >> \
 		dist/python-kiwi.changes
 	# update package version in spec file
