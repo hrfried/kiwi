@@ -1,0 +1,15 @@
+commit 31deb0938e910458764ddbb7b82e55aa55df1f67
+Author:     David Cassany <dcassany@suse.com>
+AuthorDate: Fri Feb 16 15:08:49 2024 +0100
+Commit:     David Cassany <dcassany@suse.com>
+CommitDate: Fri Feb 16 15:08:49 2024 +0100
+
+    Include partprobe in initrd for s390
+    
+    This commit includes partprobe, in addition to parted, on
+    s390 based systems. Otherwise partx is used and apparently
+    it does not properly support s390.
+    
+    Fixes bsc#1219798
+    
+    Signed-off-by: David Cassany <dcassany@suse.com>
