@@ -29,7 +29,7 @@
     <repository type="apt-deb" alias="Ubuntu-Mantic-Universe" distribution="mantic" components="main multiverse restricted universe" repository_gpgcheck="false">
         <source path="obs://Ubuntu:23.10/universe"/>
     </repository>
-    <repository type="apt-deb" alias="Ubuntu-Mantic" distribution="mantic" components="main multiverse restricted universe" repository_gpgcheck="false">
+    <repository type="apt-deb" alias="Ubuntu-Mantic" distribution="stable" components="main multiverse restricted universe" repository_gpgcheck="false">
         <source path="obs://Ubuntu:23.10/standard"/>
     </repository>
     <packages type="image">
