@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.repository.dnf4 &mdash; KIWI NG 10.0.2 documentation</title>
+  <title>kiwi.repository.dnf4 &mdash; KIWI NG 10.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=a0d98697"></script>
+        <script src="../../../_static/documentation_options.js?v=04a1028e"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -1234,7 +1234,9 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
 
 <span class="c1"># project</span>
-<span class="kn">from</span> <span class="nn">kiwi.utils.temporary</span> <span class="kn">import</span> <span class="n">Temporary</span>
+<span class="kn">from</span> <span class="nn">kiwi.utils.temporary</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Temporary</span><span class="p">,</span> <span class="n">TmpT</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">kiwi.defaults</span> <span class="kn">import</span> <span class="n">Defaults</span>
 <span class="kn">from</span> <span class="nn">kiwi.command</span> <span class="kn">import</span> <span class="n">Command</span>
 <span class="kn">from</span> <span class="nn">kiwi.repository.base</span> <span class="kn">import</span> <span class="n">RepositoryBase</span>
@@ -1266,6 +1268,7 @@
 
 <span class="sd">        :param list custom_args: dnf arguments</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_config_file</span> <span class="o">=</span> <span class="n">TmpT</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span> <span class="o">=</span> <span class="n">custom_args</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">exclude_docs</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">locale</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1310,8 +1313,8 @@
         <span class="p">}</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_config_file</span> <span class="o">=</span> <span class="n">Temporary</span><span class="p">(</span>
-            <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">new_file</span><span class="p">()</span>
+            <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;kiwi_dnf4.conf&#39;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">unmanaged_file</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">dnf_args</span> <span class="o">=</span> <span class="p">[</span>
             <span class="s1">&#39;--config&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_config_file</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;-y&#39;</span>
@@ -1597,7 +1600,17 @@
             <span class="k">for</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">plugin_config</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_plugin_configs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">shared_dnf_dir</span><span class="p">[</span><span class="s1">&#39;pluginconf-dir&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">plugin_name</span><span class="si">}</span><span class="s2">.conf&quot;</span>
                 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">plugin_config_fobj</span><span class="p">:</span>
-                    <span class="n">plugin_config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">plugin_config_fobj</span><span class="p">)</span></div>
+                    <span class="n">plugin_config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">plugin_config_fobj</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RepositoryDnf4.cleanup">
+<a class="viewcode-back" href="../../../api/kiwi.repository.html#kiwi.repository.dnf4.RepositoryDnf4.cleanup">[docs]</a>
+    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete intermediate dnf config file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_config_file</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">runtime_dnf_config_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div>
+</div>
 
 </pre></div>
 

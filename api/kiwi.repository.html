@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.repository Package &mdash; KIWI NG 10.0.2 documentation</title>
+  <title>kiwi.repository Package &mdash; KIWI NG 10.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=a0d98697"></script>
+        <script src="../_static/documentation_options.js?v=04a1028e"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -1264,6 +1264,13 @@ and build system root</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="kiwi.repository.base.RepositoryBase.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/repository/base.html#RepositoryBase.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.repository.base.RepositoryBase.cleanup" title="Link to this definition"></a></dt>
+<dd><p>Cleanup method</p>
+<p>Implementation in specialized repository class</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="kiwi.repository.base.RepositoryBase.cleanup_unused_repos">
 <span class="sig-name descname"><span class="pre">cleanup_unused_repos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/repository/base.html#RepositoryBase.cleanup_unused_repos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.repository.base.RepositoryBase.cleanup_unused_repos" title="Link to this definition"></a></dt>
 <dd><p>Cleanup/Delete unused repositories</p>
@@ -1407,6 +1414,12 @@ and build system root</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.repository.dnf4.RepositoryDnf4.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/repository/dnf4.html#RepositoryDnf4.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.repository.dnf4.RepositoryDnf4.cleanup" title="Link to this definition"></a></dt>
+<dd><p>Delete intermediate dnf config file</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1556,6 +1569,12 @@ and build system root</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.repository.zypper.RepositoryZypper.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/repository/zypper.html#RepositoryZypper.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.repository.zypper.RepositoryZypper.cleanup" title="Link to this definition"></a></dt>
+<dd><p>Delete intermediate zypp and zypper config files</p>
 </dd></dl>
 
 <dl class="py method">

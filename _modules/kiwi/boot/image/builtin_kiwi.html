@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.boot.image.builtin_kiwi &mdash; KIWI NG 10.0.2 documentation</title>
+  <title>kiwi.boot.image.builtin_kiwi &mdash; KIWI NG 10.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../_static/documentation_options.js?v=a0d98697"></script>
+        <script src="../../../../_static/documentation_options.js?v=04a1028e"></script>
         <script src="../../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -1313,37 +1313,37 @@
                 <span class="n">root_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_root_directory</span><span class="p">,</span>
                 <span class="n">allow_existing</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span> <span class="k">as</span> <span class="n">system</span><span class="p">:</span>
-                <span class="n">manager</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">setup_repositories</span><span class="p">(</span>
+                <span class="k">with</span> <span class="n">system</span><span class="o">.</span><span class="n">setup_repositories</span><span class="p">(</span>
                     <span class="n">signing_keys</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">signing_keys</span><span class="p">,</span> <span class="n">target_arch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">target_arch</span>
-                <span class="p">)</span>
-                <span class="n">system</span><span class="o">.</span><span class="n">install_bootstrap</span><span class="p">(</span>
-                    <span class="n">manager</span>
-                <span class="p">)</span>
-                <span class="n">system</span><span class="o">.</span><span class="n">install_system</span><span class="p">(</span>
-                    <span class="n">manager</span>
-                <span class="p">)</span>
+                <span class="p">)</span> <span class="k">as</span> <span class="n">manager</span><span class="p">:</span>
+                    <span class="n">system</span><span class="o">.</span><span class="n">install_bootstrap</span><span class="p">(</span>
+                        <span class="n">manager</span>
+                    <span class="p">)</span>
+                    <span class="n">system</span><span class="o">.</span><span class="n">install_system</span><span class="p">(</span>
+                        <span class="n">manager</span>
+                    <span class="p">)</span>
 
-                <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_xml_state</span><span class="p">)</span>
-                <span class="n">profile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;kiwi_initrdname&#39;</span><span class="p">,</span> <span class="n">boot_image_name</span><span class="p">)</span>
+                    <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_xml_state</span><span class="p">)</span>
+                    <span class="n">profile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;kiwi_initrdname&#39;</span><span class="p">,</span> <span class="n">boot_image_name</span><span class="p">)</span>
 
-                <span class="n">defaults</span> <span class="o">=</span> <span class="n">Defaults</span><span class="p">()</span>
-                <span class="n">defaults</span><span class="o">.</span><span class="n">to_profile</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+                    <span class="n">defaults</span> <span class="o">=</span> <span class="n">Defaults</span><span class="p">()</span>
+                    <span class="n">defaults</span><span class="o">.</span><span class="n">to_profile</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
 
-                <span class="bp">self</span><span class="o">.</span><span class="n">setup</span> <span class="o">=</span> <span class="n">SystemSetup</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">boot_xml_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_root_directory</span>
-                <span class="p">)</span>
-                <span class="n">profile</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-                    <span class="n">Defaults</span><span class="o">.</span><span class="n">get_profile_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_root_directory</span><span class="p">)</span>
-                <span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">import_description</span><span class="p">()</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">import_overlay_files</span><span class="p">(</span>
-                    <span class="n">follow_links</span><span class="o">=</span><span class="kc">True</span>
-                <span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">call_config_script</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setup</span> <span class="o">=</span> <span class="n">SystemSetup</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">boot_xml_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_root_directory</span>
+                    <span class="p">)</span>
+                    <span class="n">profile</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                        <span class="n">Defaults</span><span class="o">.</span><span class="n">get_profile_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_root_directory</span><span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">import_description</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">import_overlay_files</span><span class="p">(</span>
+                        <span class="n">follow_links</span><span class="o">=</span><span class="kc">True</span>
+                    <span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">call_config_script</span><span class="p">()</span>
 
-                <span class="n">system</span><span class="o">.</span><span class="n">pinch_system</span><span class="p">(</span>
-                    <span class="n">manager</span><span class="o">=</span><span class="n">manager</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span>
-                <span class="p">)</span>
+                    <span class="n">system</span><span class="o">.</span><span class="n">pinch_system</span><span class="p">(</span>
+                        <span class="n">manager</span><span class="o">=</span><span class="n">manager</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span>
+                    <span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">call_image_script</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">create_init_link_from_linuxrc</span><span class="p">()</span></div>
