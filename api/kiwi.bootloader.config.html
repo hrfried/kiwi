@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config Package &mdash; KIWI NG 10.0.3 documentation</title>
+  <title>kiwi.bootloader.config Package &mdash; KIWI NG 10.0.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=04a1028e"></script>
+        <script src="../_static/documentation_options.js?v=cf289243"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -664,6 +664,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2"><code class="docutils literal notranslate"><span class="pre">BootLoaderConfigGrub2</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#module-kiwi.bootloader.config.systemd_boot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.config.systemd_boot</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot"><code class="docutils literal notranslate"><span class="pre">BootLoaderSystemdBoot</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-kiwi.bootloader.config.zipl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.config.zipl</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kiwi.bootloader.config.zipl.BootLoaderZipl"><code class="docutils literal notranslate"><span class="pre">BootLoaderZipl</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-kiwi.bootloader.config">Module Contents</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.bootloader.config.create_boot_loader_config"><code class="docutils literal notranslate"><span class="pre">create_boot_loader_config()</span></code></a></li>
 </ul>
@@ -678,6 +686,14 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="kiwi.bootloader.install.html#module-kiwi.bootloader.install.grub2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.install.grub2</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="kiwi.bootloader.install.html#kiwi.bootloader.install.grub2.BootLoaderInstallGrub2"><code class="docutils literal notranslate"><span class="pre">BootLoaderInstallGrub2</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi.bootloader.install.html#module-kiwi.bootloader.install.systemd_boot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.install.systemd_boot</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="kiwi.bootloader.install.html#kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot"><code class="docutils literal notranslate"><span class="pre">BootLoaderInstallSystemdBoot</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi.bootloader.install.html#module-kiwi.bootloader.install.zipl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.install.zipl</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="kiwi.bootloader.install.html#kiwi.bootloader.install.zipl.BootLoaderInstallZipl"><code class="docutils literal notranslate"><span class="pre">BootLoaderInstallZipl</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="kiwi.bootloader.install.html#module-kiwi.bootloader.install">Module Contents</a><ul>
@@ -1782,6 +1798,98 @@ required according to the bootloader setup</p>
 </dd></dl>
 
 </section>
+<section id="module-kiwi.bootloader.config.systemd_boot">
+<span id="kiwi-bootloader-config-systemd-boot-module"></span><h2><a class="reference internal" href="#module-kiwi.bootloader.config.systemd_boot" title="kiwi.bootloader.config.systemd_boot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.config.systemd_boot</span></code></a> Module<a class="headerlink" href="#module-kiwi.bootloader.config.systemd_boot" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.config.systemd_boot.</span></span><span class="sig-name descname"><span class="pre">BootLoaderSystemdBoot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/systemd_boot.html#BootLoaderSystemdBoot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BootLoaderSpecBase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot.create_loader_image">
+<span class="sig-name descname"><span class="pre">create_loader_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/bootloader/config/systemd_boot.html#BootLoaderSystemdBoot.create_loader_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot.create_loader_image" title="Link to this definition"></a></dt>
+<dd><p>Handle EFI images</p>
+<p>For systemd boot EFI images are provided along with systemd.
+Thus the only action taken care of is the creation of the
+ESP path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target</strong> (<em>str</em>) – target identifier, one of disk, live(iso) or install(iso)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot.set_loader_entry">
+<span class="sig-name descname"><span class="pre">set_loader_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/bootloader/config/systemd_boot.html#BootLoaderSystemdBoot.set_loader_entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot.set_loader_entry" title="Link to this definition"></a></dt>
+<dd><p>Setup/update loader entries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target</strong> (<em>str</em>) – target identifier, one of disk, live(iso) or install(iso)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot.setup_loader">
+<span class="sig-name descname"><span class="pre">setup_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/bootloader/config/systemd_boot.html#BootLoaderSystemdBoot.setup_loader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot.setup_loader" title="Link to this definition"></a></dt>
+<dd><p>Setup ESP for systemd-boot using bootctl</p>
+<p>For disk images only, setup the ESP layout for systemd boot
+using bootctl. All data will be loaded from the ESP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target</strong> (<em>str</em>) – target identifier, one of disk, live(iso) or install(iso)
+Currently only the disk identifier is supported</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-kiwi.bootloader.config.zipl">
+<span id="kiwi-bootloader-config-zipl-module"></span><h2><a class="reference internal" href="#module-kiwi.bootloader.config.zipl" title="kiwi.bootloader.config.zipl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.config.zipl</span></code></a> Module<a class="headerlink" href="#module-kiwi.bootloader.config.zipl" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="kiwi.bootloader.config.zipl.BootLoaderZipl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.config.zipl.</span></span><span class="sig-name descname"><span class="pre">BootLoaderZipl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/config/zipl.html#BootLoaderZipl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.zipl.BootLoaderZipl" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BootLoaderSpecBase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.config.zipl.BootLoaderZipl.create_loader_image">
+<span class="sig-name descname"><span class="pre">create_loader_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/bootloader/config/zipl.html#BootLoaderZipl.create_loader_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.zipl.BootLoaderZipl.create_loader_image" title="Link to this definition"></a></dt>
+<dd><p>Nothing to be done here for zipl</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target</strong> (<em>str</em>) – unused</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.config.zipl.BootLoaderZipl.set_loader_entry">
+<span class="sig-name descname"><span class="pre">set_loader_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/bootloader/config/zipl.html#BootLoaderZipl.set_loader_entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.zipl.BootLoaderZipl.set_loader_entry" title="Link to this definition"></a></dt>
+<dd><p>Setup/update loader entries of the form
+/boot/loader/entries/[OS_release_ID]-[kernel-version].conf</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target</strong> (<em>str</em>) – target identifier, one of disk, live(iso) or install(iso)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.config.zipl.BootLoaderZipl.setup_loader">
+<span class="sig-name descname"><span class="pre">setup_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/kiwi/bootloader/config/zipl.html#BootLoaderZipl.setup_loader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.config.zipl.BootLoaderZipl.setup_loader" title="Link to this definition"></a></dt>
+<dd><p>Setup main zipl.conf and install zipl for supported targets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target</strong> (<em>str</em>) – target identifier, one of disk, live(iso) or install(iso)
+Currently only the disk identifier is supported</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-kiwi.bootloader.config">
 <span id="module-contents"></span><span id="db-kiwi-bootloader-config-contents"></span><h2>Module Contents<a class="headerlink" href="#module-kiwi.bootloader.config" title="Link to this heading"></a></h2>
 <dl class="py function">
@@ -1790,9 +1898,11 @@ required according to the bootloader setup</p>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.config.</span></span><span class="sig-name descname"><span class="pre">create_boot_loader_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'grub2_s390x_emu'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2" title="kiwi.bootloader.config.grub2.BootLoaderConfigGrub2"><span class="pre">BootLoaderConfigGrub2</span></a></span></span></dt>
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.config.</span></span><span class="sig-name descname"><span class="pre">create_boot_loader_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'systemd_boot'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">BootLoaderSystemdBoot</span></span></span></dt>
+<span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.config.</span></span><span class="sig-name descname"><span class="pre">create_boot_loader_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'systemd_boot'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot" title="kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot"><span class="pre">BootLoaderSystemdBoot</span></a></span></span></dt>
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.config.</span></span><span class="sig-name descname"><span class="pre">create_boot_loader_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2" title="kiwi.bootloader.config.grub2.BootLoaderConfigGrub2"><span class="pre">BootLoaderConfigGrub2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">BootLoaderSystemdBoot</span></span></span></dt>
+<span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.config.</span></span><span class="sig-name descname"><span class="pre">create_boot_loader_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'zipl'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#kiwi.bootloader.config.zipl.BootLoaderZipl" title="kiwi.bootloader.config.zipl.BootLoaderZipl"><span class="pre">BootLoaderZipl</span></a></span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.config.</span></span><span class="sig-name descname"><span class="pre">create_boot_loader_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2" title="kiwi.bootloader.config.grub2.BootLoaderConfigGrub2"><span class="pre">BootLoaderConfigGrub2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot" title="kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot"><span class="pre">BootLoaderSystemdBoot</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#kiwi.bootloader.config.zipl.BootLoaderZipl" title="kiwi.bootloader.config.zipl.BootLoaderZipl"><span class="pre">BootLoaderZipl</span></a></span></span></dt>
 <dd></dd></dl>
 
 </section>

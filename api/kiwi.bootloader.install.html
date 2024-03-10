@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.install Package &mdash; KIWI NG 10.0.3 documentation</title>
+  <title>kiwi.bootloader.install Package &mdash; KIWI NG 10.0.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=04a1028e"></script>
+        <script src="../_static/documentation_options.js?v=cf289243"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -664,6 +664,14 @@
 <li class="toctree-l4"><a class="reference internal" href="kiwi.bootloader.config.html#kiwi.bootloader.config.grub2.BootLoaderConfigGrub2"><code class="docutils literal notranslate"><span class="pre">BootLoaderConfigGrub2</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi.bootloader.config.html#module-kiwi.bootloader.config.systemd_boot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.config.systemd_boot</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="kiwi.bootloader.config.html#kiwi.bootloader.config.systemd_boot.BootLoaderSystemdBoot"><code class="docutils literal notranslate"><span class="pre">BootLoaderSystemdBoot</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi.bootloader.config.html#module-kiwi.bootloader.config.zipl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.config.zipl</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="kiwi.bootloader.config.html#kiwi.bootloader.config.zipl.BootLoaderZipl"><code class="docutils literal notranslate"><span class="pre">BootLoaderZipl</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="kiwi.bootloader.config.html#module-kiwi.bootloader.config">Module Contents</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="kiwi.bootloader.config.html#kiwi.bootloader.config.create_boot_loader_config"><code class="docutils literal notranslate"><span class="pre">create_boot_loader_config()</span></code></a></li>
 </ul>
@@ -678,6 +686,14 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-kiwi.bootloader.install.grub2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.install.grub2</span></code> Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.bootloader.install.grub2.BootLoaderInstallGrub2"><code class="docutils literal notranslate"><span class="pre">BootLoaderInstallGrub2</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-kiwi.bootloader.install.systemd_boot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.install.systemd_boot</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot"><code class="docutils literal notranslate"><span class="pre">BootLoaderInstallSystemdBoot</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-kiwi.bootloader.install.zipl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.install.zipl</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kiwi.bootloader.install.zipl.BootLoaderInstallZipl"><code class="docutils literal notranslate"><span class="pre">BootLoaderInstallZipl</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-kiwi.bootloader.install">Module Contents</a><ul>
@@ -1333,6 +1349,98 @@ bootloader code in a boot record is required</p>
 <dt class="sig sig-object py" id="kiwi.bootloader.install.grub2.BootLoaderInstallGrub2.set_disk_password">
 <span class="sig-name descname"><span class="pre">set_disk_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/install/grub2.html#BootLoaderInstallGrub2.set_disk_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.install.grub2.BootLoaderInstallGrub2.set_disk_password" title="Link to this definition"></a></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-kiwi.bootloader.install.systemd_boot">
+<span id="kiwi-bootloader-install-systemd-boot-module"></span><h2><a class="reference internal" href="#module-kiwi.bootloader.install.systemd_boot" title="kiwi.bootloader.install.systemd_boot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.install.systemd_boot</span></code></a> Module<a class="headerlink" href="#module-kiwi.bootloader.install.systemd_boot" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.install.systemd_boot.</span></span><span class="sig-name descname"><span class="pre">BootLoaderInstallSystemdBoot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_provider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/install/systemd_boot.html#BootLoaderInstallSystemdBoot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#kiwi.bootloader.install.base.BootLoaderInstallBase" title="kiwi.bootloader.install.base.BootLoaderInstallBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">BootLoaderInstallBase</span></code></a></p>
+<p><strong>systemd-boot bootloader installation</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot.install_required">
+<span class="sig-name descname"><span class="pre">install_required</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/install/systemd_boot.html#BootLoaderInstallSystemdBoot.install_required"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot.install_required" title="Link to this definition"></a></dt>
+<dd><p>Check if systemd-boot needs to install boot code</p>
+<p>systemd-boot supports EFI boot only and does not need to
+install boot code since it’s expected that the firmware
+can read from the EFI partition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True or False</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot.post_init">
+<span class="sig-name descname"><span class="pre">post_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/install/systemd_boot.html#BootLoaderInstallSystemdBoot.post_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot.post_init" title="Link to this definition"></a></dt>
+<dd><p>systemd-boot post initialization method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – Contains custom systemd-boot bootloader arguments</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot.secure_boot_install">
+<span class="sig-name descname"><span class="pre">secure_boot_install</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/install/systemd_boot.html#BootLoaderInstallSystemdBoot.secure_boot_install"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.install.systemd_boot.BootLoaderInstallSystemdBoot.secure_boot_install" title="Link to this definition"></a></dt>
+<dd><p>Run shim installation for secure boot setup</p>
+<p>For systemd-boot this is currently skipped since details for
+secure boot are not yet clear</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-kiwi.bootloader.install.zipl">
+<span id="kiwi-bootloader-install-zipl-module"></span><h2><a class="reference internal" href="#module-kiwi.bootloader.install.zipl" title="kiwi.bootloader.install.zipl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.bootloader.install.zipl</span></code></a> Module<a class="headerlink" href="#module-kiwi.bootloader.install.zipl" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="kiwi.bootloader.install.zipl.BootLoaderInstallZipl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.bootloader.install.zipl.</span></span><span class="sig-name descname"><span class="pre">BootLoaderInstallZipl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_provider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/install/zipl.html#BootLoaderInstallZipl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.install.zipl.BootLoaderInstallZipl" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#kiwi.bootloader.install.base.BootLoaderInstallBase" title="kiwi.bootloader.install.base.BootLoaderInstallBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">BootLoaderInstallBase</span></code></a></p>
+<p><strong>zipl bootloader installation</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.install.zipl.BootLoaderInstallZipl.install_required">
+<span class="sig-name descname"><span class="pre">install_required</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/kiwi/bootloader/install/zipl.html#BootLoaderInstallZipl.install_required"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.install.zipl.BootLoaderInstallZipl.install_required" title="Link to this definition"></a></dt>
+<dd><p>Check if zipl needs to install boot code</p>
+<p>zipl requires boot code installation, but it is done as
+part of the BLS implementation in bootloader/config/zipl.py
+Thus this method always returns: False</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.install.zipl.BootLoaderInstallZipl.post_init">
+<span class="sig-name descname"><span class="pre">post_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/install/zipl.html#BootLoaderInstallZipl.post_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.install.zipl.BootLoaderInstallZipl.post_init" title="Link to this definition"></a></dt>
+<dd><p>zipl post initialization method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>custom_args</strong> (<em>dict</em>) – unused</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="kiwi.bootloader.install.zipl.BootLoaderInstallZipl.secure_boot_install">
+<span class="sig-name descname"><span class="pre">secure_boot_install</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/bootloader/install/zipl.html#BootLoaderInstallZipl.secure_boot_install"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.bootloader.install.zipl.BootLoaderInstallZipl.secure_boot_install" title="Link to this definition"></a></dt>
+<dd><p>Run shim installation for secure boot setup</p>
+<p>For zipl this is skipped since details for
+secure boot are not yet clear.</p>
+</dd></dl>
 
 </dd></dl>
 
