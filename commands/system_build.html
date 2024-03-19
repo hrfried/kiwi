@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi-ng system build &mdash; KIWI NG 10.0.5 documentation</title>
+  <title>kiwi-ng system build &mdash; KIWI NG 10.0.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=6b50165a"></script>
+        <script src="../_static/documentation_options.js?v=5ca89c30"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -1258,123 +1258,120 @@ kiwi-ng<span class="w"> </span>system<span class="w"> </span>build<span class="w
 </section>
 <section id="description">
 <span id="db-kiwi-system-build-desc"></span><h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
-<p>build an image in one step. The build command combines kiwi’s prepare and
-create steps in order to build an image with just one command call. The
-build command creates the root directory of the image below
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;target-dir&gt;/build/image-root</span></code> and if not specified differently writes
-a log file <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;target-dir&gt;/build/image-root.log</span></code>. The result image files
-are created in the specified target-dir.</p>
+<p>Build an image in one step. The build command combines preparation and building
+steps, which makes it possible to create an image with a single command. The
+build command creates the root directory of the image under
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;target-dir&gt;/build/image-root</span></code> and writes a log file
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;target-dir&gt;/build/image-root.log</span></code>. The result image files are created in the
+specified target directory.</p>
 </section>
 <section id="options">
 <span id="db-kiwi-system-build-opts"></span><h2>OPTIONS<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
 <dl class="option-list">
 <dt><kbd><span class="option">--add-bootstrap-package=<var>&lt;name&gt;</var></span></kbd></dt>
-<dd><p>specify package to install as part of the early kiwi bootstrap phase.
-The option can be specified multiple times</p>
+<dd><p>Specify package to install as part of the early KIWI NG bootstrap phase.
+The option can be specified multiple times.</p>
 </dd>
 <dt><kbd><span class="option">--add-container-label=<var>&lt;name=value&gt;</var></span></kbd></dt>
-<dd><p>add a container label in the container configuration metadata. It
-overwrites the label with the provided key-value pair in case it was
-already defined in the XML description</p>
+<dd><p>Add a container label in the container configuration metadata. It
+overwrites the label with the provided key-value pair if it is
+already defined in the XML description.</p>
 </dd>
 <dt><kbd><span class="option">--add-package=<var>&lt;name&gt;</var></span></kbd></dt>
-<dd><p>specify package to add(install). The option can be specified
-multiple times</p>
+<dd><p>Specify package to add (install). The option can be specified
+multiple times.</p>
 </dd>
 <dt><kbd><span class="option">--add-repo=<var>&lt;source,type,alias,priority,imageinclude,package_gpgcheck,{signing_keys},components,distribution,repo_gpgcheck&gt;</var></span></kbd></dt>
 <dd><p>Add a new repository to the existing repository setup in the XML
 description. This option can be specified multiple times.
-For details about the provided option values see the <strong>–set-repo</strong>
-information below</p>
+For details about the possible option values see the <strong>–set-repo</strong>
+information below.</p>
 </dd>
 <dt><kbd><span class="option">--add-repo-credentials=<var>&lt;user:pass_or_filename&gt;</var></span></kbd></dt>
-<dd><p>For <strong>uri://user:pass&#64;location</strong> type repositories, set the user and
-password connected with an add-repo specification. The first
-add-repo-credentials is connected with the first add-repo
-specification and so on. If the provided value describes a filename
-in the filesystem, the first line of that file is read and used
-as credentials information.</p>
+<dd><p>For <strong>uri://user:pass&#64;location</strong> repositories, set the user and password
+associated with an add-repo specification. If the provided value describes a
+filename in the filesystem, the first line of that file is used as
+credentials.</p>
 </dd>
 <dt><kbd><span class="option">--allow-existing-root</span></kbd></dt>
-<dd><p>Allow to use an existing root directory from an earlier
-build attempt. Use with caution this could cause an inconsistent
+<dd><p>Use an existing root directory from a previous
+build attempt. Use with caution, because this can cause an inconsistent
 root tree if the existing contents does not fit to the
-former image type setup</p>
+previous image type setup.</p>
 </dd>
 <dt><kbd><span class="option">--clear-cache</span></kbd></dt>
-<dd><p>delete repository cache for each of the used repositories
-before installing any package. This is useful if an image build
-should take and validate the signature of the package from the
+<dd><p>Delete repository cache for each of the used repositories
+before installing any package. This is useful when an image build
+validates the signature of the package from the
 original repository source for any build. Some package managers
-unconditionally trust the contents of the cache, which is ok for
-cache data dedicated to one build but in case of kiwi the cache
+unconditionally trust the contents of the cache, which works for
+cache data dedicated to one build. In case of KIWI NG, the cache
 is shared between multiple image builds on that host for performance
 reasons.</p>
 </dd>
 <dt><kbd><span class="option">--delete-package=<var>&lt;name&gt;</var></span></kbd></dt>
-<dd><p>specify package to delete. The option can be specified
-multiple times</p>
+<dd><p>Specify package to delete. The option can be specified
+multiple times.</p>
 </dd>
 <dt><kbd><span class="option">--description=<var>&lt;directory&gt;</var></span></kbd></dt>
-<dd><p>Path to the XML description. This is a directory containing at least
+<dd><p>Path to an XML description. This is a directory containing at least
 one _config.xml_ or _*.kiwi_ XML file.</p>
 </dd>
 <dt><kbd><span class="option">--ignore-repos</span></kbd></dt>
 <dd><p>Ignore all repository configurations from the XML description.
-Using that option is usually done with a sequence of –add-repo
-options otherwise there are no repositories available for the
-image build which would lead to an error.</p>
+This option is used in combination with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--add-repo`</span></code>
+option. Otherwise, there are no repositories available for an
+image build, which leads to an error.</p>
 </dd>
 <dt><kbd><span class="option">--ignore-repos-used-for-build</span></kbd></dt>
-<dd><p>Works the same way as –ignore-repos except that repository
-configurations which has the imageonly attribute set to true
-will not be ignored.</p>
+<dd><p>Works the same way as <code class="xref py py-obj docutils literal notranslate"><span class="pre">--ignore-repos</span></code>, except that repository configuration
+with the imageonly attribute set to <strong>true</strong> is not ignored.</p>
 </dd>
 <dt><kbd><span class="option">--set-repo=<var>&lt;source,type,alias,priority,imageinclude,package_gpgcheck,{signing_keys},components,distribution,repo_gpgcheck&gt;</var></span></kbd></dt>
 <dd><p>Overwrite the first repository entry in the XML description with the
 provided information:</p>
 <ul>
 <li><p><strong>source</strong></p>
-<p>source url, pointing to a package repository which must be in a format
+<p>Source URL pointing to a package repository that must be in a format
 supported by the selected package manager. See the URI_TYPES section for
 details about the supported source locators.</p>
 </li>
 <li><p><strong>type</strong></p>
-<p>repository type, could be one of <code class="xref py py-obj docutils literal notranslate"><span class="pre">rpm-md</span></code>, or <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt-deb</span></code>.</p>
+<p>Repository type: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rpm-md</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt-deb</span></code>.</p>
 </li>
 <li><p><strong>alias</strong></p>
-<p>An alias name for the repository. If not specified kiwi generate
-an alias name as result of hex representation from uuid4. The hex
-is used to uniquely identify the repository, but not very expressive.
-We recommend to set an expressive and uniq alias name.</p>
+<p>An alias name for the repository. If not specified, KIWI NG generates
+an alias name as result of hex representation from uuid4. While the hex
+is used to uniquely identify the repository, it is not descriptive.
+We recommend using descriptive aliases.</p>
 </li>
 <li><p><strong>priority</strong></p>
 <p>A number indicating the repository priority. How the value is evaluated
-depends on the selected package manager. Please refer to the package
+depends on the selected package manager. Refer to the package
 manager documentation for details about the supported priority ranges
 and their meaning.</p>
 </li>
 <li><p><strong>imageinclude</strong></p>
-<p>Set to either <strong>true</strong> or <strong>false</strong> to specify if this repository
-should be part of the system image repository setup or not.</p>
+<p>Set to either <strong>true</strong> or <strong>false</strong> to indicate if the repository
+is be part of the system image repository setup or not.</p>
 </li>
 <li><p><strong>package_gpgcheck</strong></p>
-<p>Set to either <strong>true</strong> or <strong>false</strong> to specify if this repository
+<p>Set to either <strong>true</strong> or <strong>false</strong> to indicate if the repository
 should validate the package signatures.</p>
 </li>
 <li><p><strong>{signing_keys}</strong></p>
 <p>List of signing_keys enclosed in curly brackets and delimited by
-semicolon. The reference to a signing key must be provided as URI
-format</p>
+the semicolon. The reference to a signing key must be provided in the URI
+format.</p>
 </li>
 <li><p><strong>components</strong></p>
-<p>Component list for debian based repos as string delimited by a space</p>
+<p>Component list for Debian-based repos as space-delimited string.</p>
 </li>
 <li><p><strong>distribution</strong></p>
-<p>Main distribution name for debian based repos</p>
+<p>Main distribution name for Debian-based repos.</p>
 </li>
 <li><p><strong>repo_gpgcheck</strong></p>
-<p>Set to either <strong>true</strong> or <strong>false</strong> to specify if this repository
+<p>Set to either <strong>true</strong> or <strong>false</strong> to indicate if the repository
 should validate the repository signature.</p>
 </li>
 </ul>
@@ -1383,24 +1380,24 @@ should validate the repository signature.</p>
 <dd><p>For <strong>uri://user:pass&#64;location</strong> type repositories, set the user and
 password connected to the set-repo specification. If the provided
 value describes a filename in the filesystem, the first line of that file
-is read and used as credentials information.</p>
+is used as credentials.</p>
 </dd>
 <dt><kbd><span class="option">--set-container-derived-from=<var>&lt;uri&gt;</var></span></kbd></dt>
 <dd><p>Overwrite the source location of the base container for the selected
-image type. The setting is only effective if the configured image type
-is setup with an initial derived_from reference</p>
+image type. The setting applies only if the configured image type
+is setup with an initial derived_from reference.</p>
 </dd>
 <dt><kbd><span class="option">--set-container-tag=<var>&lt;name&gt;</var></span></kbd></dt>
 <dd><p>Overwrite the container tag in the container configuration.
-The setting is only effective if the container configuraiton
-provides an initial tag value</p>
+The setting is only effective if the container configuration
+provides the initial tag value.</p>
 </dd>
 <dt><kbd><span class="option">--signing-key=<var>&lt;key-file&gt;</var></span></kbd></dt>
-<dd><p>set the key file to be trusted and imported into the package
+<dd><p>Set the key file to be trusted and imported into the package
 manager database before performing any operation. This is useful
-if an image build should take and validate repository and package
+when an image build validates repository and package
 signatures during build time. This option can be specified multiple
-times</p>
+times.</p>
 </dd>
 <dt><kbd><span class="option">--target-dir=<var>&lt;directory&gt;</var></span></kbd></dt>
 <dd><p>Path to store the build results.</p>
@@ -1411,22 +1408,22 @@ times</p>
 <span id="db-kiwi-system-build-uri"></span><h2>URI_TYPES<a class="headerlink" href="#uri-types" title="Link to this heading"></a></h2>
 <ul>
 <li><p><strong>http://</strong> | <strong>https://</strong> | <strong>ftp://</strong></p>
-<p>remote repository delivered via http or ftp protocol.</p>
+<p>Remote repository delivered via the HTTP or FTP protocol.</p>
 </li>
 <li><p><strong>obs://</strong></p>
 <p>Open Buildservice repository. The source data is translated into
-an http url pointing to <a class="reference external" href="http://download.opensuse.org">http://download.opensuse.org</a>.</p>
+an HTTP URL pointing to <a class="reference external" href="http://download.opensuse.org">http://download.opensuse.org</a>.</p>
 </li>
 <li><p><strong>ibs://</strong></p>
 <p>Internal Open Buildservice repository. The source data is translated into
-an http url pointing to download.suse.de.</p>
+an HTTP URL pointing to download.suse.de.</p>
 </li>
 <li><p><strong>iso://</strong></p>
-<p>Local iso file. kiwi loop mounts the file and uses the mount point
-as temporary directory source type</p>
+<p>Local ISO file. KIWI NG loop mounts the file and uses the mount point
+as temporary directory source type.</p>
 </li>
 <li><p><strong>dir://</strong></p>
-<p>Local directory</p>
+<p>Local directory.</p>
 </li>
 </ul>
 </section>

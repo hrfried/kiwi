@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.install.grub2 &mdash; KIWI NG 10.0.5 documentation</title>
+  <title>kiwi.bootloader.install.grub2 &mdash; KIWI NG 10.0.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../_static/documentation_options.js?v=6b50165a"></script>
+        <script src="../../../../_static/documentation_options.js?v=5ca89c30"></script>
         <script src="../../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -1449,28 +1449,6 @@
                         <span class="s1">&#39;grub2-zipl-setup&#39;</span><span class="p">,</span> <span class="s1">&#39;--keep&#39;</span>
                     <span class="p">]</span>
                 <span class="p">)</span>
-                <span class="n">zipl_config_file</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                    <span class="p">[</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">root_mount</span><span class="o">.</span><span class="n">mountpoint</span><span class="p">,</span> <span class="s1">&#39;/boot/zipl/config&#39;</span>
-                    <span class="p">]</span>
-                <span class="p">)</span>
-                <span class="n">zipl2grub_config_file_orig</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                    <span class="p">[</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">root_mount</span><span class="o">.</span><span class="n">mountpoint</span><span class="p">,</span>
-                        <span class="s1">&#39;/etc/default/zipl2grub.conf.in.orig&#39;</span>
-                    <span class="p">]</span>
-                <span class="p">)</span>
-                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">zipl2grub_config_file_orig</span><span class="p">):</span>
-                    <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-                        <span class="p">[</span>
-                            <span class="s1">&#39;mv&#39;</span><span class="p">,</span> <span class="n">zipl2grub_config_file_orig</span><span class="p">,</span>
-                            <span class="n">zipl2grub_config_file_orig</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.orig&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-                        <span class="p">]</span>
-                    <span class="p">)</span>
-                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">zipl_config_file</span><span class="p">):</span>
-                    <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-                        <span class="p">[</span><span class="s1">&#39;mv&#39;</span><span class="p">,</span> <span class="n">zipl_config_file</span><span class="p">,</span> <span class="n">zipl_config_file</span> <span class="o">+</span> <span class="s1">&#39;.kiwi&#39;</span><span class="p">]</span>
-                    <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
                     <span class="p">[</span>
@@ -1485,6 +1463,31 @@
                         <span class="s1">&#39;--modules&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="p">,</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">install_device</span>
                     <span class="p">]</span>
+                <span class="p">)</span>
+            <span class="c1"># Cleanup temporary modified zipl template and config files</span>
+            <span class="c1"># back to its original state or lave a .kiwi copy for</span>
+            <span class="c1"># reference in the system</span>
+            <span class="n">zipl_config_file</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">root_mount</span><span class="o">.</span><span class="n">mountpoint</span><span class="p">,</span> <span class="s1">&#39;/boot/zipl/config&#39;</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">zipl2grub_config_file_orig</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">root_mount</span><span class="o">.</span><span class="n">mountpoint</span><span class="p">,</span>
+                    <span class="s1">&#39;/etc/default/zipl2grub.conf.in.orig&#39;</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">zipl2grub_config_file_orig</span><span class="p">):</span>
+                <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+                    <span class="p">[</span>
+                        <span class="s1">&#39;mv&#39;</span><span class="p">,</span> <span class="n">zipl2grub_config_file_orig</span><span class="p">,</span>
+                        <span class="n">zipl2grub_config_file_orig</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.orig&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                    <span class="p">]</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">zipl_config_file</span><span class="p">):</span>
+                <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+                    <span class="p">[</span><span class="s1">&#39;mv&#39;</span><span class="p">,</span> <span class="n">zipl_config_file</span><span class="p">,</span> <span class="n">zipl_config_file</span> <span class="o">+</span> <span class="s1">&#39;.kiwi&#39;</span><span class="p">]</span>
                 <span class="p">)</span></div>
 
 

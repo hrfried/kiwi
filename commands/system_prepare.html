@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi-ng system prepare &mdash; KIWI NG 10.0.5 documentation</title>
+  <title>kiwi-ng system prepare &mdash; KIWI NG 10.0.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=6b50165a"></script>
+        <script src="../_static/documentation_options.js?v=5ca89c30"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -1258,10 +1258,10 @@ kiwi-ng<span class="w"> </span>system<span class="w"> </span>prepare<span class=
 </section>
 <section id="description">
 <span id="db-kiwi-system-prepare-desc"></span><h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
-<p>Create a new image root directory. The prepare step builds a new image
+<p>Create a new image root directory. The prepare step sets up a new image
 root directory from the specified XML description. The specified
-root directory is the root directory of the new image root system.
-As the root user you can enter this system via chroot as follows:</p>
+directory acts as a root directory of the new image root system.
+You can enter the system as root via chroot using the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>chroot<span class="w"> </span>&lt;directory&gt;<span class="w"> </span>bash
 </pre></div>
 </div>
@@ -1270,137 +1270,134 @@ As the root user you can enter this system via chroot as follows:</p>
 <span id="db-kiwi-system-prepare-opts"></span><h2>OPTIONS<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
 <dl class="option-list">
 <dt><kbd><span class="option">--add-bootstrap-package=<var>&lt;name&gt;</var></span></kbd></dt>
-<dd><p>specify package to install as part of the early kiwi bootstrap phase.
-The option can be specified multiple times</p>
+<dd><p>Specify a package to install as part of the early KIWI NG bootstrap phase.
+The option can be specified multiple times.</p>
 </dd>
 <dt><kbd><span class="option">--add-container-label=<var>&lt;name=value&gt;</var></span></kbd></dt>
-<dd><p>add a container label in the container configuration metadata. It
-overwrites the label with the provided key-value pair in case it was
-already defined in the XML description</p>
+<dd><p>Add a container label to the container configuration metadata. It
+overwrites the label with the provided key-value pair if it was
+already defined in the XML description.</p>
 </dd>
 <dt><kbd><span class="option">--add-package=<var>&lt;name&gt;</var></span></kbd></dt>
-<dd><p>specify package to add(install). The option can be specified
-multiple times</p>
+<dd><p>Specify a package to add (install). The option can be specified
+multiple times.</p>
 </dd>
 <dt><kbd><span class="option">--add-repo=<var>&lt;source,type,alias,priority,imageinclude,package_gpgcheck,{signing_keys},components,distribution,repo_gpgcheck&gt;</var></span></kbd></dt>
 <dd><p>Add a new repository to the existing repository setup in the XML
 description. This option can be specified multiple times.
-For details about the provided option values see the <strong>–set-repo</strong>
+For details about the supported option values, see the <strong>–set-repo</strong>
 information below</p>
 </dd>
 <dt><kbd><span class="option">--add-repo-credentials=<var>&lt;user:pass_or_filename&gt;</var></span></kbd></dt>
-<dd><p>For <strong>uri://user:pass&#64;location</strong> type repositories, set the user and
-password connected with an add-repo specification. The first
-add-repo-credentials is connected with the first add-repo
-specification and so on. If the provided value describes a filename
-in the filesystem, the first line of that file is read and used
-as credentials information.</p>
+<dd><p>For <strong>uri://user:pass&#64;location</strong> type repositories, set the user and password
+connected with an add-repo specification. If the provided value is a
+filename in the filesystem, the first line of the file is used as
+credentials.</p>
 </dd>
 <dt><kbd><span class="option">--allow-existing-root</span></kbd></dt>
-<dd><p>allow to re-use an existing image root directory</p>
+<dd><p>Allow to re-use an existing image root directory.</p>
 </dd>
 <dt><kbd><span class="option">--clear-cache</span></kbd></dt>
-<dd><p>delete repository cache for each of the used repositories
+<dd><p>Delete repository cache for each of the used repositories
 before installing any package. This is useful if an image build
-should take and validate the signature of the package from the
+validates the signature of the package from the
 original repository source for any build. Some package managers
-unconditionally trust the contents of the cache, which is ok for
-cache data dedicated to one build but in case of kiwi the cache
-is shared between multiple image builds on that host for performance
+unconditionally trust the contents of the cache, which works for
+cache data dedicated to one build. In case of KIWI NG, the cache
+is shared between multiple image builds on the host for performance
 reasons.</p>
 </dd>
 <dt><kbd><span class="option">--delete-package=<var>&lt;name&gt;</var></span></kbd></dt>
-<dd><p>specify package to delete. The option can be specified
-multiple times</p>
+<dd><p>Specify a package to delete. The option can be specified
+multiple times.</p>
 </dd>
 <dt><kbd><span class="option">--description=<var>&lt;directory&gt;</var></span></kbd></dt>
-<dd><p>Path to the kiwi XML description. Inside of that directory there
-must be at least a config.xml of *.kiwi XML description.</p>
+<dd><p>Path to the KIWI NG XML description. The directory must contain at least a
+config.xml of *.kiwi XML description.</p>
 </dd>
 <dt><kbd><span class="option">--ignore-repos</span></kbd></dt>
-<dd><p>Ignore all repository configurations from the XML description.
-Using that option is usually done with a sequence of –add-repo
-options otherwise there are no repositories available for the
-image build which would lead to an error.</p>
+<dd><p>Ignore all repository configurations in the XML description.
+This option is normally used in combination with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--add-repo`</span></code>
+option. Otherwise, an image build operation results in an error.</p>
 </dd>
 <dt><kbd><span class="option">--ignore-repos-used-for-build</span></kbd></dt>
-<dd><p>Works the same way as –ignore-repos except that repository
-configurations which has the imageonly attribute set to true
-will not be ignored.</p>
+<dd><p>Works the same way as <code class="xref py py-obj docutils literal notranslate"><span class="pre">--ignore-repos</span></code>,` but the repository
+configurations that have the imageonly attribute set to <strong>true</strong>
+are not ignored.</p>
 </dd>
 <dt><kbd><span class="option">--root=<var>&lt;directory&gt;</var></span></kbd></dt>
-<dd><p>Path to create the new root system.</p>
+<dd><p>Path to the new root system.</p>
 </dd>
 <dt><kbd><span class="option">--set-repo=<var>&lt;source,type,alias,priority,imageinclude,package_gpgcheck,{signing_keys},components,distribution,repo_gpgcheck&gt;</var></span></kbd></dt>
 <dd><p>Overwrite the first repository entry in the XML description with the
 provided information:</p>
 <ul>
 <li><p><strong>source</strong></p>
-<p>source url, pointing to a package repository which must be in a format
+<p>Source URL pointing to a package repository that must be in a format
 supported by the selected package manager. See the URI_TYPES section for
 details about the supported source locators.</p>
 </li>
 <li><p><strong>type</strong></p>
-<p>repository type, could be one of <code class="xref py py-obj docutils literal notranslate"><span class="pre">rpm-md</span></code>, or <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt-deb</span></code>.</p>
+<p>Repository type: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rpm-md</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt-deb</span></code>.</p>
 </li>
 <li><p><strong>alias</strong></p>
-<p>An alias name for the repository. If not specified kiwi generate
-an alias name as result of hex representation from uuid4. The hex
-is used to uniquely identify the repository, but not very expressive.
-We recommend to set an expressive and uniq alias name.</p>
+<p>An alias name for the repository. If not specified, KIWI NG generates
+an alias name based hex representation of uuid4. While the hex
+is used to uniquely identify the repository, it is not descriptive.
+We recommend to use a descriptive and unique alias name.</p>
 </li>
 <li><p><strong>priority</strong></p>
 <p>A number indicating the repository priority. How the value is evaluated
-depends on the selected package manager. Please refer to the package
+depends on the selected package manager. Refer to the package
 manager documentation for details about the supported priority ranges
 and their meaning.</p>
 </li>
 <li><p><strong>imageinclude</strong></p>
-<p>Set to either <strong>true</strong> or <strong>false</strong> to specify if this repository
-should be part of the system image repository setup or not.</p>
+<p>Set to either <strong>true</strong> or <strong>false</strong> to specify if the repository
+is part of the system image repository setup or not.</p>
 </li>
 <li><p><strong>package_gpgcheck</strong></p>
-<p>Set to either <strong>true</strong> or <strong>false</strong> to specify if this repository
-should validate the package signatures.</p>
+<p>Set to either <strong>true</strong> or <strong>false</strong> to specify if the repository
+must validate the package signatures.</p>
 <ul class="simple">
 <li><p><strong>{signing_keys}</strong></p></li>
 </ul>
 <p>List of signing_keys enclosed in curly brackets and delimited by
-semicolon. The reference to a signing key must be provided as URI
-format</p>
+the semicolon. The reference to a signing key must be provided in the URI
+format.</p>
 </li>
 <li><p><strong>components</strong></p>
-<p>Component list for debian based repos as string delimited by a space</p>
+<p>Component list for Debian-based repos as a space-delimited string.</p>
 </li>
 <li><p><strong>distribution</strong></p>
-<p>Main distribution name for debian based repos</p>
+<p>Main distribution name for Debian-based repos.</p>
 </li>
 <li><p><strong>repo_gpgcheck</strong></p>
-<p>Set to either <strong>true</strong> or <strong>false</strong> to specify if this repository
-should validate the repository signature.</p>
+<p>Set to either <strong>true</strong> or <strong>false</strong> to specify if the repository
+must validate the repository signature.</p>
 </li>
 </ul>
 </dd>
 <dt><kbd><span class="option">--set-repo-credentials=<var>&lt;user:pass_or_filename&gt;</var></span></kbd></dt>
 <dd><p>For <strong>uri://user:pass&#64;location</strong> type repositories, set the user and
 password connected to the set-repo specification. If the provided value
-describes a filename in the filesystem, the first line of that file is
-read and used as credentials information.</p>
+is a filename in the filesystem, the first line of that file is
+used as credentials.</p>
 </dd>
 <dt><kbd><span class="option">--set-container-derived-from=<var>&lt;uri&gt;</var></span></kbd></dt>
-<dd><p>overwrite the source location of the base container for the selected
+<dd><p>Overwrite the source location of the base container for the selected
 image type. The setting is only effective if the configured image type
 is setup with an initial derived_from reference</p>
 </dd>
 <dt><kbd><span class="option">--set-container-tag=<var>&lt;name&gt;</var></span></kbd></dt>
-<dd><p>overwrite the container tag in the container configuration.
-The setting is only effective if the container configuraiton
-provides an initial tag value</p>
+<dd><p>Overwrite the container tag in the container configuration.
+The setting applies only if the container configuration
+provides an initial tag value.</p>
 </dd>
 <dt><kbd><span class="option">--signing-key=<var>&lt;key-file&gt;</var></span></kbd></dt>
-<dd><p>set the key file to be trusted and imported into the package
+<dd><p>Set the key file to be trusted and imported into the package
 manager database before performing any operation. This is useful
-if an image build should take and validate repository and package
+if an image build validates repository and package
 signatures during build time. This option can be specified multiple
 times.</p>
 </dd>
