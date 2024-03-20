@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.tasks.result_bundle &mdash; KIWI NG 10.0.6 documentation</title>
+  <title>kiwi.tasks.result_bundle &mdash; KIWI NG 10.0.7 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5ca89c30"></script>
+        <script src="../../../_static/documentation_options.js?v=f8d01829"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -1246,6 +1246,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">usage: kiwi-ng result bundle -h | --help</span>
 <span class="sd">       kiwi-ng result bundle --target-dir=&lt;directory&gt; --id=&lt;bundle_id&gt; --bundle-dir=&lt;directory&gt;</span>
+<span class="sd">           [--bundle-format=&lt;format&gt;]</span>
 <span class="sd">           [--zsync-source=&lt;download_location&gt;]</span>
 <span class="sd">           [--package-as-rpm]</span>
 <span class="sd">       kiwi-ng result bundle help</span>
@@ -1276,6 +1277,11 @@
 <span class="sd">        are placed to the same download location</span>
 <span class="sd">    --package-as-rpm</span>
 <span class="sd">        Take all result files and create an rpm package out of it</span>
+<span class="sd">    --bundle-format=&lt;format&gt;</span>
+<span class="sd">        specify the bundle format to create the bundle.</span>
+<span class="sd">        If provided this setting will overwrite an eventually</span>
+<span class="sd">        provided bundle_format attribute from the main</span>
+<span class="sd">        image description</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
@@ -1343,6 +1349,10 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">Result</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
             <span class="n">result_directory</span> <span class="o">+</span> <span class="s1">&#39;/kiwi.result&#39;</span>
         <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--bundle-format&#39;</span><span class="p">]:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">add_bundle_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--bundle-format&#39;</span><span class="p">])</span>
+
         <span class="n">image_version</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_image_version</span><span class="p">()</span>
         <span class="n">image_name</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">xml_data</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
         <span class="n">image_description</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_description_section</span><span class="p">()</span>
@@ -1386,6 +1396,10 @@
             <span class="c1"># Insert Image Patch version number</span>
             <span class="n">bundle_file_format_name</span> <span class="o">=</span> <span class="n">bundle_file_format_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
                 <span class="s1">&#39;%p&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">tags</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="c1"># Insert Version string</span>
+            <span class="n">bundle_file_format_name</span> <span class="o">=</span> <span class="n">bundle_file_format_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                <span class="s1">&#39;%v&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">tags</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>
             <span class="p">)</span>
             <span class="c1"># Insert Bundle ID</span>
             <span class="n">bundle_file_format_name</span> <span class="o">=</span> <span class="n">bundle_file_format_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>

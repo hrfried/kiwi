@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi-ng result bundle &mdash; KIWI NG 10.0.6 documentation</title>
+  <title>kiwi-ng result bundle &mdash; KIWI NG 10.0.7 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5ca89c30"></script>
+        <script src="../_static/documentation_options.js?v=f8d01829"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -1237,6 +1237,7 @@
 
 kiwi-ng<span class="w"> </span>result<span class="w"> </span>bundle<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>--help
 kiwi-ng<span class="w"> </span>result<span class="w"> </span>bundle<span class="w"> </span>--target-dir<span class="o">=</span>&lt;directory&gt;<span class="w"> </span>--id<span class="o">=</span>&lt;bundle_id&gt;<span class="w"> </span>--bundle-dir<span class="o">=</span>&lt;directory&gt;
+<span class="w">    </span><span class="o">[</span>--bundle-format<span class="o">=</span>&lt;format&gt;<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--zsync_source<span class="o">=</span>&lt;download_location&gt;<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--package-as-rpm<span class="o">]</span>
 kiwi-ng<span class="w"> </span>result<span class="w"> </span>bundle<span class="w"> </span><span class="nb">help</span>
@@ -1256,6 +1257,23 @@ checksum is generated for each resulting image.</p>
 <dt><kbd><span class="option">--bundle-dir=<var>&lt;directory&gt;</var></span></kbd></dt>
 <dd><p>Directory containing the bundle results, compressed versions of
 image results, and SHA checksum files.</p>
+</dd>
+<dt><kbd><span class="option">--bundle-format=<var>&lt;format&gt;</var></span></kbd></dt>
+<dd><p>Specify the bundle format to create the bundle. If provided,
+this setting will overwrite an eventually provided <code class="xref py py-obj docutils literal notranslate"><span class="pre">bundle_format</span></code>
+attribute from the main image description. The format string
+can contain placeholders for the following elements:</p>
+<ul class="simple">
+<li><p>%N : Image name</p></li>
+<li><p>%P : Concatenated profile name (_)</p></li>
+<li><p>%A : Architecture name</p></li>
+<li><p>%I : Bundle ID</p></li>
+<li><p>%T : Image build type name</p></li>
+<li><p>%M : Image Major version number</p></li>
+<li><p>%m : Image Minor version number</p></li>
+<li><p>%p : Image Patch version number</p></li>
+<li><p>%v : Image Version string</p></li>
+</ul>
 </dd>
 <dt><kbd><span class="option">--id=<var>&lt;bundle_id&gt;</var></span></kbd></dt>
 <dd><p>Bundle ID. It is a free-form text appended to the image
