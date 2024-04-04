@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.cli &mdash; KIWI NG 10.0.10 documentation</title>
+  <title>kiwi.cli &mdash; KIWI NG 10.0.11 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=b8a5e7f0"></script>
+        <script src="../../_static/documentation_options.js?v=1cdd63e9"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -450,7 +450,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiCommandError"><code class="docutils literal notranslate"><span class="pre">KiwiCommandError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiCommandNotFound"><code class="docutils literal notranslate"><span class="pre">KiwiCommandNotFound</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiCommandNotLoaded"><code class="docutils literal notranslate"><span class="pre">KiwiCommandNotLoaded</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiCompatError"><code class="docutils literal notranslate"><span class="pre">KiwiCompatError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiCompressionFormatUnknown"><code class="docutils literal notranslate"><span class="pre">KiwiCompressionFormatUnknown</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiConfigFileFormatNotSupported"><code class="docutils literal notranslate"><span class="pre">KiwiConfigFileFormatNotSupported</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/kiwi.html#kiwi.exceptions.KiwiConfigFileNotFound"><code class="docutils literal notranslate"><span class="pre">KiwiConfigFileNotFound</span></code></a></li>
@@ -1280,8 +1279,6 @@
 <span class="sd">               [--config=&lt;configfile&gt;]</span>
 <span class="sd">               [--kiwi-file=&lt;kiwifile&gt;]</span>
 <span class="sd">           system &lt;command&gt; [&lt;args&gt;...]</span>
-<span class="sd">       kiwi-ng compat &lt;legacy_args&gt;...</span>
-<span class="sd">       kiwi-ng --compat &lt;legacy_args&gt;...</span>
 <span class="sd">       kiwi-ng -v | --version</span>
 <span class="sd">       kiwi-ng help</span>
 
@@ -1356,10 +1353,8 @@
 <span class="kn">from</span> <span class="nn">kiwi.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">KiwiUnknownServiceName</span><span class="p">,</span>
     <span class="n">KiwiCommandNotLoaded</span><span class="p">,</span>
-    <span class="n">KiwiLoadCommandUndefined</span><span class="p">,</span>
-    <span class="n">KiwiCompatError</span>
+    <span class="n">KiwiLoadCommandUndefined</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">kiwi.path</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">kiwi.version</span> <span class="kn">import</span> <span class="n">__version__</span>
 <span class="kn">from</span> <span class="nn">kiwi.help</span> <span class="kn">import</span> <span class="n">Help</span>
 <span class="kn">from</span> <span class="nn">kiwi.defaults</span> <span class="kn">import</span> <span class="n">Defaults</span>
@@ -1414,39 +1409,9 @@
             <span class="k">return</span> <span class="s1">&#39;system&#39;</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;result&#39;</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;--compat&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s1">&#39;compat&#39;</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;compat&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s1">&#39;compat&#39;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">KiwiUnknownServiceName</span><span class="p">(</span>
                 <span class="s1">&#39;Unknown/Invalid Servicename&#39;</span>
-            <span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="Cli.invoke_kiwicompat">
-<a class="viewcode-back" href="../../api/kiwi.html#kiwi.cli.Cli.invoke_kiwicompat">[docs]</a>
-    <span class="k">def</span> <span class="nf">invoke_kiwicompat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compat_args</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Execute kiwicompat with provided legacy KIWI command line arguments</span>
-
-<span class="sd">        Example:</span>
-
-<span class="sd">        .. code:: python</span>
-
-<span class="sd">            invoke_kiwicompat(</span>
-<span class="sd">                &#39;--build&#39;, &#39;description&#39;, &#39;--type&#39;, &#39;vmx&#39;,</span>
-<span class="sd">                &#39;-d&#39;, &#39;destination&#39;</span>
-<span class="sd">            )</span>
-
-<span class="sd">        :param list compat_args: legacy kiwi command arguments</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">kiwicompat</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="s1">&#39;kiwicompat&#39;</span><span class="p">,</span> <span class="n">access_mode</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">X_OK</span><span class="p">)</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">execvp</span><span class="p">(</span><span class="n">kiwicompat</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;kiwicompat&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">compat_args</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">KiwiCompatError</span><span class="p">(</span>
-                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
             <span class="p">)</span></div>
 
 
@@ -1539,12 +1504,6 @@
         <span class="p">}</span>
         <span class="n">service</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_servicename</span><span class="p">()</span>
         <span class="n">command</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_command</span><span class="p">()</span>
-
-        <span class="k">if</span> <span class="n">service</span> <span class="o">==</span> <span class="s1">&#39;compat&#39;</span><span class="p">:</span>
-            <span class="n">compat_arguments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_args</span><span class="p">[</span><span class="s1">&#39;&lt;legacy_args&gt;&#39;</span><span class="p">]</span>
-            <span class="k">if</span> <span class="s1">&#39;--&#39;</span> <span class="ow">in</span> <span class="n">compat_arguments</span><span class="p">:</span>
-                <span class="n">compat_arguments</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">invoke_kiwicompat</span><span class="p">(</span><span class="n">compat_arguments</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">command</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">KiwiLoadCommandUndefined</span><span class="p">(</span>

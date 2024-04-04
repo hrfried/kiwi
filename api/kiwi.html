@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi Package &mdash; KIWI NG 10.0.10 documentation</title>
+  <title>kiwi Package &mdash; KIWI NG 10.0.11 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=b8a5e7f0"></script>
+        <script src="../_static/documentation_options.js?v=1cdd63e9"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -453,7 +453,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiCommandError"><code class="docutils literal notranslate"><span class="pre">KiwiCommandError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiCommandNotFound"><code class="docutils literal notranslate"><span class="pre">KiwiCommandNotFound</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiCommandNotLoaded"><code class="docutils literal notranslate"><span class="pre">KiwiCommandNotLoaded</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiCompatError"><code class="docutils literal notranslate"><span class="pre">KiwiCompatError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiCompressionFormatUnknown"><code class="docutils literal notranslate"><span class="pre">KiwiCompressionFormatUnknown</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiConfigFileFormatNotSupported"><code class="docutils literal notranslate"><span class="pre">KiwiConfigFileFormatNotSupported</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiConfigFileNotFound"><code class="docutils literal notranslate"><span class="pre">KiwiConfigFileNotFound</span></code></a></li>
@@ -1320,24 +1319,6 @@ which itself provides their own command line interface</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="kiwi.cli.Cli.invoke_kiwicompat">
-<span class="sig-name descname"><span class="pre">invoke_kiwicompat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compat_args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/cli.html#Cli.invoke_kiwicompat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.cli.Cli.invoke_kiwicompat" title="Link to this definition"></a></dt>
-<dd><p>Execute kiwicompat with provided legacy KIWI command line arguments</p>
-<p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">invoke_kiwicompat</span><span class="p">(</span>
-    <span class="s1">&#39;--build&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;--type&#39;</span><span class="p">,</span> <span class="s1">&#39;vmx&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;destination&#39;</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>compat_args</strong> (<em>list</em>) – legacy kiwi command arguments</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3556,14 +3537,6 @@ the evironment PATH variable.</p>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.exceptions.KiwiError" title="kiwi.exceptions.KiwiError"><code class="xref py py-class docutils literal notranslate"><span class="pre">KiwiError</span></code></a></p>
 <p>Exception raised if a kiwi command task module could not be
 loaded.</p>
-</dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="kiwi.exceptions.KiwiCompatError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.exceptions.</span></span><span class="sig-name descname"><span class="pre">KiwiCompatError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/exceptions.html#KiwiCompatError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.exceptions.KiwiCompatError" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#kiwi.exceptions.KiwiError" title="kiwi.exceptions.KiwiError"><code class="xref py py-class docutils literal notranslate"><span class="pre">KiwiError</span></code></a></p>
-<p>Exception raised if the given kiwi compatibility command line
-could not be understood by the compat option parser.</p>
 </dd></dl>
 
 <dl class="py exception">

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building Linux System Appliances &mdash; KIWI NG 10.0.10 documentation</title>
+  <title>Building Linux System Appliances &mdash; KIWI NG 10.0.11 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=b8a5e7f0"></script>
+        <script src="_static/documentation_options.js?v=1cdd63e9"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -452,7 +452,6 @@
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.exceptions.KiwiCommandError"><code class="docutils literal notranslate"><span class="pre">KiwiCommandError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.exceptions.KiwiCommandNotFound"><code class="docutils literal notranslate"><span class="pre">KiwiCommandNotFound</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.exceptions.KiwiCommandNotLoaded"><code class="docutils literal notranslate"><span class="pre">KiwiCommandNotLoaded</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.exceptions.KiwiCompatError"><code class="docutils literal notranslate"><span class="pre">KiwiCompatError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.exceptions.KiwiCompressionFormatUnknown"><code class="docutils literal notranslate"><span class="pre">KiwiCompressionFormatUnknown</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.exceptions.KiwiConfigFileFormatNotSupported"><code class="docutils literal notranslate"><span class="pre">KiwiConfigFileFormatNotSupported</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.exceptions.KiwiConfigFileNotFound"><code class="docutils literal notranslate"><span class="pre">KiwiConfigFileNotFound</span></code></a></li>
@@ -1231,13 +1230,12 @@
 <h1>Building Linux System Appliances<a class="headerlink" href="#building-linux-system-appliances" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This documentation covers KIWI Next Generation (KIWI NG) 10.0.10- the command line
-utility to build Linux system appliances. KIWI NG is stable and all
-new features, bugfixes, and improvements will be developed here.
-Versions older or equal to v7.x.x are out of maintenance and do
-not get any updates or bugfixes. If you still need this version,
-refer to the documentation for
-<a class="reference external" href="https://doc.opensuse.org/projects/kiwi/doc">KIWI Legacy</a></p>
+<p>This documentation covers KIWI Next Generation (KIWI NG) 10.0.11- the command line
+utility to build Linux system appliances. If you are using a KIWI NG
+schema version older than v74, upgrade the kiwi file as follows:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>xsltproc<span class="w"> </span>/usr/share/kiwi/xsl_to_v74/update.xsl<span class="w"> </span>config.xml<span class="p">|</span>*.kiwi<span class="o">]</span>
+</pre></div>
+</div>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
@@ -1267,6 +1265,7 @@ refer to the documentation for
 <li><p><a class="reference external" href="https://build.opensuse.org/project/show/Virtualization:Appliances:Images:Testing_s390:tumbleweed">Build Tests TumbleWeed(s390)</a></p></li>
 <li><p><a class="reference external" href="https://build.opensuse.org/project/show/Virtualization:Appliances:Images:Testing_ppc:tumbleweed">Build Tests TumbleWeed(ppc64le)</a></p></li>
 <li><p><a class="reference external" href="https://build.opensuse.org/project/show/Virtualization:Appliances:Images:Testing_x86:rawhide">Build Tests RawHide(x86)</a></p></li>
+<li><p><a class="reference external" href="https://build.opensuse.org/project/show/Virtualization:Appliances:Images:Testing_s390:rawhide">Build Tests RawHide(s390)</a></p></li>
 <li><p><a class="reference external" href="https://build.opensuse.org/project/show/Virtualization:Appliances:Images:Testing_x86:leap">Build Tests Leap(x86)</a></p></li>
 <li><p><a class="reference external" href="https://build.opensuse.org/project/show/Virtualization:Appliances:Images:Testing_x86:fedora">Build Tests Fedora(x86)</a></p></li>
 <li><p><a class="reference external" href="https://build.opensuse.org/project/show/Virtualization:Appliances:Images:Testing_arm:fedora">Build Tests Fedora(arm)</a></p></li>
