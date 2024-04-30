@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.xml_state &mdash; KIWI NG 10.0.12 documentation</title>
+  <title>kiwi.xml_state &mdash; KIWI NG 10.0.13 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=2b25e983"></script>
+        <script src="../../_static/documentation_options.js?v=8f5d6d9a"></script>
         <script src="../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -2387,6 +2387,22 @@
         <span class="n">bootloader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_build_type_bootloader_section</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">bootloader</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span> <span class="k">if</span> <span class="n">bootloader</span> <span class="k">else</span> \
             <span class="n">Defaults</span><span class="o">.</span><span class="n">get_default_bootloader</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="XMLState.get_build_type_bootloader_bls">
+<a class="viewcode-back" href="../../api/kiwi.html#kiwi.xml_state.XMLState.get_build_type_bootloader_bls">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_build_type_bootloader_bls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return bootloader bls setting for selected build type</span>
+
+<span class="sd">        :return: True or False</span>
+
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">bootloader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_build_type_bootloader_section</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">bootloader</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">bootloader</span><span class="o">.</span><span class="n">get_bls</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
 
 
 <div class="viewcode-block" id="XMLState.get_build_type_bootloader_console">

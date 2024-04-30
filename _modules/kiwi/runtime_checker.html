@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.runtime_checker &mdash; KIWI NG 10.0.12 documentation</title>
+  <title>kiwi.runtime_checker &mdash; KIWI NG 10.0.13 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=2b25e983"></script>
+        <script src="../../_static/documentation_options.js?v=8f5d6d9a"></script>
         <script src="../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -1995,14 +1995,15 @@
         <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required dracut module package missing in package list</span>
 
-<span class="s1">            The package &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required to build an installation</span>
-<span class="s1">            image for the selected oem image type. Please add the</span>
-<span class="s1">            following in your &lt;packages type=&quot;image&quot;&gt; section to</span>
-<span class="s1">            your system XML description:</span>
+<span class="s1">            One of the packages &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required</span>
+<span class="s1">            to build an installation image for the selected oem image type.</span>
+<span class="s1">            Depending on your distribution, add the following in the</span>
+<span class="s1">            &lt;packages type=&quot;image&quot;&gt; section:</span>
 
-<span class="s1">            &lt;package name=&quot;</span><span class="si">{0}</span><span class="s1">&quot;/&gt;</span>
+<span class="s1">            &lt;package name=&quot;ONE_FROM_ABOVE&quot;/&gt;</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
-        <span class="n">required_dracut_package</span> <span class="o">=</span> <span class="s1">&#39;dracut-kiwi-oem-dump&#39;</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_runtime_checker_metadata</span><span class="p">()</span>
+        <span class="n">required_dracut_packages</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;package_names&#39;</span><span class="p">][</span><span class="s1">&#39;dracut_oem_dump&#39;</span><span class="p">]</span>
         <span class="n">initrd_system</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_initrd_system</span><span class="p">()</span>
         <span class="n">build_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_name</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">build_type</span> <span class="o">==</span> <span class="s1">&#39;oem&#39;</span> <span class="ow">and</span> <span class="n">initrd_system</span> <span class="o">==</span> <span class="s1">&#39;dracut&#39;</span><span class="p">:</span>
@@ -2013,9 +2014,11 @@
                 <span class="n">package_names</span> <span class="o">=</span> \
                     <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_bootstrap_packages</span><span class="p">()</span> <span class="o">+</span> \
                     <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_system_packages</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">required_dracut_package</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">package_names</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">RuntimeChecker</span><span class="o">.</span><span class="n">_package_in_list</span><span class="p">(</span>
+                    <span class="n">package_names</span><span class="p">,</span> <span class="n">required_dracut_packages</span>
+                <span class="p">):</span>
                     <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span>
-                        <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">required_dracut_package</span><span class="p">)</span>
+                        <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">required_dracut_packages</span><span class="p">)</span>
                     <span class="p">)</span></div>
 
 
@@ -2032,14 +2035,14 @@
         <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required dracut module package missing in package list</span>
 
-<span class="s1">            The package &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required for the selected</span>
-<span class="s1">            oem image type. Please add the following in your</span>
-<span class="s1">            &lt;packages type=&quot;image&quot;&gt; section to your system XML</span>
-<span class="s1">            description:</span>
+<span class="s1">            One of the packages &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required</span>
+<span class="s1">            for the selected oem image type. Depending on your distribution,</span>
+<span class="s1">            add the following in the &lt;packages type=&quot;image&quot;&gt; section:</span>
 
-<span class="s1">            &lt;package name=&quot;</span><span class="si">{0}</span><span class="s1">&quot;/&gt;</span>
+<span class="s1">            &lt;package name=&quot;ONE_FROM_ABOVE&quot;/&gt;</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
-        <span class="n">required_dracut_package</span> <span class="o">=</span> <span class="s1">&#39;dracut-kiwi-oem-repart&#39;</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_runtime_checker_metadata</span><span class="p">()</span>
+        <span class="n">required_dracut_packages</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;package_names&#39;</span><span class="p">][</span><span class="s1">&#39;dracut_oem_repart&#39;</span><span class="p">]</span>
         <span class="n">initrd_system</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_initrd_system</span><span class="p">()</span>
         <span class="n">disk_resize_requested</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_oemconfig_oem_resize</span><span class="p">()</span>
         <span class="n">build_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_name</span><span class="p">()</span>
@@ -2048,9 +2051,11 @@
             <span class="n">package_names</span> <span class="o">=</span> \
                 <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_bootstrap_packages</span><span class="p">()</span> <span class="o">+</span> \
                 <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_system_packages</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">required_dracut_package</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">package_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">RuntimeChecker</span><span class="o">.</span><span class="n">_package_in_list</span><span class="p">(</span>
+                <span class="n">package_names</span><span class="p">,</span> <span class="n">required_dracut_packages</span>
+            <span class="p">):</span>
                 <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span>
-                    <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">required_dracut_package</span><span class="p">)</span>
+                    <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">required_dracut_packages</span><span class="p">)</span>
                 <span class="p">)</span></div>
 
 
@@ -2067,23 +2072,25 @@
         <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required dracut module package missing in package list</span>
 
-<span class="s1">            The package &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required for the selected</span>
-<span class="s1">            live iso image type. Please add the following in your</span>
-<span class="s1">            &lt;packages type=&quot;image&quot;&gt; section to your system XML</span>
-<span class="s1">            description:</span>
+<span class="s1">            One of the packages &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required</span>
+<span class="s1">            for the selected live iso image type. Depending on your distribution,</span>
+<span class="s1">            add the following in your &lt;packages type=&quot;image&quot;&gt; section:</span>
 
-<span class="s1">            &lt;package name=&quot;</span><span class="si">{0}</span><span class="s1">&quot;/&gt;</span>
+<span class="s1">            &lt;package name=&quot;ONE_FROM_ABOVE&quot;/&gt;</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
-        <span class="n">required_dracut_package</span> <span class="o">=</span> <span class="s1">&#39;dracut-kiwi-live&#39;</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_runtime_checker_metadata</span><span class="p">()</span>
+        <span class="n">required_dracut_packages</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;package_names&#39;</span><span class="p">][</span><span class="s1">&#39;dracut_live&#39;</span><span class="p">]</span>
         <span class="n">type_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_name</span><span class="p">()</span>
         <span class="n">type_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_flags</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">type_name</span> <span class="o">==</span> <span class="s1">&#39;iso&#39;</span> <span class="ow">and</span> <span class="n">type_flag</span> <span class="o">!=</span> <span class="s1">&#39;dmsquash&#39;</span><span class="p">:</span>
             <span class="n">package_names</span> <span class="o">=</span> \
                 <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_bootstrap_packages</span><span class="p">()</span> <span class="o">+</span> \
                 <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_system_packages</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">required_dracut_package</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">package_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">RuntimeChecker</span><span class="o">.</span><span class="n">_package_in_list</span><span class="p">(</span>
+                <span class="n">package_names</span><span class="p">,</span> <span class="n">required_dracut_packages</span>
+            <span class="p">):</span>
                 <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span>
-                    <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">required_dracut_package</span><span class="p">)</span>
+                    <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">required_dracut_packages</span><span class="p">)</span>
                 <span class="p">)</span></div>
 
 
@@ -2100,23 +2107,26 @@
         <span class="n">message</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span>
 <span class="s1">            Required dracut module package missing in package list</span>
 
-<span class="s1">            The package &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required for the selected</span>
-<span class="s1">            overlayroot activated image type. Please add the</span>
-<span class="s1">            following in your &lt;packages type=&quot;image&quot;&gt; section to</span>
-<span class="s1">            your system XML description:</span>
+<span class="s1">            The package &#39;</span><span class="si">{0}</span><span class="s1">&#39; is required</span>
+<span class="s1">            for the selected overlayroot activated image type.</span>
+<span class="s1">            Depending on your distribution, add the following in your</span>
+<span class="s1">            &lt;packages type=&quot;image&quot;&gt; section:</span>
 
-<span class="s1">            &lt;package name=&quot;</span><span class="si">{0}</span><span class="s1">&quot;/&gt;</span>
+<span class="s1">            &lt;package name=&quot;ONE_FROM_ABOVE&quot;/&gt;</span>
 <span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
         <span class="n">initrd_system</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_initrd_system</span><span class="p">()</span>
-        <span class="n">required_dracut_package</span> <span class="o">=</span> <span class="s1">&#39;dracut-kiwi-overlay&#39;</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">get_runtime_checker_metadata</span><span class="p">()</span>
+        <span class="n">required_dracut_packages</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;package_names&#39;</span><span class="p">][</span><span class="s1">&#39;dracut_overlay&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">initrd_system</span> <span class="o">==</span> <span class="s1">&#39;dracut&#39;</span> <span class="ow">and</span> \
            <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_overlayroot</span><span class="p">():</span>
             <span class="n">package_names</span> <span class="o">=</span> \
                 <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_bootstrap_packages</span><span class="p">()</span> <span class="o">+</span> \
                 <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_system_packages</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">required_dracut_package</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">package_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">RuntimeChecker</span><span class="o">.</span><span class="n">_package_in_list</span><span class="p">(</span>
+                <span class="n">package_names</span><span class="p">,</span> <span class="n">required_dracut_packages</span>
+            <span class="p">):</span>
                 <span class="k">raise</span> <span class="n">KiwiRuntimeError</span><span class="p">(</span>
-                    <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">required_dracut_package</span><span class="p">)</span>
+                    <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">required_dracut_packages</span><span class="p">)</span>
                 <span class="p">)</span></div>
 
 
@@ -2301,6 +2311,17 @@
                 <span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fat_image_mbsize</span><span class="p">)</span>
             <span class="p">)</span></div>
 
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_package_in_list</span><span class="p">(</span>
+        <span class="n">package_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">search_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">search</span> <span class="ow">in</span> <span class="n">search_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">search</span> <span class="ow">in</span> <span class="n">package_list</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">search</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">result</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_get_dracut_module_version_from_pdb</span><span class="p">(</span>

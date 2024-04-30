@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.tasks.result_bundle &mdash; KIWI NG 10.0.12 documentation</title>
+  <title>kiwi.tasks.result_bundle &mdash; KIWI NG 10.0.13 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=2b25e983"></script>
+        <script src="../../../_static/documentation_options.js?v=8f5d6d9a"></script>
         <script src="../../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -1292,7 +1292,9 @@
 <span class="c1"># project</span>
 <span class="kn">from</span> <span class="nn">kiwi.tasks.base</span> <span class="kn">import</span> <span class="n">CliTask</span>
 <span class="kn">from</span> <span class="nn">kiwi.help</span> <span class="kn">import</span> <span class="n">Help</span>
-<span class="kn">from</span> <span class="nn">kiwi.system.result</span> <span class="kn">import</span> <span class="n">Result</span>
+<span class="kn">from</span> <span class="nn">kiwi.system.result</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Result</span><span class="p">,</span> <span class="n">result_file_type</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">kiwi.path</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">kiwi.utils.compress</span> <span class="kn">import</span> <span class="n">Compress</span>
 <span class="kn">from</span> <span class="nn">kiwi.utils.checksum</span> <span class="kn">import</span> <span class="n">Checksum</span>
@@ -1406,29 +1408,14 @@
             <span class="p">)</span>
             <span class="k">del</span> <span class="n">ordered_results</span><span class="p">[</span><span class="s1">&#39;bundle_format&#39;</span><span class="p">]</span>
 
+        <span class="c1"># copy result files</span>
+        <span class="n">origin_files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">copied_files</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">result_file</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">ordered_results</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
             <span class="k">if</span> <span class="n">result_file</span><span class="o">.</span><span class="n">use_for_bundle</span><span class="p">:</span>
-                <span class="n">extension</span> <span class="o">=</span> <span class="n">result_file</span><span class="o">.</span><span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">bundle_file_format_name</span><span class="p">:</span>
-                    <span class="n">bundle_file_basename</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                        <span class="p">[</span><span class="n">bundle_file_format_name</span><span class="p">,</span> <span class="n">extension</span><span class="p">]</span>
-                    <span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">bundle_file_basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
-                        <span class="n">result_file</span><span class="o">.</span><span class="n">filename</span>
-                    <span class="p">)</span>
-                    <span class="c1"># The bundle id is only taken into account for image results</span>
-                    <span class="c1"># which contains the image version appended in its file name</span>
-                    <span class="n">part_name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bundle_file_basename</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="n">image_name</span><span class="p">))</span>
-                    <span class="n">bundle_file_basename</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                        <span class="p">[</span>
-                            <span class="n">part_name</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">part_name</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                            <span class="n">part_name</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
-                                <span class="n">image_version</span><span class="p">,</span>
-                                <span class="n">image_version</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--id&#39;</span><span class="p">]</span>
-                            <span class="p">)</span>
-                        <span class="p">]</span>
-                    <span class="p">)</span>
+                <span class="n">bundle_file_basename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_bundle_file_basename</span><span class="p">(</span>
+                    <span class="n">result</span><span class="p">,</span> <span class="n">result_file</span><span class="p">,</span> <span class="n">bundle_file_format_name</span>
+                <span class="p">)</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">bundle_file_basename</span><span class="p">)</span>
                 <span class="n">bundle_file</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
                     <span class="p">[</span><span class="n">bundle_directory</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">bundle_file_basename</span><span class="p">]</span>
@@ -1438,8 +1425,45 @@
                         <span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="n">result_file</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">bundle_file</span>
                     <span class="p">]</span>
                 <span class="p">)</span>
+                <span class="n">copied_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bundle_file</span><span class="p">)</span>
+                <span class="n">result_file_basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">result_file</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result_file_basename</span> <span class="o">!=</span> <span class="n">bundle_file_basename</span><span class="p">:</span>
+                    <span class="n">symlink_orignal_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">bundle_directory</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">result_file_basename</span><span class="si">}</span><span class="s1">&#39;</span>
+                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">islink</span><span class="p">(</span><span class="n">symlink_orignal_name</span><span class="p">):</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">symlink_orignal_name</span><span class="p">)</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">symlink</span><span class="p">(</span><span class="n">bundle_file</span><span class="p">,</span> <span class="n">symlink_orignal_name</span><span class="p">)</span>
+                    <span class="n">origin_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">symlink_orignal_name</span><span class="p">)</span>
+
+        <span class="c1"># check and fix file references due to possible bundle_format renames</span>
+        <span class="k">for</span> <span class="n">origin_file</span> <span class="ow">in</span> <span class="n">origin_files</span><span class="p">:</span>
+            <span class="n">origin_file_basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">origin_file</span><span class="p">)</span>
+            <span class="n">bundle_file_basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">readlink</span><span class="p">(</span><span class="n">origin_file</span><span class="p">))</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Checking file references for </span><span class="si">{</span><span class="n">origin_file_basename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">result_file</span> <span class="ow">in</span> <span class="n">copied_files</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;text&#39;</span> <span class="ow">in</span> <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">result_file</span><span class="p">])</span><span class="o">.</span><span class="n">output</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--&gt; </span><span class="si">{</span><span class="n">result_file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+                        <span class="p">[</span>
+                            <span class="s1">&#39;sed&#39;</span><span class="p">,</span> <span class="s1">&#39;-ie&#39;</span><span class="p">,</span>
+                            <span class="sa">f</span><span class="s1">&#39;s/</span><span class="si">{</span><span class="n">origin_file_basename</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">bundle_file_basename</span><span class="si">}</span><span class="s1">/g&#39;</span><span class="p">,</span>
+                            <span class="n">result_file</span>
+                        <span class="p">]</span>
+                    <span class="p">)</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">result_file</span><span class="si">}</span><span class="s1">e&#39;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">origin_file</span><span class="p">)</span>
+
+        <span class="c1"># finalize result data, checksums, compressions</span>
+        <span class="k">for</span> <span class="n">result_file</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">ordered_results</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">result_file</span><span class="o">.</span><span class="n">use_for_bundle</span><span class="p">:</span>
+                <span class="n">bundle_file_basename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_bundle_file_basename</span><span class="p">(</span>
+                    <span class="n">result</span><span class="p">,</span> <span class="n">result_file</span><span class="p">,</span> <span class="n">bundle_file_format_name</span>
+                <span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Finalizing </span><span class="si">{</span><span class="n">bundle_file_basename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">bundle_file</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                    <span class="p">[</span><span class="n">bundle_directory</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">bundle_file_basename</span><span class="p">]</span>
+                <span class="p">)</span>
                 <span class="k">if</span> <span class="n">result_file</span><span class="o">.</span><span class="n">compress</span><span class="p">:</span>
-                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; XZ compressing&#39;</span><span class="p">)</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Compressing&#39;</span><span class="p">)</span>
                     <span class="n">compress</span> <span class="o">=</span> <span class="n">Compress</span><span class="p">(</span><span class="n">bundle_file</span><span class="p">)</span>
                     <span class="n">bundle_file</span> <span class="o">=</span> <span class="n">compress</span><span class="o">.</span><span class="n">xz</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">runtime_config</span><span class="o">.</span><span class="n">get_xz_options</span><span class="p">())</span>
 
@@ -1477,6 +1501,7 @@
                                 <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
                             <span class="p">)</span>
                         <span class="p">)</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--package-as-rpm&#39;</span><span class="p">]:</span>
             <span class="n">ResultBundleTask</span><span class="o">.</span><span class="n">_build_rpm_package</span><span class="p">(</span>
                 <span class="n">bundle_directory</span><span class="p">,</span>
@@ -1486,6 +1511,35 @@
                 <span class="nb">list</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">iglob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">bundle_directory</span><span class="si">}</span><span class="s1">/*&#39;</span><span class="p">))</span>
             <span class="p">)</span></div>
 
+
+    <span class="k">def</span> <span class="nf">_get_bundle_file_basename</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Result</span><span class="p">,</span> <span class="n">result_file</span><span class="p">:</span> <span class="n">result_file_type</span><span class="p">,</span>
+        <span class="n">bundle_file_format_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">image_version</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_image_version</span><span class="p">()</span>
+        <span class="n">image_name</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">xml_data</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
+        <span class="n">extension</span> <span class="o">=</span> <span class="n">result_file</span><span class="o">.</span><span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">bundle_file_format_name</span><span class="p">:</span>
+            <span class="n">bundle_file_basename</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">bundle_file_format_name</span><span class="p">,</span> <span class="n">extension</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bundle_file_basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
+                <span class="n">result_file</span><span class="o">.</span><span class="n">filename</span>
+            <span class="p">)</span>
+            <span class="c1"># The bundle id is only taken into account for image results</span>
+            <span class="c1"># which contains the image version appended in its file name</span>
+            <span class="n">part_name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bundle_file_basename</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="n">image_name</span><span class="p">))</span>
+            <span class="n">bundle_file_basename</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">part_name</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">part_name</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="n">part_name</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                        <span class="n">image_version</span><span class="p">,</span>
+                        <span class="n">image_version</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--id&#39;</span><span class="p">]</span>
+                    <span class="p">)</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">bundle_file_basename</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_build_rpm_package</span><span class="p">(</span>

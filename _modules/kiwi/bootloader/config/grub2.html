@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 10.0.12 documentation</title>
+  <title>kiwi.bootloader.config.grub2 &mdash; KIWI NG 10.0.13 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../_static/documentation_options.js?v=2b25e983"></script>
+        <script src="../../../../_static/documentation_options.js?v=8f5d6d9a"></script>
         <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -1365,6 +1365,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">timeout_style</span> <span class="o">=</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_bootloader_timeout_style</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">displayname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">xml_data</span><span class="o">.</span><span class="n">get_displayname</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_bootloader_bls</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">serial_line_setup</span> <span class="o">=</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_bootloader_serial_line_setup</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">continue_on_timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_continue_on_timeout</span><span class="p">()</span>
@@ -2054,7 +2055,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_get_grub2_mkconfig_tool</span><span class="p">()</span>
             <span class="p">],</span> <span class="n">raise_on_error</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span>
-        <span class="k">if</span> <span class="n">enable_blscfg_implemented</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bls</span> <span class="ow">and</span> <span class="n">enable_blscfg_implemented</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">grub_default_entries</span><span class="p">[</span><span class="s1">&#39;GRUB_ENABLE_BLSCFG&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span>
 
         <span class="k">if</span> <span class="n">grub_default_entries</span><span class="p">:</span>

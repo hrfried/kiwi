@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.defaults &mdash; KIWI NG 10.0.12 documentation</title>
+  <title>kiwi.defaults &mdash; KIWI NG 10.0.13 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=2b25e983"></script>
+        <script src="../../_static/documentation_options.js?v=8f5d6d9a"></script>
         <script src="../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -1245,6 +1245,8 @@
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">importlib.util</span> <span class="kn">import</span> <span class="n">find_spec</span>
+<span class="kn">from</span> <span class="nn">importlib.machinery</span> <span class="kn">import</span> <span class="n">ModuleSpec</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
 <span class="kn">import</span> <span class="nn">platform</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
@@ -1309,6 +1311,11 @@
 <span class="n">IMAGE_METADATA_DIR</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span>
 <span class="n">ROOT_VOLUME_NAME</span> <span class="o">=</span> <span class="s1">&#39;LVRoot&#39;</span>
 <span class="n">SHARED_CACHE_DIR</span> <span class="o">=</span> <span class="s1">&#39;/var/cache/kiwi&#39;</span>
+<span class="n">MODULE_SPEC</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ModuleSpec</span><span class="p">]</span> <span class="o">=</span> <span class="n">find_spec</span><span class="p">(</span><span class="s1">&#39;kiwi&#39;</span><span class="p">)</span>
+<span class="n">RUNTIME_CHECKER_METADATA</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/runtime_checker_metadata.yml&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">MODULE_SPEC</span><span class="o">.</span><span class="n">origin</span> <span class="ow">or</span> <span class="s1">&#39;unknown&#39;</span><span class="p">)</span>
+<span class="p">)</span> <span class="k">if</span> <span class="n">MODULE_SPEC</span> <span class="k">else</span> <span class="s1">&#39;unknown&#39;</span>
+
 <span class="n">TEMP_DIR</span> <span class="o">=</span> <span class="s1">&#39;/var/tmp&#39;</span>
 <span class="n">CUSTOM_RUNTIME_CONFIG_FILE</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">PLATFORM_MACHINE</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">machine</span><span class="p">()</span>
@@ -1526,6 +1533,19 @@
         <span class="k">return</span> <span class="s1">&#39;/var/tmp/kiwi/satsolver&#39;</span></div>
 
 
+<div class="viewcode-block" id="Defaults.set_runtime_checker_metadata">
+<a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.set_runtime_checker_metadata">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">set_runtime_checker_metadata</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the runtime checker metadata filename</span>
+
+<span class="sd">        :param str filename: a file path name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">RUNTIME_CHECKER_METADATA</span>
+        <span class="n">RUNTIME_CHECKER_METADATA</span> <span class="o">=</span> <span class="n">filename</span></div>
+
+
 <div class="viewcode-block" id="Defaults.set_shared_cache_location">
 <a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.set_shared_cache_location">[docs]</a>
     <span class="nd">@staticmethod</span>
@@ -1676,6 +1696,14 @@
             <span class="n">Defaults</span><span class="o">.</span><span class="n">get_shared_cache_location</span><span class="p">()</span>
         <span class="p">]</span>
         <span class="k">return</span> <span class="n">exclude_list</span></div>
+
+
+<div class="viewcode-block" id="Defaults.get_runtime_checker_metadata">
+<a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_runtime_checker_metadata">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_runtime_checker_metadata</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">RUNTIME_CHECKER_METADATA</span><span class="p">)</span> <span class="k">as</span> <span class="n">meta</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Defaults.get_exclude_list_from_custom_exclude_files">
