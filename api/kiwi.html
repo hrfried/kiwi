@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi Package &mdash; KIWI NG 10.0.14 documentation</title>
+  <title>kiwi Package &mdash; KIWI NG 10.0.15 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=44d4fd57"></script>
+        <script src="../_static/documentation_options.js?v=e0ac794e"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -435,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiArchiveTarError"><code class="docutils literal notranslate"><span class="pre">KiwiArchiveTarError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiBootImageSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiBootImageSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiBootLoaderConfigSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderConfigSetupError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiBootLoaderDiskPasswordError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderDiskPasswordError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiBootLoaderGrubDataError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderGrubDataError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiBootLoaderGrubFontError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderGrubFontError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiBootLoaderGrubInstallError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderGrubInstallError</span></code></a></li>
@@ -3414,6 +3415,13 @@ version is installed on the underlying system</p>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.exceptions.KiwiError" title="kiwi.exceptions.KiwiError"><code class="xref py py-class docutils literal notranslate"><span class="pre">KiwiError</span></code></a></p>
 <p>Exception raised if a configuration for an unsupported
 bootloader is requested.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="kiwi.exceptions.KiwiBootLoaderDiskPasswordError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.exceptions.</span></span><span class="sig-name descname"><span class="pre">KiwiBootLoaderDiskPasswordError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/exceptions.html#KiwiBootLoaderDiskPasswordError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.exceptions.KiwiBootLoaderDiskPasswordError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#kiwi.exceptions.KiwiError" title="kiwi.exceptions.KiwiError"><code class="xref py py-class docutils literal notranslate"><span class="pre">KiwiError</span></code></a></p>
+<p>Exception raised if the disk password could not be set</p>
 </dd></dl>
 
 <dl class="py exception">

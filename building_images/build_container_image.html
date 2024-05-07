@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build a Container Image &mdash; KIWI NG 10.0.14 documentation</title>
+  <title>Build a Container Image &mdash; KIWI NG 10.0.15 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=44d4fd57"></script>
+        <script src="../_static/documentation_options.js?v=e0ac794e"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -435,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiArchiveTarError"><code class="docutils literal notranslate"><span class="pre">KiwiArchiveTarError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiBootImageSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiBootImageSetupError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiBootLoaderConfigSetupError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderConfigSetupError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiBootLoaderDiskPasswordError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderDiskPasswordError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiBootLoaderGrubDataError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderGrubDataError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiBootLoaderGrubFontError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderGrubFontError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiBootLoaderGrubInstallError"><code class="docutils literal notranslate"><span class="pre">KiwiBootLoaderGrubInstallError</span></code></a></li>
@@ -1276,6 +1277,11 @@ container. Equivalent of the <code class="xref py py-obj docutils literal notran
 <li><p><code class="docutils literal notranslate"><span class="pre">volumes</span></code>: Creates mountpoints with the given name and marks them to hold
 external volumes from the host or from other containers. Equivalent to
 one or more <code class="xref py py-obj docutils literal notranslate"><span class="pre">VOLUME</span></code> directives in a <code class="file docutils literal notranslate"><span class="pre">Dockerfile</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stopsignal</span></code>: The stopsignal element sets the system call signal that
+will be sent to the container to exit. This signal can be a signal name
+in the format SIG[NAME], for instance SIGKILL, or an unsigned number that
+matches a position in the kernel’s syscall table, for instance 9.
+The default is SIGTERM if not defined</p></li>
 </ul>
 <p>Other <code class="file docutils literal notranslate"><span class="pre">Dockerfile</span></code> directives such as <code class="docutils literal notranslate"><span class="pre">RUN</span></code>, <code class="docutils literal notranslate"><span class="pre">COPY</span></code> or <code class="docutils literal notranslate"><span class="pre">ADD</span></code>,
 can be mapped to KIWI NG using the
