@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building in a Self-Contained Environment &mdash; KIWI NG 10.0.16 documentation</title>
+  <title>Building in a Self-Contained Environment &mdash; KIWI NG 10.0.17 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=d754f324"></script>
+        <script src="../_static/documentation_options.js?v=732c773d"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -1283,10 +1283,10 @@ box when it has changed.</p>
 the <code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code> command. The plugin validates the given command call with the
 capabilities of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code> command. Thus one part of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">boxbuild</span></code> command
 is exactly the same as with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code> command. The separation between
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">boxbuild</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code> options is done using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--</span></code> separator like
-shown in the following example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kiwi-ng<span class="w"> </span>--type<span class="w"> </span>iso<span class="w"> </span>system<span class="w"> </span>boxbuild<span class="w"> </span>--box<span class="w"> </span>leap<span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>--description<span class="w"> </span>kiwi/build-tests/x86/leap/test-image-disk<span class="w"> </span><span class="se">\</span>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">boxbuild</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code> options is done using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--</span></code> separator. The following
+example shows how to build one of KIWI NG’s integration test image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kiwi-ng<span class="w"> </span>--type<span class="w"> </span>oem<span class="w"> </span>system<span class="w"> </span>boxbuild<span class="w"> </span>--box<span class="w"> </span>leap<span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--description<span class="w"> </span>KIWI_GIT_CHECKOUT/build-tests/x86/leap/test-image-disk<span class="w"> </span><span class="se">\</span>
 <span class="w">      </span>--set-repo<span class="w"> </span>obs://openSUSE:Leap:15.5/standard<span class="w"> </span><span class="se">\</span>
 <span class="w">      </span>--target-dir<span class="w"> </span>/tmp/myimage
 </pre></div>

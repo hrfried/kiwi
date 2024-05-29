@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.defaults &mdash; KIWI NG 10.0.16 documentation</title>
+  <title>kiwi.defaults &mdash; KIWI NG 10.0.17 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=d754f324"></script>
+        <script src="../../_static/documentation_options.js?v=732c773d"></script>
         <script src="../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -1246,12 +1246,13 @@
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">from</span> <span class="nn">importlib.resources</span> <span class="kn">import</span> <span class="n">as_file</span>
 <span class="kn">from</span> <span class="nn">importlib.util</span> <span class="kn">import</span> <span class="n">find_spec</span>
 <span class="kn">from</span> <span class="nn">importlib.machinery</span> <span class="kn">import</span> <span class="n">ModuleSpec</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
 <span class="kn">import</span> <span class="nn">platform</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
-<span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">resource_filename</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">List</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span>
 <span class="p">)</span>
@@ -3187,6 +3188,20 @@
         <span class="k">return</span> <span class="n">Defaults</span><span class="o">.</span><span class="n">project_file</span><span class="p">(</span><span class="s1">&#39;xsl/master.xsl&#39;</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="Defaults.get_schematron_module_name">
+<a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_schematron_module_name">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_schematron_module_name</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides module name for XML SchemaTron validations</span>
+
+<span class="sd">        :return: python module name</span>
+
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;lxml.isoschematron&#39;</span></div>
+
+
 <div class="viewcode-block" id="Defaults.project_file">
 <a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.project_file">[docs]</a>
     <span class="nd">@staticmethod</span>
@@ -3194,7 +3209,7 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides the python module base directory search path</span>
 
-<span class="sd">        The method uses the resource_filename method to identify</span>
+<span class="sd">        The method uses the importlib.resources.path method to identify</span>
 <span class="sd">        files and directories from the application</span>
 
 <span class="sd">        :param string filename: relative project file</span>
@@ -3203,7 +3218,8 @@
 
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">resource_filename</span><span class="p">(</span><span class="s1">&#39;kiwi&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></div>
+        <span class="k">with</span> <span class="n">as_file</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s1">&#39;kiwi&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">path</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span></div>
 
 
 <div class="viewcode-block" id="Defaults.get_imported_root_image">
