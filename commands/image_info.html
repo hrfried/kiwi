@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi-ng image info &mdash; KIWI NG 10.0.19 documentation</title>
+  <title>kiwi-ng image info &mdash; KIWI NG 10.0.20 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=3f4e50e6"></script>
+        <script src="../_static/documentation_options.js?v=15f5973c"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -1238,6 +1238,7 @@
 kiwi-ng<span class="w"> </span>image<span class="w"> </span>info<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>--help
 kiwi-ng<span class="w"> </span>image<span class="w"> </span>info<span class="w"> </span>--description<span class="o">=</span>&lt;directory&gt;
 <span class="w">    </span><span class="o">[</span>--resolve-package-list<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>--list-profiles<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--ignore-repos<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--add-repo<span class="o">=</span>&lt;source,type,alias,priority&gt;...<span class="o">]</span>
 <span class="w">    </span><span class="o">[</span>--print-xml<span class="p">|</span>--print-yaml<span class="o">]</span>
@@ -1270,6 +1271,15 @@ This option is usually used together with the –add-repo
 option. Otherwise there are no repositories available for the
 processing the requested image information, which could lead
 to an error.</p>
+</dd>
+<dt><kbd><span class="option">--list-profiles</span></kbd></dt>
+<dd><p>list profiles available for the selected/default type.</p>
+<p>NOTE:
+If the image description is designed in a way that there
+is no default build type configured and/or the main build
+type is also profiled, it’s required to provide this
+information to kiwi to list further profiles for this type.
+For example: kiwi-ng –profile top_level_entry_profile image info …</p>
 </dd>
 <dt><kbd><span class="option">--resolve-package-list</span></kbd></dt>
 <dd><p>Solve package dependencies and return a list of all
