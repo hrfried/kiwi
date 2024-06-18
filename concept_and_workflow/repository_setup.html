@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setting up Repositories &mdash; KIWI NG 10.0.21 documentation</title>
+  <title>Setting up Repositories &mdash; KIWI NG 10.0.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=b18d1325"></script>
+        <script src="../_static/documentation_options.js?v=8675994f"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -173,7 +173,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="profiles.html">Image Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users.html">Adding Users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User Defined Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User-Defined Scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="shell_scripts.html#developing-debugging-scripts">Developing/Debugging Scripts</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#script-template-for-config-sh-images-sh">Script Template for config.sh / images.sh</a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#functions-and-variables-provided-by-kiwi-ng">Functions and Variables Provided by KIWI NG</a></li>
@@ -1231,15 +1231,15 @@
              
   <section id="setting-up-repositories">
 <span id="repositories"></span><h1>Setting up Repositories<a class="headerlink" href="#setting-up-repositories" title="Link to this heading"></a></h1>
-<p>A crucial part of each appliance is the repository
-selection. KIWI NG allows the end user to completely customize the selection
-of repositories and packages via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">repository</span></code> element.</p>
+<p>The repository selection is a crucial part of an appliance. KIWI NG allows the
+end user to customize the selection of repositories and packages via
+the <code class="xref py py-obj docutils literal notranslate"><span class="pre">repository</span></code> element.</p>
 <section id="adding-repositories">
 <h2>Adding repositories<a class="headerlink" href="#adding-repositories" title="Link to this heading"></a></h2>
-<p>KIWI NG installs packages into your appliance from the repositories defined in
-the image description. Therefore at least one repository <strong>must</strong> be
-defined, as KIWI NG will otherwise not be able to fetch any packages.</p>
-<p>A repository is added to the description via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">repository</span></code> element,
+<p>KIWI NG installs packages into an appliance from the repositories defined in
+the image description. This means that at least one repository <strong>must</strong> be
+defined. Otherwise, KIWI NG cannot fetch any packages.</p>
+<p>A repository is added to the description via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">repository</span></code> element
 which is a child of the top-level <code class="xref py py-obj docutils literal notranslate"><span class="pre">image</span></code> element:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="cm">&lt;!-- snip --&gt;</span>
@@ -1252,58 +1252,56 @@ which is a child of the top-level <code class="xref py py-obj docutils literal n
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
-<p>In the above snippet we defined two repositories:</p>
+<p>The above example specifies two repositories:</p>
 <ol class="arabic simple">
 <li><p>The repository belonging to the KIWI NG project:
-<em>obs://Virtualization:Appliances:Builder/openSUSE_Leap_15.5</em> at the Open Build Service (OBS)</p></li>
+<em>obs://Virtualization:Appliances:Builder/openSUSE_Leap_15.5</em> at the Open Build Service (OBS).</p></li>
 <li><p>The RPM repository belonging to the OS project:
 <em>{exc_repo}</em>, at the Open Build Service (OBS). The translated
-http URL will also be included in the final appliance.</p></li>
+http URL is also included in the final appliance.</p></li>
 </ol>
-<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">repository</span></code> element accepts one <code class="xref py py-obj docutils literal notranslate"><span class="pre">source</span></code> child element, which
-contains the URL to the repository in an appropriate format and the
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">repository</span></code> element accepts one <code class="xref py py-obj docutils literal notranslate"><span class="pre">source</span></code> child element that
+contains the URL of the repository in an correct format along with the
 following optional attributes:</p>
 <ul>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">imageinclude</span></code>: Specify whether this repository should be added to the
-resulting image, defaults to false.</p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">imageonly</span></code>: A repository with <code class="xref py py-obj docutils literal notranslate"><span class="pre">imageonly=&quot;true&quot;</span></code> will not be available
-during image build, but only in the resulting appliance. Defaults to
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">imageinclude</span></code>: Specifies whether the repository should be added to the
+resulting image. Default is false.</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">imageonly</span></code>: A repository with <code class="xref py py-obj docutils literal notranslate"><span class="pre">imageonly=&quot;true&quot;</span></code> is not available
+during image build, but is present in the resulting appliance. Default is
 false.</p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">priority</span></code>: An integer priority for all packages in this repository. If
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">priority</span></code>: An integer value for all packages in this repository. If
 the same package is available in more than one repository, then the one
 with the highest priority is used.</p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">alias</span></code>: Name to be used for this repository, it will appear as the
-repository’s name in the image, which is visible via <code class="docutils literal notranslate"><span class="pre">zypper</span> <span class="pre">repos</span></code> or
-<code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repolist</span></code>. KIWI NG will construct an alias name as result of hex
-representation from uuid4, if no value is given.</p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">repository_gpgcheck</span></code>: Specify whether or not this specific repository is
-configured to to run repository signature validation. If not set, the
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">alias</span></code>: Name to use for the repository. It appears as the repository’s name
+in the image visible via <code class="docutils literal notranslate"><span class="pre">zypper</span> <span class="pre">repos</span></code> or <code class="docutils literal notranslate"><span class="pre">dnf</span> <span class="pre">repolist</span></code>. If <code class="xref py py-obj docutils literal notranslate"><span class="pre">alias`</span></code> is
+not specified, KIWI NG generates an alias name using hex representation from
+uuid4.</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">repository_gpgcheck</span></code>: Specifies whether the repository is
+configured to perform repository signature validation. If not set, the
 package manager’s default is used.</p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">package_gpgcheck</span></code>: Boolean value that specifies whether each package’s
-GPG signature will be verified. If omitted, the package manager’s default
-will be used</p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code>: Distribution components used for <code class="xref py py-obj docutils literal notranslate"><span class="pre">deb</span></code> repositories,
-defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+GPG signature is verified. If omitted, the package manager’s default
+is used.</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code>: Distribution components used for <code class="xref py py-obj docutils literal notranslate"><span class="pre">deb</span></code> repositories. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">distribution</span></code>: Distribution name information, used for deb repositories.</p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">profiles</span></code>: List of profiles to which this repository applies.</p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">customize</span></code>: Script to run custom modifications to the repo file(s).
-repo files allows for several customization options which not all of them
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">customize</span></code>: Script to run custom modifications to the repo file or files.
+Repo files allow for several customization options, but not all of them
 are supported to be set by kiwi through the current repository schema.
-As the options used do not follow any standard and are not compatible
-between package managers and distributions, the only generic way to handle
+As the used options do not follow any standard, and they are not compatible
+between package managers and distributions, the only way to handle
 this is through a script hook which is invoked with the repo file as
 parameter for each file created by KIWI NG.</p>
 <p>An example for a script call to add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">module_hotfixes</span></code> option
-for a <code class="xref py py-obj docutils literal notranslate"><span class="pre">dnf</span></code> compatible repository configuration could look like
-this</p>
+for a <code class="xref py py-obj docutils literal notranslate"><span class="pre">dnf</span></code> compatible repository configuration could look as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">repo_file</span><span class="o">=</span><span class="nv">$1</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;module_hotfixes = 1&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">repo_file</span><span class="si">}</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the script is provided as relative path it will
-be searched in the image description directory</p>
+<p>If the script is provided as a relative path, it is expected to be found
+in the image description directory:</p>
 </div>
 </li>
 </ul>
@@ -1315,23 +1313,23 @@ following paths types:</p>
 <ul class="simple">
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">http://URL</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">https://URL</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">ftp://URL</span></code>: a URL to the repository
 available via HTTP(s) or FTP.</p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">obs://$PROJECT/$REPOSITORY</span></code>: evaluates to the repository <code class="xref py py-obj docutils literal notranslate"><span class="pre">$REPOSITORY</span></code>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">obs://$PROJECT/$REPOSITORY</span></code>: checks whether the repository <code class="xref py py-obj docutils literal notranslate"><span class="pre">$REPOSITORY</span></code>
 of the project <code class="xref py py-obj docutils literal notranslate"><span class="pre">$PROJECT</span></code> available on the Open Build Service (OBS). By
-default KIWI NG will look for projects on <a class="reference external" href="https://build.opensuse.org">build.opensuse.org</a>, but this can be overridden using the
+default, KIWI NG looks for projects on <a class="reference external" href="https://build.opensuse.org">build.opensuse.org</a>, but this can be overridden using the
 runtime configuration file (see <a class="reference internal" href="runtime_configuration.html#runtime-config"><span class="std std-ref">The Runtime Configuration File</span></a>).
 Note that it is not possible to add repositories using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">obs://</span></code> path
 from <strong>different</strong> OBS instances (use direct URLs to the <code class="file docutils literal notranslate"><span class="pre">.repo</span></code>
 file instead in this case).</p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">obsrepositories:/</span></code>: special path only available for builds using the
-Open Build Service. The repositories configured for the OBS project in
-which the KIWI NG image resides will be available inside the appliance. This
-allows you to configure the repositories of your image from OBS itself
-and not having to modify the image description.</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">obsrepositories:/</span></code>: special path only available for builds using the Open
+Build Service. The repositories configured for the OBS project where the
+KIWI NG image resides are made available inside the appliance. This allows you
+to configure the repositories of your image from OBS itself, without modifying
+the image description.</p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dir:///path/to/directory</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">file:///path/to/file</span></code>: an absolute path to
 a local directory or file available on the host building the
 appliance.</p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">iso:///path/to/image.iso</span></code>: the specified ISO image will be mounted
-during the build of the KIWI NG image and a repository will be created
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">iso:///path/to/image.iso</span></code>: the specified ISO image is mounted
+during the build of the KIWI NG image and a repository is created,
 pointing to the mounted ISO.</p></li>
 </ul>
 </section>

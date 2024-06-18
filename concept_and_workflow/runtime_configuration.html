@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Runtime Configuration File &mdash; KIWI NG 10.0.21 documentation</title>
+  <title>The Runtime Configuration File &mdash; KIWI NG 10.0.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,14 +15,14 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=b18d1325"></script>
+        <script src="../_static/documentation_options.js?v=8675994f"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Customizing the Boot Process" href="customize_the_boot_process.html" />
-    <link rel="prev" title="User Defined Scripts" href="shell_scripts.html" /> 
+    <link rel="prev" title="User-Defined Scripts" href="shell_scripts.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -173,7 +173,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="profiles.html">Image Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users.html">Adding Users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User Defined Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User-Defined Scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="shell_scripts.html#developing-debugging-scripts">Developing/Debugging Scripts</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#script-template-for-config-sh-images-sh">Script Template for config.sh / images.sh</a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#functions-and-variables-provided-by-kiwi-ng">Functions and Variables Provided by KIWI NG</a></li>
@@ -1232,11 +1232,11 @@
   <section id="the-runtime-configuration-file">
 <span id="runtime-config"></span><h1>The Runtime Configuration File<a class="headerlink" href="#the-runtime-configuration-file" title="Link to this heading"></a></h1>
 <p>KIWI NG supports an additional configuration file for runtime specific
-settings that do not belong into the image description but which are
-persistent and would be unsuitable for command line parameters.</p>
-<p>The runtime configuration file must adhere to the <a class="reference external" href="https://yaml.org/">YAML</a> syntax and can be provided via the global
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">--config</span></code> option at call time of KIWI NG. If no config file is
-provided at the commandline, KIWI NG searches for the runtime
+settings which do not belong in the image description but which are
+persistent and are unsuitable for command-line parameters.</p>
+<p>The runtime configuration file must adhere to the <a class="reference external" href="https://yaml.org/">YAML</a>
+syntax, and the file can be pointed to via the global <code class="xref py py-obj docutils literal notranslate"><span class="pre">--config</span></code> option at call
+time of KIWI NG. If no config file is provided, KIWI NG searches for the runtime
 configuration file in the following locations:</p>
 <ol class="arabic simple">
 <li><p><code class="file docutils literal notranslate"><span class="pre">~/.config/kiwi/config.yml</span></code></p></li>
@@ -1251,7 +1251,7 @@ including a short description of each setting.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="shell_scripts.html" class="btn btn-neutral float-left" title="User Defined Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="shell_scripts.html" class="btn btn-neutral float-left" title="User-Defined Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="customize_the_boot_process.html" class="btn btn-neutral float-right" title="Customizing the Boot Process" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

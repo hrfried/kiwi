@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Host Requirements To Build Images &mdash; KIWI NG 10.0.21 documentation</title>
+  <title>Host Requirements To Build Images &mdash; KIWI NG 10.0.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=b18d1325"></script>
+        <script src="../_static/documentation_options.js?v=8675994f"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -173,7 +173,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="profiles.html">Image Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users.html">Adding Users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User Defined Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User-Defined Scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="shell_scripts.html#developing-debugging-scripts">Developing/Debugging Scripts</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#script-template-for-config-sh-images-sh">Script Template for config.sh / images.sh</a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#functions-and-variables-provided-by-kiwi-ng">Functions and Variables Provided by KIWI NG</a></li>
@@ -1231,26 +1231,23 @@
              
   <section id="host-requirements-to-build-images">
 <span id="systemdeps"></span><h1>Host Requirements To Build Images<a class="headerlink" href="#host-requirements-to-build-images" title="Link to this heading"></a></h1>
-<p>When building OS images, several tools and sub-systems are used
-and required on the host KIWI NG is called at. For example, to
-build a virtual disk image, several tools needs to be available
-on the host that builds the image. This includes tools for
-partition table setup or tools to create filesystems.</p>
-<p>The number of required components depends on the selected image
-type and the <em>features</em> used with the image. We cannot expect
-the users of KIWI NG to know about each and every component that
-is needed to build the image. Therefore a concept to help with
-the host requirements exists and is named <code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps</span></code></p>
-<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps</span></code> concept consists out of a collection of
-sub-packages provided with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">python-kiwi</span></code> main package. Each
-individual package requires a number of tools and subsystem packages
-which belongs to the package category. There are the following
-systemdeps packages:</p>
+<p>Building OS images requires several tools and sub-systems to be present on the
+host KIWI NG host. For example, to build a virtual disk image, tools for
+partition table setup or tools to create filesystems must to be available on the
+host that builds the image.</p>
+<p>The number of required components depends on the selected image type and the
+features used with the image. It’s unreasonable to expect KIWI NG users to know
+which exact components are needed to build the image. A mechanism called
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps</span></code> is designed to handle the host requirements.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps</span></code> consists out of a collection of sub-packages provided with the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">python-kiwi</span></code> main package. Each individual package requires a number of tools
+and subsystem packages that belongs to the package category. There are the
+following systemdeps packages:</p>
 <dl class="simple">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps-core</span></code>:</dt><dd><ul class="simple">
 <li><p>Supports building the simple root archive <code class="xref py py-obj docutils literal notranslate"><span class="pre">tbz</span></code> image type.</p></li>
-<li><p>Installs the package managers which are supported by the
-target distribution as well as the <code class="xref py py-obj docutils literal notranslate"><span class="pre">tar</span></code> archiving tool.</p></li>
+<li><p>Installs the package managers which are supported by the target distribution
+as well as the <code class="xref py py-obj docutils literal notranslate"><span class="pre">tar</span></code> archiving tool.</p></li>
 </ul>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps-containers</span></code>:</dt><dd><ul class="simple">
@@ -1284,9 +1281,9 @@ through some BIOS or firmware.</p></li>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps-filesystems</span></code>:</dt><dd><ul class="simple">
 <li><p>Supports building <code class="xref py py-obj docutils literal notranslate"><span class="pre">fs-type</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">oem</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">pxe</span></code>,
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">kis</span></code> and live <code class="xref py py-obj docutils literal notranslate"><span class="pre">iso</span></code> image types.</p></li>
-<li><p>Installs all tools to create filesystems supported with KIWI NG.
+<li><p>Installs all tools to create filesystems supported by KIWI NG.
 The pulled in components are needed for any image type that
-needs to create a filesystem. This excludes the archive based
+needs to create a filesystem. This excludes the archive-based
 image types like <code class="xref py py-obj docutils literal notranslate"><span class="pre">docker</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">appx</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">tbz</span></code>. The package also
 installs tools one level below the actual filesystem creation
 toolkit. These are components to manage loop devices as well
@@ -1296,7 +1293,7 @@ as partition table setup and subsystem support like LVM and LUKS.</p></li>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps-disk-images</span></code>:</dt><dd><ul class="simple">
 <li><p>Supports building the <code class="xref py py-obj docutils literal notranslate"><span class="pre">oem</span></code> image type.</p></li>
-<li><p>Installs all tools to create virtual disks. In KIWI NG, virtual disks
+<li><p>Installs all tools to create virtual disks. Virtual disks in KIWI NG
 are created using the QEMU toolchain.</p></li>
 <li><p>Depends on the <code class="xref py py-obj docutils literal notranslate"><span class="pre">-filesystems</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">-bootloaders</span></code> kiwi-systemdeps
 packages.</p></li>
@@ -1304,25 +1301,24 @@ packages.</p></li>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps-image-validation</span></code>:</dt><dd><ul class="simple">
 <li><p>Installs the <code class="xref py py-obj docutils literal notranslate"><span class="pre">jing</span></code> tool to validate the image description. This is
-useful for detailed error reports from KIWI NG in case of an image
-description validation error. In addition, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">anymarkup</span></code> Python
+useful for detailed error reports from KIWI NG if an image
+description validation error occurs. In addition, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">anymarkup</span></code> Python
 module is installed if the the option to install recommended packages
 is set. With <code class="xref py py-obj docutils literal notranslate"><span class="pre">anymarkup</span></code> available, KIWI NG can also handle image
-descriptions in another format than the XML markup, like YAML.</p></li>
+descriptions in another format than the XML markup (for example,YAML).</p></li>
 </ul>
 </dd>
 </dl>
-<p>Depending on the image type the kiwi-systemdeps packages can help
-to setup the host system quickly for the task to build an image.
-In case the host should support <em>everything</em> there is also the
-main <code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps</span></code> package which has a dependency on all other
-existing systemdeps packages.</p>
+<p>Depending on the image type the <code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps`</span></code> packages can help
+to quickly setup the host system for building images.
+In case the host must support everything, there is also the
+main <code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps</span></code> package that has all other
+existing systemdeps packages as its dependency.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pulling in all <code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps</span></code> packages can result in quite
-some packages to become installed on the host. This is because
-the required packages itself comes with a number of dependencies
-like java for jing as one example.</p>
+<p>Pulling in all <code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi-systemdeps</span></code> packages can result in a large number
+packages installed on the host., because the required packages themselves
+have other dependencies (for example, java for jing).</p>
 </div>
 </section>
 

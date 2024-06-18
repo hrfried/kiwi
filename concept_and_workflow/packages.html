@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adding and Removing Packages &mdash; KIWI NG 10.0.21 documentation</title>
+  <title>Adding and Removing Packages &mdash; KIWI NG 10.0.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=b18d1325"></script>
+        <script src="../_static/documentation_options.js?v=8675994f"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -173,7 +173,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="profiles.html">Image Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users.html">Adding Users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User Defined Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User-Defined Scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="shell_scripts.html#developing-debugging-scripts">Developing/Debugging Scripts</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#script-template-for-config-sh-images-sh">Script Template for config.sh / images.sh</a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#functions-and-variables-provided-by-kiwi-ng">Functions and Variables Provided by KIWI NG</a></li>
@@ -1231,7 +1231,7 @@
              
   <section id="adding-and-removing-packages">
 <span id="packages"></span><h1>Adding and Removing Packages<a class="headerlink" href="#adding-and-removing-packages" title="Link to this heading"></a></h1>
-<p>On top of the <a class="reference internal" href="repository_setup.html#repositories"><span class="std std-ref">Setting up Repositories</span></a> setup the package setup is
+<p>In addition to the <a class="reference internal" href="repository_setup.html#repositories"><span class="std std-ref">Setting up Repositories</span></a> setup, the package setup is
 required. KIWI NG allows the end user to completely customize the selection
 of packages via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">packages</span></code> element.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
@@ -1284,14 +1284,14 @@ removed), whose name is specified via the mandatory <code class="xref py py-obj 
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
-<p>which adds the package <code class="xref py py-obj docutils literal notranslate"><span class="pre">udev</span></code> to the list of packages to be added to the
+<p>This adds the package <code class="xref py py-obj docutils literal notranslate"><span class="pre">udev</span></code> to the list of packages to be added to the
 initial filesystem. Note, that the value that you pass via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code>
 attribute is passed directly to the used package manager. Thus, if the
 package manager supports other means how packages can be specified, you may
 pass them in this context too. For example, RPM based package managers
 (like <strong class="command">dnf</strong> or <strong class="command">zypper</strong>) can install packages via their
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">Provides:</span></code>. This can be used to add a package that provides a certain
-capability (e.g. <code class="xref py py-obj docutils literal notranslate"><span class="pre">Provides:</span> <span class="pre">/usr/bin/my-binary</span></code>) via:</p>
+capability (for example, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Provides:</span> <span class="pre">/usr/bin/my-binary</span></code>) via:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="cm">&lt;!-- snip --&gt;</span>
 <span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
@@ -1317,62 +1317,62 @@ architecture that builds the image according to the output of <code class="xref 
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>
-<p>which results in <code class="xref py py-obj docutils literal notranslate"><span class="pre">grub2-x86_64-efi</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">shim</span></code> being only installed if the
+<p>This results in <code class="xref py py-obj docutils literal notranslate"><span class="pre">grub2-x86_64-efi</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">shim</span></code> being only installed if the
 build host is a 64bit x86 machine, but <code class="xref py py-obj docutils literal notranslate"><span class="pre">grub2</span></code> will be installed independent
 of the architecture.</p>
 </section>
 <section id="the-archive-element">
 <span id="archive-element"></span><h2>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">archive</span></code> element<a class="headerlink" href="#the-archive-element" title="Link to this heading"></a></h2>
-<p>It is sometimes necessary to include additional packages into the image
-which are not available in the package manager’s native format. KIWI NG
-supports the inclusion of ordinary tar archives via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">archive</span></code> element,
-whose <code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code> attribute specifies the filename of the archive (KIWI NG looks
-for the archive in the image description folder).</p>
+<p>In certain situations, it is necessary to include additional packages into the
+image that are not available in the package manager’s native format. KIWI NG
+supports the inclusion of regular tar archives via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">archive</span></code> element, whose
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code> attribute specifies the filename of the archive (KIWI NG looks for the
+archive in the image description folder).</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;archive</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;custom-program1.tgz&quot;</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;archive</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;custom-program2.tar&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/packages&gt;</span>
 </pre></div>
 </div>
-<p>KIWI NG will extract the archive into the root directory of the image using
-<a class="reference external" href="https://www.gnu.org/software/tar/">GNU tar</a>, thus only archives
+<p>KIWI NG extracts the archive into the root directory of the image using
+<a class="reference external" href="https://www.gnu.org/software/tar/">GNU tar</a>. This means that only archives
 supported by it can be included. When multiple <code class="xref py py-obj docutils literal notranslate"><span class="pre">archive</span></code> elements are
-specified then they will be applied in a top to bottom order. If a file is
-already present in the image, then the file from the archive will overwrite
+specified then they are applied in a top to bottom order. If a file is
+already present in the image, then the file from the archive overwrites
 it (same as with the image overlay).</p>
 </section>
 <section id="uninstall-system-packages">
 <span id="id1"></span><h2>Uninstall System Packages<a class="headerlink" href="#uninstall-system-packages" title="Link to this heading"></a></h2>
-<p>KIWI NG supports two different methods how packages can be removed from the
+<p>KIWI NG supports two different methods for removing packages from the
 appliance:</p>
 <ol class="arabic simple">
 <li><p>Packages present as a child element of <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;uninstall&quot;&gt;</span></code>
-will be gracefully uninstalled by the package manager alongside with
+are gracefully uninstalled by the package manager together with
 dependent packages and orphaned dependencies.</p></li>
-<li><p>Packages present as a child element of <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;delete&quot;&gt;</span></code> will
-be removed by RPM/DPKG without any dependency check, thus potentially
-breaking dependencies and compromising the underlying package database.</p></li>
+<li><p>Packages present as a child element of <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;delete&quot;&gt;</span></code> are removed
+by RPM/DPKG without any dependency check, potentially breaking
+dependencies and compromising the underlying package database.</p></li>
 </ol>
 <p>Both types of removals take place after <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> is run in the
 <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>
-(see also <a class="reference internal" href="shell_scripts.html#working-with-kiwi-user-defined-scripts"><span class="std std-ref">User Defined Scripts</span></a>).</p>
+(see also <a class="reference internal" href="shell_scripts.html#working-with-kiwi-user-defined-scripts"><span class="std std-ref">User-Defined Scripts</span></a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>An <code class="xref py py-obj docutils literal notranslate"><span class="pre">uninstall</span></code> packages request deletes:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>the listed packages,</p></li>
-<li><p>the packages dependent on the listed ones, and</p></li>
-<li><p>any orphaned dependency of the listed packages.</p></li>
+<li><p>the listed packages</p></li>
+<li><p>the packages dependent on the listed ones</p></li>
+<li><p>any orphaned dependency of the listed packages</p></li>
 </ul>
 </div></blockquote>
-<p>Use this feature with caution as it can easily cause the removal of
-sensitive tools leading to failures in later build stages.</p>
+<p>Use this feature with caution as it can cause removal of
+required tools, leading to failures in later build stages.</p>
 </div>
 <p>Removing packages via <code class="xref py py-obj docutils literal notranslate"><span class="pre">type=&quot;uninstall&quot;</span></code> can be used to completely remove a
-build time tool (e.g. a compiler) without having to specify a all
-dependencies of that tool (as one would have when using
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">type=&quot;delete&quot;</span></code>). Consider the following example where we wish to compile a
+build time tool (for example, a compiler), without having to specify all
+dependencies of that tool (as opposed to when using
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">type=&quot;delete&quot;</span></code>). Consider the following example, where we want to compile a
 custom program in <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code>. We ship its source code via an
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">archive</span></code> element and add the build tools (<code class="xref py py-obj docutils literal notranslate"><span class="pre">ninja</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">meson</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">clang</span></code>) to
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;image&quot;&gt;</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;uninstall&quot;&gt;</span></code>:</p>
@@ -1396,9 +1396,9 @@ custom program in <code class="file docutils literal notranslate"><span class="p
 </pre></div>
 </div>
 <p>The tools <code class="xref py py-obj docutils literal notranslate"><span class="pre">meson</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">clang</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">ninja</span></code> are then available during the
-<a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a> and can thus be used in
+<a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>, and they can be used in
 <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> (for further details, see
-<a class="reference internal" href="shell_scripts.html#working-with-kiwi-user-defined-scripts"><span class="std std-ref">User Defined Scripts</span></a>), for example to build
+<a class="reference internal" href="shell_scripts.html#working-with-kiwi-user-defined-scripts"><span class="std std-ref">User-Defined Scripts</span></a>), for example to build
 <code class="docutils literal notranslate"><span class="pre">foo_app</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pushd</span><span class="w"> </span>/opt/src/foo_app
 mkdir<span class="w"> </span>build
@@ -1408,12 +1408,12 @@ meson<span class="w"> </span>build
 <span class="nb">popd</span>
 </pre></div>
 </div>
-<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;uninstall&quot;&gt;</span></code> element will make sure that the final
-appliance will no longer contain our tools required to build <code class="docutils literal notranslate"><span class="pre">foo_app</span></code>,
-thus making our image smaller.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;uninstall&quot;&gt;</span></code> element ensures that the final
+appliance no longer contains the tools required to build <code class="docutils literal notranslate"><span class="pre">foo_app</span></code>,
+thus making the image smaller.</p>
 <p>There are also other use cases for <code class="xref py py-obj docutils literal notranslate"><span class="pre">type=&quot;uninstall&quot;</span></code>, especially for
-specialized appliances. For containers one can often remove the package
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">shadow</span></code> (it is required to setup new user accounts) or any left over
+specialized appliances. For containers, you can remove the package
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">shadow</span></code> (it is required to setup new user accounts) or any remaining
 partitioning tools (<code class="xref py py-obj docutils literal notranslate"><span class="pre">parted</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">fdisk</span></code>). All networking tools can be
 safely uninstalled in images for embedded devices without a network
 connection.</p>
@@ -1425,12 +1425,12 @@ connection.</p>
 distributions). These can be added via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">product</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">namedCollection</span></code>
 child elements, which both take the mandatory <code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code> attribute and the
 optional <code class="xref py py-obj docutils literal notranslate"><span class="pre">arch</span></code> attribute.</p>
-<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">product</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">namedCollection</span></code> can be utilized to shorten the list of
-packages that need to be added to the image description tremendously. A
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">product</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">namedCollection</span></code> can be used to shorten the list of
+packages that need to be added to the image description. A
 named pattern, specified with the namedCollection element is a
-representation of a predefined list of packages. Specifying a pattern will
-install all packages listed in the named pattern. Support for patterns is
-distribution specific and available in SLES, openSUSE, CentOS, RHEL and
+representation of a predefined list of packages. Specifying a pattern
+installs all packages listed in the named pattern. Support for patterns is
+distribution-specific and available in SLES, openSUSE, CentOS, RHEL and
 Fedora. The optional <code class="xref py py-obj docutils literal notranslate"><span class="pre">patternType</span></code> attribute on the packages element allows
 you to control the installation of dependent packages. You may assign one
 of the following values to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">patternType</span></code> attribute:</p>
@@ -1445,7 +1445,7 @@ and recommended by the specified patterns and packages.</p></li>
 <section id="the-ignore-element">
 <h2>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore</span></code> element<a class="headerlink" href="#the-ignore-element" title="Link to this heading"></a></h2>
 <p>Packages can be explicitly marked to be ignored for installation inside a
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">packages</span></code> collection. This useful to exclude certain packages from being
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">packages</span></code> collection. This can be used to exclude certain packages from being
 installed when using patterns with <code class="xref py py-obj docutils literal notranslate"><span class="pre">patternType=&quot;plusRecommended&quot;</span></code> as shown
 in the following example:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;image</span><span class="w"> </span><span class="na">schemaversion=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;{exc_image_base_name}&quot;</span><span class="nt">&gt;</span>
@@ -1461,13 +1461,13 @@ in the following example:</p>
 </div>
 <p>Packages can be marked as ignored during the installation by adding a
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore</span></code> child element with the mandatory <code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code> attribute set to the
-package’s name. Optionally one can also specify the architecture via the
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">arch</span></code> similarly to <a class="reference internal" href="#package-element"><span class="std std-ref">The package element</span></a>.</p>
+name of the package. Optionally, you can specify the architecture via
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">arch</span></code>, similarly to <a class="reference internal" href="#package-element"><span class="std std-ref">The package element</span></a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Adding <code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore</span></code> elements as children of a <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;delete&quot;&gt;</span></code> or
 a <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;packages</span> <span class="pre">type=&quot;uninstall&quot;&gt;</span></code> element has no effect! The packages will
-still get deleted.</p>
+still be deleted.</p>
 </div>
 </section>
 </section>

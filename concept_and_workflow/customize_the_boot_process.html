@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customizing the Boot Process &mdash; KIWI NG 10.0.21 documentation</title>
+  <title>Customizing the Boot Process &mdash; KIWI NG 10.0.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=b18d1325"></script>
+        <script src="../_static/documentation_options.js?v=8675994f"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -173,7 +173,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="profiles.html">Image Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users.html">Adding Users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User Defined Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell_scripts.html">User-Defined Scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="shell_scripts.html#developing-debugging-scripts">Developing/Debugging Scripts</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#script-template-for-config-sh-images-sh">Script Template for config.sh / images.sh</a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell_scripts.html#functions-and-variables-provided-by-kiwi-ng">Functions and Variables Provided by KIWI NG</a></li>
@@ -1232,86 +1232,87 @@
   <section id="customizing-the-boot-process">
 <span id="working-with-kiwi-customizing-the-boot-process"></span><h1>Customizing the Boot Process<a class="headerlink" href="#customizing-the-boot-process" title="Link to this heading"></a></h1>
 <p>Most Linux systems use a special boot image to control the system boot process
-after the system firmware, BIOS or UEFI, hands control of the hardware to the
-operating system. This boot image is called the <code class="file docutils literal notranslate"><span class="pre">initrd</span></code>. The Linux kernel
-loads the <code class="file docutils literal notranslate"><span class="pre">initrd</span></code>, a compressed cpio initial RAM disk, into the RAM and
+after BIOS or UEFI hands over control of the hardware to the operating system.
+This boot image is a compressed cpio initial RAM disk, and it’s called the
+<code class="file docutils literal notranslate"><span class="pre">initrd</span></code>. The Linux kernel loads the <code class="file docutils literal notranslate"><span class="pre">initrd</span></code> into the RAM and
 executes <strong class="command">init</strong> or, if present, <strong class="command">linuxrc</strong>.</p>
 <p>Depending on the image type, KIWI NG creates the boot image automatically during
-the <code class="docutils literal notranslate"><span class="pre">create</span></code> step. It uses a tool called <code class="xref py py-obj docutils literal notranslate"><span class="pre">dracut</span></code> to create this initrd.
-Dracut generated initrd archives can be extended by custom modules to add
-functionality which is not natively provided by dracut itself. In the scope
-of KIWI NG the following dracut modules are used:</p>
+the <code class="docutils literal notranslate"><span class="pre">create</span></code> step. To create the <code class="file docutils literal notranslate"><span class="pre">initrd</span></code>, KIWI NG uses a tool called
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">dracut</span></code>. dracut-generated initrd archives can be extended with custom modules to
+add functionality which is not natively provided by dracut itself. In the scope
+of KIWI NG, the following dracut modules are used:</p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">kiwi-dump</span></code></dt><dd><p>Serves as an image installer. It provides the
-required implementation to install a KIWI NG image on a selectable target.
-This module is required if one of the attributes <code class="xref py py-obj docutils literal notranslate"><span class="pre">installiso</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">installstick</span></code>
-or <code class="xref py py-obj docutils literal notranslate"><span class="pre">installpxe</span></code> is set to <code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code> in the image type definition</p>
+<dt><code class="docutils literal notranslate"><span class="pre">kiwi-dump</span></code></dt><dd><p>Serves as an image installer. It provides the required implementation to
+install a KIWI NG image on a selectable target. This module is required if one
+of the attributes in the image type definition <code class="xref py py-obj docutils literal notranslate"><span class="pre">installiso</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">installstick</span></code> or
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">installpxe</span></code> is set to <code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">kiwi-dump-reboot</span></code></dt><dd><p>Serves to boot the system into the installed image after installation is
 completed.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">kiwi-live</span></code></dt><dd><p>Boots up a KIWI NG live image. This module is required
-if the <code class="xref py py-obj docutils literal notranslate"><span class="pre">iso</span></code> image type is selected</p>
+if the <code class="xref py py-obj docutils literal notranslate"><span class="pre">iso</span></code> image type is selected.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">kiwi-overlay</span></code></dt><dd><p>Allows to boot disk images configured with the
-attribute <code class="xref py py-obj docutils literal notranslate"><span class="pre">overlayroot</span></code> set to <code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code>. Such a disk has its root partition
-compressed and readonly and boots up using overlayfs for the root filesystem
-using an extra partition on the same disk for persistent data.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">kiwi-overlay</span></code></dt><dd><p>Allows to boot disk images with the attribute <code class="xref py py-obj docutils literal notranslate"><span class="pre">overlayroot</span></code> set to <code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code>. A
+disk like that has its root partition compressed and readonly. The disk boots up
+using overlayfs for the root filesystem with a separate partition on the same
+disk for persistent data.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">kiwi-repart</span></code></dt><dd><p>Resizes an OEM disk image after installation onto
-the target disk to meet the size constraints configured in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">oemconfig</span></code>
-section of the image description. The module takes over the tasks to
-repartition the disk, resizing of RAID, LVM, LUKS and other layers and
-resizing of the system filesystems.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">kiwi-repart</span></code></dt><dd><p>Resizes an OEM disk image after installation on
+the target disk to meet the size limits configured in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">oemconfig</span></code>
+section of the image description. The module takes over the tasks of
+repartitioning the disk, resizing RAID, LVM, LUKS and other layers as well as
+resizing the system filesystems.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">kiwi-lib</span></code></dt><dd><p>Provides functions of general use and serves
-as a library usable by other dracut modules. As the name implies, its
-main purpose is to function as library for the above mentioned kiwi
-dracut modules.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">kiwi-lib</span></code></dt><dd><p>Provides common functions used by dracut modules.</p>
 </dd>
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Using Custom Boot Image Support</p>
-<p>Apart from the standard dracut based creation of the boot image, KIWI NG
+<p>In addition to the standard dracut-based creation of the boot image, KIWI NG
 supports the use of custom boot images for the image types <code class="docutils literal notranslate"><span class="pre">oem</span></code>
-and <code class="docutils literal notranslate"><span class="pre">pxe</span></code>. The use of a custom boot image is activated by setting the
+and <code class="docutils literal notranslate"><span class="pre">pxe</span></code>. The use of a custom boot image is enabled by setting the
 following attribute in the image description:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;type ... initrd_system=&quot;kiwi&quot;/&gt;
 </pre></div>
 </div>
-<p>Along with this setting it is now mandatory to provide a reference to
-a boot image description in the <code class="docutils literal notranslate"><span class="pre">boot</span></code> attribute like in the
-following example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;type ... boot=&quot;netboot/suse-tumbleweed&quot;/&gt;
+<p>Along with this setting, you must provide a reference to
+a boot image description in the <code class="docutils literal notranslate"><span class="pre">boot</span></code> attribute as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  &lt;type ... boot=&quot;netboot/suse-tumbleweed&quot;/&gt;
+
+While KIWI NG supports this approach, it is recommended using dracut instead.
+Keep also in mind that although KIWI NG supports creation of custom boot
+images, KIWI NG does not include any official boot image descriptions. You
+can find an OEM boot description example at
+https://build.opensuse.org/package/show/Virtualization:Appliances:Images:Testing_x86:tumbleweed/custom-oem-boot-description
+and an PXE boot description example at
+https://build.opensuse.org/package/show/Virtualization:Appliances:Images:Testing_x86:tumbleweed/custom-pxe-boot-description
 </pre></div>
 </div>
-<p>Such boot descriptions for the OEM and PXE types are currently still
-provided by the KIWI NG packages but will be moved into its own repository
-and package soon.</p>
-<p>The custom boot image descriptions allows a user to completely customize
-what and how the initrd behaves by its own implementation. This concept
-is mostly used in PXE environments which are usually highly customized
-and requires a specific boot and deployment workflow.</p>
+<p>The custom boot image descriptions makes it possible to completely customize
+the behavior of the initrd. This concept is mostly used in PXE environments
+that are usually heavily customized and require a specific boot and
+deployment workflow.</p>
 </div>
 <section id="boot-image-hook-scripts">
 <h2>Boot Image Hook-Scripts<a class="headerlink" href="#boot-image-hook-scripts" title="Link to this heading"></a></h2>
 <p>The dracut initrd system uses <code class="docutils literal notranslate"><span class="pre">systemd</span></code> to implement a predefined workflow
-of services which are documented in the bootup man page at:</p>
+of services documented in the bootup man page:</p>
 <p><a class="reference external" href="http://man7.org/linux/man-pages/man7/dracut.bootup.7.html">http://man7.org/linux/man-pages/man7/dracut.bootup.7.html</a></p>
-<p>To hook in a custom boot script into this workflow it’s required to provide
-a dracut module which is picked up by dracut at the time KIWI NG calls it.
-The module files can be either provided as a package or as part of the
-overlay directory in your image description</p>
-<p>The following example demonstrates how to include a custom hook script
-right before the system rootfs gets mounted.</p>
+<p>To hook in a custom boot script to this workflow, it is necessary to provide
+a dracut module that dracut picks when KIWI NG calls it.
+The module files can be provided either as a package or as part of the
+overlay directory in the image description.</p>
+<p>The following example shows how to include a custom hook script
+before the system rootfs is mounted.</p>
 <ol class="arabic">
 <li><p>Create a subdirectory for the dracut module:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>root/usr/lib/dracut/modules.d/90my-module
 </pre></div>
 </div>
 </li>
-<li><p>Register the dracut module in a configuration file:</p>
+<li><p>Register the dracut module in the configuration file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>vi<span class="w"> </span>root/etc/dracut.conf.d/90-my-module.conf
 
 <span class="nv">add_dracutmodules</span><span class="o">+=</span><span class="s2">&quot; my-module &quot;</span>
@@ -1323,7 +1324,8 @@ right before the system rootfs gets mounted.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Create a module setup file in <code class="file docutils literal notranslate"><span class="pre">root/usr/lib/dracut/modules.d/90my-module/module-setup.sh</span></code> with the following content:</p>
+<li><p>Create a module setup file in
+<code class="file docutils literal notranslate"><span class="pre">root/usr/lib/dracut/modules.d/90my-module/module-setup.sh</span></code> containing the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># called by dracut</span>
@@ -1356,26 +1358,26 @@ install<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Declaring Extra Tools for Hook Scripts</p>
-<p>The install() function called by dracut can define extra tools needed by
-a defined hook script. The “inst_multiple” command and its parameters
-inform dracut to include these extra tools/items in the initrd.</p>
-<p>The tools/items defined here can be any file, but are usually executables
-and libraries needed by the hook script.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">install()</span></code> function called by dracut can define extra tools required by
+the specified hook script. The <code class="xref py py-obj docutils literal notranslate"><span class="pre">inst_multiple</span></code> command and its parameters
+instruct dracut to include these extra tools and items into the initrd.</p>
+<p>The specified tools and items can be files. Normally, they are executables
+and libraries required by the hook script.</p>
 <ul class="simple">
-<li><p>Each file MUST be included in the Kiwi description either in a
-package, archive, or in the “root” tree in the image description
+<li><p>Each file must be included in the KIWI NG description either in a
+package, archive, or in the root tree of the image description
 directory.</p></li>
-<li><p>The parameters of the inst_multiple command are space separated.</p></li>
-<li><p>Each parameter can be a single executable name if it exists in /bin,
-/sbin, /usr/bin, or /usr/sbin directories.</p></li>
-<li><p>Otherwise, a full pathname to the file is required. This is usually
-true for libraries and other special files.</p></li>
+<li><p>The parameters of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">inst_multiple</span></code> command are space separated.</p></li>
+<li><p>Each parameter can be a single executable name if it exists in <code class="xref py py-obj docutils literal notranslate"><span class="pre">/bin</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">/sbin</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">/usr/bin</span></code>, or <code class="xref py py-obj docutils literal notranslate"><span class="pre">/usr/sbin`</span></code> directories.</p></li>
+<li><p>Otherwise, a full path to the file is required. This normally applies for
+libraries and other special files.</p></li>
 </ul>
 </div>
-<p>That’s it! At the time KIWI NG calls dracut the <code class="file docutils literal notranslate"><span class="pre">90my-module</span></code> will be taken
-into account and is installed into the generated initrd. At boot time
-systemd calls the scripts as part of the <code class="file docutils literal notranslate"><span class="pre">dracut-pre-mount.service</span></code>.</p>
-<p>The dracut system offers a lot more possibilities to customize the
+<p>When KIWI NG calls dracut, the <code class="file docutils literal notranslate"><span class="pre">90my-module</span></code> is installed into the
+generated initrd. At boot time, systemd calls the scripts as part of the
+<code class="file docutils literal notranslate"><span class="pre">dracut-pre-mount.service</span></code>.</p>
+<p>The dracut system offers many other possibilities to customize the
 initrd than shown in the example above. For more information, visit
 the <a class="reference external" href="https://dracut.wiki.kernel.org/index.php/Main_Page">dracut project page</a>.</p>
 </section>
@@ -1383,99 +1385,101 @@ the <a class="reference external" href="https://dracut.wiki.kernel.org/index.php
 <h2>Boot Image Parameters<a class="headerlink" href="#boot-image-parameters" title="Link to this heading"></a></h2>
 <p>A dracut generated initrd in a KIWI NG image build process includes one or
 more of the KIWI NG provided dracut modules. The following list documents
-the available kernel boot parameters for this modules:</p>
+the available kernel boot parameters for these modules:</p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.term</span></code></dt><dd><p>Exports the TERM variable into the initrd environment. In case
-the default value for the terminal emulation is not appropriate
+<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.term</span></code></dt><dd><p>Exports the TERM variable into the initrd environment. If
+the default value for the terminal emulation is not correct,
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">rd.kiwi.term</span></code> can be used to overwrite the default. The
-environment is also passed to the systemd unit which calls
-dialog based programs in KIWI NG dracut code, such that the
-TERM setting will be effective there too.</p>
+environment is also passed to the systemd unit that calls
+dialog based programs in KIWI NG dracut code, which means that the
+TERM setting applies there too.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.debug</span></code></dt><dd><p>Activates the debug log file for the KIWI NG part of
-the boot process at <code class="file docutils literal notranslate"><span class="pre">/run/initramfs/log/boot.kiwi</span></code>.</p>
+the boot process in <code class="file docutils literal notranslate"><span class="pre">/run/initramfs/log/boot.kiwi</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.install.pxe</span></code></dt><dd><p>Tells an OEM installation image to lookup the system
+<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.install.pxe</span></code></dt><dd><p>Instructs an OEM installation image to lookup the system
 image on a remote location specified in <code class="xref py py-obj docutils literal notranslate"><span class="pre">rd.kiwi.install.image</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.install.image=URI</span></code></dt><dd><p>Specifies the remote location of the system image in
-a PXE based OEM installation</p>
+a PXE based OEM installation.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.install.pass.bootparam</span></code></dt><dd><p>Tells an OEM installation image to pass an additional
+<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.install.pass.bootparam</span></code></dt><dd><p>Instructs an OEM installation image to pass an additional
 boot parameters to the kernel used to boot the installed image. This
-can be used e.g. to pass on first boot configuration for a PXE image.
-Note, that options starting with <code class="xref py py-obj docutils literal notranslate"><span class="pre">rd.kiwi</span></code> are not passed on to avoid
+can be used, for example, to pass on first boot configuration for a PXE image.
+Note that options starting with <code class="xref py py-obj docutils literal notranslate"><span class="pre">rd.kiwi</span></code> are not passed to avoid
 side effects.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.oem.maxdisk=size[KMGT]</span></code></dt><dd><p>Configures the maximum disk size an unattended OEM
-installation should consider for image deployment. Unattended OEM
-deployments default to deploying on <code class="xref py py-obj docutils literal notranslate"><span class="pre">/dev/sda</span></code> (more exactly, the first
-device not filtered out by <code class="xref py py-obj docutils literal notranslate"><span class="pre">oem-device-filter</span></code>). With RAID
-controllers, it can happen that your buch of big JBOD disks is for
-example <code class="xref py py-obj docutils literal notranslate"><span class="pre">/dev/sda</span></code> to <code class="xref py py-obj docutils literal notranslate"><span class="pre">/dev/sdi</span></code> and the 480G RAID1 configured for
-OS deployment is <code class="xref py py-obj docutils literal notranslate"><span class="pre">/dev/sdj</span></code>. With <code class="xref py py-obj docutils literal notranslate"><span class="pre">rd.kiwi.oem.maxdisk=500G</span></code> the
-deployment will land on that RAID disk.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.oem.maxdisk=size[KMGT]</span></code></dt><dd><p>Specifies the maximum disk size an unattended OEM installation uses for image
+deployment. Unattended OEM deployments default to deploying on <code class="xref py py-obj docutils literal notranslate"><span class="pre">/dev/sda</span></code> (or
+more precisely, the first device that is not filtered out by
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">oem-device-filter</span></code>). With RAID controllers, you may have big JBOD disks along
+with a 480G RAID1 configured for OS deployment. With
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">rd.kiwi.oem.maxdisk=500G</span></code>, the deployment is performed on the RAID disk.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.oem.installdevice</span></code></dt><dd><p>Configures the disk device that should be used in an OEM
-installation. This overwrites/resets any other oem device specific
-settings, e.g oem-device-filter, oem-unattended-id or rd.kiwi.oem.maxdisk
-from the cmdline and just continues the installation on the given
-device. However, the device must exist and must be a block special.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.oem.installdevice</span></code></dt><dd><p>Configures the disk device to use in an OEM installation. This overwrites or
+resets any other OEM device-specific settings, such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">oem-device-filter</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">oem-unattended-id</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">rd.kiwi.oem.maxdisk</span></code>, and continues the installation on
+the given device. The device must exist and must be a block special.</p>
 </dd>
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Non interactive mode activated by rd.kiwi.oem.installdevice</p>
-<p>When setting rd.kiwi.oem.installdevice explicitly on the
-kernel commandline, KIWI NG will not ask for confirmation
-of the device and just use it !</p>
+<p>When setting <code class="xref py py-obj docutils literal notranslate"><span class="pre">rd.kiwi.oem.installdevice</span></code> explicitly through the kernel command line,
+KIWI NG uses the device without prompting for confirmation.</p>
 </div>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">rd.live.overlay.size</span></code></dt><dd><p>Tells a live ISO image the size for the <code class="xref py py-obj docutils literal notranslate"><span class="pre">tmpfs</span></code> filesystem that is used
-for the <code class="xref py py-obj docutils literal notranslate"><span class="pre">overlayfs</span></code> mount process. If the write area of the overlayfs
-mount uses this tmpfs, any new data written during the runtime of
-the system will fillup this space. The default value used is set
-to <code class="xref py py-obj docutils literal notranslate"><span class="pre">50%</span></code> which means one half of the available RAM space can be used
-for writing new data.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.live.overlay.size</span></code></dt><dd><p>Specifies the size for the <code class="xref py py-obj docutils literal notranslate"><span class="pre">tmpfs</span></code> filesystem of a live ISO image that is used
+for the <code class="xref py py-obj docutils literal notranslate"><span class="pre">overlayfs</span></code> mount process. If the write area of the overlayfs mount
+uses this tmpfs, any new data written during the runtime of the system is
+written in this space. The default value is <code class="xref py py-obj docutils literal notranslate"><span class="pre">50%</span></code>, meaning half of the
+available RAM space can be used for writing new data.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rd.live.overlay.persistent</span></code></dt><dd><p>Tells a live ISO image to prepare a persistent
+<dt><code class="docutils literal notranslate"><span class="pre">rd.live.overlay.persistent</span></code></dt><dd><p>Instructs a live ISO image to prepare a persistent
 write partition.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rd.live.overlay.cowfs</span></code></dt><dd><p>Tells a live ISO image which filesystem should be
-used to store data on the persistent write partition.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.live.overlay.cowfs</span></code></dt><dd><p>Specifies which filesystem of a live ISO image to use for storing data on the
+persistent write partition.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rd.live.cowfile.mbsize</span></code></dt><dd><p>Tells a live ISO image the size of the COW file in MB.
-When using tools like <code class="xref py py-obj docutils literal notranslate"><span class="pre">live-grub-stick</span></code> the live ISO will be copied
-as a file on the target device and a GRUB loopback setup is created
-there to boot the live system from file. In such a case the
-persistent write setup, which usually creates an extra write
-partition on the target, will fail in almost all cases because
-the target has no free and unpartitioned space available.
-Because of that a cow file(live_system.cow) instead of a partition
-is created. The cow file will be created in the same directory
-the live iso image file was read from by grub and takes the
-configured size or the default size of 500MB.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.live.cowfile.mbsize</span></code></dt><dd><p>Specifies the size of the COW file in MB. When using tools like
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">live-grub-stick</span></code>, the live ISO image is copied as a file on the target device,
+and a GRUB loopback setup is created there to boot the live system from the
+file. In this case, the persistent write setup that normally creates an extra
+write partition on the target will fail in most situations, because the target
+has no free and unpartitioned space available. To prevent this from happening,
+a COW file (live_system.cow) of a partition is created alongside the live ISO
+image file. The default size of the COW file is 500MB.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rd.live.dir</span></code></dt><dd><p>Tells a live ISO image the directory which contains
-the live OS root directory. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">LiveOS</span></code>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.live.cowfile.path</span></code></dt><dd><p>Effectively used in isoscan loop mounted live systems. For details on this
+type of live system refer to <a class="reference internal" href="../working_with_images/iso_to_usb_stick_file_based_deployment.html#iso-as-file-to-usb-stick"><span class="std std-ref">Deploy ISO Image as File on a FAT32 Formated USB Stick</span></a>.
+Specifies the path of the COW file below the <code class="xref py py-obj docutils literal notranslate"><span class="pre">/run/initramfs/isoscan</span></code> loop
+mount point. If not specified the cowfile is placed at
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">/run/initramfs/isoscan/live_system.cow</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rd.live.squashimg</span></code></dt><dd><p>Tells a live ISO image the name of the squashfs
-image file which holds the OS root. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">squashfs.img</span></code>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.live.dir</span></code></dt><dd><p>Specifies a directory that contains the live OS root directory. Default is
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">LiveOS</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.live.squashimg</span></code></dt><dd><p>Specifies the name of the squashfs image file which contains the OS root.
+Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">squashfs.img</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">rd.kiwi.allow_plymouth</span></code></dt><dd><p>By default kiwi stops plymouth if present and active in the
+initrd. Setting rd.kiwi.allow_plymouth will keep plymouth
+active in the initrd including all effects that might have
+to the available consoles.</p>
 </dd>
 </dl>
 <section id="boot-debugging">
 <h3>Boot Debugging<a class="headerlink" href="#boot-debugging" title="Link to this heading"></a></h3>
 <p>If the boot process encounters a fatal error, the default behavior is to
 stop the boot process without any possibility to interact with the system.
-Prevent this behavior by activating dracut’s builtin debug mode in combination
-with the kiwi debug mode as follows:</p>
+To prevent this, activate dracut’s builtin debug mode in combination
+with the KIWI NG debug mode as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rd.debug<span class="w"> </span>rd.kiwi.debug
 </pre></div>
 </div>
-<p>This should be set at the Kernel command line. With those parameters activated,
-the system will enter a limited shell environment in case of a fatal error
-during boot. The shell contains a basic set of commands and allows for a closer
-look to:</p>
+<p>This must be set at the kernel command line. With these parameters activated,
+the system enters a limited shell environment when a fatal error occurs
+during boot. The shell provides a basic set of tools, and it can be used for inspection using the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>less<span class="w"> </span>/run/initramfs/log/boot.kiwi
 </pre></div>
 </div>

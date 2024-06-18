@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Defined Scripts &mdash; KIWI NG 10.0.21 documentation</title>
+  <title>User-Defined Scripts &mdash; KIWI NG 10.0.22 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=b18d1325"></script>
+        <script src="../_static/documentation_options.js?v=8675994f"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -173,7 +173,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="profiles.html">Image Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users.html">Adding Users</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">User Defined Scripts</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">User-Defined Scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#developing-debugging-scripts">Developing/Debugging Scripts</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#script-template-for-config-sh-images-sh">Script Template for config.sh / images.sh</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#functions-and-variables-provided-by-kiwi-ng">Functions and Variables Provided by KIWI NG</a></li>
@@ -1219,7 +1219,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../concept_and_workflow.html">Concept and Workflow</a></li>
-      <li class="breadcrumb-item active">User Defined Scripts</li>
+      <li class="breadcrumb-item active">User-Defined Scripts</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/concept_and_workflow/shell_scripts.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -1230,100 +1230,88 @@
            <div itemprop="articleBody">
              
   <section id="user-defined-scripts">
-<span id="working-with-kiwi-user-defined-scripts"></span><h1>User Defined Scripts<a class="headerlink" href="#user-defined-scripts" title="Link to this heading"></a></h1>
+<span id="working-with-kiwi-user-defined-scripts"></span><h1>User-Defined Scripts<a class="headerlink" href="#user-defined-scripts" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Abstract</strong></p>
-<p>This chapter describes the purpose of the user defined scripts
-<code class="file docutils literal notranslate"><span class="pre">config.sh</span></code>, <code class="file docutils literal notranslate"><span class="pre">image.sh</span></code>, <code class="file docutils literal notranslate"><span class="pre">pre_disk_sync.sh</span></code>
-and <code class="file docutils literal notranslate"><span class="pre">disk.sh</span></code>, which can be used to further customize an
-image in ways that are not possible via the image description
-alone.</p>
+<p>This chapter describes the purpose of the user-defined scripts
+<code class="file docutils literal notranslate"><span class="pre">config.sh</span></code>, <code class="file docutils literal notranslate"><span class="pre">image.sh</span></code>, <code class="file docutils literal notranslate"><span class="pre">pre_disk_sync.sh</span></code> and
+<code class="file docutils literal notranslate"><span class="pre">disk.sh</span></code>. These scripts can be used to further customize an image in
+ways that are not possible via the image description alone.</p>
 </div>
 <p>KIWI NG supports the following optional scripts that it runs in a
-root environment (chroot) containing your new appliance:</p>
+root environment (chroot) containing an appliance:</p>
 <dl class="simple">
-<dt>post_bootstrap.sh</dt><dd><p>runs at the end of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">bootstrap</span></code> phase as part of the
-<a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>. The script can be used to
-configure the package manager with additional settings that
-should apply in the following chroot based installation step
-which completes the installation. The script is not dedicated to
-this use and can also be used for other tasks.</p>
+<dt>post_bootstrap.sh</dt><dd><p>Runs at the end of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">bootstrap</span></code> phase as part of the <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>. The script can be used to configure the package manager with
+additional settings that apply in the following chroot-based installation step
+which completes the installation. The script can also be used for other tasks.</p>
 </dd>
-<dt>config.sh</dt><dd><p>runs at the end of the <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>
+<dt>config.sh</dt><dd><p>Runs at the end of the <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>
 and after users have been set and the <em>overlay tree directory</em>
 has been applied. It is usually used to apply a permanent and final
-change of data in the root tree, such as modifying a package provided
+change of data in the root tree, such as modifying a package-specific
 config file.</p>
 </dd>
-<dt>config-overlay.sh</dt><dd><p>Available only if <code class="xref py py-obj docutils literal notranslate"><span class="pre">delta_root=&quot;true&quot;</span></code> is set. In this case the
-script runs at the end of the <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>
-prior the umount of the overlay root tree. It runs after an
-eventually given <code class="xref py py-obj docutils literal notranslate"><span class="pre">config.sh</span></code> and is the last entry point to
-change the delta root tree.</p>
+<dt>config-overlay.sh</dt><dd><p>Available only if <code class="xref py py-obj docutils literal notranslate"><span class="pre">delta_root=&quot;true&quot;</span></code> is set. In this case, the script runs at
+the end of the <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a> prior the umount of the
+overlay root tree. It runs after <code class="xref py py-obj docutils literal notranslate"><span class="pre">config.sh</span></code> (if specified), and it is the
+last entry point to change the delta root tree.</p>
 </dd>
-<dt>config-host-overlay.sh</dt><dd><p>Available only if <code class="xref py py-obj docutils literal notranslate"><span class="pre">delta_root=&quot;true&quot;</span></code> is set. In this case the
-script runs at the end of the <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a>
-prior the umount of the overlay root tree. The script is called
-<strong>NOT CHROOTED</strong> from the host with the image root directory as
-its working directory. It runs after an eventually given
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">config.sh</span></code> and is together with an eventually given
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">config-overlay.sh</span></code> script, the last entry point to change the
-delta root tree.</p>
+<dt>config-host-overlay.sh</dt><dd><p>Available only if <code class="xref py py-obj docutils literal notranslate"><span class="pre">delta_root=&quot;true&quot;</span></code> is set. In this case, the script runs at
+the end of the <a class="reference internal" href="../concept_and_workflow.html#prepare-step"><span class="std std-ref">prepare step</span></a> prior the umount of the
+overlay root tree. The script is called <strong>NOT CHROOTED</strong> from the host with
+the image root directory as its working directory. It runs after <code class="xref py py-obj docutils literal notranslate"><span class="pre">config.sh</span></code>
+and <code class="xref py py-obj docutils literal notranslate"><span class="pre">config-overlay.sh</span></code> (if any or both are specified), and it is the last
+entry point to change the delta root tree.</p>
 </dd>
-<dt>images.sh</dt><dd><p>is executed at the beginning of the <a class="reference internal" href="../concept_and_workflow.html#create-step"><span class="std std-ref">image
-creation process</span></a>. It runs in the same image root tree
-that has been created by the prepare step but is invoked any
-time an image should be created from that root tree. It is usually
-used to apply image type specific changes to the root tree such as
-a modification to a config file that should be done when building
-a live iso but not when building a virtual disk image.</p>
+<dt>images.sh</dt><dd><p>Executed at the beginning of the <a class="reference internal" href="../concept_and_workflow.html#create-step"><span class="std std-ref">image creation process</span></a>.
+It runs in the same image root tree created by the prepare step,
+but it is invoked whenever an image needs to be created from that root tree.
+It is normally used to apply image type specific changes to the root tree, such
+as a modification to a config file that must be done when building a live
+iso, but not when building a virtual disk image.</p>
 </dd>
-<dt>pre_disk_sync.sh</dt><dd><p>is executed for the disk image type <code class="xref py py-obj docutils literal notranslate"><span class="pre">oem</span></code> only and runs
+<dt>pre_disk_sync.sh</dt><dd><p>Executed for the disk image type <code class="xref py py-obj docutils literal notranslate"><span class="pre">oem</span></code> only, and it runs
 right before the synchronization of the root tree into the disk image
 loop file. The <code class="file docutils literal notranslate"><span class="pre">pre_disk_sync.sh</span></code> can be used to change
 content of the root tree as a last action before the sync to
-the disk image is performed. This is useful for example to delete
-components from the system which were needed before or cannot
+the disk image is performed. This is useful, for example, for deleting
+components from the system which were needed earlier or cannot
 be modified afterwards when syncing into a read-only filesystem.</p>
 </dd>
-<dt>disk.sh</dt><dd><p>is executed for the disk image type <code class="xref py py-obj docutils literal notranslate"><span class="pre">oem</span></code> only and runs after the
-synchronization of the root tree into the disk image loop file.
-The chroot environment for this script call is the virtual disk itself
-and not the root tree as with <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> and <code class="file docutils literal notranslate"><span class="pre">images.sh</span></code>.
-The script <code class="file docutils literal notranslate"><span class="pre">disk.sh</span></code> is usually used to apply changes at parts of
-the system that are not an element of the file based root tree such as
-the partition table, the contents of the final initrd, the bootloader,
-filesystem attributes and more.</p>
+<dt>disk.sh</dt><dd><p>Executed for the disk image type <code class="xref py py-obj docutils literal notranslate"><span class="pre">oem</span></code> only, and it runs after the
+synchronization of the root tree to the disk image loop file. The chroot
+environment for this script call is the virtual disk itself and not the root
+tree. The script <code class="file docutils literal notranslate"><span class="pre">disk.sh</span></code> is normally used to apply changes at parts of
+the system that are not an element of the file-based root tree, such as the
+partition table, the contents of the final initrd, the bootloader, filesystem
+attributes, etc.</p>
 </dd>
 </dl>
 <p>KIWI NG executes scripts via the operating system if their executable
-bit is set (in that case a shebang is mandatory) otherwise they will be
-invoked via the BASH. If a script exits with a non-zero exit code
-then KIWI NG will report the failure and abort the image creation.</p>
+bit is set (in that case, a shebang is mandatory); otherwise they are
+invoked via the Bash shell. If a script exits with a non-zero exit code,
+KIWI NG reports the failure and aborts the image creation.</p>
 <section id="developing-debugging-scripts">
 <h2>Developing/Debugging Scripts<a class="headerlink" href="#developing-debugging-scripts" title="Link to this heading"></a></h2>
-<p>When creating a custom script it usually takes some iterations of
-try and testing until a final stable state is reached. To support
-developers with this task KIWI NG calls scripts associated with a
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">screen</span></code> session. The connection to <code class="xref py py-obj docutils literal notranslate"><span class="pre">screen</span></code> is only done if KIWI NG
-is called with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--debug</span></code> option.</p>
-<p>In this mode a script can start like the following template:</p>
+<p>Creating a custom script may require some experimenting and testing. To help
+developers with this task, KIWI NG calls scripts associated with a <code class="xref py py-obj docutils literal notranslate"><span class="pre">screen</span></code>
+session. The connection to <code class="xref py py-obj docutils literal notranslate"><span class="pre">screen</span></code> is only done if KIWI NG is called with the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">--debug</span></code> option.</p>
+<p>In this mode, a script can be started using the following template:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># The magic bits are still not set</span>
 
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;break&quot;</span>
 /bin/bash
 </pre></div>
 </div>
-<p>At call time of the script a <code class="xref py py-obj docutils literal notranslate"><span class="pre">screen</span></code> session executes and you get
-access to the break in shell. From this environment the needed script
-code can be implemented. Once the shell is closed the KIWI NG process
-continues.</p>
-<p>Apart from providing a full featured terminal throughout the
-execution of the script code, there is also the advantage to
-have control on the session during the process of the image
-creation. Listing the active sessions for script execution
-can be done as follows:</p>
+<p>Calling the script executes a <code class="xref py py-obj docutils literal notranslate"><span class="pre">screen</span></code> session executes, which gives you access
+to the break in shell. You can then implement the desired script code in this
+environment.. Once the shell is closed the KIWI NG process continues.</p>
+<p>In addition to providing a fully featured terminal throughout the execution of
+the script code, you also have have control of the session during the process of
+the image creation. Listing the active sessions for script execution can be done
+as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>screen<span class="w"> </span>-list
 
 There<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>screen<span class="w"> </span>on:
@@ -1333,20 +1321,17 @@ There<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As shown above the screen session(s) to execute script code
-provides extended control which could also be considered a
-security risk. Because of that KIWI NG only runs scripts through
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">screen</span></code> when explicitly enabled via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--debug</span></code> switch.
-For production processes all scripts should run in their
-native way and should not require a terminal to operate
-correctly !</p>
+<p>As shown above the screen session for executing the script code provides
+extended control, which can be considered a security risk. Because of that,
+KIWI NG only runs scripts through <code class="xref py py-obj docutils literal notranslate"><span class="pre">screen</span></code> when explicitly enabled via the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">--debug</span></code> switch. In production, all scripts must run natively and
+must not require a terminal to operate correctly.</p>
 </div>
 <section id="script-template-for-config-sh-images-sh">
 <h3>Script Template for config.sh / images.sh<a class="headerlink" href="#script-template-for-config-sh-images-sh" title="Link to this heading"></a></h3>
-<p>KIWI NG provides a collection of methods and variables that supports users
-with custom operations. For details see <a class="reference internal" href="#image-customization-methods"><span class="std std-ref">Functions and Variables Provided by KIWI NG</span></a>.
-The following template shows how to import this information in your
-script:</p>
+<p>KIWI NG provides a collection of methods and variables that offer custom
+actions. For details, see <a class="reference internal" href="#image-customization-methods"><span class="std std-ref">Functions and Variables Provided by KIWI NG</span></a>. The following
+template shows how to import this information into a script:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#======================================</span>
 <span class="c1"># Include functions &amp; variables</span>
 <span class="c1">#--------------------------------------</span>
@@ -1361,72 +1346,70 @@ script:</p>
 <p>Modifications of the unpacked root tree</p>
 <p>Keep in mind that there is only one unpacked root tree the
 script operates in. This means that all changes are permanent
-and will not be automatically restored!</p>
+and are not automatically restored.</p>
 </div>
 </section>
 <section id="functions-and-variables-provided-by-kiwi-ng">
 <span id="image-customization-methods"></span><h3>Functions and Variables Provided by KIWI NG<a class="headerlink" href="#functions-and-variables-provided-by-kiwi-ng" title="Link to this heading"></a></h3>
 <p>KIWI NG creates the <code class="file docutils literal notranslate"><span class="pre">.kconfig</span></code> and <code class="file docutils literal notranslate"><span class="pre">.profile</span></code> files to be sourced
 by the shell scripts <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> and <code class="file docutils literal notranslate"><span class="pre">images.sh</span></code>.
-<code class="file docutils literal notranslate"><span class="pre">.kconfig</span></code> contains various helper functions which can be used to
-simplify the image configuration and <code class="file docutils literal notranslate"><span class="pre">.profile</span></code> contains environment
-variables which get populated from the settings provided in the image
+<code class="file docutils literal notranslate"><span class="pre">.kconfig</span></code> contains several helper functions that can be used to
+simplify image configuration, while <code class="file docutils literal notranslate"><span class="pre">.profile</span></code> contains environment
+variables populated from the settings provided in the image
 description.</p>
 <section id="functions">
 <h4>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h4>
 <p>The <code class="file docutils literal notranslate"><span class="pre">.kconfig</span></code> file provides a common set of functions.  Functions
-specific to SUSE Linux Enterprise and openSUSE begin with the name
-<code class="docutils literal notranslate"><span class="pre">suse</span></code>, functions applicable to all Linux distributions start with the
-name <code class="docutils literal notranslate"><span class="pre">base</span></code>.</p>
+specific to SUSE Linux Enterprise and openSUSE start with <code class="docutils literal notranslate"><span class="pre">suse</span></code>, functions
+applicable to all Linux distributions start with <code class="docutils literal notranslate"><span class="pre">base</span></code>.</p>
 <p>The following list describes all functions provided by <code class="file docutils literal notranslate"><span class="pre">.kconfig</span></code>:</p>
 <dl>
 <dt>baseSetRunlevel {value}</dt><dd><p>Set the default run level.</p>
 </dd>
-<dt>baseStripAndKeep {list of info-files to keep}</dt><dd><p>Helper function for the <code class="docutils literal notranslate"><span class="pre">baseStrip*</span></code> functions, reads the list of files
-to check from stdin for removing
-params: files which should be kept</p>
+<dt>baseStripAndKeep {list of info-files to keep}</dt><dd><p>Helper function for the <code class="docutils literal notranslate"><span class="pre">baseStrip*</span></code> functions that reads a list of files to
+check from stdin for removing params: files which should be kept.</p>
 </dd>
-<dt>baseStripLocales {list of locales}</dt><dd><p>Remove all locales, except for the ones given as the parameter.</p>
+<dt>baseStripLocales {list of locales}</dt><dd><p>Removes all locales, except for the ones given as the parameter.</p>
 </dd>
-<dt>baseStripTranslations {list of translations}</dt><dd><p>Remove all translations, except for the ones given as the parameter.</p>
+<dt>baseStripTranslations {list of translations}</dt><dd><p>Removes all translations, except those given as the parameter.</p>
 </dd>
-<dt>baseStripUnusedLibs</dt><dd><p>Remove libraries which are not directly linked against applications
+<dt>baseStripUnusedLibs</dt><dd><p>Removes libraries that are not directly linked against applications
 in the bin directories.</p>
 </dd>
-<dt>baseUpdateSysConfig {filename} {variable} {value}</dt><dd><p>Update the contents of a sysconfig variable</p>
+<dt>baseUpdateSysConfig {filename} {variable} {value}</dt><dd><p>Updates the contents of a sysconfig variable.</p>
 </dd>
 <dt>baseSystemdServiceInstalled {service}</dt><dd><p>Prints the path of the first found systemd unit or mount with name passed
 as the first parameter.</p>
 </dd>
-<dt>baseSysVServiceInstalled {service}</dt><dd><p>Prints the name <code class="xref py py-obj docutils literal notranslate"><span class="pre">${service}</span></code> if a SysV init service with that name is
-found, otherwise it prints nothing.</p>
+<dt>baseSysVServiceInstalled {service}</dt><dd><p>Prints the name <code class="xref py py-obj docutils literal notranslate"><span class="pre">${service}</span></code> if a SysV init service with the same name is
+found; otherwise it prints nothing.</p>
 </dd>
 <dt>baseSystemdCall {service_name} {args}</dt><dd><p>Calls <code class="xref py py-obj docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">${args}</span> <span class="pre">${service_name}</span></code> if a systemd unit, a systemd
-mount or a SysV init service with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">${service_name}</span></code> exist.</p>
+mount, or a SysV init service with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">${service_name}</span></code> exists.</p>
 </dd>
-<dt>baseInsertService {servicename}</dt><dd><p>Activate the given service via <strong class="command">systemctl</strong>.</p>
+<dt>baseInsertService {servicename}</dt><dd><p>Activates the specified service via <strong class="command">systemctl</strong>.</p>
 </dd>
-<dt>baseRemoveService {servicename}</dt><dd><p>Deactivate the given service via <strong class="command">systemctl</strong>.</p>
+<dt>baseRemoveService {servicename}</dt><dd><p>Deactivates the specified service via <strong class="command">systemctl</strong>.</p>
 </dd>
-<dt>baseService {servicename} {on|off}</dt><dd><p>Activate or deactivate a service via <strong class="command">systemctl</strong>.
+<dt>baseService {servicename} {on|off}</dt><dd><p>Activates or deactivates a service via <strong class="command">systemctl</strong>.
 The function requires the service name and the value <code class="docutils literal notranslate"><span class="pre">on</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code> as
 parameters.</p>
-<p>Example to enable the sshd service on boot:</p>
+<p>The following example enables the sshd service on boot:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>baseService<span class="w"> </span>sshd<span class="w"> </span>on
 </pre></div>
 </div>
 </dd>
-<dt>suseInsertService {servicename}</dt><dd><p>Calls baseInsertService and exists only for
+<dt>suseInsertService {servicename}</dt><dd><p>Calls baseInsertService. It exists only for
 compatibility reasons.</p>
 </dd>
-<dt>suseRemoveService {servicename}</dt><dd><p>Calls baseRemoveService and exists only for
+<dt>suseRemoveService {servicename}</dt><dd><p>Calls baseRemoveService. It exists only for
 compatibility reasons.</p>
 </dd>
-<dt>suseService {servicename} {on|off}</dt><dd><p>Calls baseService and exists only for compatibility
+<dt>suseService {servicename} {on|off}</dt><dd><p>Calls baseService. It exists only for compatibility
 reasons.</p>
 </dd>
 <dt>suseSetupProduct</dt><dd><p>Creates the <code class="file docutils literal notranslate"><span class="pre">/etc/products.d/baseproduct</span></code> link
-pointing to the product referenced by either <code class="file docutils literal notranslate"><span class="pre">/etc/SuSE-brand</span></code> or
+pointing to the product referenced either by <code class="file docutils literal notranslate"><span class="pre">/etc/SuSE-brand</span></code> or
 <code class="file docutils literal notranslate"><span class="pre">/etc/os-release</span></code> or the latest <code class="xref py py-obj docutils literal notranslate"><span class="pre">prod</span></code> file available in
 <code class="file docutils literal notranslate"><span class="pre">/etc/products.d</span></code></p>
 </dd>
@@ -1441,7 +1424,7 @@ ssh settings and start the ssh daemon</p></li>
 </ul>
 </dd>
 <dt>Debug {message}</dt><dd><p>Helper function to print the supplied message if the variable DEBUG is
-set to 1 (it is off by default).</p>
+set to 1 (disabled by default).</p>
 </dd>
 <dt>Echo {echo commandline}</dt><dd><p>Helper function to print a message to the controlling terminal.</p>
 </dd>
@@ -1452,28 +1435,28 @@ set to 1 (it is off by default).</p>
 <section id="profile-environment-variables">
 <h4>Profile Environment Variables<a class="headerlink" href="#profile-environment-variables" title="Link to this heading"></a></h4>
 <p>The <code class="file docutils literal notranslate"><span class="pre">.profile</span></code> environment file is created by KIWI NG and contains a
-specific set of variables which are listed below.</p>
+specific set of variables listed below.</p>
 <dl class="simple">
-<dt>$kiwi_compressed</dt><dd><p>The value of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">compressed</span></code> attribute set in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code> element in
+<dt>$kiwi_compressed</dt><dd><p>A value of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">compressed</span></code> attribute set in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code> element in
 <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
 </dd>
 <dt>$kiwi_delete</dt><dd><p>A list of all packages which are children of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">packages</span></code> element
 with <code class="xref py py-obj docutils literal notranslate"><span class="pre">type=&quot;delete&quot;</span></code> in <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
 </dd>
-<dt>$kiwi_drivers</dt><dd><p>A comma separated list of the driver entries as listed in the
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">drivers</span></code> section of the <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
+<dt>$kiwi_drivers</dt><dd><p>A comma-separated list of driver entries as listed in the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">drivers</span></code> section of <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
 </dd>
 <dt>$kiwi_iname</dt><dd><p>The name of the image as listed in <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
 </dd>
 <dt>$kiwi_iversion</dt><dd><p>The image version as a string.</p>
 </dd>
-<dt>$kiwi_keytable</dt><dd><p>The contents of the keytable setup as done in <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
+<dt>$kiwi_keytable</dt><dd><p>The contents of the keytable setup as specified in <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
 </dd>
-<dt>$kiwi_language</dt><dd><p>The contents of the locale setup as done in <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
+<dt>$kiwi_language</dt><dd><p>The contents of the locale setup as specified in <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
 </dd>
-<dt>$kiwi_profiles</dt><dd><p>A comma separated list of profiles used to build this image.</p>
+<dt>$kiwi_profiles</dt><dd><p>A comma-separated list of profiles used to build this image.</p>
 </dd>
-<dt>$kiwi_timezone</dt><dd><p>The contents of the timezone setup as done in <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
+<dt>$kiwi_timezone</dt><dd><p>The contents of the timezone setup as specified in <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
 </dd>
 <dt>$kiwi_type</dt><dd><p>The image type as extracted from the <code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code> element in
 <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code>.</p>
@@ -1482,9 +1465,8 @@ with <code class="xref py py-obj docutils literal notranslate"><span class="pre"
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>.profile.extra</strong></p>
-<p>If there is the file <code class="file docutils literal notranslate"><span class="pre">/.profile.extra</span></code> available in the
-initrd, KIWI NG will import this additional environment file
-after the import of the <code class="file docutils literal notranslate"><span class="pre">/.profile</span></code> file.</p>
+<p>If there is the file <code class="file docutils literal notranslate"><span class="pre">/.profile.extra</span></code> available in the initrd, KIWI NG
+imports the file importing <code class="file docutils literal notranslate"><span class="pre">/.profile</span></code>.</p>
 </div>
 </section>
 </section>
@@ -1492,65 +1474,59 @@ after the import of the <code class="file docutils literal notranslate"><span cl
 <h3>Configuration Tips<a class="headerlink" href="#configuration-tips" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p><strong>Locale configuration:</strong></p>
-<p>KIWI in order to set the locale relies on <strong class="command">systemd-firstboot</strong>,
-which in turn writes the locale configuration file <code class="file docutils literal notranslate"><span class="pre">/etc/locale.conf</span></code>.
-The values for the locale settings are taken from the description XML
-file in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;locale&gt;</span></code> element under <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;preferences&gt;</span></code>.</p>
-<p>KIWI assumes systemd adoption to handle these locale settings, in case the
-build distribution does not honor <code class="xref py py-obj docutils literal notranslate"><span class="pre">/etc/locale.conf</span></code> this is likely to not
-produce any effect on the locale settings. As an example, in SLE12
-distribution the locale configuration is already possible by using the
-systemd toolchain, however this approach overlaps with SUSE specific
-managers such as YaST. In that case using <strong class="command">systemd-firstboot</strong>
-is only effective if locales in <code class="file docutils literal notranslate"><span class="pre">/etc/sysconfig/language</span></code> are
-not set or if the file does not exist at all. In SLE12
-<code class="file docutils literal notranslate"><span class="pre">/etc/sysconfig/language</span></code> has precendence over
-<code class="file docutils literal notranslate"><span class="pre">/etc/locale.conf</span></code> for compatibility reasons and management tools
-could still relay on <code class="xref py py-obj docutils literal notranslate"><span class="pre">sysconfig</span></code> files for locale settings.</p>
-<p>In any case the configuration is still possible in KIWI by using
-any distribution specific way to configure the locale setting inside the
-<code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> script or by adding any additional configuration file
-as part of the overlay root-tree.</p>
+<p>To set locale, KIWI NG relies on <strong class="command">systemd-firstboot</strong> that writes the
+locale configuration file <code class="file docutils literal notranslate"><span class="pre">/etc/locale.conf</span></code>. The values for the locale
+settings are taken from the description XML file in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;locale&gt;</span></code> element
+under <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;preferences&gt;</span></code>.</p>
+<p>Keep im mind that if the build distribution does not use <code class="xref py py-obj docutils literal notranslate"><span class="pre">/etc/locale.conf</span></code>,
+the <strong class="command">systemd-firstboot</strong> does not have any effect on the locale
+settings. For example, in the SLE12 distribution,
+<strong class="command">systemd-firstboot</strong> is only effective when locales in
+<code class="file docutils literal notranslate"><span class="pre">/etc/sysconfig/language</span></code> are not set, or when the file does not exist
+at all. For compatibility reasons, the file <code class="file docutils literal notranslate"><span class="pre">/etc/sysconfig/language</span></code>
+in SLE12 has precedence over <code class="file docutils literal notranslate"><span class="pre">/etc/locale.conf</span></code>, and management tools
+can still use <code class="xref py py-obj docutils literal notranslate"><span class="pre">sysconfig</span></code> files for locale settings.</p>
+<p>In any case, it is possible to configure the locale setting inside the
+<code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> script in KIWI NG using in distribution-specific way, or by
+adding any additional configuration file as part of the overlay root-tree.</p>
 </li>
 <li><p><strong>Stateless systemd UUIDs:</strong></p>
 <p>Machine ID files (<code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code>, <code class="file docutils literal notranslate"><span class="pre">/var/lib/dbus/machine-id</span></code>)
 may be created and set during the image package installation depending on
-the distribution. Those UUIDs are intended to be unique and set only once
+the distribution. Those UUIDs must be unique and must be set only once
 in each deployment.</p>
 <p>If <code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> does not exist or contains the string
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">uninitialized</span></code> (systemd v249 and later), this triggers firstboot behaviour
-in systemd and services using <code class="xref py py-obj docutils literal notranslate"><span class="pre">ConditionFirstBoot=yes</span></code> will run. Unless the
-file already contains a valid machine ID, systemd will generate one and
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">uninitialized</span></code> (systemd v249 and later), this triggers firstboot action
+in systemd, and the services are run with <code class="xref py py-obj docutils literal notranslate"><span class="pre">ConditionFirstBoot=yes</span></code>. Unless the
+file already contains a valid machine ID, systemd generates a machine ID and
 write it into the file, creating it if necessary. See the <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/machine-id.html">machine-id man
 page</a>
 for more details.</p>
-<p>Depending on whether firstboot behaviour should be triggered or not,
-<code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> can be created, removed or filled with
+<p>Depending on whether firstboot action should be triggered or not,
+<code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> can be created, removed, or set to
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">uninitialized</span></code> by <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code>.</p>
-<p>To prevent that images include a generated machine ID, KIWI will clear
+<p>To prevent images from including a generated machine ID, KIWI NG clears
 <code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> if it exists and does not contain the string
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">uninitialized</span></code>. This only applies to images based on a dracut initrd, it
-does not apply for container images.</p>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">uninitialized</span></code>. This only applies to images based on a dracut initrd.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rw</span></code> might be necessary if <code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> does not exist</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rw</span></code> is necessary if <code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> does not exist.</p>
 <p>For systemd to be able to write <code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> on boot,
-it must either exist already (so that a bind mount can be created) or
+either the file must exist (so that a bind mount can be created) or
 <code class="file docutils literal notranslate"><span class="pre">/etc</span></code> must be writable.</p>
 <p>By default, the root filesystem is mounted read-only by dracut/systemd,
-thus a missing <code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> will result in an error on boot.
-The <code class="xref py py-obj docutils literal notranslate"><span class="pre">rw</span></code> option can be added to the kernel commandline to force the
-initial mount to be read-write.</p>
+so a missing <code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> will lead to an error on boot.
+To force the initial mount to be read-write, add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">rw</span></code> option to the kernel commandline.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Avoid inconsistent <code class="file docutils literal notranslate"><span class="pre">/var/lib/dbus/machine-id</span></code></p>
-<p>Note that <code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> and <code class="file docutils literal notranslate"><span class="pre">/var/lib/dbus/machine-id</span></code>
+<p><code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code> and <code class="file docutils literal notranslate"><span class="pre">/var/lib/dbus/machine-id</span></code>
 <strong>must</strong> contain the same unique ID. On modern systems
-<code class="file docutils literal notranslate"><span class="pre">/var/lib/dbus/machine-id</span></code> is already a symlink to
-<code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code>. However on older systems those might be two
+<code class="file docutils literal notranslate"><span class="pre">/var/lib/dbus/machine-id</span></code>, there is already a symlink to
+<code class="file docutils literal notranslate"><span class="pre">/etc/machine-id</span></code>. However, on older systems there might be two
 different files. This is the case for SLE-12 based images. If you are
-targeting these older operating systems, it is recommended to add the
+targeting older operating systems, it is recommended to add the
 symlink creation into <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#======================================</span>
 <span class="c1"># Make machine-id consistent with dbus</span>
