@@ -1629,6 +1629,17 @@ class Defaults:
         return ['kis', 'pxe']
 
     @staticmethod
+    def get_enclaves_image_types():
+        """
+        Provides supported enclave(initrd-only) image types
+
+        :return: enclave image type names
+
+        :rtype: list
+        """
+        return ['enclave']
+
+    @staticmethod
     def get_boot_image_description_path():
         """
         Provides the path to find custom kiwi boot descriptions
