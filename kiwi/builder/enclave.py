@@ -138,7 +138,6 @@ class EnclaveBuilder:
             log.warning(
                 f'WANTS: eif-cli ... {self.initrd} ... {self.kernel_filename} ... {self.custom_cmdline}'
             )
-            pass
 
         Result.verify_image_size(
             self.runtime_config.get_max_size_constraint(),
