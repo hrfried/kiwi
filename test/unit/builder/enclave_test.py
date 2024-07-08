@@ -78,7 +78,7 @@ class TestEnclaveBuilder:
             self.enclave.create()
 
     def test_create_aws_nitro(self):
-        self.enclave.format = 'aws-nitro'
+        self.enclave.format = 'eif'
         self.boot_image_task.required = Mock(
             return_value=True
         )

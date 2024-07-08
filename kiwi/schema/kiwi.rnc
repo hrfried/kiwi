@@ -1870,8 +1870,8 @@ div {
             sch:param [ name = "types" value = "oem" ]
         ]
     k.type.enclave_format.attribute =
-        ## Specifies the format of the virtual disk.
-        attribute enclave_format { "aws-nitro" }
+        ## Specifies the format of the enclave.
+        attribute enclave_format { "eif" }
         >> sch:pattern [ id = "enclave_format" is-a = "image_type"
             sch:param [ name = "attr" value = "enclave_format" ]
             sch:param [ name = "types" value = "enclave" ]

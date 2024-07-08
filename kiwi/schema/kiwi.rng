@@ -2692,8 +2692,8 @@ a different set of live features.</a:documentation>
     </define>
     <define name="k.type.enclave_format.attribute">
       <attribute name="enclave_format">
-        <a:documentation>Specifies the format of the virtual disk.</a:documentation>
-        <value>aws-nitro</value>
+        <a:documentation>Specifies the format of the enclave.</a:documentation>
+        <value>eif</value>
       </attribute>
       <sch:pattern id="enclave_format" is-a="image_type">
         <sch:param name="attr" value="enclave_format"/>

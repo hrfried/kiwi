@@ -133,7 +133,7 @@ class EnclaveBuilder:
 
         self.initrd = os.path.basename(self.boot_image_task.initrd_filename)
 
-        if self.format == 'aws-nitro':
+        if self.format == 'eif':
             # TODO: call eif-cli...
             log.warning(
                 f'WANTS: eif-cli ... {self.initrd} ... {self.kernel_filename} ... {self.custom_cmdline}'
