@@ -6,26 +6,18 @@
         <contact>marcus.schaefer@suse.com</contact>
         <specification>AWS Nitro Enclave test build</specification>
     </description>
-    <profiles>
-        <profile name="default" description="CPIO: default profile" import="true"/>
-        <profile name="std" description="KERNEL: default kernel" import="true"/>
-    </profiles>
     <preferences>
         <version>1.1.1</version>
         <packagemanager>zypper</packagemanager>
         <rpm-excludedocs>true</rpm-excludedocs>
         <rpm-check-signatures>false</rpm-check-signatures>
-    </preferences>
-    <preferences>
-        <type image="enclave" enclave_format="aws-nitro" kernelcmdline="some"/>
+        <type image="enclave" enclave_format="eif" kernelcmdline="some"/>
     </preferences>
     <repository type="rpm-md">
         <source path="obsrepositories:/"/>
     </repository>
-    <packages type="image" profiles="std">
-        <package name="kernel-default"/>
-    </packages>
     <packages type="image">
+        <package name="kernel-default"/>
         <package name="systemd"/>
         <package name="iputils"/>
         <package name="openssh"/>

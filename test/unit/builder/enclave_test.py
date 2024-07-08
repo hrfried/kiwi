@@ -61,10 +61,11 @@ class TestEnclaveBuilder:
         kiwi.builder.enclave.Kernel = Mock(
             return_value=self.kernel
         )
-        self.enclave = EnclaveBuilder(
-            self.xml_state, 'target_dir', 'root_dir',
-            custom_args={'signing_keys': ['key_file_a', 'key_file_b']}
-        )
+        with patch('builtins.open', create=True):
+            self.enclave = EnclaveBuilder(
+                self.xml_state, 'target_dir', 'root_dir',
+                custom_args={'signing_keys': ['key_file_a', 'key_file_b']}
+            )
         self.enclave.compressed = True
 
     @patch('kiwi.builder.enclave.BootImage')

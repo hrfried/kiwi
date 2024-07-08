@@ -2068,7 +2068,7 @@ provided with KIWI</a:documentation>
       </attribute>
       <sch:pattern id="boot" is-a="image_type">
         <sch:param name="attr" value="boot"/>
-        <sch:param name="types" value="oem pxe"/>
+        <sch:param name="types" value="oem pxe enclave"/>
       </sch:pattern>
     </define>
     <define name="k.type.bootkernel.attribute">
@@ -2789,7 +2789,7 @@ initrd architecture.</a:documentation>
       </attribute>
       <sch:pattern id="initrd_system" is-a="image_type">
         <sch:param name="attr" value="initrd_system"/>
-        <sch:param name="types" value="oem pxe kis"/>
+        <sch:param name="types" value="oem pxe kis enclave"/>
       </sch:pattern>
     </define>
     <define name="k.type.image.attribute">

@@ -20,6 +20,7 @@ import logging
 from typing import Dict
 
 # project
+from kiwi import xml_parse
 from kiwi.defaults import Defaults
 from kiwi.boot.image import BootImage
 from kiwi.system.setup import SystemSetup
@@ -60,8 +61,27 @@ class EnclaveBuilder:
         self.system_setup = SystemSetup(
             xml_state=xml_state, root_dir=root_dir
         )
+
+        # Set initrd_system to kiwi
+        boot_image = f'{root_dir}/image'
         xml_state.build_type.set_initrd_system('kiwi')
-        xml_state.build_type.set_boot(f'{root_dir}/image')
+        xml_state.build_type.set_boot(boot_image)
+        profiles = xml_parse.profiles()
+        profiles.add_profile(
+            xml_parse.profile(
+                name='default', description='', import_='true'
+            )
+        )
+        profiles.add_profile(
+            xml_parse.profile(
+                name='std', description='', import_='true'
+            )
+        )
+        xml_state.xml_data.add_profiles(profiles)
+
+        with open(f'{boot_image}/config.xml', 'w', encoding='utf-8') as config:
+            config.write('<?xml version="1.0" encoding="utf-8"?>')
+            xml_state.xml_data.export(outfile=config, level=0)
 
         self.boot_signing_keys = custom_args['signing_keys'] if custom_args \
             and 'signing_keys' in custom_args else None
