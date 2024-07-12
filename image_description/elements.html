@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Description Elements &mdash; KIWI NG 10.0.23 documentation</title>
+  <title>Image Description Elements &mdash; KIWI NG 10.0.24 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=220d1d56"></script>
+        <script src="../_static/documentation_options.js?v=e9848d9b"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -1234,7 +1234,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This document provides a reference for the elements
-and attributes of the KIWI NG XML document in version 10.0.23</p>
+and attributes of the KIWI NG XML document in version 10.0.24</p>
 </div>
 <section id="image">
 <span id="sec-image"></span><h2>&lt;image&gt;<a class="headerlink" href="#image" title="Link to this heading"></a></h2>
@@ -1573,6 +1573,10 @@ layout). This will override KIWI NG’s default layout.</p>
 specifies the size in MB. If not set the boot partition
 size is set to 200 MB</p>
 </dd>
+<dt>eficsm=”true|false”:</dt><dd><p>For images with an EFI layout, specify if the legacy
+CSM (BIOS) mode should be supported or not. By default
+CSM mode is enabled.</p>
+</dd>
 <dt>efipartsize=”nonNegativeInteger”:</dt><dd><p>For images with an EFI fat partition this attribute
 specifies the size in MB. If not set the EFI partition
 size is set to 20 MB</p>
@@ -1656,12 +1660,26 @@ directory which contains the image structure.</p>
 </dd>
 <dt>filesystem=”btrfs|ext2|ext3|ext4|squashfs|xfs”:</dt><dd><p>The root filesystem</p>
 </dd>
-<dt>firmware=”efi|uefi”:</dt><dd><p>Specifies the boot firmware of the appliance, supported
-options are: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bios</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">ec2</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">efi</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">uefi</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">ofw</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">opal</span></code>.
-This attribute is used to differentiate the image according to the
-firmware which boots up the system. It mostly impacts the disk
-layout and the partition table type. By default <code class="xref py py-obj docutils literal notranslate"><span class="pre">bios</span></code> is used on x86,
+<dt>firmware=”efi|uefi|bios|ec2|ofw|opal”:</dt><dd><p>Specifies the boot firmware of the appliance. This attribute is
+used to differentiate the image according to the firmware which
+boots up the system. It mostly impacts the disk layout and the
+partition table type. By default <code class="xref py py-obj docutils literal notranslate"><span class="pre">bios</span></code> is used on x86,
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">ofw</span></code> on PowerPC and <code class="xref py py-obj docutils literal notranslate"><span class="pre">efi</span></code> on ARM.</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">efi</span></code>
+Standard EFI layout</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">uefi</span></code>
+Standard EFI layout for secure boot</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bios</span></code>
+Standard BIOS layout for x86</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ec2</span></code>
+Standard BIOS layout for x86 using Xen grub modules for old
+style Xen boot in Amazon EC2</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ofw</span></code>
+Standard PPC layout</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">opal</span></code>
+Standard openPOWER PPC64 layout. kexec based boot process</p></li>
+</ul>
 </dd>
 <dt>force_mbr=”true|false”:</dt><dd><p>Boolean parameter to force the usage of a MBR partition
 table even if the system would default to GPT. This is occasionally

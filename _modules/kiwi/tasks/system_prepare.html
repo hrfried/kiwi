@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.tasks.system_prepare &mdash; KIWI NG 10.0.23 documentation</title>
+  <title>kiwi.tasks.system_prepare &mdash; KIWI NG 10.0.24 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=220d1d56"></script>
+        <script src="../../../_static/documentation_options.js?v=e9848d9b"></script>
         <script src="../../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -1260,6 +1260,8 @@
 <span class="sd">           [--set-container-derived-from=&lt;uri&gt;]</span>
 <span class="sd">           [--set-container-tag=&lt;name&gt;]</span>
 <span class="sd">           [--add-container-label=&lt;label&gt;...]</span>
+<span class="sd">           [--set-type-attr=&lt;attribute=value&gt;...]</span>
+<span class="sd">           [--set-release-version=&lt;version&gt;]</span>
 <span class="sd">           [--signing-key=&lt;key-file&gt;...]</span>
 <span class="sd">       kiwi-ng system prepare help</span>
 
@@ -1332,6 +1334,12 @@
 <span class="sd">        password connected to the set-repo specification. If the provided</span>
 <span class="sd">        value describes a filename in the filesystem, the first line of that</span>
 <span class="sd">        file is read and used as credentials information.</span>
+<span class="sd">     --set-type-attr=&lt;attribute=value&gt;</span>
+<span class="sd">        overwrite/set the attribute with the provided value in the selected</span>
+<span class="sd">        build type section</span>
+<span class="sd">    --set-release-version=&lt;version&gt;</span>
+<span class="sd">        overwrite/set the release-version element in the selected</span>
+<span class="sd">        build type preferences section</span>
 <span class="sd">     --signing-key=&lt;key-file&gt;</span>
 <span class="sd">        includes the key-file as a trusted key for package manager validations</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -1391,6 +1399,32 @@
             <span class="p">}</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">run_checks</span><span class="p">(</span><span class="n">prepare_checks</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--set-type-attr&#39;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">set_type_attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--set-type-attr&#39;</span><span class="p">]:</span>
+                <span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">attr_token</span><span class="p">(</span><span class="n">set_type_attr</span><span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--&gt; Set &lt;type ... </span><span class="si">{</span><span class="n">attribute</span><span class="si">}</span><span class="s1">=&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&quot; .../&gt;&#39;</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="nb">eval</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s1">&#39;self.xml_state.build_type.set_</span><span class="si">{</span><span class="n">attribute</span><span class="si">}</span><span class="s1">(&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&quot;)&#39;</span>
+                    <span class="p">)</span>
+                <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">issue</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Failed to set type attribute: </span><span class="si">{</span><span class="n">issue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">return</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--set-release-version&#39;</span><span class="p">]:</span>
+            <span class="n">release_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--set-release-version&#39;</span><span class="p">]</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--&gt; Set &lt;release-version&gt; = </span><span class="si">{</span><span class="n">release_version</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">section_overwrite</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">preferences</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_preferences_sections</span><span class="p">():</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">preferences</span><span class="o">.</span><span class="n">get_release_version</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">section</span><span class="p">:</span>
+                    <span class="n">section</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">release_version</span>
+                    <span class="n">section_overwrite</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">section_overwrite</span><span class="p">:</span>
+                <span class="n">preferences</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_preferences_sections</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">preferences</span><span class="o">.</span><span class="n">add_release_version</span><span class="p">(</span><span class="n">release_version</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_args</span><span class="p">[</span><span class="s1">&#39;--ignore-repos&#39;</span><span class="p">]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">delete_repository_sections</span><span class="p">()</span>

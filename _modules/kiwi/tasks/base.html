@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.tasks.base &mdash; KIWI NG 10.0.23 documentation</title>
+  <title>kiwi.tasks.base &mdash; KIWI NG 10.0.24 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=220d1d56"></script>
+        <script src="../../../_static/documentation_options.js?v=e9848d9b"></script>
         <script src="../../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -1475,6 +1475,24 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ntuple_token</span><span class="p">(</span><span class="n">option</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="CliTask.attr_token">
+<a class="viewcode-back" href="../../../api/kiwi.tasks.html#kiwi.tasks.base.CliTask.attr_token">[docs]</a>
+    <span class="k">def</span> <span class="nf">attr_token</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper method for commandline options of the</span>
+<span class="sd">        form --option attribute=value</span>
+
+<span class="sd">        :param str option: attribute=value string</span>
+
+<span class="sd">        :return: common option value representation</span>
+
+<span class="sd">        :rtype: list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ntuple_token</span><span class="p">(</span><span class="n">option</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="CliTask.run_checks">
 <a class="viewcode-back" href="../../../api/kiwi.tasks.html#kiwi.tasks.base.CliTask.run_checks">[docs]</a>
     <span class="k">def</span> <span class="nf">run_checks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checks</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -1506,7 +1524,7 @@
             <span class="k">return</span> <span class="n">token</span>
 
     <span class="k">def</span> <span class="nf">_ntuple_token</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tuple_count</span><span class="p">:</span> <span class="nb">int</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tuple_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper method for commandline options of the form --option a,b,c,d,e,f</span>
@@ -1521,7 +1539,7 @@
 
 <span class="sd">        :rtype: list</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">tokens</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">tuple_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">option</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">separator</span><span class="p">,</span> <span class="n">tuple_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">option</span> <span class="k">else</span> <span class="p">[]</span>
         <span class="k">return</span> <span class="p">[</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_pop_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span>
                 <span class="mi">0</span><span class="p">,</span> <span class="n">tuple_count</span>
