@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; KIWI NG 10.0.25 documentation</title>
+  <title>Index &mdash; KIWI NG 10.0.26 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=4dfc0982"></script>
+        <script src="_static/documentation_options.js?v=7a0483e8"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -235,6 +235,7 @@
 <li class="toctree-l4"><a class="reference internal" href="image_description/elements.html#packages-package">&lt;packages&gt;&lt;package&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="image_description/elements.html#packages-namedcollection">&lt;packages&gt;&lt;namedCollection&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="image_description/elements.html#packages-collectionmodule">&lt;packages&gt;&lt;collectionModule&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="image_description/elements.html#packages-file">&lt;packages&gt;&lt;file&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="image_description/elements.html#packages-archive">&lt;packages&gt;&lt;archive&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="image_description/elements.html#packages-ignore">&lt;packages&gt;&lt;ignore&gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="image_description/elements.html#packages-product">&lt;packages&gt;&lt;product&gt;</a></li>
@@ -607,6 +608,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/kiwi.html#module-kiwi.xml_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi.xml_state</span></code> Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.xml_state.FileT"><code class="docutils literal notranslate"><span class="pre">FileT</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.xml_state.XMLState"><code class="docutils literal notranslate"><span class="pre">XMLState</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.xml_state.description_type"><code class="docutils literal notranslate"><span class="pre">description_type</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/kiwi.html#kiwi.xml_state.package_type"><code class="docutils literal notranslate"><span class="pre">package_type</span></code></a></li>
@@ -1992,6 +1994,8 @@
 </li>
       <li><a href="api/kiwi.filesystem.html#kiwi.filesystem.xfs.FileSystemXfs">FileSystemXfs (class in kiwi.filesystem.xfs)</a>
 </li>
+      <li><a href="api/kiwi.html#kiwi.xml_state.FileT">FileT (class in kiwi.xml_state)</a>
+</li>
       <li><a href="api/kiwi.html#kiwi.logger_filter.DebugFilter.filter">filter() (kiwi.logger_filter.DebugFilter method)</a>
 
       <ul>
@@ -2089,6 +2093,8 @@
       <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_collection_type">get_bootstrap_collection_type() (kiwi.xml_state.XMLState method)</a>
 </li>
       <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_collections">get_bootstrap_collections() (kiwi.xml_state.XMLState method)</a>
+</li>
+      <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_files">get_bootstrap_files() (kiwi.xml_state.XMLState method)</a>
 </li>
       <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.get_bootstrap_ignore_packages">get_bootstrap_ignore_packages() (kiwi.xml_state.XMLState method)</a>
 </li>
@@ -2612,6 +2618,8 @@
 </li>
       <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.get_system_collections">get_system_collections() (kiwi.xml_state.XMLState method)</a>
 </li>
+      <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.get_system_files">get_system_files() (kiwi.xml_state.XMLState method)</a>
+</li>
       <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.get_system_ignore_packages">get_system_ignore_packages() (kiwi.xml_state.XMLState method)</a>
 </li>
       <li><a href="api/kiwi.html#kiwi.xml_state.XMLState.get_system_packages">get_system_packages() (kiwi.xml_state.XMLState method)</a>
@@ -2755,6 +2763,8 @@
       <li><a href="api/kiwi.system.html#kiwi.system.setup.SystemSetup.import_cdroot_files">import_cdroot_files() (kiwi.system.setup.SystemSetup method)</a>
 </li>
       <li><a href="api/kiwi.system.html#kiwi.system.setup.SystemSetup.import_description">import_description() (kiwi.system.setup.SystemSetup method)</a>
+</li>
+      <li><a href="api/kiwi.system.html#kiwi.system.setup.SystemSetup.import_files">import_files() (kiwi.system.setup.SystemSetup method)</a>
 </li>
       <li><a href="api/kiwi.system.html#kiwi.system.setup.SystemSetup.import_image_identifier">import_image_identifier() (kiwi.system.setup.SystemSetup method)</a>
 </li>
@@ -4673,10 +4683,10 @@
         <li><a href="api/kiwi.boot.image.html#kiwi.boot.image.dracut.BootImageDracut.omit_module">(kiwi.boot.image.dracut.BootImageDracut method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/kiwi.html#kiwi.firmware.FirmWare.opal_mode">opal_mode() (kiwi.firmware.FirmWare method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/kiwi.html#kiwi.command.CommandCallT.output">output (kiwi.command.CommandCallT attribute)</a>
 
       <ul>
@@ -4686,6 +4696,8 @@
       <li><a href="api/kiwi.html#kiwi.command.CommandCallT.output_available">output_available (kiwi.command.CommandCallT attribute)</a>
 </li>
       <li><a href="api/kiwi.html#kiwi.mount_manager.MountManager.overlay_mount">overlay_mount() (kiwi.mount_manager.MountManager method)</a>
+</li>
+      <li><a href="api/kiwi.html#kiwi.xml_state.FileT.owner">owner (kiwi.xml_state.FileT attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -4734,6 +4746,8 @@
       <li><a href="api/kiwi.partitioner.html#kiwi.partitioner.msdos.PartitionerMsDos">PartitionerMsDos (class in kiwi.partitioner.msdos)</a>
 </li>
       <li><a href="api/kiwi.html#kiwi.path.Path">Path (class in kiwi.path)</a>
+</li>
+      <li><a href="api/kiwi.html#kiwi.xml_state.FileT.permissions">permissions (kiwi.xml_state.FileT attribute)</a>
 </li>
       <li><a href="api/kiwi.system.html#kiwi.system.prepare.SystemPrepare.pinch_system">pinch_system() (kiwi.system.prepare.SystemPrepare method)</a>
 </li>
@@ -5387,18 +5401,20 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/kiwi.system.html#kiwi.system.result.result_name_tags.T">T (kiwi.system.result.result_name_tags attribute)</a>
 </li>
+      <li><a href="api/kiwi.html#kiwi.xml_state.FileT.target">target (kiwi.xml_state.FileT attribute)</a>
+</li>
       <li><a href="api/kiwi.utils.html#kiwi.utils.sync.DataSync.target_supports_extended_attributes">target_supports_extended_attributes() (kiwi.utils.sync.DataSync method)</a>
 </li>
       <li><a href="api/kiwi.tasks.html#kiwi.tasks.base.CliTask.tentuple_token">tentuple_token() (kiwi.tasks.base.CliTask method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/kiwi.solver.repository.html#kiwi.solver.repository.base.SolverRepositoryBase.timestamp">timestamp() (kiwi.solver.repository.base.SolverRepositoryBase method)</a>
 
       <ul>
         <li><a href="api/kiwi.solver.repository.html#kiwi.solver.repository.rpm_md.SolverRepositoryRpmMd.timestamp">(kiwi.solver.repository.rpm_md.SolverRepositoryRpmMd method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/kiwi.html#kiwi.mount_manager.MountManager.tmpfs_mount">tmpfs_mount() (kiwi.mount_manager.MountManager method)</a>
 </li>
       <li><a href="api/kiwi.html#kiwi.defaults.Defaults.to_profile">to_profile() (kiwi.defaults.Defaults method)</a>
