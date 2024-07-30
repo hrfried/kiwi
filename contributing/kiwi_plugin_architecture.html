@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plugin Architecture &mdash; KIWI NG 10.0.26 documentation</title>
+  <title>Plugin Architecture &mdash; KIWI NG 10.0.27 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=7a0483e8"></script>
+        <script src="../_static/documentation_options.js?v=de7c07f1"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -367,19 +367,19 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../contributing.html">Contributing</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="kiwi_from_python.html">Using KIWI NG in a Python Project</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Plugin Architecture</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#naming-conventions">Naming Conventions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example-plugin">Example Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#naming-conventions">Naming conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-plugin">Example plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="scripts_testing.html">Write Integration Tests for the Scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="scripts_testing.html#test-setup">Test Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts_testing.html#test-setup">Test setup</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="schema_extensions.html">Extending KIWI NG with Custom Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#the-extension-section">The &lt;extension&gt; Section</a></li>
 <li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#relax-ng-schema-for-the-extension">RELAX NG Schema for the Extension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#extension-schema-in-xml-catalog">Extension Schema in XML catalog</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#using-the-extension">Using the Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#extension-schema-in-xml-catalog">Extension schema in XML catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#using-the-extension">Using the extension</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#the-basics">The Basics</a></li>
@@ -1233,27 +1233,25 @@
              
   <section id="plugin-architecture">
 <h1>Plugin Architecture<a class="headerlink" href="#plugin-architecture" title="Link to this heading"></a></h1>
-<p>Each command provided by KIWI NG is written as a task plugin under
-the <strong>kiwi.tasks</strong> namespace. As a developer you can extend KIWI NG
-with custom task plugins if the following conventions are taken
-into account:</p>
+<p>Each command provided by KIWI NG is written as a task plugin under the
+<strong>kiwi.tasks</strong> namespace. As a developer, you can extend KIWI NG with custom task
+plugins, following the conventions below.</p>
 <section id="naming-conventions">
-<h2>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h2>
+<h2>Naming conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h2>
 <dl>
-<dt>Task Plugin File Name</dt><dd><p>The file name of a task plugin must follow the pattern
-<code class="file docutils literal notranslate"><span class="pre">&lt;service&gt;_&lt;command&gt;.py</span></code>. This allows to invoke the task
+<dt>Task plugin file name</dt><dd><p>The file name of a task plugin must follow the pattern
+<code class="file docutils literal notranslate"><span class="pre">&lt;service&gt;_&lt;command&gt;.py</span></code>. This allows you to invoke the task
 with <strong class="command">kiwi-ng service command ...</strong></p>
 </dd>
-<dt>Task Plugin Option Handling</dt><dd><p>KIWI NG uses the docopt module to handle options. Each task plugin
+<dt>Task plugin option handling</dt><dd><p>KIWI NG uses the docopt module to handle options. Each task plugin
 must use docopt to allow option handling.</p>
 </dd>
-<dt>Task Plugin Class</dt><dd><p>The implementation of the plugin must be a class that matches
-the naming convention: <code class="xref py py-class docutils literal notranslate"><span class="pre">&lt;Service&gt;&lt;Command&gt;Task</span></code>. The class
-must inherit from the <code class="xref py py-class docutils literal notranslate"><span class="pre">CliTask</span></code> base class. On startup of
-the plugin, KIWI NG expects an implementation of the
-<code class="file docutils literal notranslate"><span class="pre">process</span></code> method.</p>
+<dt>Task plugin class</dt><dd><p>The implementation of the plugin must be a class that matches the naming
+convention <code class="xref py py-class docutils literal notranslate"><span class="pre">&lt;Service&gt;&lt;Command&gt;Task</span></code>. The class must inherit from the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">CliTask</span></code> base class. On the plugin startup, KIWI NG expects an
+implementation of the <code class="file docutils literal notranslate"><span class="pre">process</span></code> method.</p>
 </dd>
-<dt>Task Plugin Entry Point</dt><dd><p>Registration of the plugin must be done in <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>
+<dt>Task plugin entry point</dt><dd><p>Registration of the plugin must be done in <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>
 using the <code class="docutils literal notranslate"><span class="pre">entry_points</span></code> concept from Python’s setuptools.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;packages&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;kiwi_plugin&#39;</span><span class="p">],</span>
 <span class="s1">&#39;entry_points&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -1267,7 +1265,7 @@ using the <code class="docutils literal notranslate"><span class="pre">entry_poi
 </dl>
 </section>
 <section id="example-plugin">
-<h2>Example Plugin<a class="headerlink" href="#example-plugin" title="Link to this heading"></a></h2>
+<h2>Example plugin<a class="headerlink" href="#example-plugin" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The following example assumes an existing Python project
@@ -1275,12 +1273,11 @@ which was set up according to the Python project rules
 and standards.</p>
 </div>
 <ol class="arabic">
-<li><p>Assuming the project namespace is <strong>kiwi_relax_plugin</strong>.</p>
-<p>Create the task plugin directory <code class="file docutils literal notranslate"><span class="pre">kiwi_relax_plugin/tasks</span></code></p>
-</li>
+<li><p>Assuming the project namespace is <strong>kiwi_relax_plugin</strong>, create the task
+plugin directory <code class="file docutils literal notranslate"><span class="pre">kiwi_relax_plugin/tasks</span></code></p></li>
 <li><p>Create the entry point in <strong class="command">setup.py</strong>.</p>
-<p>Assuming we want to create the service named <strong>relax</strong> providing
-the command <strong>justdoit</strong> this would be the following entry point
+<p>Assuming we want to create the service named <strong>relax</strong> that has
+the command <strong>justdoit</strong>, this is the following entry point
 definition in <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;packages&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;kiwi_relax_plugin&#39;</span><span class="p">],</span>
 <span class="s1">&#39;entry_points&#39;</span><span class="p">:</span> <span class="p">{</span>

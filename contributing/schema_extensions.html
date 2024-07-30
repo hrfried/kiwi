@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Extending KIWI NG with Custom Operations &mdash; KIWI NG 10.0.26 documentation</title>
+  <title>Extending KIWI NG with Custom Operations &mdash; KIWI NG 10.0.27 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=7a0483e8"></script>
+        <script src="../_static/documentation_options.js?v=de7c07f1"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -367,19 +367,19 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../contributing.html">Contributing</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="kiwi_from_python.html">Using KIWI NG in a Python Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kiwi_plugin_architecture.html">Plugin Architecture</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#naming-conventions">Naming Conventions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#example-plugin">Example Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#naming-conventions">Naming conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#example-plugin">Example plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="scripts_testing.html">Write Integration Tests for the Scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="scripts_testing.html#test-setup">Test Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts_testing.html#test-setup">Test setup</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Extending KIWI NG with Custom Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#the-extension-section">The &lt;extension&gt; Section</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#relax-ng-schema-for-the-extension">RELAX NG Schema for the Extension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#extension-schema-in-xml-catalog">Extension Schema in XML catalog</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-extension">Using the Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extension-schema-in-xml-catalog">Extension schema in XML catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-extension">Using the extension</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#the-basics">The Basics</a></li>
@@ -1236,29 +1236,26 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Abstract</strong></p>
-<p>Users building images with KIWI NG need to implement their
-own infrastructure if the image description does not
-provide a way to embed custom information which is
-outside of the scope of the general schema as it is
-provided by KIWI NG today.</p>
-<p>This document describes how to create an extension plugin
-for the KIWI NG schema to add and validate additional information
-in the KIWI NG image description.</p>
-<p>Such a schema extension can be used in an additional KIWI NG
-task plugin to provide a new subcommand for KIWI NG.
-As of today there is no other plugin interface except for
-providing additional KIWI NG commands implemented.</p>
+<blockquote>
+<div><p>Extension plugins in KIWI NG offer a mechanism for adding information outside the standard KIWI NG schema.</p>
+</div></blockquote>
+<p>This document describes how to create an extension plugin for the KIWI NG
+schema as well as how to add and validate additional information in the
+KIWI NG image description.</p>
+<p>The described schema extension can be used in an additional KIWI NG task
+plugin to provide a new subcommand for KIWI NG. At the present moment, there
+is no other plugin interface except for providing additional KIWI NG commands.</p>
 <p>Depending on the demand for custom plugins, the interface
 to hook in code into other parts of the KIWI NG processing
 needs to be extended.</p>
-<p>This description applies for version 10.0.26.</p>
+<p>This description applies for version 10.0.27.</p>
 </div>
 <section id="the-extension-section">
 <h2>The &lt;extension&gt; Section<a class="headerlink" href="#the-extension-section" title="Link to this heading"></a></h2>
-<p>The main KIWI NG schema supports an extension section which allows
-to specify any XML structure and attributes as long as they are
-connected to a namespace. According to this any custom XML
-structure can be implemented like the following example shows:</p>
+<p>The main KIWI NG schema supports an extension section that allows you
+to specify any XML structure and attributes, as long as they are
+attached to a namespace. This means that any custom XML
+structure can be implemented similar to the the example below:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;image&gt;
 <span class="w">    </span>...
 <span class="w">    </span>&lt;extension<span class="w"> </span>xmlns:my_plugin<span class="o">=</span><span class="s2">&quot;http://www.my_plugin.com&quot;</span>&gt;
@@ -1270,19 +1267,19 @@ structure can be implemented like the following example shows:</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Any toplevel namespace must exist only once</p></li>
+<li><p>Any toplevel namespace must be unique</p></li>
 <li><p>Multiple different toplevel namespaces are allowed,
-e.g my_plugin_a, my_plugin_b</p></li>
+for example: my_plugin_a, my_plugin_b</p></li>
 </ul>
 </section>
 <section id="relax-ng-schema-for-the-extension">
 <h2>RELAX NG Schema for the Extension<a class="headerlink" href="#relax-ng-schema-for-the-extension" title="Link to this heading"></a></h2>
-<p>If an extension section is found, KIWI NG looks up its namespace and asks
+<p>If an extension section is found, KIWI NG looks up its namespace and uses
 the main XML catalog for the schema file to validate the extension data.
 The schema file must be a RELAX NG schema in the .rng format. We recommend
-to place the schema as <code class="file docutils literal notranslate"><span class="pre">/usr/share/xml/kiwi/my_plugin.rng</span></code></p>
-<p>For the above example the RELAX NG Schema in the compressed format
-<code class="file docutils literal notranslate"><span class="pre">my_plugin.rnc</span></code> would look like this:</p>
+to save the schema as <code class="file docutils literal notranslate"><span class="pre">/usr/share/xml/kiwi/my_plugin.rng</span></code></p>
+<p>For the example above, the RELAX NG Schema in the compressed format
+<code class="file docutils literal notranslate"><span class="pre">my_plugin.rnc</span></code> looks as follows:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">my_plugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://www.my_plugin.com&quot;</span>
 
 <span class="nn">start</span><span class="w"> </span><span class="o">=</span>
@@ -1314,10 +1311,10 @@ to place the schema as <code class="file docutils literal notranslate"><span cla
 </div>
 </section>
 <section id="extension-schema-in-xml-catalog">
-<h2>Extension Schema in XML catalog<a class="headerlink" href="#extension-schema-in-xml-catalog" title="Link to this heading"></a></h2>
-<p>As mentioned above the mapping from the extension namespace to the
+<h2>Extension schema in XML catalog<a class="headerlink" href="#extension-schema-in-xml-catalog" title="Link to this heading"></a></h2>
+<p>As mentioned above, the mapping from the extension namespace to the
 correct RELAX NG schema file is handled by a XML catalog file. The
-XML catalog for the example use here looks like this:</p>
+XML catalog for the example is as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;?xml<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span>?&gt;
 &lt;catalog<span class="w"> </span><span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;urn:oasis:names:tc:entity:xmlns:xml:catalog&quot;</span>&gt;
 <span class="w">    </span>&lt;system
@@ -1326,26 +1323,25 @@ XML catalog for the example use here looks like this:</p>
 &lt;/catalog&gt;
 </pre></div>
 </div>
-<p>For resolving the catalog KIWI NG uses the <strong class="command">xmlcatalog</strong> command
-and the main XML catalog from the system which is <code class="file docutils literal notranslate"><span class="pre">/etc/xml/catalog</span></code>.</p>
+<p>For resolving the catalog, KIWI NG uses the <strong class="command">xmlcatalog</strong> command
+and the main XML catalog from the system <code class="file docutils literal notranslate"><span class="pre">/etc/xml/catalog</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It depends on the distribution and its version how the main catalog
-gets informed about the existence of the KIWI NG extension catalog file.
-Please consult the distribution manual about adding XML catalogs.</p>
+<p>How the main catalog is informed about the existence of the KIWI NG extension
+catalog file depends on the distribution and its version. Refer to the
+distribution documentation for information on adding XML catalogs.</p>
 </div>
 <p>If the following command provides the information to the correct
-RELAX NG schema file you are ready for a first test:</p>
+RELAX NG schema file, you are ready for a first test:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xmlcatalog<span class="w"> </span>/etc/xml/catalog<span class="w"> </span>http://www.my_plugin.com
 </pre></div>
 </div>
 </section>
 <section id="using-the-extension">
-<h2>Using the Extension<a class="headerlink" href="#using-the-extension" title="Link to this heading"></a></h2>
-<p>In order to test your extension place the example extension section
-from the beginning of this document into one of your image description’s
-<code class="file docutils literal notranslate"><span class="pre">config.xml</span></code> file</p>
-<p>The following example will read the name attribute from the title
+<h2>Using the extension<a class="headerlink" href="#using-the-extension" title="Link to this heading"></a></h2>
+<p>In order to test the extension, insert the example extension into one of your
+image description’s <code class="file docutils literal notranslate"><span class="pre">config.xml</span></code> file.</p>
+<p>The following example reads the name attribute from the title
 section of the my_feature root element and prints it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 

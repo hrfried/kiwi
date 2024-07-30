@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Write Integration Tests for the Scripts &mdash; KIWI NG 10.0.26 documentation</title>
+  <title>Write Integration Tests for the Scripts &mdash; KIWI NG 10.0.27 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=7a0483e8"></script>
+        <script src="../_static/documentation_options.js?v=de7c07f1"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -367,19 +367,19 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../contributing.html">Contributing</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="kiwi_from_python.html">Using KIWI NG in a Python Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kiwi_plugin_architecture.html">Plugin Architecture</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#naming-conventions">Naming Conventions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#example-plugin">Example Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#naming-conventions">Naming conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#example-plugin">Example plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Write Integration Tests for the Scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#test-setup">Test Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-setup">Test setup</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="schema_extensions.html">Extending KIWI NG with Custom Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#the-extension-section">The &lt;extension&gt; Section</a></li>
 <li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#relax-ng-schema-for-the-extension">RELAX NG Schema for the Extension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#extension-schema-in-xml-catalog">Extension Schema in XML catalog</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#using-the-extension">Using the Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#extension-schema-in-xml-catalog">Extension schema in XML catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#using-the-extension">Using the extension</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#the-basics">The Basics</a></li>
@@ -1233,32 +1233,31 @@
              
   <section id="write-integration-tests-for-the-scripts">
 <h1>Write Integration Tests for the Scripts<a class="headerlink" href="#write-integration-tests-for-the-scripts" title="Link to this heading"></a></h1>
-<p>Kiwi ships a set of helper functions that can be used in <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> (see
-also: <a class="reference internal" href="../concept_and_workflow/shell_scripts.html#working-with-kiwi-user-defined-scripts"><span class="std std-ref">User-Defined Scripts</span></a>). These utilize containers
-to run the individual functions and verify that they resulted in the desired
-state.</p>
+<p>KIWI NG comes with a set of helper functions that can be used in <code class="file docutils literal notranslate"><span class="pre">config.sh</span></code> (see
+also: <a class="reference internal" href="../concept_and_workflow/shell_scripts.html#working-with-kiwi-user-defined-scripts"><span class="std std-ref">User-Defined Scripts</span></a>). These functions utilize containers
+to run the individual tasks and verify the final result.</p>
 <p>Ensure that you have either <strong class="command">podman</strong> or <strong class="command">docker</strong> installed and
-configured on your system. The integration tests will use <strong class="command">podman</strong> in
-<strong>rootless mode</strong> by default, if it is installed on your system. You can select
+configured on your system. With Podman, the integration tests use <strong class="command">podman</strong> in
+<strong>rootless mode</strong> by default. You can select
 <strong class="command">docker</strong> instead by setting the environment variable
 <code class="docutils literal notranslate"><span class="pre">CONTAINER_RUNTIME</span></code> to <code class="docutils literal notranslate"><span class="pre">docker</span></code>. Then you can run the integration tests via
 tox:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>scripts<span class="w"> </span>--<span class="w"> </span>-n<span class="w"> </span>NUMBER_OF_THREADS
 </pre></div>
 </div>
-<p>The tests are written using the <a class="reference external" href="https://github.com/dcermak/pytest_container">pytest-container</a> plugin. If applicable please
-leverage the utility functions and fixtures of that plugin, e.g. the
+<p>The tests are written using the <a class="reference external" href="https://github.com/dcermak/pytest_container">pytest-container</a> plugin. If applicable,
+use the utility functions and fixtures of the plugin. For example, the
 <code class="docutils literal notranslate"><span class="pre">auto_container</span></code> and <code class="docutils literal notranslate"><span class="pre">auto_container_per_test</span></code> fixtures in conjunction with
 <a class="reference external" href="https://testinfra.readthedocs.io/">testinfra</a>.</p>
 <section id="test-setup">
-<h2>Test Setup<a class="headerlink" href="#test-setup" title="Link to this heading"></a></h2>
-<p>The script tests can be run inside different containers, which are setup in
+<h2>Test setup<a class="headerlink" href="#test-setup" title="Link to this heading"></a></h2>
+<p>The script tests can be run inside different containers specified in
 <code class="file docutils literal notranslate"><span class="pre">test/scripts/conftest.py</span></code>. This file contains the <code class="docutils literal notranslate"><span class="pre">CONTAINERS</span></code> list
-with all currently present images. These images get pulled and build when needed
-and the <code class="file docutils literal notranslate"><span class="pre">functions.sh</span></code> is copied into <code class="file docutils literal notranslate"><span class="pre">/bin/</span></code>, so that it is
+with all currently present images. These images are pulled and built as needed,
+and the <code class="file docutils literal notranslate"><span class="pre">functions.sh</span></code> is copied into <code class="file docutils literal notranslate"><span class="pre">/bin/</span></code>, so it is
 available in <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
 <p>To use any of these containers, you can either define the global variable
-<code class="docutils literal notranslate"><span class="pre">CONTAINER_IMAGES</span></code> in a test module and use the <code class="docutils literal notranslate"><span class="pre">auto_container</span></code> fixture or
+<code class="docutils literal notranslate"><span class="pre">CONTAINER_IMAGES</span></code> in a test module and use the <code class="docutils literal notranslate"><span class="pre">auto_container</span></code> fixture, or
 <a class="reference external" href="https://docs.pytest.org/en/stable/parametrize.html">parametrize</a> the
 <code class="docutils literal notranslate"><span class="pre">container</span></code> fixture indirectly:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;container_per_test&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">TUMBLEWEED</span><span class="p">,</span> <span class="n">LEAP_15_3</span><span class="p">),</span> <span class="n">indirect</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1274,14 +1273,14 @@ available in <code class="docutils literal notranslate"><span class="pre">PATH</
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">container_per_test</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s2">&quot;/root/foobar&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span>
 </pre></div>
 </div>
-<p>We used the <code class="docutils literal notranslate"><span class="pre">_per_test</span></code> variant of the <code class="docutils literal notranslate"><span class="pre">container</span></code> fixture in the above
-example. This fixture ensures that this container is only used in a single test
-function. You should use this variant for tests that mutate the system under
-test, as otherwise hard to debug race conditions could occur. For tests that
-only perform reads, you can omit the <code class="docutils literal notranslate"><span class="pre">_per_test</span></code> suffix and the container
-environment will be shared with other tests. This improves execution speed, but
-comes at the expense of safety in case mutation does occur.</p>
-<p>For further information please refer to the documentation of <a class="reference external" href="https://github.com/dcermak/pytest_container">pytest-container</a>.</p>
+<p>The example above uses the <code class="docutils literal notranslate"><span class="pre">_per_test</span></code> variant of the <code class="docutils literal notranslate"><span class="pre">container</span></code> fixture.
+It ensures that the container is used only in a single test function. Use this
+variant for tests that mutate the system under test, because otherwise it may
+lead race conditions that are difficult to debug. For tests that only perform
+reads, you can omit the <code class="docutils literal notranslate"><span class="pre">_per_test</span></code> suffix, so that the container environment can
+shared with other tests. This improves execution speed, but comes at the
+expense of safety in case of mutation.</p>
+<p>For further information, refer to <a class="reference external" href="https://github.com/dcermak/pytest_container">pytest-container</a>.</p>
 </section>
 </section>
 

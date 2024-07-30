@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using KIWI NG in a Python Project &mdash; KIWI NG 10.0.26 documentation</title>
+  <title>Using KIWI NG in a Python Project &mdash; KIWI NG 10.0.27 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=7a0483e8"></script>
+        <script src="../_static/documentation_options.js?v=de7c07f1"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -367,19 +367,19 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../contributing.html">Contributing</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Using KIWI NG in a Python Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kiwi_plugin_architecture.html">Plugin Architecture</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#naming-conventions">Naming Conventions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#example-plugin">Example Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#naming-conventions">Naming conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#example-plugin">Example plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="scripts_testing.html">Write Integration Tests for the Scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="scripts_testing.html#test-setup">Test Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts_testing.html#test-setup">Test setup</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="schema_extensions.html">Extending KIWI NG with Custom Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#the-extension-section">The &lt;extension&gt; Section</a></li>
 <li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#relax-ng-schema-for-the-extension">RELAX NG Schema for the Extension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#extension-schema-in-xml-catalog">Extension Schema in XML catalog</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#using-the-extension">Using the Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#extension-schema-in-xml-catalog">Extension schema in XML catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#using-the-extension">Using the extension</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#the-basics">The Basics</a></li>
@@ -1236,13 +1236,13 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Abstract</strong></p>
-<p>KIWI NG is provided as python module under the <strong>kiwi</strong> namespace.
-It is available for the python 3 version. The following
-description applies for KIWI NG version 10.0.26.</p>
+<p>KIWI NG is provided as a Python module under the <strong>kiwi</strong> namespace.
+It is available for the Python 3 version. The following
+description applies for KIWI NG version 10.0.27.</p>
 </div>
 <p>KIWI NG can also function as a module for other Python projects.
 The following example demonstrates how to read an existing image
-description, add a new repository definition and export the
+description, add a new repository definition, and export the
 modified description on stdout.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">logging</span>
@@ -1270,14 +1270,14 @@ modified description on stdout.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>All classes are written in a way to care for a single responsibility
-in order to allow for re-use on other use cases. Therefore it is possible
-to use KIWI NG outside of the main image building scope to manage e.g
-the setup of loop devices, filesystems, partitions, etc…</p>
-<p>This means KIWI NG provides you a way to describe a system but you are
-free to make use of the kiwi description format or not. The following
-example shows how to use kiwi to create a simple filesystem image
-which contains your host <code class="xref py py-obj docutils literal notranslate"><span class="pre">tmp</span></code> directory.</p>
+<p>Each class in the example is responsible for a single tasks, so they can be
+reused in other user cases. Therefore it is possible to use KIWI NG beyond the
+main image building scope, for example to manage setup of loop devices,
+filesystems, partitions, etc.</p>
+<p>This means KIWI NG offers a way to describe a system, but you can choose whether
+you want to use the KIWI NG description format or not. The following example
+shows how to use KIWI NG to create a simple filesystem image which contains your
+host <code class="xref py py-obj docutils literal notranslate"><span class="pre">tmp</span></code> directory.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="kn">from</span> <span class="nn">kiwi.storage.loop_device</span> <span class="kn">import</span> <span class="n">LoopDevice</span>
