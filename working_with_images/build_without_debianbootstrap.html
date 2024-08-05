@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Circumvent debootstrap &mdash; KIWI NG 10.0.27 documentation</title>
+  <title>Circumvent Debian Bootstrap &mdash; KIWI NG 10.0.28 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=de7c07f1"></script>
+        <script src="../_static/documentation_options.js?v=3666a433"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -358,7 +358,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="use_suse_media.html">Using SUSE Product ISO To Build</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Circumvent debootstrap</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Circumvent Debian Bootstrap</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#how-to-create-a-bootstrap-package">How to Create a bootstrap_package</a></li>
 </ul>
 </li>
@@ -464,7 +464,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiCredentialsError"><code class="docutils literal notranslate"><span class="pre">KiwiCredentialsError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiCustomPartitionConflictError"><code class="docutils literal notranslate"><span class="pre">KiwiCustomPartitionConflictError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDataStructureError"><code class="docutils literal notranslate"><span class="pre">KiwiDataStructureError</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDebootstrapError"><code class="docutils literal notranslate"><span class="pre">KiwiDebootstrapError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDebianBootstrapError"><code class="docutils literal notranslate"><span class="pre">KiwiDebianBootstrapError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDecodingError"><code class="docutils literal notranslate"><span class="pre">KiwiDecodingError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDescriptionInvalid"><code class="docutils literal notranslate"><span class="pre">KiwiDescriptionInvalid</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDeviceProviderError"><code class="docutils literal notranslate"><span class="pre">KiwiDeviceProviderError</span></code></a></li>
@@ -1221,9 +1221,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../working_with_images.html">Working with Images</a></li>
-      <li class="breadcrumb-item active">Circumvent debootstrap</li>
+      <li class="breadcrumb-item active">Circumvent Debian Bootstrap</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/working_with_images/build_without_debootstrap.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/working_with_images/build_without_debianbootstrap.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -1231,31 +1231,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="circumvent-debootstrap">
-<span id="debootstrap-alternative"></span><h1>Circumvent debootstrap<a class="headerlink" href="#circumvent-debootstrap" title="Link to this heading"></a></h1>
+  <section id="circumvent-debian-bootstrap">
+<span id="debianbootstrap-alternative"></span><h1>Circumvent Debian Bootstrap<a class="headerlink" href="#circumvent-debian-bootstrap" title="Link to this heading"></a></h1>
 <aside class="sidebar">
 <p class="sidebar-title">Abstract</p>
 <p>This page provides information how to build Debian based
-images with <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt</span></code> but without using <code class="xref py py-obj docutils literal notranslate"><span class="pre">debootstrap</span></code> to bootstrap
-the image root tree</p>
+images without an extra bootstrap process.</p>
 </aside>
-<p>When building Debian based images KIWI NG uses two tools to
-create the image root tree. First it calls <code class="xref py py-obj docutils literal notranslate"><span class="pre">debootstrap</span></code> to
-initialize a minimal root tree and next it chroot’s into that
-tree to complete the installation via <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt</span></code>. The reason why it
-is done that way is because <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt</span></code> does not(yet) support to
-install packages into an empty root directory like it is done
-with all other packagemanager interfaces implemented in KIWI NG.</p>
-<p>The use of <code class="xref py py-obj docutils literal notranslate"><span class="pre">debootstrap</span></code> comes along with some prerequisites
-and limitations:</p>
-<ul class="simple">
-<li><p>It can only use one repository to bootstrap from</p></li>
-<li><p>It can only use an official archive repo</p></li>
-<li><p>It has its own dependency resolver different from apt</p></li>
-</ul>
-<p>If one ore more of this properties turns into an issue, KIWI NG
-allows for an alternative process which is based on a prebuilt
-bootstrap-root archive provided as a package.</p>
+<p>When building Debian based images KIWI NG uses <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt</span></code> in the
+bootstrap and the system phase to create the image root tree.
+However, <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt</span></code> does not support a native way to bootstrap
+an empty root tree. Therefore the bootstrap phase uses
+apt only to resolve the given bootstrap packages and to
+download these packages from the given repositories.
+The list of packages is then manually extracted into the
+new root tree which is not exactly the same as if <code class="xref py py-obj docutils literal notranslate"><span class="pre">apt</span></code>
+would have installed them natively. For the purpose of
+creating an initial tree to begin with, this procedure
+is acceptable though.</p>
+<p>If, for some reasons, this bootstrap procedure is not
+applicable, KIWI NG allows for an alternative process which is
+based on a prebuilt bootstrap-root archive provided as a package.</p>
 <p>To make use of a <code class="xref py py-obj docutils literal notranslate"><span class="pre">bootstrap_package</span></code>, the name of that package
 needs to be referenced in the KIWI NG description as follows:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="w"> </span><span class="na">bootstrap_package=</span><span class="s">&quot;bootstrap-root&quot;</span><span class="nt">&gt;</span>
@@ -1278,10 +1274,10 @@ system packages.</p>
 <section id="how-to-create-a-bootstrap-package">
 <h2>How to Create a bootstrap_package<a class="headerlink" href="#how-to-create-a-bootstrap-package" title="Link to this heading"></a></h2>
 <p>Changing the setup in KIWI NG to use a <code class="xref py py-obj docutils literal notranslate"><span class="pre">bootstrap_package</span></code> rather
-then letting <code class="xref py py-obj docutils literal notranslate"><span class="pre">debootstrap</span></code> do the job comes with the task to create
-that package providing the bootstrap root tree. There are more than
-one way to do this. The following procedure is just one example and
-requires some background knowledge about the Open Build Service
+then using KIWI NG’s debian bootstrap method to do the job, comes with
+the task to create that package providing the bootstrap root tree. There
+are more than one way to do this. The following procedure is just one
+example and requires some background knowledge about the Open Build Service
 <a class="reference external" href="https://build.opensuse.org">OBS</a> and its KIWI NG integration.</p>
 <ol class="arabic">
 <li><p>Create an OBS project and repository setup that matches your image target</p></li>
@@ -1309,13 +1305,28 @@ requires some background knowledge about the Open Build Service
 <span class="w">    </span><span class="nt">&lt;/repository&gt;</span>
 
 <span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;image&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="cm">&lt;!-- packages included so OBS adds it as a build dependency, however this is installed by debootstrap --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gawk&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;apt-utils&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;debconf&quot;</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;mawk&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;libpam-runtime&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;util-linux&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;systemd&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;init&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gnupg&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;iproute2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;iptables&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;iputils-ping&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ifupdown&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;isc-dhcp-client&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;netbase&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dbus&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xz-utils&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;usrmerge&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;package</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;language-pack-en&quot;</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
 
-<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="cm">&lt;!-- bootstrap done via debootstrap --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/packages&gt;</span>
+<span class="w">    </span><span class="nt">&lt;packages</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bootstrap&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/image&gt;</span>
 </pre></div>
 </div>

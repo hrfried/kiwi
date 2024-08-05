@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi Package &mdash; KIWI NG 10.0.27 documentation</title>
+  <title>kiwi Package &mdash; KIWI NG 10.0.28 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=de7c07f1"></script>
+        <script src="../_static/documentation_options.js?v=3666a433"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -358,8 +358,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../working_with_images/use_suse_media.html">Using SUSE Product ISO To Build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../working_with_images/build_without_debootstrap.html">Circumvent debootstrap</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../working_with_images/build_without_debootstrap.html#how-to-create-a-bootstrap-package">How to Create a bootstrap_package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_images/build_without_debianbootstrap.html">Circumvent Debian Bootstrap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../working_with_images/build_without_debianbootstrap.html#how-to-create-a-bootstrap-package">How to Create a bootstrap_package</a></li>
 </ul>
 </li>
 </ul>
@@ -464,7 +464,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiCredentialsError"><code class="docutils literal notranslate"><span class="pre">KiwiCredentialsError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiCustomPartitionConflictError"><code class="docutils literal notranslate"><span class="pre">KiwiCustomPartitionConflictError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiDataStructureError"><code class="docutils literal notranslate"><span class="pre">KiwiDataStructureError</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiDebootstrapError"><code class="docutils literal notranslate"><span class="pre">KiwiDebootstrapError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiDebianBootstrapError"><code class="docutils literal notranslate"><span class="pre">KiwiDebianBootstrapError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiDecodingError"><code class="docutils literal notranslate"><span class="pre">KiwiDecodingError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiDescriptionInvalid"><code class="docutils literal notranslate"><span class="pre">KiwiDescriptionInvalid</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kiwi.exceptions.KiwiDeviceProviderError"><code class="docutils literal notranslate"><span class="pre">KiwiDeviceProviderError</span></code></a></li>
@@ -3649,11 +3649,11 @@ data structure.</p>
 </dd></dl>
 
 <dl class="py exception">
-<dt class="sig sig-object py" id="kiwi.exceptions.KiwiDebootstrapError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.exceptions.</span></span><span class="sig-name descname"><span class="pre">KiwiDebootstrapError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/exceptions.html#KiwiDebootstrapError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.exceptions.KiwiDebootstrapError" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="kiwi.exceptions.KiwiDebianBootstrapError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kiwi.exceptions.</span></span><span class="sig-name descname"><span class="pre">KiwiDebianBootstrapError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kiwi/exceptions.html#KiwiDebianBootstrapError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kiwi.exceptions.KiwiDebianBootstrapError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#kiwi.exceptions.KiwiError" title="kiwi.exceptions.KiwiError"><code class="xref py py-class docutils literal notranslate"><span class="pre">KiwiError</span></code></a></p>
-<p>Exception raised if not enough user data to call debootstrap
-were provided or the debootstrap has failed.</p>
+<p>Exception raised if the bootstrap installation for Debian
+based systems has failed</p>
 </dd></dl>
 
 <dl class="py exception">

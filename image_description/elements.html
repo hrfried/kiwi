@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Description Elements &mdash; KIWI NG 10.0.27 documentation</title>
+  <title>Image Description Elements &mdash; KIWI NG 10.0.28 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=de7c07f1"></script>
+        <script src="../_static/documentation_options.js?v=3666a433"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -358,8 +358,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../working_with_images/use_suse_media.html">Using SUSE Product ISO To Build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../working_with_images/build_without_debootstrap.html">Circumvent debootstrap</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../working_with_images/build_without_debootstrap.html#how-to-create-a-bootstrap-package">How to Create a bootstrap_package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_images/build_without_debianbootstrap.html">Circumvent Debian Bootstrap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../working_with_images/build_without_debianbootstrap.html#how-to-create-a-bootstrap-package">How to Create a bootstrap_package</a></li>
 </ul>
 </li>
 </ul>
@@ -464,7 +464,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiCredentialsError"><code class="docutils literal notranslate"><span class="pre">KiwiCredentialsError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiCustomPartitionConflictError"><code class="docutils literal notranslate"><span class="pre">KiwiCustomPartitionConflictError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDataStructureError"><code class="docutils literal notranslate"><span class="pre">KiwiDataStructureError</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDebootstrapError"><code class="docutils literal notranslate"><span class="pre">KiwiDebootstrapError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDebianBootstrapError"><code class="docutils literal notranslate"><span class="pre">KiwiDebianBootstrapError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDecodingError"><code class="docutils literal notranslate"><span class="pre">KiwiDecodingError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDescriptionInvalid"><code class="docutils literal notranslate"><span class="pre">KiwiDescriptionInvalid</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/kiwi.html#kiwi.exceptions.KiwiDeviceProviderError"><code class="docutils literal notranslate"><span class="pre">KiwiDeviceProviderError</span></code></a></li>
@@ -1236,7 +1236,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This document provides a reference for the elements
-and attributes of the KIWI NG XML document in version 10.0.27</p>
+and attributes of the KIWI NG XML document in version 10.0.28</p>
 </div>
 <section id="image">
 <span id="sec-image"></span><h2>&lt;image&gt;<a class="headerlink" href="#image" title="Link to this heading"></a></h2>
@@ -1645,8 +1645,7 @@ of a bootstrap package which provides a bootstrap tarball
 in <code class="file docutils literal notranslate"><span class="pre">/var/lib/bootstrap/PACKAGE_NAME.ARCH.tar.xz</span></code>.
 The tarball will be unpacked and used as the bootstrap
 rootfs to begin with. This allows for an alternative bootstrap
-method preventing the use of <code class="xref py py-obj docutils literal notranslate"><span class="pre">debootstrap</span></code>. For further details
-see <a class="reference internal" href="../working_with_images/build_without_debootstrap.html#debootstrap-alternative"><span class="std std-ref">Circumvent debootstrap</span></a>.</p>
+method. For further details see <a class="reference internal" href="../working_with_images/build_without_debianbootstrap.html#debianbootstrap-alternative"><span class="std std-ref">Circumvent Debian Bootstrap</span></a>.</p>
 </dd>
 <dt>compressed=”true|false”:</dt><dd><p>Specifies whether the image output file should be
 compressed or not. This option is only used for filesystem only images or
@@ -2374,7 +2373,7 @@ component name that should be used from the repository. By default
 the <code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code> component is used</p>
 </dd>
 <dt>distribution=”name”</dt><dd><p>Used for Debian (apt) based repositories only. Specifies the
-distribution name to be used on call of <code class="xref py py-obj docutils literal notranslate"><span class="pre">debootstrap</span></code></p>
+distribution name used in the repository data structure.</p>
 </dd>
 <dt>imageonly=”true|false”</dt><dd><p>Specifies whether or not this repository should be configured in
 the resulting image without using it at build time. By default

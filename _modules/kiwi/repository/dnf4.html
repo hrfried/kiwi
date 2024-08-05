@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.repository.dnf4 &mdash; KIWI NG 10.0.27 documentation</title>
+  <title>kiwi.repository.dnf4 &mdash; KIWI NG 10.0.28 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=de7c07f1"></script>
+        <script src="../../../_static/documentation_options.js?v=3666a433"></script>
         <script src="../../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -355,8 +355,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../working_with_images/use_suse_media.html">Using SUSE Product ISO To Build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../working_with_images/build_without_debootstrap.html">Circumvent debootstrap</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../working_with_images/build_without_debootstrap.html#how-to-create-a-bootstrap-package">How to Create a bootstrap_package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../working_with_images/build_without_debianbootstrap.html">Circumvent Debian Bootstrap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../working_with_images/build_without_debianbootstrap.html#how-to-create-a-bootstrap-package">How to Create a bootstrap_package</a></li>
 </ul>
 </li>
 </ul>
@@ -461,7 +461,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiCredentialsError"><code class="docutils literal notranslate"><span class="pre">KiwiCredentialsError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiCustomPartitionConflictError"><code class="docutils literal notranslate"><span class="pre">KiwiCustomPartitionConflictError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiDataStructureError"><code class="docutils literal notranslate"><span class="pre">KiwiDataStructureError</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiDebootstrapError"><code class="docutils literal notranslate"><span class="pre">KiwiDebootstrapError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiDebianBootstrapError"><code class="docutils literal notranslate"><span class="pre">KiwiDebianBootstrapError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiDecodingError"><code class="docutils literal notranslate"><span class="pre">KiwiDecodingError</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiDescriptionInvalid"><code class="docutils literal notranslate"><span class="pre">KiwiDescriptionInvalid</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.html#kiwi.exceptions.KiwiDeviceProviderError"><code class="docutils literal notranslate"><span class="pre">KiwiDeviceProviderError</span></code></a></li>
@@ -1439,8 +1439,7 @@
         <span class="n">prio</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dist</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">components</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">user</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">secret</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">credentials_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">repo_gpgcheck</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">pkg_gpgcheck</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">sourcetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">use_for_bootstrap</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">customization_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">sourcetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">customization_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add dnf repository</span>
@@ -1458,7 +1457,6 @@
 <span class="sd">        :param bool pkg_gpgcheck: enable package signature validation</span>
 <span class="sd">        :param str sourcetype:</span>
 <span class="sd">            source type, one of &#39;baseurl&#39;, &#39;metalink&#39; or &#39;mirrorlist&#39;</span>
-<span class="sd">        :param bool use_for_bootstrap: unused</span>
 <span class="sd">        :param str customization_script:</span>
 <span class="sd">            custom script called after the repo file was created</span>
 <span class="sd">        &quot;&quot;&quot;</span>
