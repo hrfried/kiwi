@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.xml_state &mdash; KIWI NG 10.1.1 documentation</title>
+  <title>kiwi.xml_state &mdash; KIWI NG 10.1.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=e6f446a4"></script>
+        <script src="../../_static/documentation_options.js?v=d10cccce"></script>
         <script src="../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -3241,6 +3241,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">volume_type_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">volume_type</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">systemdisk_section</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_build_type_system_disk_section</span><span class="p">()</span>
+        <span class="n">selected_filesystem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_filesystem</span><span class="p">()</span>
         <span class="n">swap_mbytes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_oemconfig_swap_mbytes</span><span class="p">()</span>
         <span class="n">swap_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_oemconfig_swap_name</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">systemdisk_section</span><span class="p">:</span>
@@ -3312,7 +3313,7 @@
                     <span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">size</span> <span class="o">=</span> <span class="s1">&#39;freespace:&#39;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">(</span>
-                        <span class="n">Defaults</span><span class="o">.</span><span class="n">get_min_volume_mbytes</span><span class="p">()</span>
+                        <span class="n">Defaults</span><span class="o">.</span><span class="n">get_min_volume_mbytes</span><span class="p">(</span><span class="n">selected_filesystem</span><span class="p">)</span>
                     <span class="p">)</span>
 
                 <span class="k">if</span> <span class="s1">&#39;:all&#39;</span> <span class="ow">in</span> <span class="n">size</span><span class="p">:</span>
@@ -3342,7 +3343,7 @@
                 <span class="n">defaults</span><span class="o">.</span><span class="n">ROOT_VOLUME_NAME</span> <span class="k">if</span> <span class="n">volume_management</span> <span class="o">==</span> <span class="s1">&#39;lvm&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
             <span class="k">if</span> <span class="n">have_full_size_volume</span><span class="p">:</span>
                 <span class="n">size</span> <span class="o">=</span> <span class="s1">&#39;freespace:&#39;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">(</span>
-                    <span class="n">Defaults</span><span class="o">.</span><span class="n">get_min_volume_mbytes</span><span class="p">()</span>
+                    <span class="n">Defaults</span><span class="o">.</span><span class="n">get_min_volume_mbytes</span><span class="p">(</span><span class="n">selected_filesystem</span><span class="p">)</span>
                 <span class="p">)</span>
                 <span class="n">fullsize</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="k">else</span><span class="p">:</span>

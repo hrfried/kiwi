@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kiwi.defaults &mdash; KIWI NG 10.1.1 documentation</title>
+  <title>kiwi.defaults &mdash; KIWI NG 10.1.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=e6f446a4"></script>
+        <script src="../../_static/documentation_options.js?v=d10cccce"></script>
         <script src="../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -2544,15 +2544,21 @@
 <div class="viewcode-block" id="Defaults.get_min_volume_mbytes">
 <a class="viewcode-back" href="../../api/kiwi.html#kiwi.defaults.Defaults.get_min_volume_mbytes">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_min_volume_mbytes</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">get_min_volume_mbytes</span><span class="p">(</span><span class="n">filesystem</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides default minimum LVM volume size in mbytes</span>
+<span class="sd">        per filesystem</span>
 
 <span class="sd">        :return: mbsize value</span>
 
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="mi">30</span></div>
+        <span class="k">if</span> <span class="n">filesystem</span> <span class="o">==</span> <span class="s1">&#39;btrfs&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">120</span>
+        <span class="k">elif</span> <span class="n">filesystem</span> <span class="o">==</span> <span class="s1">&#39;xfs&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">300</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">30</span></div>
 
 
 <div class="viewcode-block" id="Defaults.get_lvm_overhead_mbytes">
