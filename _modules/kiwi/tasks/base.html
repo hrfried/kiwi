@@ -132,6 +132,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../troubleshooting/architectures.html">Architectures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../troubleshooting/security.html">Host Security Settings Conflicts with KIWI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../troubleshooting/filesystems.html">Incompatible Filesystem Settings on Host vs. Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../troubleshooting/boxbuild_tweaks.html">Boxbuild Tweaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../troubleshooting/boxbuild_tweaks.html#increase-box-build-image-size">Increase Box Build Image Size</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../plugins.html">KIWI Plugins</a><ul>
@@ -1356,10 +1358,14 @@
                 <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--logfile&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;stdout&#39;</span><span class="p">:</span>
                 <span class="c1"># deactivate standard console logger by setting</span>
                 <span class="c1"># the highest possible log entry level</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">,</span> <span class="n">except_for</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;socket&#39;</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--logfile&#39;</span><span class="p">]:</span>
+                <span class="c1"># set debug level for the file and socket logger</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">only_for</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;socket&#39;</span><span class="p">])</span>
 
             <span class="c1"># set log flags</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_args</span><span class="p">[</span><span class="s1">&#39;--debug-run-scripts-in-screen&#39;</span><span class="p">]:</span>

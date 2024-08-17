@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using KIWI NG in a Python Project &mdash; KIWI NG 10.1.2 documentation</title>
+  <title>Boxbuild Tweaks &mdash; KIWI NG 10.1.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -21,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Plugin Architecture" href="kiwi_plugin_architecture.html" />
-    <link rel="prev" title="Contributing" href="../contributing.html" /> 
+    <link rel="next" title="KIWI Plugins" href="../plugins.html" />
+    <link rel="prev" title="Incompatible Filesystem Settings on Host vs. Image" href="filesystems.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -130,13 +130,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/buildhost_constraints.html">Build Host Constraints</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/architectures.html">Architectures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/security.html">Host Security Settings Conflicts with KIWI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/filesystems.html">Incompatible Filesystem Settings on Host vs. Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/boxbuild_tweaks.html">Boxbuild Tweaks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/boxbuild_tweaks.html#increase-box-build-image-size">Increase Box Build Image Size</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="buildhost_constraints.html">Build Host Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architectures.html">Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Host Security Settings Conflicts with KIWI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystems.html">Incompatible Filesystem Settings on Host vs. Image</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Boxbuild Tweaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#increase-box-build-image-size">Increase Box Build Image Size</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../plugins.html">KIWI Plugins</a><ul>
@@ -366,22 +366,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../contributing.html">Contributing</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Using KIWI NG in a Python Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kiwi_plugin_architecture.html">Plugin Architecture</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#naming-conventions">Naming conventions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kiwi_plugin_architecture.html#example-plugin">Example plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/kiwi_from_python.html">Using KIWI NG in a Python Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/kiwi_plugin_architecture.html">Plugin Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing/kiwi_plugin_architecture.html#naming-conventions">Naming conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing/kiwi_plugin_architecture.html#example-plugin">Example plugin</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="scripts_testing.html">Write Integration Tests for the Scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="scripts_testing.html#test-setup">Test setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/scripts_testing.html">Write Integration Tests for the Scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing/scripts_testing.html#test-setup">Test setup</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="schema_extensions.html">Extending KIWI NG with Custom Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#the-extension-section">The &lt;extension&gt; Section</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#relax-ng-schema-for-the-extension">RELAX NG Schema for the Extension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#extension-schema-in-xml-catalog">Extension schema in XML catalog</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schema_extensions.html#using-the-extension">Using the extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/schema_extensions.html">Extending KIWI NG with Custom Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing/schema_extensions.html#the-extension-section">The &lt;extension&gt; Section</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing/schema_extensions.html#relax-ng-schema-for-the-extension">RELAX NG Schema for the Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing/schema_extensions.html#extension-schema-in-xml-catalog">Extension schema in XML catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing/schema_extensions.html#using-the-extension">Using the extension</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#the-basics">The Basics</a></li>
@@ -1222,10 +1222,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../contributing.html">Contributing</a></li>
-      <li class="breadcrumb-item active">Using KIWI NG in a Python Project</li>
+          <li class="breadcrumb-item"><a href="../troubleshooting.html">Troubleshooting</a></li>
+      <li class="breadcrumb-item active">Boxbuild Tweaks</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/contributing/kiwi_from_python.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/troubleshooting/boxbuild_tweaks.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -1233,80 +1233,86 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="using-kiwi-ng-in-a-python-project">
-<h1>Using KIWI NG in a Python Project<a class="headerlink" href="#using-kiwi-ng-in-a-python-project" title="Link to this heading"></a></h1>
+  <section id="boxbuild-tweaks">
+<h1>Boxbuild Tweaks<a class="headerlink" href="#boxbuild-tweaks" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Abstract</strong></p>
-<p>KIWI NG is provided as a Python module under the <strong>kiwi</strong> namespace.
-It is available for the Python 3 version. The following
-description applies for KIWI NG version 10.1.2.</p>
+<p>Abstract</p>
+<p>This document describes a few ways to modify
+box build VMs for testing/debugging.</p>
 </div>
-<p>KIWI NG can also function as a module for other Python projects.
-The following example demonstrates how to read an existing image
-description, add a new repository definition, and export the
-modified description on stdout.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-
-<span class="kn">from</span> <span class="nn">kiwi.xml_description</span> <span class="kn">import</span> <span class="n">XMLDescription</span>
-<span class="kn">from</span> <span class="nn">kiwi.xml_state</span> <span class="kn">import</span> <span class="n">XMLState</span>
-
-<span class="n">description</span> <span class="o">=</span> <span class="n">XMLDescription</span><span class="p">(</span><span class="s1">&#39;path/to/kiwi/XML/config.xml&#39;</span><span class="p">)</span>
-
-<span class="n">xml_data</span> <span class="o">=</span> <span class="n">description</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-
-<span class="n">xml_state</span> <span class="o">=</span> <span class="n">XMLState</span><span class="p">(</span>
-    <span class="n">xml_data</span><span class="o">=</span><span class="n">xml_data</span><span class="p">,</span> <span class="n">profiles</span><span class="o">=</span><span class="p">[],</span> <span class="n">build_type</span><span class="o">=</span><span class="s1">&#39;iso&#39;</span>
-<span class="p">)</span>
-
-<span class="n">xml_state</span><span class="o">.</span><span class="n">add_repository</span><span class="p">(</span>
-    <span class="n">repo_source</span><span class="o">=</span><span class="s1">&#39;http://repo&#39;</span><span class="p">,</span>
-    <span class="n">repo_type</span><span class="o">=</span><span class="s1">&#39;rpm-md&#39;</span><span class="p">,</span>
-    <span class="n">repo_alias</span><span class="o">=</span><span class="s1">&#39;myrepo&#39;</span><span class="p">,</span>
-    <span class="n">repo_prio</span><span class="o">=</span><span class="mi">99</span>
-<span class="p">)</span>
-
-<span class="n">xml_data</span><span class="o">.</span><span class="n">export</span><span class="p">(</span>
-    <span class="n">outfile</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span>
-<span class="p">)</span>
+</section>
+<section id="increase-box-build-image-size">
+<h1>Increase Box Build Image Size<a class="headerlink" href="#increase-box-build-image-size" title="Link to this heading"></a></h1>
+<p>In particularly large builds, you may find that the
+upstream build boxes aren’t quite large enough, and
+fail to build during the final few steps. While it
+is a bit of a kludge, it is possible to increase the
+size of the build box.</p>
+<p>To do so, follow these steps:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this example, we will assume the box increase
+question is an Ubuntu box, located in ~/.kiwi_boxes/ubuntu</p>
+</div>
+<ol class="arabic simple">
+<li><p>While the VM is offline, locate the VM you want to modify
+and resize with <code class="xref py py-obj docutils literal notranslate"><span class="pre">qemu-img</span></code>. Here we will increase the size
+by 20G. The VM will have to be told to utilize this space in
+the following steps.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>qemu-img<span class="w"> </span>resize<span class="w"> </span>Ubuntu-Box.x86_64-1.22.04-System-BuildBox.qcow2<span class="w"> </span>+20G
 </pre></div>
 </div>
-<p>Each class in the example is responsible for a single tasks, so they can be
-reused in other user cases. Therefore it is possible to use KIWI NG beyond the
-main image building scope, for example to manage setup of loop devices,
-filesystems, partitions, etc.</p>
-<p>This means KIWI NG offers a way to describe a system, but you can choose whether
-you want to use the KIWI NG description format or not. The following example
-shows how to use KIWI NG to create a simple filesystem image which contains your
-host <code class="xref py py-obj docutils literal notranslate"><span class="pre">tmp</span></code> directory.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
-
-<span class="kn">from</span> <span class="nn">kiwi.storage.loop_device</span> <span class="kn">import</span> <span class="n">LoopDevice</span>
-<span class="kn">from</span> <span class="nn">kiwi.filesystem</span> <span class="kn">import</span> <span class="n">FileSystem</span>
-
-<span class="k">with</span> <span class="n">LoopDevice</span><span class="p">(</span>
-    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;my_tmp.ext4&#39;</span><span class="p">,</span> <span class="n">filesize_mbytes</span><span class="o">=</span><span class="mi">100</span>
-<span class="p">)</span> <span class="k">as</span> <span class="n">loop_provider</span><span class="p">:</span>
-    <span class="n">loop_provider</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
-
-    <span class="n">filesystem</span> <span class="o">=</span> <span class="n">FileSystem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
-        <span class="s1">&#39;ext4&#39;</span><span class="p">,</span> <span class="n">loop_provider</span><span class="p">,</span> <span class="s1">&#39;/tmp/&#39;</span>
-    <span class="p">)</span>
-    <span class="n">filesystem</span><span class="o">.</span><span class="n">create_on_device</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;TMP&#39;</span>
-    <span class="p">)</span>
-    <span class="n">filesystem</span><span class="o">.</span><span class="n">sync_data</span><span class="p">()</span>
+<ol class="arabic simple" start="2">
+<li><p>When relaunching your <a class="reference internal" href="../api/kiwi.html#module-kiwi" title="kiwi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kiwi</span></code></a> box build, make sure you use <code class="xref py py-obj docutils literal notranslate"><span class="pre">--no-snapshot</span></code>
+and <code class="xref py py-obj docutils literal notranslate"><span class="pre">--box-debug</span></code> options within your build command/script. Example:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kiwi<span class="w"> </span>--debug<span class="w"> </span>--profile<span class="o">=</span><span class="s2">&quot;Disk&quot;</span><span class="w"> </span>--type<span class="w"> </span>oem<span class="w"> </span>system<span class="w"> </span>boxbuild<span class="w"> </span>--no-snapshot<span class="w"> </span><span class="se">\</span>
+--box-memory<span class="o">=</span>32G<span class="w"> </span>--box-smp-cpus<span class="o">=</span><span class="m">16</span><span class="w"> </span>--box-debug<span class="w"> </span>--box<span class="w"> </span>ubuntu<span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
+--description<span class="w"> </span>./ubuntu-jammy<span class="w"> </span>--target-dir<span class="w"> </span>/build/kiwi/outputs/
 </pre></div>
 </div>
+<ol class="arabic simple" start="3">
+<li><p>When the build fails and drops you into the VM console, you will
+need to extend the partition of the VM rootfs, then resize with
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">resize2fs</span></code>. In this example, <code class="xref py py-obj docutils literal notranslate"><span class="pre">parted</span></code> was used and the partition
+in question was /dev/vda3.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>parted
+<span class="c1"># Can run parted print to check for relevant partitions if needed.</span>
+<span class="o">(</span>parted<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>print
+<span class="o">(</span>parted<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>resizepart<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">100</span>%
+<span class="c1"># Exit from parted</span>
+<span class="o">(</span>parted<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>quit
+<span class="c1"># Run resize2fs to grow the filesystem to fill the space</span>
+$<span class="w"> </span>resize2fs<span class="w"> </span>/dev/vda3
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>From this point, depending on where your build failed, it may be
+possible to continue your build from inside the box, using the
+existing 9p mount points defined by your build command. Using the
+command above as an example, <code class="xref py py-obj docutils literal notranslate"><span class="pre">/result</span></code> within the box maps up to
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">/build/kiwi/outputs</span></code> on the host, and it’s possible to run</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kiwi-ng<span class="w"> </span>--profile<span class="o">=</span><span class="s2">&quot;Disk&quot;</span><span class="w"> </span>--type<span class="w"> </span>oem<span class="w">  </span>system<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+--root<span class="o">=</span>/result/build/image-root/<span class="w"> </span>--target-dir<span class="o">=</span>/result
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>If the rebuild from within was successful, you can copy the files
+from <code class="xref py py-obj docutils literal notranslate"><span class="pre">/result</span></code> to <code class="xref py py-obj docutils literal notranslate"><span class="pre">/bundle</span></code>, from within the VM, where <code class="xref py py-obj docutils literal notranslate"><span class="pre">/bundle</span></code>
+maps to your <code class="xref py py-obj docutils literal notranslate"><span class="pre">target-dir</span></code> on the host.</p></li>
+</ol>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="kiwi_plugin_architecture.html" class="btn btn-neutral float-right" title="Plugin Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="filesystems.html" class="btn btn-neutral float-left" title="Incompatible Filesystem Settings on Host vs. Image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../plugins.html" class="btn btn-neutral float-right" title="KIWI Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
