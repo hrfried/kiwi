@@ -26,12 +26,15 @@ To do so, follow these steps:
    by 20G. The VM will have to be told to utilize this space in
    the following steps.
    
-.. code:: shell-session
-   $ qemu-img resize Ubuntu-Box.x86_64-1.22.04-System-BuildBox.qcow2 + 20G
+.. code:: bash
+  
+  $ qemu-img resize Ubuntu-Box.x86_64-1.22.04-System-BuildBox.qcow2 +20G
 
 2. When relaunching your `kiwi` box build, make sure you use `--no-snapshot`
    and `--box-debug` options within your build command/script. Example:
-   .. code:: shell-session
+   
+.. code:: bash
+
    $ kiwi --debug --profile="Disk" --type oem system boxbuild --no-snapshot \
    --box-memory=32G --box-smp-cpus=16 --box-debug --box ubuntu -- \ 
    --description ./ubuntu-jammy --target-dir /build/kiwi/outputs/
@@ -40,7 +43,9 @@ To do so, follow these steps:
    need to extend the partition of the VM rootfs, then resize with
    `resize2fs`. In this example, `parted` was used and the partition
    in question was /dev/vda3.
-   .. code:: shell-session 
+   
+.. code:: bash
+
    $ parted
    # Can run parted print to check for relevant partitions if needed.
    (parted) $ print
@@ -55,7 +60,9 @@ To do so, follow these steps:
    existing 9p mount points defined by your build command. Using the
    command above as an example, `/result` within the box maps up to 
    `/build/kiwi/outputs` on the host, and it's possible to run 
-   .. code:: shell-session
+   
+.. code:: bash
+
    $ kiwi-ng --profile="Disk" --type oem  system create \
    --root=/result/build/image-root/ --target-dir=/result
 
